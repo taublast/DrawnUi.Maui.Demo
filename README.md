@@ -15,6 +15,7 @@ _The current development state is __PRE-ALPHA__, some features remain to be impl
 
 ## Development Notes
 
+* All files to be consumed (images etc) must be placed inside the maui app Resources/Raw folder, subfolders allowed.
 * SkiaScrollLooped need a fix, has GC called too much resulting in animations lag spikes, can bee seen in the Maui Robot page.
 
 ## Features
