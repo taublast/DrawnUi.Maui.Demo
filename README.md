@@ -24,6 +24,10 @@ CollectionView drawn alternative for the Skia canvas
 
 https://github.com/taublast/AppoMobi.Maui.DrawnUi.Demo/assets/25801194/29a1a23f-dfd8-4289-910e-9062060d2f59
 
+ScrollView drawn alternative
+
+https://github.com/taublast/AppoMobi.Maui.DrawnUi.Demo/assets/25801194/3c4c5fe9-6052-4a12-861b-014877ff3837
+
 
 ## Features
 
