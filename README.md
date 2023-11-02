@@ -9,6 +9,8 @@ Supports iOS, MacCatalyst, Android, Windows.
 
 _The current development state is __PRE-ALPHA__, some features remain to be implemented, the project is active._
 
+Library repo will go public at Alpha stage, Pre-Alpha nuget package is already available to be consumed.
+
 ## What's new
 
 *  Initial demo push.
@@ -24,10 +26,17 @@ CollectionView drawn alternative for the Skia canvas
 
 https://github.com/taublast/AppoMobi.Maui.DrawnUi.Demo/assets/25801194/29a1a23f-dfd8-4289-910e-9062060d2f59
 
+Using SkiaShell features to present gallery build with and SkiaCarousel, SkiaImage etc
+
+https://github.com/taublast/AppoMobi.Maui.DrawnUi.Demo/assets/25801194/fcd046d7-4d59-45de-970d-1de5ecc12681
+
 ScrollView drawn alternative
 
 https://github.com/taublast/AppoMobi.Maui.DrawnUi.Demo/assets/25801194/3c4c5fe9-6052-4a12-861b-014877ff3837
 
+Custom are controls easy to create
+
+https://github.com/taublast/AppoMobi.Maui.DrawnUi.Demo/assets/25801194/2182de51-929e-47f6-a560-e9d97ad16e52
 
 ## Features
 
