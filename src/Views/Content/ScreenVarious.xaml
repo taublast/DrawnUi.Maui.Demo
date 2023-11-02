@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<draw:SkiaLayout
+    x:Class="AppoMobi.Maui.DrawnUi.Demo.Views.Content.ScreenVarious"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:draw="http://schemas.appomobi.com/drawnUi/2023/draw"
+    xmlns:navigation="using:AppoMobi.Maui.DrawnUi.Demo.Views.Navigation"
+    xmlns:viewModels="using:AppoMobi.Maui.DrawnUi.Demo.ViewModels"
+    x:DataType="viewModels:SimplePageViewModel"
+    BackgroundColor="Black"
+    HorizontalOptions="Fill"
+    Type = "Column"
+    Spacing="0"
+    VerticalOptions="Fill">
+
+    <draw:SkiaControl.FillGradient>
+
+        <draw:SkiaGradient
+            EndXRatio="1"
+            EndYRatio="1"
+            StartXRatio="0"
+            StartYRatio="0"
+            Type="Linear">
+            <draw:SkiaGradient.Colors>
+                <Color>#889955</Color>
+                <Color>#886655</Color>
+                <Color>#222222</Color>
+            </draw:SkiaGradient.Colors>
+        </draw:SkiaGradient>
+
+    </draw:SkiaControl.FillGradient>
+
+
+    <!--  STATUS BAR  -->
+    <draw:SkiaShape
+        BackgroundColor="Black"
+        HeightRequest="{Binding Presentation.StatusBarHeightRequest}"
+        HorizontalOptions="Fill"
+        Tag="StatusBar" />
+
+    <!--  NAVBAR  -->
+    <navigation:NavBarStandart />
+
+    <!--CONTENT-->
+    <draw:SkiaScroll
+        HorizontalOptions="Fill"
+        VerticalOptions="Fill">
+
+        <draw:SkiaLayout
+            Padding="16"
+            HorizontalOptions="Fill"
+            Type = "Column"
+            Spacing="24">
+
+            <!--  ENTRY with FRAME  -->
+            <!--  do not cache this wrapper for entry to work  -->
+            <draw:SkiaLayout
+                Margin="24,24,24,0"
+                HorizontalOptions="Fill">
+
+                <!--  decorations [cached]  -->
+                <draw:SkiaShape
+                    BackgroundColor="{StaticResource ColorPaper}"
+                    CornerRadius="6"
+                    HeightRequest="40"
+                    HorizontalOptions="Fill"
+                    StrokeColor="{StaticResource Gray600}"
+                    StrokeWidth="1"
+                    UseCache="GPU"
+                    VerticalOptions="Center"
+                    ZIndex="-1">
+
+                    <draw:SkiaSvg
+                        Margin="11,0,0,0"
+                        LockRatio="1"
+                        SvgString="{x:StaticResource SvgSearch}"
+                        TintColor="{StaticResource Gray400}"
+                        VerticalOptions="Center"
+                        WidthRequest="19" />
+
+                </draw:SkiaShape>
+
+                <!--  native entry do not cache  -->
+                <draw:SkiaMauiEntry
+                    Margin="40,2,2,0"
+                    AnimateSnapshot="True"
+                    CommandOnTextChanged="{Binding CommandTestVoid}"
+                    FontFamily="FontText"
+                    FontSize="16"
+                    FontWeight="600"
+                    HeightRequest="28"
+                    HorizontalOptions="Fill"
+                    ReturnType="Search"
+                    Tag="SearchEntry"
+                    Text="{Binding Search}"
+                    TextColor="{StaticResource ColorText}"
+                    TextSubmitted="Editor_TextSubmitted"
+                    VerticalOptions="Center" />
+
+            </draw:SkiaLayout>
+
+            <draw:SkiaControl
+                BackgroundColor="#88665"
+                HeightRequest="1"
+                HorizontalOptions="Fill" />
+
+
+            <draw:SkiaLabel
+                HorizontalOptions="Fill"
+                HorizontalTextAlignment="Start"
+                Style="{StaticResource SkiaLabelDefaultStyle}"
+                Text="`SkiaMauiEntry` is a subclassed `SkiaMauiElement` with a .Net Maui Entry inside to be consumed inside a totally drawn app."
+                UseCache="GPU" />
+
+
+
+            <draw:SkiaControl HeightRequest="{Binding Presentation.BottomTabsUnderPadding}" />
+
+        </draw:SkiaLayout>
+
+    </draw:SkiaScroll>
+
+
+</draw:SkiaLayout>

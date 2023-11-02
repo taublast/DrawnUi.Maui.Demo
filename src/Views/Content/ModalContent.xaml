@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<draw:SkiaLayout
+    x:Class="AppoMobi.Maui.DrawnUi.Demo.Views.ModalContent"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:draw="http://schemas.appomobi.com/drawnUi/2023/draw"
+    HorizontalOptions="Fill"
+    Margin="0,60,0,0"
+    VerticalOptions="Fill">
+
+    <!--  HEADER  -->
+    <draw:SkiaLayout
+        BackgroundColor="Black"
+        HeightRequest="50"
+        HorizontalOptions="Fill">
+
+        <draw:SkiaLabel
+            Margin="16,0"
+            FontFamily="FontTextTitle"
+            FontSize="14"
+            FontWeight="600"
+            LineBreakMode="TailTruncation"
+            MaxLines="1"
+            Text="SkiaDrawer with SkiaScroll inside"
+            TextColor="White"
+            VerticalOptions="Center" />
+
+    </draw:SkiaLayout>
+
+    <!--  SCROLL  -->
+    <draw:SkiaScroll
+        
+        Tag="InsideModal"
+        Margin="0,50,0,0"
+        BackgroundColor="Gainsboro"
+        Bounces="False"
+        HorizontalOptions="Fill"
+        VerticalOptions="Fill">
+
+        <draw:SkiaLayout
+            Padding="16"
+            HorizontalOptions="Fill"
+            Type = "Column"
+            UseCache="Image"
+            Spacing="24">
+
+            <draw:SkiaLabel
+                HorizontalOptions="Fill"
+                HorizontalTextAlignment="Start"
+                Style="{StaticResource SkiaLabelDefaultStyle}"
+                TextColor="Black"
+                Text="A `SkiaScroll` can be embedded inside a `SkiaDrawer`, in case of a non-bouncing setup the drawer would respond to gestures and scroll when the internal scroll reaches its bounds."
+                UseCache="None" />
+
+            <draw:SkiaShape
+                Margin="0,8,0,0"
+                BackgroundColor="LightGoldenrodYellow"
+                HeightRequest="80"
+                HorizontalOptions="Center"
+                LockRatio="1"
+                Type="Circle" />
+
+            <draw:SkiaShape
+                BackgroundColor="Aquamarine"
+                HeightRequest="300"
+                HorizontalOptions="Center"
+                WidthRequest="50" />
+
+            <draw:SkiaShape
+                BackgroundColor="Goldenrod"
+                HeightRequest="80"
+                HorizontalOptions="Center"
+                LockRatio="1"
+                Type="Circle" />
+
+            <draw:SkiaShape
+                BackgroundColor="PeachPuff"
+                HeightRequest="300"
+                HorizontalOptions="Center"
+                WidthRequest="50" />
+
+            <draw:SkiaShape
+                BackgroundColor="PaleGreen"
+                HeightRequest="80"
+                HorizontalOptions="Center"
+                LockRatio="1"
+                Type="Circle" />
+
+
+        </draw:SkiaLayout>
+
+    </draw:SkiaScroll>
+
+</draw:SkiaLayout>
+
+
+

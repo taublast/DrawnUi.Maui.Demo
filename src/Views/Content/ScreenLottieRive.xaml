@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<draw:SkiaLayout
+    x:Class="AppoMobi.Maui.DrawnUi.Demo.Views.Content.ScreenLottieRive"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:draw="http://schemas.appomobi.com/drawnUi/2023/draw"
+    xmlns:navigation="using:AppoMobi.Maui.DrawnUi.Demo.Views.Navigation"
+    xmlns:viewModels="using:AppoMobi.Maui.DrawnUi.Demo.ViewModels"
+    x:DataType="viewModels:SimplePageViewModel"
+    BackgroundColor="Black"
+    HorizontalOptions="Fill"
+    Type = "Column"
+    Spacing="0"
+    VerticalOptions="Fill">
+
+    <draw:SkiaControl.FillGradient>
+
+        <draw:SkiaGradient
+            EndXRatio="1"
+            EndYRatio="1"
+            StartXRatio="0"
+            StartYRatio="0"
+            Type="Linear">
+            <draw:SkiaGradient.Colors>
+                <Color>#889955</Color>
+                <Color>#886655</Color>
+                <Color>#222222</Color>
+            </draw:SkiaGradient.Colors>
+        </draw:SkiaGradient>
+
+    </draw:SkiaControl.FillGradient>
+
+
+    <!--  STATUS BAR  -->
+    <draw:SkiaShape
+        BackgroundColor="Black"
+        HeightRequest="{Binding Presentation.StatusBarHeightRequest}"
+        HorizontalOptions="Fill"
+        Tag="StatusBar" />
+
+    <!--  NAVBAR  -->
+    <navigation:NavBarStandart />
+
+    <draw:SkiaScroll
+        HorizontalOptions="Fill"
+        VerticalOptions="Fill">
+
+        <draw:SkiaLayout
+            Padding="16"
+            HorizontalOptions="Fill"
+            Type = "Column"
+            Spacing="24">
+
+            <!--  RIVE!  -->
+
+            <draw:SkiaLayout
+                HorizontalOptions="Fill"
+                Type = "Column"
+                Spacing="24">
+                
+                <draw:SkiaControl.IsVisible>
+                    <OnPlatform x:TypeArguments="x:Boolean">
+                        <On Platform="WinUI" Value="True" />
+                    </OnPlatform>
+                </draw:SkiaControl.IsVisible>
+
+
+                <draw:SkiaLabel
+                    HorizontalOptions="Fill"
+                    HorizontalTextAlignment="Start"
+                    Style="{StaticResource SkiaLabelDefaultStyle}"
+                    Text="`SkiaRive` plays RIVE animations, actually on Windows only, help with bindings needed!"
+                    UseCache="GPU" />
+
+                <draw:SkiaRive
+                    BackgroundColor="Black"
+                    HorizontalOptions="Center"
+                    LockRatio="1"
+                    Source="Rive/demo.riv"
+                    UseCache="None"
+                    WidthRequest="180" />
+
+                <draw:SkiaControl
+                    BackgroundColor="#88665"
+                    HeightRequest="1"
+                    HorizontalOptions="Fill" />
+
+            </draw:SkiaLayout>
+
+            <!--  LOTTIE  -->
+
+            <draw:SkiaLabel
+                HorizontalOptions="Fill"
+                HorizontalTextAlignment="Start"
+                Style="{StaticResource SkiaLabelDefaultStyle}"
+                Text="Making use of SkiaSharp.Skottie library here:"
+                UseCache="GPU" />
+
+
+            <draw:SkiaLottie
+                AutoPlay="True"
+                ColorTint="Red"
+                HorizontalOptions="Center"
+                LockRatio="1"
+                Repeat="-1"
+                Source="Lottie/Loader.json"
+                Tag="Loader"
+                VerticalOptions="Start"
+                WidthRequest="40" />
+
+            <draw:SkiaLabel
+                HorizontalOptions="Fill"
+                HorizontalTextAlignment="Start"
+                Style="{StaticResource SkiaLabelDefaultStyle}"
+                Text="`SkiaLottie` playes LOTTIE animations and can even tint them with your own colors to be set inside the app, no external editor needed!"
+                UseCache="GPU" />
+
+            <draw:SkiaLottie
+                AutoPlay="True"
+                HorizontalOptions="Center"
+                LockRatio="1"
+                Repeat="-1"
+                Source="Lottie/robot.json"
+                Tag="Loader"
+                VerticalOptions="Start"
+                WidthRequest="300" />
+
+            <draw:SkiaControl HeightRequest="{Binding Presentation.BottomTabsUnderPadding}" />
+
+        </draw:SkiaLayout>
+
+    </draw:SkiaScroll>
+
+
+</draw:SkiaLayout>

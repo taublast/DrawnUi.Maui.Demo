@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<?xaml-comp compile="true" ?>
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:draw="http://schemas.appomobi.com/drawnUi/2023/draw">
+
+
+    <Style
+        x:Key="SkiaLabelDefaultStyle"
+        Class="SkiaLabelDefaultStyle"
+        TargetType="draw:SkiaLabel">
+        <Setter Property="TextColor" Value="{StaticResource ColorText}" />
+        <Setter Property="FontFamily" Value="FontText" />
+        <Setter Property="FontSize" Value="15" />
+    </Style>
+
+    <Style
+        x:Key="SkiaLabelDisabledStyle"
+        BasedOn="{StaticResource SkiaLabelDefaultStyle}"
+        Class="SkiaLabelDisabledStyle"
+        TargetType="draw:SkiaLabel">
+        <Setter Property="TextColor" Value="{StaticResource ColorPrimary}" />
+    </Style>
+
+    <Style
+        x:Key="SkiaEnabledIcon"
+        Class="SkiaEnabledIcon"
+        TargetType="draw:SkiaSvg">
+        <Setter Property="TintColor" Value="#E8E3D7" />
+    </Style>
+
+    <Style
+        x:Key="SkiaDisabledIcon"
+        Class="SkiaDisabledIcon"
+        TargetType="draw:SkiaSvg">
+        <Setter Property="TintColor" Value="#78E8E3D7" />
+    </Style>
+
+
+
+    <Style TargetType="Editor">
+        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource Black}, Dark={StaticResource White}}" />
+        <Setter Property="BackgroundColor" Value="Transparent" />
+        <Setter Property="FontFamily" Value="FontText" />
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="PlaceholderColor" Value="{AppThemeBinding Light={StaticResource Gray200}, Dark={StaticResource Gray500}}" />
+        <Setter Property="MinimumHeightRequest" Value="44" />
+        <Setter Property="MinimumWidthRequest" Value="44" />
+        <Setter Property="VisualStateManager.VisualStateGroups">
+            <VisualStateGroupList>
+                <VisualStateGroup x:Name="CommonStates">
+                    <VisualState x:Name="Normal" />
+                    <VisualState x:Name="Disabled">
+                        <VisualState.Setters>
+                            <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource Gray300}, Dark={StaticResource Gray600}}" />
+                        </VisualState.Setters>
+                    </VisualState>
+                </VisualStateGroup>
+            </VisualStateGroupList>
+        </Setter>
+    </Style>
+
+    <Style TargetType="Entry">
+        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource Black}, Dark={StaticResource White}}" />
+        <Setter Property="BackgroundColor" Value="Transparent" />
+        <Setter Property="FontFamily" Value="FontText" />
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="PlaceholderColor" Value="{AppThemeBinding Light={StaticResource Gray200}, Dark={StaticResource Gray500}}" />
+        <Setter Property="MinimumHeightRequest" Value="44" />
+        <Setter Property="MinimumWidthRequest" Value="44" />
+        <Setter Property="VisualStateManager.VisualStateGroups">
+            <VisualStateGroupList>
+                <VisualStateGroup x:Name="CommonStates">
+                    <VisualState x:Name="Normal" />
+                    <VisualState x:Name="Disabled">
+                        <VisualState.Setters>
+                            <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource Gray300}, Dark={StaticResource Gray600}}" />
+                        </VisualState.Setters>
+                    </VisualState>
+                </VisualStateGroup>
+            </VisualStateGroupList>
+        </Setter>
+    </Style>
+
+
+
+</ResourceDictionary>

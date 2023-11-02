@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<draw:SkiaButton
+    x:Class="AppoMobi.Maui.DrawnUi.Demo.Views.Controls.SmallButton"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:draw="http://schemas.appomobi.com/drawnUi/2023/draw"
+    ApplyEffect="Ripple"
+    HeightRequest="36"
+    IsClippedToBounds="True"
+    TouchEffectColor="White"
+    UseCache="Operations"
+    WidthRequest="150">
+
+    <draw:SkiaShape
+        BackgroundColor="CornflowerBlue"
+        CornerRadius="20"
+        HorizontalOptions="Fill"
+        IsClippedToBounds="True"
+        StrokeColor="Gainsboro"
+        StrokeWidth="1.5"
+        Tag="MainFrame"
+        VerticalOptions="Fill" />
+
+    <!--  we could put text inside shape btw..  -->
+    <draw:SkiaLabel
+        HorizontalOptions="Center"
+        Style="{x:StaticResource SkiaLabelDefaultStyle}"
+        Tag="MainLabel"
+        TextColor="White"
+        VerticalOptions="Center" />
+
+</draw:SkiaButton>

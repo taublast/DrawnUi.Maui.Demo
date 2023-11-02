@@ -1,0 +1,93 @@
+﻿global using AppoMobi.Maui.DrawnUi.Demo.ViewModels;
+global using AppoMobi.Maui.DrawnUi.Demo.Views;
+global using AppoMobi.Maui.DrawnUi.Draw;
+global using AppoMobi.Maui.Gestures;
+global using AppoMobi.Maui.Navigation;
+global using AppoMobi.Specials.Extensions;
+global using SkiaSharp;
+using AppoMobi.Maui.DrawnUi.Demo.Views.Content;
+using AppoMobi.Maui.DrawnUi.Infrastructure.Extensions;
+using Microsoft.Extensions.Logging;
+using DeviceInfo = Microsoft.Maui.Devices.DeviceInfo;
+
+
+namespace AppoMobi.Maui.DrawnUi.Demo
+{
+    public static class MauiProgram
+    {
+        public static MauiApp CreateMauiApp()
+        {
+            var builder = MauiApp.CreateBuilder();
+
+            builder
+                .UseMauiApp<App>()
+
+                .UseDrawnUi<App>()
+
+                .ConfigureFonts(fonts =>
+                {
+                    fonts.AddFont("OpenSans-Regular.ttf", "FontText");
+                    fonts.AddFont("OpenSans-Semibold.ttf", "FontTextBold");
+                    fonts.AddFont("SeymourOne-Regular.ttf", "FontTextTitle");
+                });
+
+#if DEBUG
+            builder.Logging.AddDebug();
+#endif
+
+            //APP INFRASTRUCTURE
+            builder.Services.AddSingleton<NavigationViewModel>();
+
+            //UI
+            builder.Services.AddTransient<MainPageViewModel>();
+            builder.Services.AddTransient<ScrollingCellsViewModel>();
+            builder.Services.AddTransient<SomeTabsViewModel>();
+            builder.Services.AddTransient<SimplePageViewModel>();
+            builder.Services.AddTransient<TakePictureViewModel>();
+            builder.Services.AddTransient<ItemDetailsViewModel>();
+            builder.Services.AddTransient<ScreenItemDetails>();
+            builder.Services.AddTransient<ScreenCarousel>();
+            builder.Services.AddTransient<ScreenCameraPhoto>();
+            builder.Services.AddTransient<ScreenControls>();
+
+            return builder.Build();
+        }
+
+        #region STATIC
+
+        public static bool IsWindows
+        {
+            get
+            {
+                return DeviceInfo.Platform == DevicePlatform.WinUI;
+            }
+        }
+
+        /// <summary>
+        /// SInce i don't like iPhone getting hot while using Metal for this project it's not really needed.
+        /// On windows it's not supported at all so..
+        /// </summary>
+        public static bool UseHardwareAcceleration
+        {
+            get
+            {
+
+#if ANDROID
+				return true;
+#else
+                return false;
+#endif
+            }
+        }
+
+        public static double NavBarHeight => Super.NavBarHeight;
+        public static double BottomTabHeight => Super.BottomTabsHeight;
+
+        public static string Name => AppInfo.Current.Name;
+        public static string Build => AppInfo.Current.BuildString;
+        public static string BundleId => AppInfo.Current.PackageName;
+        public static string Version => AppInfo.Current.VersionString;
+
+        #endregion
+    }
+}

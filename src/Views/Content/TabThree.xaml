@@ -1,0 +1,202 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<draw:ElementAdapter
+    x:Class="AppoMobi.Maui.DrawnUi.Demo.Views.Content.TabButtons"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls1="clr-namespace:AppoMobi.Maui.DrawnUi.Demo.Views.Controls"
+    xmlns:draw="http://schemas.appomobi.com/drawnUi/2023/draw"
+    xmlns:gestures="clr-namespace:AppoMobi.Maui.Gestures;assembly=AppoMobi.Maui.Gestures"
+    xmlns:viewModels="clr-namespace:AppoMobi.Maui.DrawnUi.Demo.ViewModels"
+    xmlns:views="http://schemas.appomobi.com/drawnUi/2023/views"
+    xmlns:views1="clr-namespace:AppoMobi.Maui.DrawnUi.Demo.Views">
+
+    <draw:SkiaLayout
+        x:DataType="viewModels:MainPageViewModel"
+        HorizontalOptions="Fill"
+        Tag="ThisTab"
+        VerticalOptions="Fill">
+
+        <draw:SkiaScroll
+            BackgroundColor="Blue"
+            HorizontalOptions="Fill"
+            Tag="TabScroll"
+            
+            VerticalOptions="Fill">
+
+            <draw:SkiaControl.FillGradient>
+
+                <draw:SkiaGradient
+                    EndXRatio="1"
+                    EndYRatio="1"
+                    StartXRatio="0"
+                    StartYRatio="0"
+                    Type="Linear">
+                    <draw:SkiaGradient.Colors>
+                        <Color>#889955</Color>
+                        <Color>#886655</Color>
+                        <Color>#222222</Color>
+                    </draw:SkiaGradient.Colors>
+                </draw:SkiaGradient>
+
+            </draw:SkiaControl.FillGradient>
+
+            <draw:SkiaLayout
+                Padding="0,32,0,0"
+                x:DataType="viewModels:MainPageViewModel"
+                HorizontalOptions="Fill"
+                IsClippedToBounds="True"
+                Spacing="20"
+                Tag="TabSettings"
+                Type="Column">
+
+                <!--  BUTTONS  -->
+                <draw:SkiaLayout
+                    HorizontalOptions="Fill"
+                    Spacing="20"
+                    Type="Column"
+                    UseCache="Operations">
+
+                    <draw:SkiaLabel
+                        FontFamily="FontTextTitle"
+                        FontSize="44"
+                        HorizontalOptions="Center"
+                        Text="{Binding Title}"
+                        UseCache="Operations" />
+
+                    <draw:SkiaLabel
+                        HorizontalOptions="Center"
+                        Style="{x:StaticResource SkiaLabelDefaultStyle}"
+                        Text="We are inside a bouncing SkiaScroll"
+                        UseCache="Operations" />
+
+                    <!--<controls1:SmallButton
+                CommandTapped="{Binding CommandPushPage}"
+                HorizontalOptions="Center"
+                Text="Simple View" />-->
+
+                    <!--<controls1:SmallButton
+                        CommandTapped="{Binding CommandPushLabels}"
+                        HorizontalOptions="Center"
+                        Text="Some Text" />-->
+
+                    <controls1:SmallButton
+                        CommandTapped="{Binding CommandPushTransforms}"
+                        HorizontalOptions="Center"
+                        Text="Transforms" />
+
+                    <controls1:SmallButton
+                        CommandTapped="{Binding CommandPushControls}"
+                        HorizontalOptions="Center"
+                        Text="Some Controls" />
+
+                    <controls1:SmallButton
+                        CommandTapped="{Binding CommandPushLottieAndFriends}"
+                        HorizontalOptions="Center"
+                        Text="Lottie and other" />
+
+                    <controls1:SmallButton
+                        CommandTapped="{Binding CommandPushVarious}"
+                        HorizontalOptions="Center"
+                        Text="Maui Element" />
+
+                    <controls1:SmallButton
+                        CommandTapped="{Binding CommandPushDrawer}"
+                        HorizontalOptions="Center"
+                        Text="Drawer" />
+
+                    <controls1:SmallButton
+                        CommandTapped="{Binding CommandPushCarousel}"
+                        HorizontalOptions="Center"
+                        Text="Carousel" />
+
+                    <!--<controls1:SmallButton
+                        CommandTapped="{Binding CommandPushCamera}"
+                        HorizontalOptions="Center"
+                        Text="Camera" />-->
+
+                    <controls1:SmallButton
+                        CommandTapped="{Binding CommandPushMaui}"
+                        HorizontalOptions="Center"
+                        Text="SkiaShell Modal" />
+
+                    <controls1:SmallButton
+                        CommandTapped="{Binding CommandOpenToast}"
+                        HorizontalOptions="Center"
+                        Text="SkiaShell Toast" />
+
+                    <controls1:SmallButton
+                        CommandTapped="{Binding CommandCamera}"
+                        HorizontalOptions="Center"
+                        Text="Camera">
+                        <draw:SkiaControl.IsVisible>
+                            <OnPlatform x:TypeArguments="x:Boolean">
+                                <On
+                                    Platform="Android"
+                                    Value="True" />
+                            </OnPlatform>
+                        </draw:SkiaControl.IsVisible>
+                    </controls1:SmallButton>
+
+                    <controls1:SmallButton
+                        CommandTapped="{Binding CommandPushFun}"
+                        HorizontalOptions="Center"
+                        Text="Think of more!" />
+
+                    <!--<controls1:SmallButton
+                CommandTapped="{Binding CommandDebugAction}"
+                HorizontalOptions="Center"
+                Text="Debug" />-->
+
+                </draw:SkiaLayout>
+
+                <!--  content padding for bottom tabs  -->
+                <draw:SkiaControl
+                    BackgroundColor="Transparent"
+                    HeightRequest="{Binding Presentation.BottomTabsHeightRequest}"
+                    WidthRequest="1" />
+
+            </draw:SkiaLayout>
+
+        </draw:SkiaScroll>
+
+        <draw:SkiaShape
+            Margin="16,0,0,80"
+            BackgroundColor="#66000000"
+            CornerRadius="20"
+            IsClippedToBounds="True"
+            IsVisible="{Binding ShowPhoto}"
+            LockRatio="1"
+            StrokeColor="White"
+            StrokeWidth="1"
+            UseCache="GPU"
+            VerticalOptions="End"
+            WidthRequest="120">
+
+            <draw:SkiaImage
+                x:Name="ImagePreview"
+                Aspect="AspectCover"
+                HorizontalOptions="Fill"
+                ImageBitmap="{Binding DisplayPreview}"
+                Tag="Preview"
+                VerticalOptions="Fill" />
+
+        </draw:SkiaShape>
+
+        <draw:SkiaDrawer
+            x:Name="TabDrawer"
+            Bounces="False"
+            Direction="FromBottom"
+            HeightRequest="550"
+            IsOpen="{Binding DrawerOpen}"
+            Tag="Drawer"
+            UseCache="Operations"
+            VerticalOptions="End"
+            ZIndex="10">
+
+            <views1:ModalContent />
+
+        </draw:SkiaDrawer>
+
+    </draw:SkiaLayout>
+
+</draw:ElementAdapter>

@@ -1,0 +1,236 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<controls1:ContentPage
+    x:Class="AppoMobi.Maui.DrawnUi.Demo.MainPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:content="clr-namespace:AppoMobi.Maui.DrawnUi.Demo.Views.Content"
+    xmlns:controls="clr-namespace:AppoMobi.Maui.DrawnUi.Demo.Views.Controls"
+    xmlns:controls1="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:demo="using:AppoMobi.Maui.DrawnUi.Demo"
+    xmlns:draw="http://schemas.appomobi.com/drawnUi/2023/draw"
+    xmlns:gestures="clr-namespace:AppoMobi.Maui.Gestures;assembly=AppoMobi.Maui.Gestures"
+    xmlns:navigation="clr-namespace:AppoMobi.Maui.DrawnUi.Demo.Views.Navigation"
+    xmlns:viewModels="using:AppoMobi.Maui.DrawnUi.Demo.ViewModels"
+    x:DataType="viewModels:MainPageViewModel"
+    BackgroundColor="Transparent"
+    NavigationPage.HasNavigationBar="false">
+
+    <!--
+        When the drawing canvas will be created we'd have a short time like few milliseconds
+        while hardware accelerated surface would be created and at this time maui will
+        just display this page background, window background and so on.
+        
+        So you 'd want to set here the background color,
+        or gradient, whatever to transition from your splash screen. One could even never notice
+        this short blink but better be prepared and avoid it
+        When not using hardware acceleration this might not even be needed on some platforms.
+        
+        What we do actually on android we set everything to transparent, show splash screen
+        and fad in canvas over it.
+    -->
+
+    <draw:Canvas
+        x:Name="Canvas"
+        gestures:TouchEffect.ForceAttach="True"
+        x:DataType="viewModels:MainPageViewModel"
+        HorizontalOptions="Fill"
+        Tag="MainPage"
+        VerticalOptions="Fill"
+        WillFirstTimeDraw="Canvas_WillFirstTimeDraw">
+
+        <draw:Canvas.HardwareAccelerated>
+            <OnPlatform x:TypeArguments="x:Boolean">
+                <On
+                    Platform="Android"
+                    Value="true" />
+            </OnPlatform>
+        </draw:Canvas.HardwareAccelerated>
+
+        <draw:Canvas.Resources>
+            <ResourceDictionary>
+
+
+            </ResourceDictionary>
+        </draw:Canvas.Resources>
+
+        <!--  Shell layout  -->
+        <draw:SkiaLayout
+            x:Name="ShellLayout"
+            HorizontalOptions="Fill"
+            Tag="ShellLayout"
+            VerticalOptions="Fill">
+
+            <!--  FPS  -->
+            <draw:SkiaLabelFps
+                Margin="0,0,4,84"
+                BackgroundColor="DarkRed"
+                ForceRefresh="False"
+                HorizontalOptions="End"
+                Rotation="-45"
+                TextColor="White"
+                VerticalOptions="End" />
+
+            <!--  required root layout  -->
+            <draw:SkiaLayout
+                x:Name="RootLayout"
+                BackgroundColor="Black"
+                HorizontalOptions="Fill"
+                Tag="RootLayout"
+                VerticalOptions="Fill">
+
+                <!--#region PAGES SWITCHER-->
+
+                <draw:SkiaViewSwitcher
+                    x:Name="Switcher"
+                    AnimateTabs="True"
+                    AnimationEasing="{x:Static Easing.CubicOut}"
+                    AnimationSpeed="250"
+                    HorizontalOptions="FillAndExpand"
+                    IsClippedToBounds="True"
+                    SelectedIndex="{Binding SelectedIndex, Mode=TwoWay}"
+                    Tag="NavigationLayout"
+                    VerticalOptions="FillAndExpand">
+
+                    <content:TabScrollCells />
+                    <content:TabWithTopTabs />
+                    <content:TabButtons />
+                    <!--<content:ScreenTransforms/>-->
+
+
+                    <!--#region drawn for later without viewmodels yet-->
+
+                    <draw:SkiaControl.SavedControls>
+
+                        <!--  Simple Page  -->
+                        <!--  tab start  -->
+                        <content:StackUsers
+                            x:DataType="viewModels:ScrollingCellsViewModel"
+                            BackgroundColor="White"
+                            HorizontalOptions="Fill"
+                            IsClippedToBounds="True"
+                            Tag="StackUsers"
+                            VerticalOptions="Fill">
+
+                            <!--  NAVBAR  -->
+                            <navigation:NavBarStandart />
+
+                            <draw:SkiaLabel
+                                FontSize="50"
+                                HorizontalOptions="Center"
+                                Text="{Binding Title}"
+                                VerticalOptions="Center" />
+
+                        </content:StackUsers>
+                        <!--  tab end  -->
+
+                    </draw:SkiaControl.SavedControls>
+
+                    <!--#endregion-->
+
+                </draw:SkiaViewSwitcher>
+
+                <!--#endregion-->
+
+
+
+                <!--#region BOTTOM TABS-->
+                <navigation:BottomTabsSelector
+                    x:Name="Tabs"
+                    UseCache="GPU"
+                    ColumnDefinitions="*,*,*"
+                    ColumnSpacing="0"
+                    CommandTabReselected="{Binding CommandTabReselected}"
+                    HeightRequest="{Binding Presentation.BottomTabsHeightRequest}"
+                    HorizontalOptions="Fill"
+                    IsClippedToBounds="True"
+                    Type = "Grid"
+                    RowDefinitions="*"
+                    SelectedIndex="{Binding Source={x:Reference Switcher}, Path=SelectedIndex, Mode=TwoWay}"
+                    Tag="Tabs"
+                    VerticalOptions="End"
+                    ZIndex="90">
+
+                    <draw:SkiaShape
+                        Grid.Row="0"
+                        Grid.ColumnSpan="3"
+                        BackgroundColor="#CD000000"
+                        CornerRadius="20,0"
+                        HorizontalOptions="Fill"
+                        Tag="TabsBackground"
+                        VerticalOptions="Fill" />
+
+                    <draw:SkiaSvg
+                        HeightRequest="28"
+                        HorizontalOptions="Center"
+                        IsClippedToBounds="True"
+                        LockRatio="1"
+                        SvgString="{x:StaticResource SvgHome}"
+                        TintColor="White"
+                        UseCache="Operations"
+                        VerticalOptions="Center" />
+
+                    <draw:SkiaHotspot
+                        AnimationTapped="None"
+                        CommandTapped="{Binding Source={x:Reference Tabs}, Path=CommandTappedTab}"
+                        CommandTappedParameter="0"
+                        ZIndex="3" />
+
+                    <draw:SkiaSvg
+                        Grid.Column="1"
+                        HeightRequest="29"
+                        HorizontalOptions="Center"
+                        IsClippedToBounds="True"
+                        LockRatio="1"
+                        SvgString="{x:StaticResource SvgChat}"
+                        TintColor="White"
+                        UseCache="Operations"
+                        VerticalOptions="Center" />
+
+                    <draw:SkiaHotspot
+                        Grid.Column="1"
+                        AnimationTapped="None"
+                        CommandTapped="{Binding Source={x:Reference Tabs}, Path=CommandTappedTab}"
+                        CommandTappedParameter="1"
+                        ZIndex="3" />
+
+                    <draw:SkiaSvg
+                        Grid.Column="2"
+                        HeightRequest="28"
+                        HorizontalOptions="Center"
+                        IsClippedToBounds="True"
+                        LockRatio="1"
+                        SvgString="{x:StaticResource SvgSettings}"
+                        TintColor="White"
+                        UseCache="Operations"
+                        VerticalOptions="Center" />
+
+                    <draw:SkiaHotspot
+                        Grid.Column="2"
+                        AnimationTapped="None"
+                        CommandTapped="{Binding Source={x:Reference Tabs}, Path=CommandTappedTab}"
+                        CommandTappedParameter="2"
+                        ZIndex="3" />
+
+                    <navigation:TabsBall
+                        Color="{StaticResource ColorAccent}"
+                        Grid.ColumnSpan="3"
+                        BackgroundColor="#000000FF"
+                        CircleRadius="3"
+                        SelectedIndex="{Binding Source={x:Reference Switcher}, Path=SelectedIndex, Mode=OneWay}"
+                        TabsCount="3"
+                        VerticalOffset="20" />
+
+                </navigation:BottomTabsSelector>
+                <!--#endregion-->
+
+
+
+            </draw:SkiaLayout>
+
+
+        </draw:SkiaLayout>
+
+    </draw:Canvas>
+
+
+</controls1:ContentPage>

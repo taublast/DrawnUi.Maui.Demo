@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<navigation:AppNavbar
+    x:Class="AppoMobi.Maui.DrawnUi.Demo.Views.Navigation.NavBarStandart"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:draw="http://schemas.appomobi.com/drawnUi/2023/draw"
+    xmlns:navigation="using:AppoMobi.Maui.DrawnUi.Demo.Views.Navigation"
+    xmlns:viewModels="clr-namespace:AppoMobi.Maui.DrawnUi.Demo.ViewModels"
+    BackgroundColor="Black"
+    HeightRequest="50"
+    x:DataType="viewModels:ProjectViewModel"
+    HorizontalOptions="Fill">
+
+    <draw:SkiaSvg
+        Margin="16,0,16,0"
+        HeightRequest="16"
+        HorizontalOptions="Start"
+        SvgString="{StaticResource SvgGoBack}"
+        TintColor="Red"
+        VerticalOptions="Center"
+        WidthRequest="16" />
+
+    <draw:SkiaHotspot
+        Tag="GoBack"
+        CommandTapped="{Binding Presentation.CommandGoBack}"
+        HorizontalOptions="Start"
+        WidthRequest="44" />
+
+    <draw:SkiaLabel
+        Margin="48,0,16,0"
+        FontFamily="FontTextTitle"
+        FontSize="14"
+        LineBreakMode="TailTruncation"
+        MaxLines="1"
+        Style="{StaticResource SkiaLabelDefaultStyle}"
+        Tag="NavTitle"
+        Text="{Binding Title}"
+        TextColor="White"
+        TranslationY="-1"
+        VerticalOptions="Center" />
+
+    <!--  LINE  -->
+    <draw:SkiaShape
+        Margin="-16,0"
+        BackgroundColor="Black"
+        CornerRadius="0"
+        HeightRequest="1"
+        HorizontalOptions="Fill"
+        StrokeWidth="0"
+        VerticalOptions="End">
+        <draw:SkiaShape.FillGradient>
+
+            <draw:SkiaGradient
+                EndXRatio="1"
+                EndYRatio="0"
+                StartXRatio="0"
+                StartYRatio="0"
+                Type="Linear">
+                <draw:SkiaGradient.Colors>
+                    <Color>#00E8E3D7</Color>
+                    <Color>#99E8E3D7</Color>
+                    <Color>#00E8E3D7</Color>
+                </draw:SkiaGradient.Colors>
+            </draw:SkiaGradient>
+
+        </draw:SkiaShape.FillGradient>
+    </draw:SkiaShape>
+
+</navigation:AppNavbar>

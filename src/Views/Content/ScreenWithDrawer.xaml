@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<draw:SkiaLayout
+    x:Class="AppoMobi.Maui.DrawnUi.Demo.Views.Content.ScreenWithDrawer"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:draw="http://schemas.appomobi.com/drawnUi/2023/draw"
+    xmlns:navigation="using:AppoMobi.Maui.DrawnUi.Demo.Views.Navigation"
+    xmlns:viewModels="using:AppoMobi.Maui.DrawnUi.Demo.ViewModels"
+    x:DataType="viewModels:SimplePageViewModel"
+    BackgroundColor="Black"
+    HorizontalOptions="Fill"
+    Spacing="0"
+    VerticalOptions="Fill">
+
+    <draw:SkiaControl.FillGradient>
+
+        <draw:SkiaGradient
+            EndXRatio="1"
+            EndYRatio="1"
+            StartXRatio="0"
+            StartYRatio="0"
+            Type="Linear">
+            <draw:SkiaGradient.Colors>
+                <Color>#889955</Color>
+                <Color>#886655</Color>
+                <Color>#222222</Color>
+            </draw:SkiaGradient.Colors>
+        </draw:SkiaGradient>
+
+    </draw:SkiaControl.FillGradient>
+
+    <!--  NAVI BLOCK  -->
+    <draw:SkiaLayout
+        Spacing="0"
+        Type="Column">
+        <!--  STATUS BAR  -->
+        <draw:SkiaShape
+            BackgroundColor="Black"
+            HeightRequest="{Binding Presentation.StatusBarHeightRequest}"
+            HorizontalOptions="Fill"
+            Tag="StatusBar" />
+        <!--  NAVBAR  -->
+        <navigation:NavBarStandart />
+    </draw:SkiaLayout>
+
+
+    <!--  VERTICAL                IsOpen="{Binding IsOpen}"  -->
+    <draw:SkiaDrawer
+        BackgroundColor="Pink"
+        Direction="FromBottom"
+        HeaderSize="60"
+        HeightRequest="500"
+        HorizontalOptions="Fill"
+        IsOpen="True"
+        Tag="Drawer"
+        VerticalOptions="End">
+
+        <draw:SkiaScroll
+            Margin="0,60,0,0"
+            BackgroundColor="Gainsboro"
+            Bounces="False"
+            HorizontalOptions="Fill"
+            VerticalOptions="Fill">
+
+            <draw:SkiaLayout
+                Padding="16"
+                HorizontalOptions="Fill"
+                Spacing="24"
+                Type="Column">
+
+                <draw:SkiaShape
+                    BackgroundColor="DimGray"
+                    HeightRequest="80"
+                    HorizontalOptions="Center"
+                    LockRatio="1"
+                    Type="Circle" />
+
+                <draw:SkiaShape
+                    BackgroundColor="Aquamarine"
+                    HeightRequest="300"
+                    HorizontalOptions="Center"
+                    WidthRequest="50" />
+
+                <draw:SkiaShape
+                    BackgroundColor="Goldenrod"
+                    HeightRequest="80"
+                    HorizontalOptions="Center"
+                    LockRatio="1"
+                    Type="Circle" />
+
+                <draw:SkiaShape
+                    BackgroundColor="PeachPuff"
+                    HeightRequest="300"
+                    HorizontalOptions="Center"
+                    WidthRequest="50" />
+
+                <draw:SkiaShape
+                    BackgroundColor="PaleGreen"
+                    HeightRequest="80"
+                    HorizontalOptions="Center"
+                    LockRatio="1"
+                    Type="Circle" />
+
+
+            </draw:SkiaLayout>
+        </draw:SkiaScroll>
+
+    </draw:SkiaDrawer>
+
+</draw:SkiaLayout>

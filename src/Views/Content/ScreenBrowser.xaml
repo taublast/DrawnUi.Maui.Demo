@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<draw:ElementAdapter
+    x:Class="AppoMobi.Maui.DrawnUi.Demo.Views.Content.ScreenBrowser"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:draw="http://schemas.appomobi.com/drawnUi/2023/draw"
+    xmlns:drawnUi="clr-namespace:AppoMobi.Maui.DrawnUi;assembly=AppoMobi.Maui.DrawnUi"
+    xmlns:viewModels1="clr-namespace:AppoMobi.Maui.DrawnUi.Demo.ViewModels">
+
+    <draw:SkiaLayout
+        x:Name="MainLayout"
+        Margin="0,40,0,0"
+        x:DataType="viewModels1:SimplePageViewModel"
+        HorizontalOptions="Fill"
+        VerticalOptions="Fill">
+
+        <!--  HEADER  -->
+        <!--  top nav bar wrapper [cached]  -->
+        <!--  we use padding to reserve space for shadow  -->
+        <draw:SkiaLayout
+            Padding="0,0,0,0"
+            HeightRequest="60"
+            HorizontalOptions="Fill"
+            Spacing="0"
+            UseCache="GPU"
+            ZIndex="100">
+
+            <!--  background shape + shadow  -->
+            <draw:SkiaShape
+                BackgroundColor="{x:StaticResource Gray950}"
+                CornerRadius="20, 0"
+                HorizontalOptions="Fill"
+                IsClippedToBounds="False"
+                StrokeColor="{x:StaticResource Gray600}"
+                StrokeWidth="1"
+                Tag="TabsBackground"
+                VerticalOptions="Fill"
+                ZIndex="-1">
+                <draw:SkiaControl.Shadows>
+
+                    <draw:SkiaShadow
+                        Blur="3"
+                        Opacity="0.33"
+                        X="2"
+                        Y="3"
+                        Color="{StaticResource Gray400}" />
+
+                </draw:SkiaControl.Shadows>
+            </draw:SkiaShape>
+
+            <!--  container navbar without status  -->
+            <draw:SkiaLayout
+                HorizontalOptions="Fill"
+                VerticalOptions="Fill">
+
+                <draw:SkiaLabel
+                    x:Name="LabelTile"
+                    Margin="50,0"
+                    FontFamily="FontText"
+                    FontSize="18"
+                    FontWeight="600"
+                    HorizontalOptions="Center"
+                    LineBreakMode="TailTruncation"
+                    MaxLines="2"
+                    Text="Modal"
+                    TextColor="{StaticResource ColorText}"
+                    
+                    VerticalOptions="Center" />
+
+                <draw:SkiaSvg
+                    HorizontalOptions="End"
+                    LockRatio="1"
+                    MarginRight="18"
+                    Opacity="0.66"
+                    SvgString="{StaticResource SvgClose}"
+                    TintColor="{StaticResource ColorTextButton}"
+                    VerticalOptions="Center"
+                    WidthRequest="14"
+                    ZIndex="1" />
+
+                <draw:SkiaHotspot
+                    CommandTapped="{Binding CommandCloseModal}"
+                    HorizontalOptions="End"
+                    WidthRequest="50" />
+
+            </draw:SkiaLayout>
+
+        </draw:SkiaLayout>
+
+        <draw:SkiaControl
+            BackgroundColor="{StaticResource White}"
+            HorizontalOptions="Fill"
+            MarginTop="20"
+            VerticalOptions="Fill"
+            ZIndex="-1" />
+
+        <!--  CONTENT  -->
+        <draw:SkiaMauiElement
+            HorizontalOptions="Fill"
+            MarginTop="60"
+            VerticalOptions="Fill">
+
+            <WebView
+                x:Name="ControlBrowser"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="FillAndExpand" />
+
+        </draw:SkiaMauiElement>
+
+
+    </draw:SkiaLayout>
+
+</draw:ElementAdapter>

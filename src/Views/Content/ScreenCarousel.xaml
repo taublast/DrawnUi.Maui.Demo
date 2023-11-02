@@ -1,0 +1,195 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<draw:SkiaLayout
+    x:Class="AppoMobi.Maui.DrawnUi.Demo.Views.Content.ScreenCarousel"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:draw="http://schemas.appomobi.com/drawnUi/2023/draw"
+    xmlns:navigation="using:AppoMobi.Maui.DrawnUi.Demo.Views.Navigation"
+    xmlns:viewModels="using:AppoMobi.Maui.DrawnUi.Demo.ViewModels"
+    x:DataType="viewModels:SimplePageViewModel"
+    BackgroundColor="Black"
+    HorizontalOptions="Fill"
+    Spacing="0"
+    VerticalOptions="Fill">
+
+    <draw:SkiaControl.FillGradient>
+
+        <draw:SkiaGradient
+            EndXRatio="1"
+            EndYRatio="1"
+            StartXRatio="0"
+            StartYRatio="0"
+            Type="Linear">
+            <draw:SkiaGradient.Colors>
+                <Color>#889955</Color>
+                <Color>#886655</Color>
+                <Color>#222222</Color>
+            </draw:SkiaGradient.Colors>
+        </draw:SkiaGradient>
+
+    </draw:SkiaControl.FillGradient>
+
+    <!--  NAVI BLOCK  -->
+    <draw:SkiaLayout
+        Spacing="0"
+        Type="Column"
+        UseCache="Operations">
+
+        <draw:SkiaControl
+            HeightRequest="{Binding Presentation.StatusBarHeightRequest}"
+            HorizontalOptions="Fill"
+            Tag="StatusBar" />
+        <navigation:NavBarStandart BackgroundColor="Transparent" />
+
+    </draw:SkiaLayout>
+
+    <draw:SkiaLayout
+        Margin="16"
+        TranslationY="80"
+        Type="Column"
+        UseCache="Operations">
+
+        <draw:SkiaLabel
+            BackgroundColor="Black"
+            FontSize="20"
+            Text="{Binding SomeBoolean, StringFormat='In transition: {0}'}" />
+
+
+        <draw:SkiaLabel
+            BackgroundColor="Black"
+            FontSize="20"
+            Text="{Binding SelectedIndex, StringFormat='Index: {0}'}" />
+
+    </draw:SkiaLayout>
+
+    <!--  HORIZONTAL  -->
+    <draw:SkiaCarousel
+        BackgroundColor="Transparent"
+        Bounces="True"
+        HeightRequest="200"
+        HorizontalOptions="Fill"
+        InTransition="{Binding SomeBoolean}"
+        SelectedIndex="{Binding SelectedIndex}"
+        SidesOffset="40"
+        Spacing="20"
+        Tag="Carousel"
+        VerticalOptions="Center">
+
+        <draw:SkiaLayout
+            BackgroundColor="Red"
+            UseCache="None">
+
+            <draw:SkiaLabel
+                Margin="24"
+                FontSize="16"
+                HorizontalOptions="Center"
+                HorizontalTextAlignment="Center"
+                Text="Here we have Spacing 20 and SidesOffset 40."
+                VerticalOptions="Center" />
+
+        </draw:SkiaLayout>
+
+        <draw:SkiaLayout
+            BackgroundColor="Green"
+            UseCache="Operations">
+
+            <draw:SkiaLabel
+                Margin="24"
+                FontSize="16"
+                HorizontalOptions="Center"
+                HorizontalTextAlignment="Center"
+                Text="You could use ItemTemplate or include controls with unique design."
+                VerticalOptions="Center" />
+
+        </draw:SkiaLayout>
+
+        <draw:SkiaLayout
+            BackgroundColor="Blue"
+            UseCache="Operations">
+
+            <draw:SkiaLayout
+                HorizontalOptions="Fill"
+                Type="Column"
+                VerticalOptions="Center">
+
+                <draw:SkiaButton
+                    HorizontalOptions="Center"
+                    Text="Index 2" />
+
+                <draw:SkiaLabel
+                    FontSize="16"
+                    HorizontalOptions="Center"
+                    HorizontalTextAlignment="Center"
+                    Text="In this case we use controls with unique design instead of ItemTemplate." />
+            </draw:SkiaLayout>
+
+        </draw:SkiaLayout>
+
+        <draw:SkiaLayout
+            BackgroundColor="Fuchsia"
+            UseCache="Operations">
+
+            <draw:SkiaLabel
+                Margin="24"
+                FontSize="20"
+                HorizontalOptions="Center"
+                Text="Index 3"
+                VerticalOptions="Center" />
+
+        </draw:SkiaLayout>
+
+    </draw:SkiaCarousel>
+
+    <!--  with ItemTemplate  -->
+
+    <!--<draw:SkiaCarousel
+                x:Name="MainCarousel"
+                Tag="Carousel"
+                Bounces="True"
+                Spacing="0"
+                SidesOffset="40"
+                SelectedIndex="{Binding SelectedIndex}"
+                VerticalOptions="Center"
+                HorizontalOptions="Fill"
+                BackgroundColor="Pink"
+                HeightRequest="200">
+
+                <draw:SkiaLayout.ItemsSource>
+                    <x:Array Type="{x:Type Color}">
+                        <Color>Red</Color>
+                        <Color>Green</Color>
+                        <Color>Blue</Color>
+                        <Color>Fuchsia</Color>
+                        <Color>Black</Color>
+                    </x:Array>
+                </draw:SkiaLayout.ItemsSource>
+
+                <draw:SkiaLayout.ItemTemplate>
+                    <DataTemplate>
+
+                        <draw:ElementAdapter>
+                            <draw:SkiaLayout
+                                Tag="Tpl"
+                                BackgroundColor="{Binding .}">
+
+                                <draw:SkiaLabel
+                                    Margin="0"
+                                    Text="{Binding .}"
+                                    FontSize="8"
+                                    HorizontalTextAlignment="Center"
+                                    VerticalOptions="Center"
+                                    HorizontalOptions="Center"/>
+
+                            </draw:SkiaLayout>
+
+                        </draw:ElementAdapter>
+                    </DataTemplate>
+
+                </draw:SkiaLayout.ItemTemplate>
+
+
+            </draw:SkiaCarousel>-->
+
+</draw:SkiaLayout>
+
+
