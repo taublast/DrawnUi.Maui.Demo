@@ -19,9 +19,6 @@
         Orientation="Horizontal">
 
         <!--  notice of Operations cache inside scroll and its impact on fps  -->
-
-        <!--  Text="This is Drawn UI Canvas, a SkiaSharp view filled with virtual drawn views, XAML-friendly with HotReload support!"  -->
-
         <draw:SkiaLayout
             Tag="Banner"
             UseCache="Operations">

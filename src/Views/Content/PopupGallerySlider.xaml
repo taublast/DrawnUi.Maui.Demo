@@ -33,9 +33,7 @@
             <draw:SkiaLayout.ItemTemplate>
                 <DataTemplate>
 
-                    <draw:ElementAdapter>
-
-                        <draw:ZoomContent
+                    <draw:ZoomContent
                             ZoomMax="2"
                             ZoomMin="1">
 
@@ -44,7 +42,7 @@
                             BackgroundColor="Black"
                             HorizontalOptions="Fill"
                             Tag="Tpl"
-                            UseCache="None"
+                            UseCache="GPU"
                             VerticalOptions="Fill">
 
                             <draw:SkiaImage
@@ -70,7 +68,6 @@
 
                         </draw:ZoomContent>
 
-                    </draw:ElementAdapter>
                 </DataTemplate>
 
             </draw:SkiaLayout.ItemTemplate>

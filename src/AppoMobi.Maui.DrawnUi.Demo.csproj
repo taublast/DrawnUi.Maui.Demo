@@ -36,11 +36,11 @@
 	</PropertyGroup>
 
   <ItemGroup Condition="'$(Configuration)'=='Release'">
-    <PackageReference Include="AppoMobi.Maui.DrawnUi" Version="1.0.1.10-pre" />
+    <PackageReference Include="AppoMobi.Maui.DrawnUi" Version="1.0.1.11-pre" />
   </ItemGroup>
   
   <ItemGroup Condition="'$(Configuration)'=='Debug'">
-    <PackageReference Include="AppoMobi.Maui.DrawnUi" Version="1.0.1.10-pre" />
+    <PackageReference Include="AppoMobi.Maui.DrawnUi" Version="1.0.1.11-pre" />
   </ItemGroup>
 
   <ItemGroup>
