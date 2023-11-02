@@ -20,7 +20,8 @@ _The current development state is __PRE-ALPHA__, some features remain to be impl
 
 ## Screenshots
 
-[![CollectionView drawn alternative for the Skia canvas](https://github.com/taublast/AppoMobi.Maui.DrawnUi.Demo/assets/25801194/29a1a23f-dfd8-4289-910e-9062060d2f59)
+CollectionView drawn alternative for the Skia canvas
+https://github.com/taublast/AppoMobi.Maui.DrawnUi.Demo/assets/25801194/29a1a23f-dfd8-4289-910e-9062060d2f59
 
 
 ## Features
