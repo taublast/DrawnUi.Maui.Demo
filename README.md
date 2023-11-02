@@ -7,7 +7,7 @@ Supports iOS, MacCatalyst, Android, Windows.
 * To use inside a usual Maui app, consume drawn controls here and there inside `Canvas` views.
 * Create a totally drawn app with just one `Canvas` as root view and consume controls inside, `SkiaShell` is provided for navigation.
 
-_The current development state is __PRE-ALPHA__, some features remain to be implemented, the project is active.
+_The current development state is __PRE-ALPHA__, some features remain to be implemented, the project is active._
 
 ## What's new
 
@@ -16,7 +16,7 @@ _The current development state is __PRE-ALPHA__, some features remain to be impl
 ## Development Notes
 
 * All files to be consumed (images etc) must be placed inside the maui app Resources/Raw folder, subfolders allowed.
-* SkiaScrollLooped need a fix, has GC called too much resulting in animations lag spikes, can bee seen in the Maui Robot page.
+* SkiaScrollLooped needs a fix, has GC called too much resulting in animations lag spikes, can bee seen in the Maui Robot page.
 
 ## Features
 
