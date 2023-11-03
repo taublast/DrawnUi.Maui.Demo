@@ -22,7 +22,7 @@ Library repo will go public at Alpha stage, Pre-Alpha nuget package is already a
 
 ## Screenshots
 
-### Present recycle cells on a canvas!
+### Present recycled cells on a canvas!
 
 https://github.com/taublast/AppoMobi.Maui.DrawnUi.Demo/assets/25801194/29a1a23f-dfd8-4289-910e-9062060d2f59
 
@@ -99,14 +99,9 @@ https://github.com/taublast/AppoMobi.Maui.DrawnUi.Demo/assets/25801194/2182de51-
 	* Perspective1
 	* Perspective2
 	
-
-## Demo App
-
-_todo add more tabs animations, chat example, complex scroll example (aliexpress, auchan), 2d game example (checkers, arkanoid)_ 
-
 ## Installation
 
-Install the package __AppoMobi.Maui.DrawnUi__ from NuGet.
+Install the package __AppoMobi.Maui.DrawnUi__ from NuGet. Check the pre-release option if you don't see the package.
 
 After that initialize the library inside your MauiProgram.cs file:
 
@@ -242,7 +237,10 @@ Its `Absolute` layout type is already buil-it in every skia control..
 You can position your children using familiar properties like
 `HorizonalOptions`, `VerticalOptions`, `Margin`, parent `Padding`,
 `WidthRequest`, `HeightRequest`,`MinimumWidthRequest`, `MinimumHeightRequest` 
-and additional `MaximumWidthRequest`,  `MaximumHeightRequest` and `LockRatio` properties.
+and additional `MaximumWidthRequest`,  `MaximumHeightRequest`, `HorizontalFillRatio`, `VerticalFillRatio` and `LockRatio` properties.
+
+* `LockRatio`will be used to calculate the width when the height is set or vice versa. If it's above 0 the max value will be applied, if it's below 0 the min value will be applied. If it's 0 then the ratio will be ignored.
+* `HorizontalFillRatio`, `VerticalFillRatio` will let you take a percent and the available size if you don't set a numeric request. For example if `HorizontalFillRatio` is set to 0.5 you will take 50% of the available width, at the same time being able to align the control at start, center or at the and in a usual way.
 
 For dynamic positionning or other precise cases use `TranslationX` and `TranslationY`.
 
@@ -284,7 +282,7 @@ Example below will load animation from `Resources\Raw\Lottie\Loader.json`.
                 AutoPlay="True"
                 ColorTint="{StaticResource ColorPrimary}"
                 HorizontalOptions="Center"
-                LockRatio="1"
+                ="1"
                 Opacity="0.85"
                 Repeat="-1"
                 Source="Lottie/Loader.json"
