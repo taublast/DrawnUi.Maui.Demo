@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="SomeMauiApp.MainPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:draw="http://schemas.appomobi.com/drawnUi/2023/draw"
+    xmlns:gestures="clr-namespace:AppoMobi.Maui.Gestures;assembly=AppoMobi.Maui.Gestures"
+    xmlns:someMauiApp="clr-namespace:SomeMauiApp">
+
+    <ScrollView BackgroundColor="WhiteSmoke">
+
+        <VerticalStackLayout
+            Padding="24,16"
+            BackgroundColor="#110099FF"
+            Spacing="25">
+
+            <Image
+                HeightRequest="200"
+                HorizontalOptions="Center"
+                SemanticProperties.Description="Cute dot net bot waving hi to you!"
+                Source="dotnet_bot.png" />
+
+            <draw:Canvas
+                x:Name="MainCanvas"
+                Margin="0,0,0,32"
+                gestures:TouchEffect.ForceAttach="True"
+                Tag="MainPage">
+
+
+                <draw:SkiaLayout
+                    Tag="SkiaContainer"
+                    VerticalOptions="Start">
+
+
+                    <draw:SkiaLayout
+                        x:Name="StackContainer"
+                        HorizontalOptions="Start"
+                        Spacing="16"
+                        Type="Column"
+                        VerticalOptions="Start">
+
+                        <draw:SkiaLabel
+                            BackgroundColor="#33000000"
+                            FontFamily="OpenSansRegular"
+                            FontSize="16"
+                            Opacity="0.85"
+                            Text=" SkiaLabel "
+                            TextColor="DarkBlue" />
+
+                        <draw:SkiaLabel
+                            FallbackCharacter="?"
+                            FontFamily="OpenSansRegular"
+                            FontSize="15"
+                            HorizontalOptions="Fill"
+                            HorizontalTextAlignment="Start"
+                            LineSpacing="1.5"
+                            TextColor="Black">
+
+                            <draw:TextSpan
+                                FontSize="17"
+                                IsBold="True"
+                                IsItalic="True"
+                                Text="ANY "
+                                TextColor="Red" />
+
+                            <draw:TextSpan Text="span can be made " />
+
+                            <draw:TextSpan
+                                FontFamily="OpenSansRegular"
+                                FontSize="15"
+                                IsItalic="True"
+                                Tag="The Tappable One"
+                                Tapped="OnSpanTapped"
+                                Text="tappable "
+                                TextColor="Purple" />
+
+                            <draw:TextSpan
+                                FontSize="12"
+                                IsItalic="True"
+                                Text="and small! "
+                                TextColor="Black" />
+
+                            <draw:TextSpan
+                                AutoFindFont="True"
+                                Text="🌐🍪🍕🚀🐴👻" />
+
+                            <draw:TextSpan Text=" Up and Down!!!" />
+
+                            <draw:TextSpan
+                                FontSize="20"
+                                Text=" BiG "
+                                TextColor="#C9C903" />
+
+                            <draw:TextSpan
+                                FontSize="14"
+                                IsItalic="True"
+                                Text="and small! "
+                                TextColor="Black" />
+
+                            <draw:TextSpan
+                                FontSize="14"
+                                Text="and a tappable link!"
+                                TextColor="DarkOliveGreen"
+                                Underline="True" />
+
+                            <draw:TextSpan
+                                AutoFindFont="True"
+                                FontSize="14"
+                                Text=" " />
+
+                            <draw:TextSpan
+                                FontSize="14"
+                                Strikeout="True"
+                                Text="Still in development"
+                                TextColor="Black" />
+
+                            <draw:TextSpan
+                                FontSize="14"
+                                Text=" but you can already use it as it is!"
+                                TextColor="Black" />
+
+                        </draw:SkiaLabel>
+
+                        <draw:SkiaLabel
+                            BackgroundColor="#33000000"
+                            FontFamily="OpenSansRegular"
+                            FontSize="16"
+                            Opacity="0.85"
+                            Text=" SkiaMarkdownLabel "
+                            TextColor="DarkBlue" />
+
+
+                        <draw:SkiaMarkdownLabel
+                            x:Name="TestMarkdown"
+                            BackgroundColor="Transparent"
+                            FontFamily="OpenSansRegular"
+                            FontSize="14"
+                            HorizontalOptions="Fill"
+                            HorizontalTextAlignment="Start"
+                            LineSpacing="1.5"
+                            LinkColor="Purple"
+                            LinkTapped="HandleLinkTapped"
+                            StrikeoutColor="Red"
+                            Text="~~Just~~ put a simple markdown string and this control will ***auto-split*** it into spans. It will recognize links _[a link](https://firstlink.app)_ rendered with ___SkiaMarkdownLabel___ Here it auto-created a span for 🚀🐴👻 and switched back. _[More info..](https://moreinfo.app)_. Subclass this control or consume LinkTappedCommand property or LinkTapped event handler to react to taps."
+                            TextColor="Black" />
+
+
+                        <draw:SkiaMarkdownLabel
+                            FontFamily="OpenSansRegular"
+                            FontSize="14"
+                            HorizontalOptions="Fill"
+                            HorizontalTextAlignment="End"
+                            LineSpacing="1.5"
+                            Text="{x:Static someMauiApp:MauiProgram.RTL}"
+                            TextColor="Black" />
+
+                    </draw:SkiaLayout>
+
+
+                </draw:SkiaLayout>
+
+            </draw:Canvas>
+
+
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

@@ -161,12 +161,13 @@ namespace AppoMobi.Maui.DrawnUi.Demo.ViewModels
                     await Task.Run(async () =>
                     {
 
-                        App.Shell.ShowToast("Hello World! This is all drawn using SkiaSharp 2.88 library.");
+                        App.Shell.ShowToast("Hello World! This is all drawn using **SkiaSharp** 2.88 library. 👍😍🤩");
 
                     }).ConfigureAwait(false);
                 });
             }
         }
+
 
         public ICommand CommandTabReselected
         {

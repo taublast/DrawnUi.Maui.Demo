@@ -103,7 +103,7 @@
                         Tag="Header"
                         UseCache="GPU">
 
-                        <draw:SkiaLabel
+                        <!--<draw:SkiaLabel
                             Margin="16,0"
                             FontFamily="FontText"
                             FontSize="12"
@@ -111,6 +111,17 @@
                             HorizontalTextAlignment="Center"
                             Text="App totally drawn with SkiaSharp 2.88. Below we have recyclable cells with paging by 21, refresh view uses `SkiaLottie`. Click cells to open zoomable `SkiaCarousel` based gallery. Swipe cells to left to reveal a mock control behind. This text resides inside an auto-sized Header of a `SkiaScroll`."
                             TextColor="Black"
+                            VerticalOptions="Center" />-->
+
+                        <draw:SkiaMarkdownLabel
+                            Margin="8,0"
+                            FontFamily="FontText"
+                            FontSize="13"
+                            HorizontalOptions="Fill"
+                            HorizontalTextAlignment="Center"
+                            Text="A drawn CollectionView 😋👍 alternative built with a ***SkiaScroll*** and a ***SkiaLayout***. Only the visible number of recycled cells is created, loading more data when reaching bottom, refresh view uses ___SkiaLottie___. Can slide cells to reveal a mock control."
+                            TextColor="Black"
+                            UseCache="Operations"
                             VerticalOptions="Center" />
 
                     </draw:SkiaLayout>
@@ -128,7 +139,7 @@
                     </draw:SkiaControl>
                 </draw:SkiaScroll.Footer>
 
-                <!--REFRESH VIEW-->
+                <!--  REFRESH VIEW  -->
                 <draw:SkiaScroll.RefreshIndicator>
                     <navigation:ScrollRefreshIndicator>
 

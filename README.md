@@ -13,7 +13,10 @@ Library repo will go public at Alpha stage, Pre-Alpha nuget package is already a
 
 ## What's new
 
-*  Initial demo push.
+*  Fixed `Canvas` autosizing.
+* SkiaLabel now supports tappable spans!
+* SkiaMarkdownLabel with basic markdown support: underline, bold, strokethrough, will auto-adapt typeface for unicode symbols.
+* Added demo for a usual Maui app with some `Canvas` views inside.
 
 ## Development Notes
 

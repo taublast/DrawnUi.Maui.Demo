@@ -74,13 +74,13 @@
 
         </draw:SkiaCarousel>
 
-        <draw:SkiaLabel
+        <draw:SkiaMarkdownLabel
             Margin="32"
             HorizontalOptions="Fill"
             HorizontalTextAlignment="Center"
-            Style="{StaticResource SkiaLabelDefaultStyle}"
-            Text="Using a`SkiaCarousel` inside a `SkiaShell` popup. Showing a `SkiaImage' inside, a powerful control that can apply effects and provide responsive aspects like `AspectCover` etc."
-            UseCache="Operations"
+            Style="{StaticResource MarkdownLabelDefaultStyle}"
+            Text="Using a ***SkiaCarousel*** inside a ***SkiaShell*** popup. Showing a ***SkiaImage*** inside, a powerful control that can apply effects and provide responsive aspects like _AspectCover_ etc."
+            UseCache="Image"
             VerticalOptions="End" />
 
     </content:GalleryPopupLayout>

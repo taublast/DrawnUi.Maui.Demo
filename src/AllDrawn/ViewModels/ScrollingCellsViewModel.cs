@@ -7,7 +7,6 @@ using System.Windows.Input;
 namespace AppoMobi.Maui.DrawnUi.Demo.ViewModels;
 
 
-
 public class ScrollingCellsViewModel : ProjectViewModel, IFullscreenGalleryManager
 {
     public ScrollingCellsViewModel(NavigationViewModel navModel) : base(navModel)
@@ -17,6 +16,27 @@ public class ScrollingCellsViewModel : ProjectViewModel, IFullscreenGalleryManag
         Items = new();
 
         _mock = new MockDataProvider();
+    }
+
+    public ICommand CommandAbout
+    {
+        get
+        {
+            return new Command(async (object context) =>
+            {
+                if (CheckLockAndSet())
+                    return;
+
+                //do not block ui, lets us see the touch effect
+                //while we build page to be opened
+                await Task.Run(async () =>
+                {
+
+                    App.Shell.ShowToast("App totally drawn with SkiaSharp 2.88. This demo is loading images from internet in realtime. 🚀🤩😋");
+
+                }).ConfigureAwait(false);
+            });
+        }
     }
 
 
@@ -350,26 +370,7 @@ public class ScrollingCellsViewModel : ProjectViewModel, IFullscreenGalleryManag
         }
     }
 
-    public ICommand CommandAbout
-    {
-        get
-        {
-            return new Command(async (object context) =>
-            {
-                if (CheckLockAndSet())
-                    return;
 
-                //do not block ui, lets us see the touch effect
-                //while we build page to be opened
-                await Task.Run(async () =>
-                {
-
-                    App.Shell.ShowToast("A drawn CollectionView alternative, this demo is loading images from internet in realtime.");
-
-                }).ConfigureAwait(false);
-            });
-        }
-    }
 
     public ObservableRangeCollection<SimpleItemViewModel> Items { get; }
 
