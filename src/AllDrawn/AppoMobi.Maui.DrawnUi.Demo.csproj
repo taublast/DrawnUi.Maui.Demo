@@ -35,12 +35,9 @@
 	  <CreatePackage>false</CreatePackage>
 	</PropertyGroup>
 
-  <ItemGroup Condition="'$(Configuration)'=='Release'">
-    <PackageReference Include="AppoMobi.Maui.DrawnUi" Version="1.0.1.14-pre" />
-  </ItemGroup>
-  
-  <ItemGroup Condition="'$(Configuration)'=='Debug'">
-    <PackageReference Include="AppoMobi.Maui.DrawnUi" Version="1.0.1.14-pre" />
+
+  <ItemGroup>
+    <PackageReference Include="AppoMobi.Maui.DrawnUi" Version="1.0.1.15-pre" />
   </ItemGroup>
 
   <ItemGroup>

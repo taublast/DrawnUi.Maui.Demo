@@ -136,17 +136,17 @@
                 <!--#region BOTTOM TABS-->
                 <navigation:BottomTabsSelector
                     x:Name="Tabs"
-                    UseCache="GPU"
                     ColumnDefinitions="*,*,*"
                     ColumnSpacing="0"
                     CommandTabReselected="{Binding CommandTabReselected}"
                     HeightRequest="{Binding Presentation.BottomTabsHeightRequest}"
                     HorizontalOptions="Fill"
                     IsClippedToBounds="True"
-                    Type = "Grid"
                     RowDefinitions="*"
                     SelectedIndex="{Binding Source={x:Reference Switcher}, Path=SelectedIndex, Mode=TwoWay}"
                     Tag="Tabs"
+                    Type="Grid"
+                    UseCache="GPU"
                     VerticalOptions="End"
                     ZIndex="90">
 
@@ -212,13 +212,13 @@
                         ZIndex="3" />
 
                     <navigation:TabsBall
-                        Color="{StaticResource ColorAccent}"
                         Grid.ColumnSpan="3"
                         BackgroundColor="#000000FF"
                         CircleRadius="3"
                         SelectedIndex="{Binding Source={x:Reference Switcher}, Path=SelectedIndex, Mode=OneWay}"
                         TabsCount="3"
-                        VerticalOffset="20" />
+                        VerticalOffset="20"
+                        Color="{StaticResource ColorAccent}" />
 
                 </navigation:BottomTabsSelector>
                 <!--#endregion-->
