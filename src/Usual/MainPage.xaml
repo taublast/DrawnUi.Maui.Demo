@@ -40,13 +40,24 @@
                         VerticalOptions="Start">
 
                         <draw:SkiaLabel
-                            BackgroundColor="#33000000"
+                            BackgroundColor="#22000000"
                             FontFamily="OpenSansRegular"
                             FontSize="16"
                             Opacity="0.85"
                             Text=" SkiaLabel "
                             TextColor="DarkBlue" />
 
+                        <!--  SIMPLE LABEL MULTILINE  -->
+                        <draw:SkiaLabel
+                            BackgroundColor="#08000000"
+                            FontSize="12"
+                            HorizontalOptions="Fill"
+                            HorizontalTextAlignment="FillWords"
+                            LineSpacing="1.3"
+                            Text="{x:Static someMauiApp:MauiProgram.Multiline}"
+                            TextColor="Black" />
+
+                        <!--  SOME SPANS DEFINED  -->
                         <draw:SkiaLabel
                             FallbackCharacter="?"
                             FontFamily="OpenSansRegular"
@@ -84,27 +95,28 @@
                                 AutoFindFont="True"
                                 Text="🌐🍪🍕🚀🐴👻" />
 
-                            <draw:TextSpan Text=" Up and Down!!!" />
+                            <draw:TextSpan Text=" Up and Down!!! " />
 
                             <draw:TextSpan
+                                BackgroundColor="Yellow"
                                 FontSize="20"
                                 Text=" BiG "
-                                TextColor="#C9C903" />
-
-                            <draw:TextSpan
-                                FontSize="14"
-                                IsItalic="True"
-                                Text="and small! "
                                 TextColor="Black" />
 
                             <draw:TextSpan
                                 FontSize="14"
+                                IsItalic="True"
+                                Text=" and small! "
+                                TextColor="Black" />
+
+                            <draw:TextSpan
+                                FontSize="14"
+                                Tapped="OnSpanTapped"
                                 Text="and a tappable link!"
                                 TextColor="DarkOliveGreen"
                                 Underline="True" />
 
                             <draw:TextSpan
-                                AutoFindFont="True"
                                 FontSize="14"
                                 Text=" " />
 
@@ -115,14 +127,16 @@
                                 TextColor="Black" />
 
                             <draw:TextSpan
+                                BackgroundColor="#11ff0000"
                                 FontSize="14"
                                 Text=" but you can already use it as it is!"
                                 TextColor="Black" />
 
                         </draw:SkiaLabel>
 
+
                         <draw:SkiaLabel
-                            BackgroundColor="#33000000"
+                            BackgroundColor="#22000000"
                             FontFamily="OpenSansRegular"
                             FontSize="16"
                             Opacity="0.85"
@@ -130,6 +144,7 @@
                             TextColor="DarkBlue" />
 
 
+                        <!--  AUTO-SPANS  -->
                         <draw:SkiaMarkdownLabel
                             x:Name="TestMarkdown"
                             BackgroundColor="Transparent"
@@ -145,6 +160,7 @@
                             TextColor="Black" />
 
 
+                        <!--  WILL ALSO AUTODETECT RTL AND SHAPED  -->
                         <draw:SkiaMarkdownLabel
                             FontFamily="OpenSansRegular"
                             FontSize="14"
