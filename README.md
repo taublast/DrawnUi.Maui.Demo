@@ -40,7 +40,7 @@ https://github.com/taublast/AppoMobi.Maui.DrawnUi.Demo/assets/25801194/2182de51-
 
 ### Draw rich and tappable text
 
-![text-small](https://github.com/taublast/AppoMobi.Maui.DrawnUi.Demo/assets/25801194/9e8405e7-add3-42ac-a30f-a9f1199f5266)
+https://github.com/taublast/AppoMobi.Maui.DrawnUi.Demo/assets/25801194/a2efa080-f234-4d04-a7f5-aab8af462fb2
 
 
 ## Features
