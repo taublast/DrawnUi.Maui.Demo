@@ -1,6 +1,6 @@
 # AppoMobi.Maui.DrawnUi DEMO
 
-Using rendering engine for .Net MAUI to draw your UI on a skia canvas, with gestures and animations.
+Using rendering engine for .Net MAUI to draw your UI on a Skia canvas, with gestures and animations.
 
 Supports iOS, MacCatalyst, Android, Windows.
 
@@ -38,9 +38,9 @@ https://github.com/taublast/AppoMobi.Maui.DrawnUi.Demo/assets/25801194/3c4c5fe9-
 
 https://github.com/taublast/AppoMobi.Maui.DrawnUi.Demo/assets/25801194/2182de51-929e-47f6-a560-e9d97ad16e52
 
-### Drawn and tappable text
+### Draw rich and tappable text
 
-![image](https://github.com/taublast/AppoMobi.Maui.DrawnUi.Demo/assets/25801194/cb6a3285-b62f-45f7-b98c-44b165546626)
+![text-small](https://github.com/taublast/AppoMobi.Maui.DrawnUi.Demo/assets/25801194/9e8405e7-add3-42ac-a30f-a9f1199f5266)
 
 
 ## Features
