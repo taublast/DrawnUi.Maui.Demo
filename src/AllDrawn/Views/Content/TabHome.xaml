@@ -17,7 +17,7 @@
 
     <content:TabCollectionViewDemo
         x:DataType="viewModels:ScrollingCellsViewModel"
-        BackgroundColor="Gainsboro"
+        BackgroundColor="WhiteSmoke"
         HorizontalOptions="Fill"
         Spacing="0"
         Tag="TabList"

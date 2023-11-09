@@ -8,8 +8,8 @@
 
     <Style
         x:Key="SkiaLabelDefaultStyle"
-        Class="SkiaLabelDefaultStyle"
         ApplyToDerivedTypes="True"
+        Class="SkiaLabelDefaultStyle"
         TargetType="draw:SkiaLabel">
         <Setter Property="TextColor" Value="{StaticResource ColorText}" />
         <Setter Property="FontFamily" Value="FontText" />
@@ -18,8 +18,8 @@
 
     <Style
         x:Key="MarkdownLabelDefaultStyle"
-        Class="MarkdownLabelDefaultStyle"
         ApplyToDerivedTypes="True"
+        Class="MarkdownLabelDefaultStyle"
         TargetType="draw:SkiaMarkdownLabel">
         <Setter Property="TextColor" Value="{StaticResource ColorText}" />
         <Setter Property="FontFamily" Value="FontText" />

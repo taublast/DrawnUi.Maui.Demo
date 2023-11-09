@@ -16,7 +16,7 @@
 
     <content:MainTabLayout
         x:DataType="viewModels:SomeTabsViewModel"
-        BackgroundColor="DarkBlue"
+        BackgroundColor="Black"
         HorizontalOptions="Fill"
         IsClippedToBounds="True"
         Spacing="0"
@@ -487,7 +487,6 @@
 
                 <draw:SkiaScroll
                     HorizontalOptions="Fill"
-                    
                     VerticalOptions="Fill">
 
                     <draw:SkiaLayout
