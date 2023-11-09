@@ -38,6 +38,11 @@ https://github.com/taublast/AppoMobi.Maui.DrawnUi.Demo/assets/25801194/3c4c5fe9-
 
 https://github.com/taublast/AppoMobi.Maui.DrawnUi.Demo/assets/25801194/2182de51-929e-47f6-a560-e9d97ad16e52
 
+### Drawn and tappable text
+
+![image](https://github.com/taublast/AppoMobi.Maui.DrawnUi.Demo/assets/25801194/cb6a3285-b62f-45f7-b98c-44b165546626)
+
+
 ## Features
 
 * __Draw your UI using SkiaSharp with hardware acceleration__
