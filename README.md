@@ -29,9 +29,9 @@ Library repo will go public at Alpha stage, Pre-Alpha nuget package is already a
 
 ## Screenshots
 
-### Present recycled cells on a canvas!
+### Draw your own recycled cells on a canvas!
 
-https://github.com/taublast/AppoMobi.Maui.DrawnUi.Demo/assets/25801194/29a1a23f-dfd8-4289-910e-9062060d2f59
+https://github.com/taublast/AppoMobi.Maui.DrawnUi.Demo/assets/25801194/257eed8a-d96f-4640-bf01-b4c798e52abb
 
 ### SkiaShell ready for popups, modals and toasts out-of-the box
 
