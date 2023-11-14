@@ -9,7 +9,9 @@ Supports iOS, MacCatalyst, Android, Windows.
 
 _The current development state is __PRE-ALPHA__, some features remain to be implemented, the project is active._
 
-Library repo will go public at Alpha stage, Pre-Alpha nuget package is already available to be consumed.
+The rendering engine is free to use, the goal is to provide an easy way to create and draw custom-made ui elements.
+
+Library repo will go public at Alpha stage, Pre-Alpha nuget package is already available to be consumed. 
 
 ## What's new
 
