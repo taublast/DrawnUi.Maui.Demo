@@ -92,19 +92,18 @@ public class NavigationViewModel : BaseViewModel
 
     public void Initialize(string startupRoute)
     {
+        this.Shell = new AppShell();
 
-        if (Shell == null)
+        App.Current.MainPage = this.Shell;
+
+        SubscribeToEvents();
+
+        CommandGoBack = new Command(async () =>
         {
-            Shell = new AppShell(this, _services);
-            SubscribeToEvents();
-            CommandGoBack = new Command(async () =>
-            {
-                await Shell.PopDrawnAsync();
-            });
-        }
+            await Shell.PopAsync();
+        });
 
-        Shell.Start(startupRoute);
-
+        Shell.Initialize(startupRoute);
     }
 
     private void NeedUpdateInsets(object sender, EventArgs e)
@@ -573,40 +572,19 @@ public class NavigationViewModel : BaseViewModel
 
     }
 
-    public void GoBack(bool animate = true)
+    public async Task GoBack(bool animate = true)
     {
 
-        //App.Instance.Shell.GoToAsync("..");
+        //could also just do Shell.GoToAsync("..");
 
-        //return;
-
-        if (Shell != null)
+        if (Shell.ModalStack.Count > 0)
         {
-            MainThread.BeginInvokeOnMainThread(async () =>
-            {
-
-                if (Shell.Navigation.ModalStack.Count > 0)
-                {
-                    await Shell.Navigation.PopModalAsync(animate);
-                }
-                else
-                {
-                    await Shell.Navigation.PopAsync(animate);
-                }
-
-                //if (Device.RuntimePlatform == Device.iOS)
-                //{
-                //    var topPage = NavigationRoot.Navigation.NavigationStack.LastOrDefault();
-                //    var modern = topPage as ModernEnhancedPage;
-                //    if (modern!=null)
-                //    {
-                //   //     modern.CallOnAppearing();
-                //    }
-                //}
-
-            });
+            await Shell.PopModalAsync(animate);
         }
-
+        else
+        {
+            await Shell.PopAsync(animate);
+        }
 
     }
 

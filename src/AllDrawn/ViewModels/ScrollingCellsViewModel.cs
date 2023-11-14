@@ -32,7 +32,7 @@ public class ScrollingCellsViewModel : ProjectViewModel, IFullscreenGalleryManag
                 await Task.Run(async () =>
                 {
 
-                    App.Shell.ShowToast("App totally drawn with SkiaSharp 2.88. This demo is loading images from internet in realtime. 🚀🤩😋");
+                    App.Shell.ShowToast("A drawn CollectionView 😋👍 alternative built with a ***SkiaScroll*** and a ***SkiaLayout***. Only the visible number of recycled cells is created, loading more data when reaching bottom, refresh view uses ___SkiaLottie___. Can slide cells to reveal a mock control.");
 
                 }).ConfigureAwait(false);
             });

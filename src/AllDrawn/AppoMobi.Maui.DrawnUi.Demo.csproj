@@ -37,7 +37,7 @@
 
 
   <ItemGroup>
-    <PackageReference Include="AppoMobi.Maui.DrawnUi" Version="1.0.1.15-pre" />
+    <PackageReference Include="AppoMobi.Maui.DrawnUi" Version="1.0.1.17-pre" />
   </ItemGroup>
 
   <ItemGroup>
@@ -84,6 +84,9 @@
   </ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="AppShell.xaml.cs">
+	    <DependentUpon>AppShell.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="Resources\Strings\ResStrings.Designer.cs">
 	    <DependentUpon>ResStrings.resx</DependentUpon>
 	    <DesignTime>True</DesignTime>

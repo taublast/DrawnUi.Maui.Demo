@@ -13,12 +13,17 @@ Library repo will go public at Alpha stage, Pre-Alpha nuget package is already a
 
 ## What's new
 
-*  Added shaped text to SkiaMarkdownLabel so it can now render Arabic etc. Added Spans BackgroundColor support.
+* Fixes: SkiaLabel text vertical positionning, SkiaScroll swipes.
+* SkiaScroll HeaderParallax, easily create parallax scrolling, see in demo.
+* `SkiaControl` now derives from `VisualElement`. Full support for xaml styles, states, triggers, hotreload now works better, will be improved more.
+* SkiaShell breaking changes, it is now a reworked ContentPage, many methods renamed to be more inline with Maui Shell.
 
 ## Development Notes
 
+* Closest roadmap: Drawn collectionview alternative to fully support dynamic height cells (chat messages example incoming).
 * All files to be consumed (images etc) must be placed inside the maui app Resources/Raw folder, subfolders allowed.
-* SkiaScrollLooped needs a fix, has GC called too much resulting in animations lag spikes, can bee seen in the Maui Robot page.
+* If you use the LiveTree toolbar in VS it would crash while debugging at some point please do not use it. 
+* GC.Colect might create sudden lag spikes during animations.
 
 ## Screenshots
 
@@ -475,34 +480,9 @@ RegisterActionRoute("settings", () =>
 
 ```
 
-#### _Properties_:
-
-* `SkiaLayout RootLayout`
-
-* `SkiaViewSwitcher NavigationLayout`
-
-* `SkiaControl ShellLayout`
-
-#### Methods:
-
-* `void Initialize(Canvas canvas)`
-
-* GoToAsync(string route, bool animated = true, bool force = false) - Navigates to a route.
-
-* For navigation on the initialized Canvas you could use 
-
- `PushDrawnAsync`, `PopDrawnAsyn	c` the would push/pop a screen like a usual maui page, but inside the SkiaViewSwitcher.
-
- 
-
-* `Task (ShellNavigationState page, bool animated = true)`
-* `Task PushDrawnAsync(BindableObject page, bool animated = true)`
-
-
 #### Usage
 
-Screens registered as routes must be wrapped inside an `ElementAdapter`, to be compatible with some internal maui logic (the CreateContent function..).
-
+Please see demo.
 
 ## Drawn Controls
 

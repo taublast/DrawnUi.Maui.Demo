@@ -57,7 +57,7 @@ namespace AppoMobi.Maui.DrawnUi.Demo.ViewModels
                             var vm = App.Instance.Services.GetService<TakePictureViewModel>();
                             //todo set callback
                             var content = new ScreenCameraPhoto(vm);
-                            await App.Shell.PushDrawnModalAsync(content, false, true, VisibilityParameters.Visible, new Dictionary<string, object>
+                            await App.Shell.PushModalAsync(content, false, true, VisibilityParameters.Visible, new Dictionary<string, object>
                             {
                                 {"callback", new Command(async (context) =>
                                 {
@@ -208,7 +208,7 @@ namespace AppoMobi.Maui.DrawnUi.Demo.ViewModels
                     await Task.Run(async () =>
                     {
                         var content = new ModalContent();
-                        await Presentation.Shell.PushDrawnModalAsync(content, true, true, new VisibilityParameters
+                        await Presentation.Shell.PushModalAsync(content, true, true, new VisibilityParameters
                         {
                             IsVisible = true,
                         });
@@ -323,7 +323,7 @@ namespace AppoMobi.Maui.DrawnUi.Demo.ViewModels
                     await Task.Run(async () =>
                     {
                         var page = Presentation.Shell.NavigationLayout.GetSavedControl("StackUsers");
-                        await Presentation.Shell.PushDrawnAsync(page, true);
+                        await Presentation.Shell.PushAsync(page, true);
 
                     }).ConfigureAwait(false);
 
@@ -345,7 +345,7 @@ namespace AppoMobi.Maui.DrawnUi.Demo.ViewModels
                     await Task.Run(async () =>
                     {
                         var page = new ScreenFun(new LakeViewModel());
-                        await Presentation.Shell.PushDrawnAsync(page, true);
+                        await Presentation.Shell.PushAsync(page, true);
 
                     }).ConfigureAwait(false);
 
@@ -404,7 +404,7 @@ namespace AppoMobi.Maui.DrawnUi.Demo.ViewModels
                     await Task.Run(async () =>
                     {
 
-                        await App.Shell.PushDrawnAsync(new ScreenLottieRive());
+                        await App.Shell.PushAsync(new ScreenLottieRive());
 
                     }).ConfigureAwait(false);
 
@@ -424,7 +424,7 @@ namespace AppoMobi.Maui.DrawnUi.Demo.ViewModels
                     await Task.Run(async () =>
                     {
 
-                        await App.Shell.PushDrawnAsync(new ScreenVarious());
+                        await App.Shell.PushAsync(new ScreenVarious());
 
                     }).ConfigureAwait(false);
 
@@ -446,10 +446,10 @@ namespace AppoMobi.Maui.DrawnUi.Demo.ViewModels
                     await Task.Run(async () =>
                     {
                         var content = new ScreenBrowser("SkiaMauiElement - WebView", "https://dotnet.microsoft.com/en-us/apps/maui");
-                        await App.Shell.PushDrawnModalAsync(content, true, true, VisibilityParameters.Visible);
+                        await App.Shell.PushModalAsync(content, true, true, VisibilityParameters.Visible);
 
                         //var page = new ScreenVarious();
-                        //await Presentation.Shell.PushDrawnAsync(page, true);
+                        //await Presentation.Shell.PushAsync(page, true);
 
                     }).ConfigureAwait(false);
 
@@ -471,7 +471,7 @@ namespace AppoMobi.Maui.DrawnUi.Demo.ViewModels
                     await Task.Run(async () =>
                     {
                         var page = new ScreenLabels();
-                        await Presentation.Shell.PushDrawnAsync(page, true);
+                        await Presentation.Shell.PushAsync(page, true);
 
                     }).ConfigureAwait(false);
                 });
@@ -491,10 +491,10 @@ namespace AppoMobi.Maui.DrawnUi.Demo.ViewModels
                     //while we build page to be opened
                     await Task.Run(async () =>
                     {
-                        await App.Shell.GoToAsync("carousel", true);
+                        await App.Shell.GoToAsync(AppScreens.Carousel.Route, true);
 
                         //var page = new ScreenCarousel();
-                        //await Presentation.Shell.PushDrawnAsync(page, true);
+                        //await Presentation.Shell.PushAsync(page, true);
 
                     }).ConfigureAwait(false);
                 });
@@ -512,8 +512,7 @@ namespace AppoMobi.Maui.DrawnUi.Demo.ViewModels
 
                     await Task.Run(async () =>
                     {
-                        await App.Shell.GoToAsync("controls", true);
-
+                        await App.Shell.GoToAsync(AppScreens.Controls.Route, true);
                     }).ConfigureAwait(false);
                 });
             }
@@ -534,7 +533,7 @@ namespace AppoMobi.Maui.DrawnUi.Demo.ViewModels
                     await Task.Run(async () =>
                     {
                         var page = new ScreenTransforms();
-                        await Presentation.Shell.PushDrawnAsync(page, true);
+                        await Presentation.Shell.PushAsync(page, true);
 
                     }).ConfigureAwait(false);
                 });

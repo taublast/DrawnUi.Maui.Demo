@@ -164,7 +164,7 @@
                         UseCache="Operations" />
 
                     <draw:SkiaLabel
-                        FontSize="11"
+                        FontSize="13"
                         HorizontalOptions="Fill"
                         HorizontalTextAlignment="Center"
                         Style="{StaticResource SkiaLabelDefaultStyle}"
@@ -331,7 +331,6 @@
                     Bounces="True"
                     HeightRequest="100"
                     HorizontalOptions="Fill"
-                    IsClippedToBounds="True"
                     LockChildrenGestures="PassTap"
                     Orientation="Horizontal"
                     Tag="HScroll"

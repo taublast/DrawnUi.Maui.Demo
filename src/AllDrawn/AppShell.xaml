@@ -1,40 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<controls1:ContentPage
-    x:Class="AppoMobi.Maui.DrawnUi.Demo.MainPage"
+<draw:SkiaShell
+    x:Class="AppoMobi.Maui.DrawnUi.Demo.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:content="clr-namespace:AppoMobi.Maui.DrawnUi.Demo.Views.Content"
-    xmlns:controls="clr-namespace:AppoMobi.Maui.DrawnUi.Demo.Views.Controls"
-    xmlns:controls1="http://schemas.microsoft.com/dotnet/2021/maui"
-    xmlns:demo="using:AppoMobi.Maui.DrawnUi.Demo"
     xmlns:draw="http://schemas.appomobi.com/drawnUi/2023/draw"
-    xmlns:gestures="clr-namespace:AppoMobi.Maui.Gestures;assembly=AppoMobi.Maui.Gestures"
     xmlns:navigation="clr-namespace:AppoMobi.Maui.DrawnUi.Demo.Views.Navigation"
     xmlns:viewModels="using:AppoMobi.Maui.DrawnUi.Demo.ViewModels"
     x:DataType="viewModels:MainPageViewModel"
     BackgroundColor="Transparent"
     NavigationPage.HasNavigationBar="false">
 
-    <!--
-        When the drawing canvas will be created we'd have a short time like few milliseconds
-        while hardware accelerated surface would be created and at this time maui will
-        just display this page background, window background and so on.
-        
-        So you 'd want to set here the background color,
-        or gradient, whatever to transition from your splash screen. One could even never notice
-        this short blink but better be prepared and avoid it
-        When not using hardware acceleration this might not even be needed on some platforms.
-        
-        What we do actually on android we set everything to transparent, show splash screen
-        and fad in canvas over it.
-    -->
-
     <draw:Canvas
         x:Name="Canvas"
-        gestures:TouchEffect.ForceAttach="True"
-        x:DataType="viewModels:MainPageViewModel"
+        GesturesEnabled="True"
         HorizontalOptions="Fill"
-        Tag="MainPage"
         VerticalOptions="Fill"
         WillFirstTimeDraw="Canvas_WillFirstTimeDraw">
 
@@ -46,18 +26,9 @@
             </OnPlatform>
         </draw:Canvas.HardwareAccelerated>
 
-        <draw:Canvas.Resources>
-            <ResourceDictionary>
-
-
-            </ResourceDictionary>
-        </draw:Canvas.Resources>
-
-        <!--  Shell layout  -->
+        <!--  ShellLayout  -->
         <draw:SkiaLayout
-            x:Name="ShellLayout"
             HorizontalOptions="Fill"
-            Tag="ShellLayout"
             VerticalOptions="Fill">
 
             <!--  FPS  -->
@@ -233,4 +204,4 @@
     </draw:Canvas>
 
 
-</controls1:ContentPage>
+</draw:SkiaShell>

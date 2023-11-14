@@ -80,7 +80,7 @@ public class ProjectViewModel : BaseViewModel
         if (CheckLockAndSet())
             return;
 
-        await App.Shell.PopDrawnModalAsync(true);
+        await App.Shell.PopModalAsync(true);
     });
 
     public Command CommandTest => new Command(async () =>

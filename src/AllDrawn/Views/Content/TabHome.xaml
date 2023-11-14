@@ -79,6 +79,8 @@
             <!--  drawn CollectionView alternative  -->
             <draw:SkiaScroll
                 x:Name="BannersScroll"
+                HeaderBehind="True"
+                HeaderParallaxRatio="0.8"
                 HorizontalOptions="Fill"
                 IsRefreshing="{Binding IsLoading, Mode=TwoWay}"
                 LoadMoreCommand="{Binding CommandLoadMore}"
@@ -119,7 +121,9 @@
                             FontSize="13"
                             HorizontalOptions="Fill"
                             HorizontalTextAlignment="Center"
-                            Text="A drawn CollectionView 😋👍 alternative built with a ***SkiaScroll*** and a ***SkiaLayout***. Only the visible number of recycled cells is created, loading more data when reaching bottom, refresh view uses ___SkiaLottie___. Can slide cells to reveal a mock control."
+                            LineSpacing="1.33"
+                            ParagraphSpacing="0"
+                            Text="App totally drawn with SkiaSharp.&#x0a;These recycled cells are loading images from internet in realtime. 🚀🤩😋 Tap this header for more info."
                             TextColor="Black"
                             UseCache="Operations"
                             VerticalOptions="Center" />
