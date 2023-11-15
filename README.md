@@ -16,6 +16,7 @@ Library repo will go public at Alpha stage, Pre-Alpha nuget package is already a
 ## What's new
 
 * Fixes: SkiaLabel text vertical positionning, SkiaScroll swipes.
+* Added property `GesturesEnabled` to `Canvas` to be used instead of attaching gestures effect.
 * SkiaScroll HeaderParallax, easily create parallax scrolling, see in demo.
 * `SkiaControl` now derives from `VisualElement`. Full support for xaml styles, states, triggers, hotreload now works better, will be improved more.
 * SkiaShell breaking changes, it is now a reworked ContentPage, many methods renamed to be more inline with Maui Shell.
@@ -25,7 +26,7 @@ Library repo will go public at Alpha stage, Pre-Alpha nuget package is already a
 * Closest roadmap: Drawn collectionview alternative to fully support dynamic height cells (chat messages example incoming).
 * All files to be consumed (images etc) must be placed inside the maui app Resources/Raw folder, subfolders allowed.
 * If you use the LiveTree toolbar in VS it would crash while debugging at some point please do not use it. 
-* GC.Colect might create sudden lag spikes during animations.
+* GC.Collect might create sudden lag spikes during animations.
 
 ## Screenshots
 
