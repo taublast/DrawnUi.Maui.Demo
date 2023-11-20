@@ -197,7 +197,7 @@ public partial class Lake : SkiaLayout
 
 
     public override ISkiaGestureListener OnGestureEvent(TouchActionType type, TouchActionEventArgs args, TouchActionResult action,
-        SKPoint childOffset)
+        SKPoint childOffset, SKPoint childOffsetDirect)
     {
         if (action == TouchActionResult.Touch)
             return null;
@@ -274,6 +274,6 @@ public partial class Lake : SkiaLayout
         //	Debug.WriteLine($"[LAKE] {type} {action} d {args.Distance.Delta.X}x{args.Distance.Delta.Y}  v {args.Distance.Velocity.X}x{args.Distance.Velocity.Y}");
         //}
 
-        return base.OnGestureEvent(type, args, action, childOffset);
+        return base.OnGestureEvent(type, args, action, childOffset, childOffsetDirect);
     }
 }

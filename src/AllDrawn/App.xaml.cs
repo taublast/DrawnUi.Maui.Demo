@@ -128,7 +128,7 @@ namespace AppoMobi.Maui.DrawnUi.Demo
                 },
                 null); //default null will use system language
 
-            Presentation.Initialize(null); //null will not navigate anywhere from default
+            Presentation.Initialize(AppRoutes.Root.Route);
         }
 
         public static App Instance => App.Current as App;

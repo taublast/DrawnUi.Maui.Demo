@@ -15,6 +15,12 @@ Library repo will go public at Alpha stage, Pre-Alpha nuget package is already a
 
 ## What's new
 
+1.0.1.20-pre
+* Improvements: Demo cells caching for smoother scrolling, SkiaShell usage redesigned (breaking) and more.
+* Fixes: Gestures coordinates inside multiple cached controls tree, SkiaScroll content size changed while panning, SkiaSwitch crash, and more
+* Updated gestures nuget: Tap/LongPressing will never not be not triggered while panning.
+
+1.0.1.17-pre
 * Fixes: SkiaLabel text vertical positionning, SkiaScroll swipes.
 * Added property `GesturesEnabled` to `Canvas` to be used instead of attaching gestures effect.
 * SkiaScroll HeaderParallax, easily create parallax scrolling, see in demo.

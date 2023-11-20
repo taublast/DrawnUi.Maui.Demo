@@ -12,7 +12,7 @@ namespace AppoMobi.Maui.DrawnUi.Demo
             try
             {
                 //ROUTES
-                foreach (var appRoute in AppScreens.GetRoutes())
+                foreach (var appRoute in AppRoutes.GetRoutes())
                 {
                     RegisterRoute(appRoute.Item1, appRoute.Item2);
                 }
@@ -63,7 +63,7 @@ namespace AppoMobi.Maui.DrawnUi.Demo
         private async void Canvas_WillFirstTimeDraw(object sender, SkiaDrawingContext e)
         {
             Canvas.Opacity = 0.001;
-            await Canvas.FadeTo(1, 2500, Easing.Linear);
+            await Canvas.FadeTo(1, 3000, Easing.Linear);
         }
 
     }

@@ -50,6 +50,7 @@
 
         <!--  SWITCHES  -->
         <draw:SkiaLayout
+            MinimumHeightRequest="60"
             HorizontalOptions="Fill"
             Spacing="24"
             Type="Row">

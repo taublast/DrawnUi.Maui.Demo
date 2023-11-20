@@ -45,7 +45,6 @@
 
                     <!--  SIMPLE LABEL MULTILINE  -->
                     <draw:SkiaLabel
-                        BackgroundColor="#08000000"
                         FontSize="12"
                         HorizontalOptions="Fill"
                         HorizontalTextAlignment="FillWords"

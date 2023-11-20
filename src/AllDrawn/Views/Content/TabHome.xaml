@@ -78,6 +78,7 @@
 
             <!--  drawn CollectionView alternative  -->
             <draw:SkiaScroll
+                ParallaxOverscrollEnabled="True"
                 x:Name="BannersScroll"
                 HeaderBehind="True"
                 HeaderParallaxRatio="0.8"
@@ -104,16 +105,6 @@
                         HorizontalOptions="Fill"
                         Tag="Header"
                         UseCache="GPU">
-
-                        <!--<draw:SkiaLabel
-                            Margin="16,0"
-                            FontFamily="FontText"
-                            FontSize="12"
-                            HorizontalOptions="Fill"
-                            HorizontalTextAlignment="Center"
-                            Text="App totally drawn with SkiaSharp 2.88. Below we have recyclable cells with paging by 21, refresh view uses `SkiaLottie`. Click cells to open zoomable `SkiaCarousel` based gallery. Swipe cells to left to reveal a mock control behind. This text resides inside an auto-sized Header of a `SkiaScroll`."
-                            TextColor="Black"
-                            VerticalOptions="Center" />-->
 
                         <draw:SkiaMarkdownLabel
                             Margin="8,0"
@@ -162,11 +153,12 @@
                 </draw:SkiaScroll.RefreshIndicator>
 
                 <!--  CELLS  -->
+                <!--we disable DynamicColumns because of LoadMore --> 
                 <draw:SkiaLayout
+                    DynamicColumns="False"
                     x:Name="StackCells"
-                    DynamicColumns="True"
                     HorizontalOptions="Fill"
-                    InitializeTemplatesInBackgroundDelay="0"
+                    InitializeTemplatesInBackgroundDelay="50"
                     ItemsSource="{Binding Items}"
                     MaxColumns="{Binding Columns}"
                     Spacing="2"
@@ -176,8 +168,8 @@
                     <draw:SkiaLayout.ItemTemplate>
                         <DataTemplate>
 
-
                             <partials:FastCellWithBanner
+                                UseCache="GPU"
                                 x:DataType="viewModels:SimpleItemViewModel"
                                 HeightRequest="140"
                                 HorizontalOptions="Fill"
@@ -207,7 +199,7 @@
                                         HorizontalOptions="Fill"
                                         IsClippedToBounds="True"
                                         Tag="DrawerContent"
-                                        UseCache="GPU"
+                                        UseCache="Image"
                                         VerticalOptions="Fill">
 
                                         <draw:SkiaControl.FillGradient>

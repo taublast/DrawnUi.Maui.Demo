@@ -491,7 +491,7 @@ namespace AppoMobi.Maui.DrawnUi.Demo.ViewModels
                     //while we build page to be opened
                     await Task.Run(async () =>
                     {
-                        await App.Shell.GoToAsync(AppScreens.Carousel.Route, true);
+                        await App.Shell.GoToAsync(AppRoutes.Carousel.Route, true);
 
                         //var page = new ScreenCarousel();
                         //await Presentation.Shell.PushAsync(page, true);
@@ -512,7 +512,7 @@ namespace AppoMobi.Maui.DrawnUi.Demo.ViewModels
 
                     await Task.Run(async () =>
                     {
-                        await App.Shell.GoToAsync(AppScreens.Controls.Route, true);
+                        await App.Shell.GoToAsync(AppRoutes.Controls.Route, true);
                     }).ConfigureAwait(false);
                 });
             }

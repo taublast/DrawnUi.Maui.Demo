@@ -28,11 +28,11 @@ public partial class SmallButton : SkiaButton
     }
 
     //could also create a shadow and hide it when pressed
-    public override bool OnDown(float pixelsX, float pixelsY)
+    public override bool OnDown(TouchActionEventArgs args, SKPoint childOffset)
     {
-        this.ScaleToAsync(0.98, 0.95, 16, Easing.CubicOut);
+        this.ScaleToAsync(0.98, 0.98, 16, Easing.CubicOut);
 
-        return base.OnDown(pixelsX, pixelsY);
+        return base.OnDown(args, childOffset);
     }
 
 
@@ -43,12 +43,6 @@ public partial class SmallButton : SkiaButton
         base.OnUp();
     }
 
-    public override bool OnTapped(float pixelsX, float pixelsY, TouchActionEventArgs args)
-    {
-        //AnimatePress(this);
-
-        return base.OnTapped(pixelsX, pixelsY, args);
-    }
 
     SkiaLabel MainLabel;
     SkiaShape MainFrame;

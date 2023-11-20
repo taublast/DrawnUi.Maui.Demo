@@ -35,11 +35,6 @@
 	  <CreatePackage>false</CreatePackage>
 	</PropertyGroup>
 
-
-  <ItemGroup>
-    <PackageReference Include="AppoMobi.Maui.DrawnUi" Version="1.0.1.17-pre" />
-  </ItemGroup>
-
   <ItemGroup>
 
     <!--Icon-->
@@ -74,6 +69,7 @@
 
 
 	<ItemGroup>
+		<PackageReference Include="AppoMobi.Maui.DrawnUi" Version="1.0.1.20-pre" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
 	</ItemGroup>
  
@@ -118,4 +114,10 @@
 	    <BaseSize>168,208</BaseSize>
 	  </MauiImage>
 	</ItemGroup>
+
+  <ItemGroup>
+    <MauiXaml Update="Views\MainScreen.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </MauiXaml>
+  </ItemGroup>
 </Project>
