@@ -38,13 +38,15 @@
                 Tag="StatusBar" />
 
             <!--  toolbar  -->
-            <!--we use padding to save space for shadow
-            and negative margin to drop on the next item-->
+            <!--
+                we use padding to save space for shadow
+                and negative margin to drop on the next item
+            -->
             <draw:SkiaLayout
-                UseCache="GPU"
                 Margin="0,0,0,-8"
                 Padding="0,0,0,8"
-                HorizontalOptions="Fill">
+                HorizontalOptions="Fill"
+                UseCache="GPU">
 
                 <draw:SkiaShape
                     BackgroundColor="Black"
@@ -174,18 +176,14 @@
                 </draw:SkiaScroll.RefreshIndicator>
 
                 <!--  CELLS  -->
-                <!--  we disabled RecyclingTemplate for this screen case, 
-                to have the firest look to be butter fluid.
-                For LoadMore enabled you sure need RecyclingTemplate On but
-                In real life for RecyclingTemplate Enabled you are likely to have 
-                either heavy cells with large height, either light rows..-->
+                <!--  RecyclingTemplate + UseCacheDoubleBuffering..  -->
                 <draw:SkiaLayout
                     x:Name="StackCells"
                     DynamicColumns="False"
                     HorizontalOptions="Fill"
                     ItemsSource="{Binding Items}"
                     MaxColumns="{Binding Columns}"
-                    RecyclingTemplate="Disabled"
+                    RecyclingTemplate="Enabled"
                     Spacing="2"
                     Tag="StackItems"
                     Type="Column">
@@ -199,7 +197,8 @@
                                 HorizontalOptions="Fill"
                                 IsClippedToBounds="True"
                                 Tag="ListCell"
-                                UseCache="GPU">
+                                UseCache="Image"
+                                UseCacheDoubleBuffering="True">
 
                                 <!--  DRAWER  -->
                                 <!--  cell content is inside drawer, controls will be behind  -->
