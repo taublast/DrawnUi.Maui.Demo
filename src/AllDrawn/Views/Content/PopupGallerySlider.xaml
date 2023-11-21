@@ -12,8 +12,8 @@
     <!--  ItemsSource="{Binding GalleryItems}"  -->
 
     <content:GalleryPopupLayout
-        draw:HandleGestures.CommandTapped="{Binding CommandCloseGallery}"
         draw:HandleGestures.CommandLongPressing="{Binding CommandPressingImage}"
+        draw:HandleGestures.CommandTapped="{Binding CommandCloseGallery}"
         BackgroundColor="Black"
         HorizontalOptions="Fill"
         VerticalOptions="Fill">
@@ -34,15 +34,15 @@
                 <DataTemplate>
 
                     <draw:ZoomContent
-                            ZoomMax="2"
-                            ZoomMin="1">
+                        UseCache="GPU"
+                        ZoomMax="2"
+                        ZoomMin="1">
 
                         <draw:SkiaLayout
                             x:DataType="x:String"
                             BackgroundColor="Black"
                             HorizontalOptions="Fill"
                             Tag="Tpl"
-                            UseCache="GPU"
                             VerticalOptions="Fill">
 
                             <draw:SkiaImage
@@ -66,7 +66,7 @@
 
                         </draw:SkiaLayout>
 
-                        </draw:ZoomContent>
+                    </draw:ZoomContent>
 
                 </DataTemplate>
 
