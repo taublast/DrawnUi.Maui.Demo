@@ -78,7 +78,6 @@
 
             <!--  drawn CollectionView alternative  -->
             <draw:SkiaScroll
-                ParallaxOverscrollEnabled="True"
                 x:Name="BannersScroll"
                 HeaderBehind="True"
                 HeaderParallaxRatio="0.8"
@@ -87,6 +86,7 @@
                 LoadMoreCommand="{Binding CommandLoadMore}"
                 LoadMoreOffset="500"
                 MaxVelocity="10000"
+                ParallaxOverscrollEnabled="True"
                 RefreshCommand="{Binding CommandRefreshData}"
                 RefreshEnabled="True"
                 ResetScrollPositionOnContentSizeChanged="True"
@@ -153,10 +153,10 @@
                 </draw:SkiaScroll.RefreshIndicator>
 
                 <!--  CELLS  -->
-                <!--we disable DynamicColumns because of LoadMore --> 
+                <!--  we disable DynamicColumns because of LoadMore  -->
                 <draw:SkiaLayout
-                    DynamicColumns="False"
                     x:Name="StackCells"
+                    DynamicColumns="False"
                     HorizontalOptions="Fill"
                     InitializeTemplatesInBackgroundDelay="50"
                     ItemsSource="{Binding Items}"
@@ -169,12 +169,12 @@
                         <DataTemplate>
 
                             <partials:FastCellWithBanner
-                                UseCache="GPU"
                                 x:DataType="viewModels:SimpleItemViewModel"
                                 HeightRequest="140"
                                 HorizontalOptions="Fill"
                                 IsClippedToBounds="True"
-                                Tag="ListCell">
+                                Tag="ListCell"
+                                UseCache="GPU">
 
                                 <!--  DRAWER  -->
                                 <!--  cell content is inside drawer, controls will be behind  -->
@@ -199,7 +199,7 @@
                                         HorizontalOptions="Fill"
                                         IsClippedToBounds="True"
                                         Tag="DrawerContent"
-                                        UseCache="Image"
+                                        UseCache="None"
                                         VerticalOptions="Fill">
 
                                         <draw:SkiaControl.FillGradient>
@@ -226,7 +226,7 @@
                                             HorizontalOptions="Fill"
                                             LoadSourceOnFirstDraw="False"
                                             Tag="ImageBanner"
-                                            UseCache="GPU"
+                                            UseCache="None"
                                             VerticalOptions="Fill"
                                             ZIndex="-1" />
 
