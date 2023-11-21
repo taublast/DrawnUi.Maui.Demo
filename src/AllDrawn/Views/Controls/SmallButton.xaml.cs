@@ -28,11 +28,11 @@ public partial class SmallButton : SkiaButton
     }
 
     //could also create a shadow and hide it when pressed
-    public override bool OnDown(TouchActionEventArgs args, SKPoint childOffset)
+    public override bool OnDown(TouchActionEventArgs args, SKPoint childOffset, SKPoint childOffsetDirect)
     {
         this.ScaleToAsync(0.98, 0.98, 16, Easing.CubicOut);
 
-        return base.OnDown(args, childOffset);
+        return base.OnDown(args, childOffset, childOffsetDirect);
     }
 
 

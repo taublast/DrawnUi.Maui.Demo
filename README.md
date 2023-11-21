@@ -2,7 +2,7 @@
 
 Using rendering engine for .Net MAUI to draw your UI on a Skia canvas, with gestures and animations.
 
-Supports iOS, MacCatalyst, Android, Windows.
+Supports **iOS**, **MacCatalyst**, **Android**, **Windows**.
 
 * To use inside a usual Maui app, consume drawn controls here and there inside `Canvas` views.
 * Create a totally drawn app with just one `Canvas` as root view and consume controls inside, `SkiaShell` is provided for navigation.
@@ -15,51 +15,45 @@ Library repo will go public at Alpha stage, Pre-Alpha nuget package is already a
 
 ## What's new
 
-1.0.1.21-pre
-* Demo cells optimized for smoother scrolling, added shadows to toolbar and bottom tabs.
-* Fixes: various stack+scroll stuff..
+1.0.1.23-pre
+* Demo cells `UseCacheDoubleBuffering="True"` now finally fixed smooth scrolling. Thinking about introducing a new cache type instead like `UseCache="DoubleBufferedImage"` or something..
+* Some controls fixes for better gestures handling.
 
-1.0.1.20-pre
-* Improvements: Demo cells caching for smoother scrolling, SkiaShell usage redesigned (breaking) and more.
+Previously..
 * Fixes: Gestures coordinates inside multiple cached controls tree, SkiaScroll content size changed while panning, SkiaSwitch crash, and more
 * Updated gestures nuget: Tap/LongPressing will never not be not triggered while panning.
-
-1.0.1.17-pre
-* Fixes: SkiaLabel text vertical positionning, SkiaScroll swipes.
 * Added property `GesturesEnabled` to `Canvas` to be used instead of attaching gestures effect.
-* SkiaScroll HeaderParallax, easily create parallax scrolling, see in demo.
+* SkiaScroll HeaderParallax, easily create parallax scrolling, see demo cells header.
 * `SkiaControl` now derives from `VisualElement`. Full support for xaml styles, states, triggers, hotreload now works better, will be improved more.
 * SkiaShell breaking changes, it is now a reworked ContentPage, many methods renamed to be more inline with Maui Shell.
 
 ## Development Notes
 
-* Closest roadmap: Drawn collectionview alternative to fully support dynamic height cells (chat messages example incoming).
 * All files to be consumed (images etc) must be placed inside the maui app Resources/Raw folder, subfolders allowed.
 * If you use the LiveTree toolbar in VS it would crash while debugging at some point please do not use it. 
 * GC.Collect might create sudden lag spikes during animations.
 
 ## Screenshots
 
-### Draw your own recycled cells on a canvas!
+### _Draw your own recycled cells on a canvas!_
 
 https://github.com/taublast/AppoMobi.Maui.DrawnUi.Demo/assets/25801194/257eed8a-d96f-4640-bf01-b4c798e52abb
 
-### SkiaShell ready for popups, modals and toasts out-of-the box
+### _SkiaShell ready for popups, modals and toasts out-of-the box_
 
 https://github.com/taublast/AppoMobi.Maui.DrawnUi.Demo/assets/25801194/00e4f8d1-a624-440d-90c4-884a30a0ac02
 
-### Animate with ease
+### _Animate with ease_
 
 https://github.com/taublast/AppoMobi.Maui.DrawnUi.Demo/assets/25801194/3c4c5fe9-6052-4a12-861b-014877ff3837
 
-### Build your drawn controls
+### _Build your drawn controls_
 
 https://github.com/taublast/AppoMobi.Maui.DrawnUi.Demo/assets/25801194/2182de51-929e-47f6-a560-e9d97ad16e52
 
-### Draw rich and tappable text
+### _Draw rich and tappable text_
 
 https://github.com/taublast/AppoMobi.Maui.DrawnUi.Demo/assets/25801194/a2efa080-f234-4d04-a7f5-aab8af462fb2
-
 
 ## Features
 
