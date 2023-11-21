@@ -32,7 +32,7 @@ public class ScrollingCellsViewModel : ProjectViewModel, IFullscreenGalleryManag
                 await Task.Run(async () =>
                 {
 
-                    App.Shell.ShowToast("A drawn CollectionView 😋👍 alternative built with a ***SkiaScroll*** and a ***SkiaLayout***. Only the visible number of recycled cells is created, loading more data when reaching bottom, refresh view uses ___SkiaLottie___. Can slide cells to reveal a mock control.");
+                    App.Shell.ShowToast("A drawn CollectionView 😋👍 alternative built with a ***SkiaScroll*** and a ***SkiaLayout***. Only those visible on screen cells are rendered, refresh view uses ___SkiaLottie___. Can slide cells to reveal a mock edit control.");
 
                 }).ConfigureAwait(false);
             });
