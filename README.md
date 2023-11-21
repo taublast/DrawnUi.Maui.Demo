@@ -15,7 +15,11 @@ Library repo will go public at Alpha stage, Pre-Alpha nuget package is already a
 
 ## What's new
 
-1.0.1.20-pre
+1.0.1.21-pre
+* Demo cells optimized for smoother scrolling, added shadows to toolbar and bottom tabs.
+* Fixes: various stack+scroll stuff..
+
+* 1.0.1.20-pre
 * Improvements: Demo cells caching for smoother scrolling, SkiaShell usage redesigned (breaking) and more.
 * Fixes: Gestures coordinates inside multiple cached controls tree, SkiaScroll content size changed while panning, SkiaSwitch crash, and more
 * Updated gestures nuget: Tap/LongPressing will never not be not triggered while panning.
