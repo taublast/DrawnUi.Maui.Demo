@@ -15,8 +15,8 @@ Library repo will go public at Alpha stage, Pre-Alpha nuget package is already a
 
 ## What's new
 
-1.0.1.23-pre
-* Demo cells `UseCacheDoubleBuffering="True"` now finally fixed smooth scrolling. Thinking about introducing a new cache type instead like `UseCache="DoubleBufferedImage"` or something..
+1.0.1.24-pre
+* Demo cells `UseCache="DoubleBufferedImage"` fixes smooth scrolling.
 * Some controls fixes for better gestures handling.
 
 Previously..

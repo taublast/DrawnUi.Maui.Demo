@@ -198,8 +198,7 @@
                                 HorizontalOptions="Fill"
                                 IsClippedToBounds="True"
                                 Tag="ListCell"
-                                UseCache="Image"
-                                UseCacheDoubleBuffering="True">
+                                UseCache="ImageDoubleBuffered">
 
                                 <!--  DRAWER  -->
                                 <!--  cell content is inside drawer, controls will be behind  -->
