@@ -15,7 +15,7 @@ Library repo will go public at Alpha stage, Pre-Alpha nuget package is already a
 
 ## What's new
 
-1.0.1.24-pre
+1.0.1.25-pre
 * Demo cells `UseCache="DoubleBufferedImage"` fixes smooth scrolling.
 * Some controls fixes for better gestures handling.
 
