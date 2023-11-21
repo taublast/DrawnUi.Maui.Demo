@@ -110,6 +110,8 @@
                 IsRefreshing="{Binding IsLoading, Mode=TwoWay}"
                 MaxVelocity="10000"
                 ParallaxOverscrollEnabled="True"
+                LoadMoreCommand="{Binding CommandLoadMore}"
+                LoadMoreOffset="500"
                 RefreshCommand="{Binding CommandRefreshData}"
                 RefreshEnabled="True"
                 ResetScrollPositionOnContentSizeChanged="True"

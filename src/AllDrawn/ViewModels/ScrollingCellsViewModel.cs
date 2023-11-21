@@ -276,12 +276,6 @@ public class ScrollingCellsViewModel : ProjectViewModel, IFullscreenGalleryManag
         var cancel = new CancellationTokenSource();
         CancelPreload = cancel;
 
-        if (reset)
-        {
-            _items.Clear();
-        }
-        _items.AddRange(items);
-
         async Task Action()
         {
             try
@@ -301,10 +295,7 @@ public class ScrollingCellsViewModel : ProjectViewModel, IFullscreenGalleryManag
             finally
             {
                 IsBusy = false;
-                if (reset)
-                {
-                    IsLoading = false;
-                }
+                IsLoading = false;
             }
         }
 
