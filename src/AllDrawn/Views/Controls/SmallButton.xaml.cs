@@ -1,3 +1,5 @@
+using AppoMobi.Maui.DrawnUi.Drawn.Infrastructure.Interfaces;
+
 namespace AppoMobi.Maui.DrawnUi.Demo.Views.Controls;
 
 public partial class SmallButton : SkiaButton
@@ -27,12 +29,12 @@ public partial class SmallButton : SkiaButton
         await icon.ScaleToAsync(1.0, 1.0, 50, Easing.SpringOut);
     }
 
-    //could also create a shadow and hide it when pressed
-    public override bool OnDown(TouchActionEventArgs args, SKPoint childOffset, SKPoint childOffsetDirect)
+    public override bool OnDown(TouchActionEventArgs args, SKPoint childOffset, SKPoint childOffsetDirect,
+        ISkiaGestureListener wasConsumed)
     {
         this.ScaleToAsync(0.98, 0.98, 16, Easing.CubicOut);
 
-        return base.OnDown(args, childOffset, childOffsetDirect);
+        return base.OnDown(args, childOffset, childOffsetDirect, wasConsumed);
     }
 
 

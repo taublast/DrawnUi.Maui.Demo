@@ -7,8 +7,6 @@ namespace AppoMobi.Maui.DrawnUi.Demo.Views.Controls;
 public partial class Lake : SkiaLayout
 {
 
-
-
     private SkiaControl _duck;
 
     private VelocitySkiaAnimator _animationDuckMoveX;
@@ -196,15 +194,13 @@ public partial class Lake : SkiaLayout
     }
 
 
-    public override ISkiaGestureListener OnGestureEvent(TouchActionType type, TouchActionEventArgs args, TouchActionResult action,
-        SKPoint childOffset, SKPoint childOffsetDirect)
+    public override ISkiaGestureListener ProcessGestures(TouchActionType type, TouchActionEventArgs args, TouchActionResult action,
+        SKPoint childOffset, SKPoint childOffsetDirect, ISkiaGestureListener wasConsumed)
     {
         if (action == TouchActionResult.Touch)
             return null;
 
         //		Trace.WriteLine($"[IN] {type} {action} dY: {args.Distance.Delta.Y:0.00} dX: {args.Distance.Delta.X:0.00} | vX: {args.Distance.Velocity.X:0.00} vY: {args.Distance.Velocity.Y:0.00}");
-
-
 
         if (_duck != null)
         {
@@ -227,13 +223,6 @@ public partial class Lake : SkiaLayout
                     var velocityY = (float)(args.Distance.Velocity.Y / _velocityRatoY);
                     _animationDuckMoveY.SetVelocity(velocityY).SetValue((float)_duck.TranslationY).Start();
 
-                    //var velocityX = args.Distance.Velocity.X / _velocityRatoX;
-                    //_animationDuckMoveX.SetVelocity((float)velocityX).SetValue((float)_duck.TranslationX).Start();
-
-                    //var velocityY = args.Distance.Velocity.Y / _velocityRatoY;
-                    //_animationDuckMoveY.SetVelocity((float)velocityY).SetValue((float)_duck.TranslationY).Start();
-
-                    //Console.WriteLine($"[V] {velocityX:0.00} {velocityY:0.00}");
                 }
                 else
                 if (action == TouchActionResult.Up)
@@ -241,13 +230,6 @@ public partial class Lake : SkiaLayout
                     if (GestureStartedInside(args))
                     {
                         _movingDuck = false;
-
-                        //var velocityX = (float)(args.Distance.Velocity.X / _velocityRatoX);
-                        //_animationDuckMoveX.SetVelocity(velocityX).SetValue((float)_duck.TranslationX).Start();
-
-                        //var velocityY = (float)(args.Distance.Velocity.Y / _velocityRatoY);
-                        //_animationDuckMoveY.SetVelocity(velocityY).SetValue((float)_duck.TranslationY).Start();
-
 
                         if (!_animationDuckMoveX.IsRunning)
                             MoveDuckX(args.Location.X / RenderingScale - _duck.Width / 2);
@@ -274,6 +256,6 @@ public partial class Lake : SkiaLayout
         //	Debug.WriteLine($"[LAKE] {type} {action} d {args.Distance.Delta.X}x{args.Distance.Delta.Y}  v {args.Distance.Velocity.X}x{args.Distance.Velocity.Y}");
         //}
 
-        return base.OnGestureEvent(type, args, action, childOffset, childOffsetDirect);
+        return base.ProcessGestures(type, args, action, childOffset, childOffsetDirect, wasConsumed);
     }
 }

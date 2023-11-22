@@ -15,9 +15,9 @@ Library repo will go public at Alpha stage, Pre-Alpha nuget package is already a
 
 ## What's new
 
-1.0.1.25-pre
+1.0.1.26-pre
 * Demo cells `UseCache="DoubleBufferedImage"` fixes smooth scrolling.
-* Some controls fixes for better gestures handling.
+* Now passing control that already consumed gestures to other gestures processors.
 
 Previously..
 * Fixes: Gestures coordinates inside multiple cached controls tree, SkiaScroll content size changed while panning, SkiaSwitch crash, and more
@@ -165,7 +165,8 @@ Please check the demo app, it contains many examples of usage.
 
 To make your root `Canvas` catch gestures you need to attach a `TouchEffect` to it.
 After that skia controls can process gestures in multiple ways:
-* Implementing an `ISkiaGestureListener` interface and overriding `OnGestureReceived`.
+* At low level by implementing an `ISkiaGestureListener` interface and overriding `OnGestureReceived`.
+* At control level by overriding `ProcessGestures`, recommended for custom controls.
 * Attaching a `HandleGestures` effect that has properties similar `SkiaHotspot`.
 * Including a `SkiaHotspot` as a child.
 * Using a `SkiaButton`.
@@ -174,7 +175,7 @@ Parent controls have full control over gestures and passing them to chidlren.
 In a base scenarion a gesture would be passed all along to the ends of a view tree to its ends for every top-level control.
 If a gesture is marked as consumed (by returning `true`) a control would typically stop processing gestures at this level. 
 
-By overrifing `OnGestureReceived` any control might process gestures with or without passing them to children.
+By overriding `ProcessGestures` any control might process gestures with or without passing them to children.
 
 When creating a custom control the standart code for the override would be to pass gestures below by caling `base` then processing at the current level. You might choose to do it differently acording your needs.
 
@@ -196,10 +197,34 @@ Caching is controlled using a property `UseCache` of the following type:
 ```csharp
 public enum SkiaCacheType
 {
+    /// <summary>
+    /// True and old school
+    /// </summary>
     None,
+
+    /// <summary>
+    /// Create and reuse SKPicture. Try this first for labels, svg etc. 
+    /// Do not use this when dropping shadows or with other effects, better use Bitmap. 
+    /// </summary>
     Operations,
+
+    /// <summary>
+    /// Will use simple SKBitmap cache type, will not use hardware acceleration.
+    /// Slower but will work for sizes bigger than graphics memory if needed.
+    /// </summary>
     Image,
-    GPU
+
+    /// <summary>
+    /// Using `Image` cache type with double buffering. Best for fast animated scenarios, this must be implemented by a specific control, not all controls support this, will fallback to 'Image' if anything.
+    /// </summary>
+    ImageDoubleBuffered,
+
+    /// <summary>
+    /// The way to go when dealing with images surrounded by shapes etc.
+    /// The cached surface will use the same graphic context as your canvas.
+    /// If hardware acceleration is enabled will try to cache as Bitmap inside graphics memory. Will fallback to simple Bitmap cache type if not possible. If you experience issues using it, switch to Memory cache type.
+    /// </summary>
+    GPU,
 }
 
 ```
@@ -208,6 +233,7 @@ You should tweak your design caching to avoid unnecessary re-drawing of elements
 The basic approach here is to cache small elements at some level. 
 For example you would cache small children like cells inside a SkiaScroll as `Image`. 
 At the same time avoid using bitmaps where just `Operations` type is enough, for example for __SkiaSvg__ results.
+You cannot include controls cached with type GPU inside controls cached with some different type, think of it like you can't include graphics memory inside cpu memory, will get a crash otherwise.
 
 When you start using any kind of animations you should start using caching to max your FPS. You can check the __DemoApp__ for such examples.
 
