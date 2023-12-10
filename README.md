@@ -35,17 +35,13 @@ __Previously..__
 
 ## Screenshots
 
-### _Draw your own recycled cells on a canvas!_
+### _Draw recycled cells on a canvas!_
 
 https://github.com/taublast/AppoMobi.Maui.DrawnUi.Demo/assets/25801194/257eed8a-d96f-4640-bf01-b4c798e52abb
 
-### _SkiaShell ready for popups, modals and toasts out-of-the box_
+### _Scroll, navigate and switch virtual views!_
 
-https://github.com/taublast/AppoMobi.Maui.DrawnUi.Demo/assets/25801194/00e4f8d1-a624-440d-90c4-884a30a0ac02
-
-### _Animate with ease_
-
-https://github.com/taublast/AppoMobi.Maui.DrawnUi.Demo/assets/25801194/3c4c5fe9-6052-4a12-861b-014877ff3837
+https://github.com/taublast/AppoMobi.Maui.DrawnUi.Demo/assets/25801194/e86200de-16ba-4e24-a7f5-ec7ba944a9a9
 
 ### _Build your drawn controls_
 
