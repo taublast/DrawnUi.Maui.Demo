@@ -37,7 +37,7 @@ __Previously..__
 
 ### _Draw recycled cells on a canvas!_
 
-https://github.com/taublast/AppoMobi.Maui.DrawnUi.Demo/assets/25801194/257eed8a-d96f-4640-bf01-b4c798e52abb
+https://github.com/taublast/AppoMobi.Maui.DrawnUi.Demo/assets/25801194/b56c79bc-6265-4808-86da-e86745cfaf74
 
 ### _Scroll, navigate and switch virtual views!_
 
