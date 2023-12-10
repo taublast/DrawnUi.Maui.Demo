@@ -52,10 +52,9 @@ https://github.com/taublast/AppoMobi.Maui.DrawnUi.Demo/assets/25801194/2182de51-
 
 https://github.com/taublast/AppoMobi.Maui.DrawnUi.Demo/assets/25801194/a2efa080-f234-4d04-a7f5-aab8af462fb2
 
-### _Feel free to draw anything_
+### _Draw anything_
 
-https://github.com/taublast/AppoMobi.Maui.DrawnUi.Demo/assets/25801194/b2ac6dfb-f3c0-44a0-80dc-e45a028b7ca6
-
+<img src="https://github.com/taublast/AppoMobi.Maui.DrawnUi.Demo/assets/25801194/b9c34474-7641-4a9d-a06f-e8bf299f1f81" width="300"/>
 
 ## Features
 
