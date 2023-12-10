@@ -54,7 +54,8 @@ https://github.com/taublast/AppoMobi.Maui.DrawnUi.Demo/assets/25801194/a2efa080-
 
 ### _Draw anything_
 
-https://github.com/taublast/AppoMobi.Maui.DrawnUi.Demo/assets/25801194/b9c34474-7641-4a9d-a06f-e8bf299f1f81
+https://github.com/taublast/AppoMobi.Maui.DrawnUi.Demo/assets/25801194/6f92241a-ab39-4f66-bc78-2f10755a2bae
+
 
 ## Features
 
