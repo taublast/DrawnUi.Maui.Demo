@@ -1,17 +1,21 @@
 ﻿# AppoMobi.Maui.DrawnUi DEMO
 
-Using rendering engine for .Net MAUI to draw your UI on a Skia canvas, with gestures and animations.
+Demo of an upcoming rendering engine for .Net MAUI to draw your UI on a Skia canvas, with gestures and animations. 
 
 Supports **iOS**, **MacCatalyst**, **Android**, **Windows**.
 
 * To use inside a usual Maui app, consume drawn controls here and there inside `Canvas` views.
 * Create a totally drawn app with just one `Canvas` as root view and consume controls inside, `SkiaShell` is provided for navigation.
-
+* Drawn controls are totally virtual and are basically commands for the DrawnUi library on what and how to draw on a skia canvas.
+ 
 _The current development state is __PRE-ALPHA__, some features remain to be implemented, the project is active._
 
 The rendering engine is free to use, the goal is to provide an easy way to create and draw custom-made ui elements.
 
 Library repo will go public at Alpha stage, Pre-Alpha nuget package is already available to be consumed. 
+
+## What is this
+
 
 ## What's new
 
