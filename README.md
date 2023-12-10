@@ -39,15 +39,15 @@ __Previously..__
 
 ## Screenshots
 
-### _Draw recycled cells on a canvas!_
+### _Draw your recycled cells on a canvas_
 
-https://github.com/taublast/AppoMobi.Maui.DrawnUi.Demo/assets/25801194/b56c79bc-6265-4808-86da-e86745cfaf74
+https://github.com/taublast/AppoMobi.Maui.DrawnUi.Demo/assets/25801194/f562e126-1586-4a4f-a08c-fb6437c0df27
 
-### _Scroll, navigate and switch virtual views!_
+### _Scroll, navigate and switch virtual views_
 
 https://github.com/taublast/AppoMobi.Maui.DrawnUi.Demo/assets/25801194/e86200de-16ba-4e24-a7f5-ec7ba944a9a9
 
-### _Build your drawn controls_
+### Create your drawn controls_
 
 https://github.com/taublast/AppoMobi.Maui.DrawnUi.Demo/assets/25801194/2182de51-929e-47f6-a560-e9d97ad16e52
 
@@ -55,7 +55,7 @@ https://github.com/taublast/AppoMobi.Maui.DrawnUi.Demo/assets/25801194/2182de51-
 
 https://github.com/taublast/AppoMobi.Maui.DrawnUi.Demo/assets/25801194/a2efa080-f234-4d04-a7f5-aab8af462fb2
 
-### _Feel free to create!_
+### _Feel free to draw anything_
 
 https://github.com/taublast/AppoMobi.Maui.DrawnUi.Demo/assets/25801194/b2ac6dfb-f3c0-44a0-80dc-e45a028b7ca6
 
