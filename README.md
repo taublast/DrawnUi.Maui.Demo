@@ -14,9 +14,6 @@ The rendering engine is free to use, the goal is to provide an easy way to creat
 
 Library repo will go public at Alpha stage, Pre-Alpha nuget package is already available to be consumed. 
 
-## What is this
-
-
 ## What's new
 
 __1.0.1.30-pre__
