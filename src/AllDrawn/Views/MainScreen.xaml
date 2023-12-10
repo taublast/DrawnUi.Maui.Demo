@@ -70,11 +70,11 @@
                 <draw:SkiaControl.Shadows>
 
                     <draw:SkiaShadow
-                        Blur="3"
-                        Opacity="0.25"
-                        X="2"
+                        Blur="4"
+                        Opacity="0.15"
+                        X="0"
                         Y="-2"
-                        Color="#FF0000" />
+                        Color="#00FF00" />
 
                 </draw:SkiaControl.Shadows>
             </draw:SkiaShape>

@@ -91,6 +91,7 @@
 
         <!--  LIST  -->
         <draw:SkiaShape
+            UseCache="Operations"
             Margin="0,0,0,0"
             CameraAngleX="15"
             CameraAngleY="6"

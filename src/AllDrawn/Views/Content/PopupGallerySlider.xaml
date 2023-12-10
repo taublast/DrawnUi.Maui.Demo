@@ -45,15 +45,6 @@
                             Tag="Tpl"
                             VerticalOptions="Fill">
 
-                            <draw:SkiaImage
-                                Margin="0"
-                                Aspect="AspectFit"
-                                EraseChangedContent="True"
-                                HorizontalOptions="Fill"
-                                Source="{Binding .}"
-                                VerticalOptions="Fill"
-                                ZIndex="1" />
-
                             <draw:SkiaSvg
                                 HeightRequest="110"
                                 HorizontalOptions="Center"
@@ -62,7 +53,16 @@
                                 SvgString="{StaticResource SvgGallery}"
                                 TintColor="{StaticResource Gray950}"
                                 UseCache="Operations"
-                                VerticalOptions="Center" />
+                                VerticalOptions="Center"
+                                ZIndex="-1" />
+
+                            <draw:SkiaImage
+                                Margin="0"
+                                Aspect="AspectFit"
+                                EraseChangedContent="True"
+                                HorizontalOptions="Fill"
+                                Source="{Binding .}"
+                                VerticalOptions="Fill" />
 
                         </draw:SkiaLayout>
 

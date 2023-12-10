@@ -44,7 +44,8 @@
                 TextColor="White"
                 VerticalOptions="End" />
 
-            <!--  required root layout wil be replaced by skiashell -->
+            <!--  required root layout placeholder wil be replaced by skiashell -->
+            <!--can use placeholder for later changing with navigation or just inlude your solid content directly here-->
             <draw:SkiaControl Tag="RootLayout" />
 
         </draw:SkiaLayout>

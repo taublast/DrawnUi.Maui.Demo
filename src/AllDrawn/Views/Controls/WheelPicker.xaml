@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<draw:SkiaLayout
+    x:Class="AppoMobi.Maui.DrawnUi.Demo.Views.Controls.WheelPicker"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:draw="http://schemas.appomobi.com/drawnUi/2023/draw"
+    x:Name="Container"
+    HeightRequest="200"
+    HorizontalOptions="Center"
+    WidthRequest="130"
+    UseCache="ImageDoubleBuffered"
+    BackgroundColor="Gray"
+    ZIndex="10">
+
+    <draw:SkiaControl.FillGradient>
+
+        <draw:SkiaGradient
+            EndXRatio="0"
+            EndYRatio="1"
+            StartXRatio="0"
+            StartYRatio="0"
+            Type="Linear">
+            <draw:SkiaGradient.Colors>
+                <Color>#000000</Color>
+                <Color>#232323</Color>
+                <Color>#000000</Color>
+            </draw:SkiaGradient.Colors>
+        </draw:SkiaGradient>
+
+    </draw:SkiaControl.FillGradient>
+
+    <!--  overlay separator line  -->
+    <draw:SkiaControl
+        BackgroundColor="Gray"
+        HeightRequest="0.75"
+        HorizontalOptions="Fill"
+        TranslationY="-22"
+        VerticalOptions="Center"
+        ZIndex="1" />
+
+    <!--  overlay separator line  -->
+    <draw:SkiaControl
+        BackgroundColor="Gray"
+        HeightRequest="0.75"
+        HorizontalOptions="Fill"
+        TranslationY="22"
+        VerticalOptions="Center"
+        ZIndex="1" />
+
+    <!--neverending scroll with items-->
+    <draw:SkiaScrollLooped
+        x:Name="Scroller"
+        FrictionScrolled="0.5"
+        HorizontalOptions="Fill"
+        Orientation="Vertical"
+        SnapToChildren="Center"
+        Tag="WheelScroll"
+        TrackIndexPosition="Center"
+        VerticalOptions="Fill">
+
+        <!--subclass layout for applying 3d transforms to items-->
+        <draw:ScrollPickerWheel
+            x:Name="Wheel"
+            BackgroundColor="Transparent"
+            DistortionAngle="1.0"
+            HorizontalOptions="Fill"
+            Spacing="0"
+            Type="Column"
+            WidthRequest="-1">
+
+            <draw:SkiaLayout.ItemTemplate>
+                <DataTemplate>
+
+                    <draw:ScrollPickerLabelContainer
+                        x:DataType="{x:Type x:String}"
+                        BackgroundColor="Transparent"
+                        ColorText="White"
+                        ColorTextSelected="Orange"
+                        HeightRequest="44"
+                        HorizontalOptions="Fill"
+                        Spacing="0">
+
+                        <draw:SkiaLabel
+                            Padding="4"
+                            FontSize="26"
+                            HorizontalOptions="Center"
+                            HorizontalTextAlignment="Center"
+                            Text="{Binding .}"
+                            TextColor="#ffffff"
+                            VerticalOptions="Center"
+                            VerticalTextAlignment="Center" />
+
+                    </draw:ScrollPickerLabelContainer>
+
+                </DataTemplate>
+
+            </draw:SkiaLayout.ItemTemplate>
+
+        </draw:ScrollPickerWheel>
+
+    </draw:SkiaScrollLooped>
+
+</draw:SkiaLayout>

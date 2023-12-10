@@ -23,6 +23,7 @@ namespace AppoMobi.Maui.DrawnUi.Demo
                 });
 
                 //UI tweaks
+                AppShell.PopupsAnimationSpeed = 250;//ms, we slowed a bit to accentuate popup opening fron the center of a tapped cell
                 Super.BottomTabsHeight = 56;
                 Super.NavBarHeight = 47;
                 ToastTextFont = "FontText";
@@ -35,6 +36,7 @@ namespace AppoMobi.Maui.DrawnUi.Demo
                 //TouchEffect.LogEnabled = true;
                 //SkiaShell.LogEnabled = true;
                 //SkiaLabel.DebugColor = Color.Parse("#22ff0000");
+                //DrawnUi.Views.Canvas.DebugGesturesColor=Color.Parse("#00ff0000");
 #endif
                 _vm = Services.GetService<MainPageViewModel>();
 

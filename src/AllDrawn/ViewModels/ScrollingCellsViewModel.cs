@@ -2,6 +2,7 @@
 using AppoMobi.Maui.DrawnUi.Demo.Interfaces;
 using AppoMobi.Maui.DrawnUi.Demo.Services;
 using AppoMobi.Maui.DrawnUi.Demo.Views.Content;
+using AppoMobi.Maui.DrawnUi.Infrastructure;
 using System.Windows.Input;
 
 namespace AppoMobi.Maui.DrawnUi.Demo.ViewModels;
@@ -32,7 +33,7 @@ public class ScrollingCellsViewModel : ProjectViewModel, IFullscreenGalleryManag
                 await Task.Run(async () =>
                 {
 
-                    App.Shell.ShowToast("A drawn CollectionView 😋👍 alternative built with a ***SkiaScroll*** and a ***SkiaLayout***. Only those visible on screen cells are rendered, refresh view uses ___SkiaLottie___. Can slide cells to reveal a mock edit control.");
+                    App.Shell.ShowToast("A drawn _CollectionView_ 😋👍 alternative, only visible on screen cells are rendered, refresh view uses ___SkiaLottie___. Slide cells to reveal a mock edit control behind.");
 
                 }).ConfigureAwait(false);
             });
@@ -71,20 +72,33 @@ public class ScrollingCellsViewModel : ProjectViewModel, IFullscreenGalleryManag
 
                 await Task.Run(async () =>
                 {
-                    Item = context as SimpleItemViewModel;
-                    if (Item != null)
+                    SKPoint? cellCenter = null;
+                    Task onAppearing = null;
+                    SelectedGalleryIndex = 0;
+
+                    if (context is SkiaTouchResultContext touchContext)
                     {
-                        //todo find index of the passed url
+                        //calculate data to animate gallery popup towards the center popup
+                        var location = touchContext.Control.GetPositionOnCanvas();
+                        cellCenter = new SKPoint(
+                            location.X + touchContext.Control.MeasuredSize.Pixels.Width / 2f,
+                            location.Y + touchContext.Control.MeasuredSize.Pixels.Height / 2f);
+                        context = touchContext.Context;
+                    }
+
+                    if (context is SimpleItemViewModel item)
+                    {
+                        Item = item;
+
                         var index = Items.IndexOf(Item);
                         if (index >= 0)
                             SelectedGalleryIndex = index;
-                        else
-                            SelectedGalleryIndex = 0;
-
-                        var gallery = new PopupGallerySlider(this);
-
-                        await Presentation.Shell.OpenPopupAsync(gallery.AttachControl, true);
                     }
+
+                    var gallery = new PopupGallerySlider(this);
+
+                    await Presentation.Shell.OpenPopupAsync(gallery.AttachControl, true,
+                        true, cellCenter, onAppearing);
 
                 }).ConfigureAwait(false);
 
@@ -92,6 +106,7 @@ public class ScrollingCellsViewModel : ProjectViewModel, IFullscreenGalleryManag
             });
         }
     }
+
 
 
     #region IGalleryManager

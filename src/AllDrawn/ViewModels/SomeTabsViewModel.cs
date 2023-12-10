@@ -1,10 +1,13 @@
 ﻿using AppoMobi.Maui.DrawnUi.Demo.Helpers;
 using AppoMobi.Maui.DrawnUi.Demo.Services;
 using System.Windows.Input;
+using AppoMobi.Maui.DrawnUi.Demo.Interfaces;
+using AppoMobi.Maui.DrawnUi.Demo.Views.Content;
+using AppoMobi.Maui.DrawnUi.Infrastructure;
 
 namespace AppoMobi.Maui.DrawnUi.Demo.ViewModels;
 
-public class SomeTabsViewModel : ProjectViewModel
+public class SomeTabsViewModel : ProjectViewModel, IFullscreenGalleryManager
 {
 	public SomeTabsViewModel(NavigationViewModel navModel) : base(navModel)
 	{
@@ -13,6 +16,165 @@ public class SomeTabsViewModel : ProjectViewModel
 		_mock = new MockDataProvider();
 
 	}
+
+    #region PICKER
+
+    private int _PickerIndex;
+    public int PickerIndex
+    {
+        get
+        {
+            return _PickerIndex;
+        }
+        set
+        {
+            if (_PickerIndex != value)
+            {
+                _PickerIndex = value;
+                OnPropertyChanged();
+            }
+        }
+    }
+
+
+    #endregion
+
+    /// <summary>
+    /// Selected Item
+    /// </summary>
+    public SimpleItemViewModel Item
+    {
+        get
+        {
+            return _item;
+        }
+        set
+        {
+            if (_item != value)
+            {
+                _item = value;
+                OnPropertyChanged();
+            }
+        }
+    }
+    private SimpleItemViewModel _item;
+
+    #region GALLERY MANAGER
+
+      public ICommand CommandOpenGallery
+    {
+        get
+        {
+            return new Command(async (context) =>
+            {
+                if (CheckLockAndSet())
+                    return;
+
+                await Task.Run(async () =>
+                {
+                    SKPoint? cellCenter = null;
+                    SelectedGalleryIndex = 0;
+
+                    //this is fro animating popup onening not from screen center
+                    //but from the cell middle location
+                    if (context is SkiaTouchResultContext touchContext)
+                    {
+                        //calculate data to animate gallery popup towards the center popup
+                        var location = touchContext.Control.GetPositionOnCanvas();
+                        cellCenter = new SKPoint(
+                            location.X + touchContext.Control.MeasuredSize.Pixels.Width / 2f,
+                            location.Y + touchContext.Control.MeasuredSize.Pixels.Height / 2f);
+                        context = touchContext.Context;
+
+                    }
+
+                    if (context is SimpleItemViewModel item)
+                    {
+                        Item = item;
+
+                        //todo find index of the passed url
+                        var index = Items.IndexOf(Item);
+                        if (index >= 0)
+                            SelectedGalleryIndex = index;
+                    }
+
+                    var gallery = new PopupGallerySlider(this);
+
+                    await Presentation.Shell.OpenPopupAsync(gallery.AttachControl, true,
+                        true, cellCenter);
+
+                }).ConfigureAwait(false);
+
+
+            });
+        }
+    }
+
+
+    #region IGalleryManager
+
+    public ICommand CommandCloseGallery
+    {
+        get
+        {
+            return new Command(async () =>
+            {
+                await App.Shell.ClosePopupAsync(true);
+            });
+        }
+    }
+
+    public ICommand CommandPressingImage
+    {
+        get
+        {
+            return new Command(async () =>
+            {
+                try
+                {
+                    var image = GalleryItems[SelectedGalleryIndex];
+                    CommandShareUrl.Execute(image);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e);
+                }
+            });
+        }
+    }
+
+    public IList<string> GalleryItems
+    {
+        get
+        {
+            //return all images from Items
+            var items = Items.Select(x => x.Banner).ToList();
+            return items;
+        }
+    }
+
+    private int _SelectedGalleryIndex;
+    public int SelectedGalleryIndex
+    {
+        get
+        {
+            return _SelectedGalleryIndex;
+        }
+        set
+        {
+            if (_SelectedGalleryIndex != value)
+            {
+                _SelectedGalleryIndex = value;
+                OnPropertyChanged();
+            }
+        }
+    }
+
+
+    #endregion
+
+
+    #endregion
 
 	string _title = "WithTabs!!";
 

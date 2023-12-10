@@ -72,7 +72,7 @@ public class MockDataProvider
     {
         //return images[random.Next(images.Length)];
 
-        return $"https://picsum.photos/100/100?s={seed}";
+        return $"https://picsum.photos/300/300?s={seed}";
     }
 
     public string GetRandomAvatar()
@@ -114,12 +114,12 @@ public class MockDataProvider
 
         private static string[] firstNames = new string[]
         {
-        "John", "Jane", "Peter", "Paul", "James", "Jill", "Soth", "Sara", "Robert", "Rachel"
+        "John", "Jane", "Lilly", "Paul", "James", "Rex", "Soth", "Sara", "Robert", "Rachel", "Archie"
         };
 
         private static string[] lastNames = new string[]
         {
-        "Smith", "Bronson", "Williams", "Brown", "Jones", "Mall", "Davis", "Garcia", "Rodriguez", "Wilson"
+        "Smith", "Bronson", "Rowen", "Brown", "Jones", "Mall", "Davis", "Garcia", "Goodwin", "Stout"
         };
 
         public static string GenerateRandomName()

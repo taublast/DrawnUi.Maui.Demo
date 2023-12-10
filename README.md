@@ -1,4 +1,4 @@
-# AppoMobi.Maui.DrawnUi DEMO
+﻿# AppoMobi.Maui.DrawnUi DEMO
 
 Using rendering engine for .Net MAUI to draw your UI on a Skia canvas, with gestures and animations.
 
@@ -15,15 +15,15 @@ Library repo will go public at Alpha stage, Pre-Alpha nuget package is already a
 
 ## What's new
 
-1.0.1.26-pre
-* Demo cells `UseCache="DoubleBufferedImage"` fixes smooth scrolling.
-* Now passing control that already consumed gestures to other gestures processors.
+__1.0.1.30-pre__
+[nuget](https://www.nuget.org/packages/AppoMobi.Maui.DrawnUi/1.0.1.30-pre)
+* Demo: ⛳ added __WheelPicker__ control, example opening popups from the center of a tapped control. Caching improved here and there.
+* SkiaMarkdownLabel and Skialabel: __Colored Emojies__  with skin tones 🏻🏼🏽🏾🏿
+* Performance improvements for SkiaImage and internal layout measurements __more fps__ 🤩!
+* Fixes for: Windows unicode, ZIndex in Row/Column layout and more..
 
-Previously..
-* Fixes: Gestures coordinates inside multiple cached controls tree, SkiaScroll content size changed while panning, SkiaSwitch crash, and more
-* Updated gestures nuget: Tap/LongPressing will never not be not triggered while panning.
-* Added property `GesturesEnabled` to `Canvas` to be used instead of attaching gestures effect.
-* SkiaScroll HeaderParallax, easily create parallax scrolling, see demo cells header.
+__Previously..__
+* Demo cells `UseCache="DoubleBufferedImage"` fixes smooth scrolling.
 * `SkiaControl` now derives from `VisualElement`. Full support for xaml styles, states, triggers, hotreload now works better, will be improved more.
 * SkiaShell breaking changes, it is now a reworked ContentPage, many methods renamed to be more inline with Maui Shell.
 

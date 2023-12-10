@@ -1,12 +1,12 @@
 ﻿using AppoMobi.Maui.DrawnUi.Draw;
 using AppoMobi.Maui.Gestures;
+using Microsoft.Maui.Controls.Internals;
+using System.Diagnostics;
 
 namespace SomeMauiApp
 {
     public partial class MainPage : ContentPage
     {
-
-
         public MainPage()
         {
             InitializeComponent();
@@ -33,5 +33,6 @@ namespace SomeMauiApp
             }
 
         }
+
     }
 }

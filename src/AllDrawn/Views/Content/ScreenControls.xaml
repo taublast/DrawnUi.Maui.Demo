@@ -50,8 +50,8 @@
 
         <!--  SWITCHES  -->
         <draw:SkiaLayout
-            MinimumHeightRequest="60"
             HorizontalOptions="Fill"
+            MinimumHeightRequest="60"
             Spacing="24"
             Type="Row">
 
@@ -75,6 +75,16 @@
                 HorizontalOptions="Center" />
 
         </draw:SkiaLayout>
+
+        <draw:SkiaMarkdownLabel
+            MarginTop="16"
+            FontFamily="FontText"
+            FontSize="18"
+            HorizontalOptions="Center"
+            HorizontalTextAlignment="Center"
+            Text="🚧 Under heavy construction 🚧"
+            TextColor="#66ffffff" />
+
     </draw:SkiaLayout>
 
 </draw:SkiaLayout>

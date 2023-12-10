@@ -4,11 +4,8 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:content="using:AppoMobi.Maui.DrawnUi.Demo.Views.Content"
-    xmlns:controls="http://schemas.appomobi.com/drawnUi/2023/controls"
-    xmlns:controls1="http://schemas.appomobi.com/drawnUi/2023/drawn"
     xmlns:controls2="clr-namespace:AppoMobi.Maui.DrawnUi.Demo.Views.Controls"
     xmlns:draw="http://schemas.appomobi.com/drawnUi/2023/draw"
-    xmlns:gestures="clr-namespace:AppoMobi.Maui.Gestures;assembly=AppoMobi.Maui.Gestures"
     xmlns:navigation="using:AppoMobi.Maui.DrawnUi.Demo.Views.Navigation"
     xmlns:partials="using:AppoMobi.Maui.DrawnUi.Demo.Views.Content.Partials"
     xmlns:viewModels="using:AppoMobi.Maui.DrawnUi.Demo.ViewModels">
@@ -31,7 +28,7 @@
             HorizontalOptions="Fill"
             Tag="StatusBar" />
 
-        <!--  SUB TABS  - SELECTOR  -->
+        <!--  TOP TABS  - SELECTOR  -->
         <navigation:TopTabsSelector
             x:Name="TopTabs"
             BackgroundColor="Black"
@@ -111,8 +108,7 @@
 
         </navigation:TopTabsSelector>
 
-
-        <!--  INSIDE TABS  -->
+        <!--  TOP TABS - CONTENT  -->
         <draw:SkiaViewSwitcher
             x:Name="TabMainSwitcher"
             AnimationEasing="{x:Static Easing.CubicOut}"
@@ -123,8 +119,7 @@
             Tag="TabMainSwitcher"
             VerticalOptions="FillAndExpand">
 
-
-            <!--  SUBTAB MORE SCROLLING  -->
+            <!--  TAB PICKER  -->
             <draw:SkiaLayout
                 BackgroundColor="Gainsboro"
                 HorizontalOptions="Fill"
@@ -146,7 +141,6 @@
                     </draw:SkiaGradient>
 
                 </draw:SkiaControl.FillGradient>
-
 
                 <draw:SkiaLayout
                     Padding="16"
@@ -171,156 +165,36 @@
                         Text="A custom wheel picker created with a `SkiaScrollLooped` which is a subclassed `SkiaScroll`."
                         UseCache="Operations" />
 
-                    <!--<draw:SkiaLabel
-                    Margin="0,10,16,0"
-                    FontSize="12"
-                    HorizontalOptions="End"
-                    Text="{Binding Source={x:Reference Editor}, Path=CursorPosition}"
-                    TextColor="Black" />-->
-
-                    <!--<draw:SkiaEditor
-                    x:Name="Editor"
-                    Margin="0,10,0,0"
-                    BackgroundColor="LightGray"
-                    CursorColor="Red"
-                    FontFamily="FontTextBold"
-                    FontSize="20"
-                    HorizontalOptions="Center"
-                    Tag="Editor"
-                    Text="SkiaEditor Under Construction"
-                    TextColor="Black"
-                    TranslationY="0"
-                    UseCache="Operations"
-                    WidthRequest="200"
-                    ZIndex="10">
-                    <draw:SkiaEditor.TextGradient>
-
-                        <draw:SkiaGradient
-                            EndXRatio="0"
-                            EndYRatio="1"
-                            StartXRatio="0"
-                            StartYRatio="0"
-                            Type="Linear">
-                            <draw:SkiaGradient.Colors>
-                                <Color>#444444</Color>
-                                <Color>#444444</Color>
-                                <Color>#885555</Color>
-                                <Color>#444444</Color>
-                            </draw:SkiaGradient.Colors>
-                        </draw:SkiaGradient>
-
-                    </draw:SkiaEditor.TextGradient>
-                </draw:SkiaEditor>-->
+                    <draw:SkiaLabel
+                        UseCache="Operations"
+                        Margin="0,10,12,0"
+                        FontSize="12"
+                        HorizontalOptions="End"
+                        FontFamily="FontText"
+                        Text="{Binding Source={x:Reference Picker}, Path=SelectedIndex, StringFormat='Picker: {00} '}"
+                        TextColor="GreenYellow"/>
 
                     <!--  WHEEL  PICKER  -->
-                    <draw:SkiaLayout
-                        BackgroundColor="Gray"
-                        HeightRequest="200"
-                        HorizontalOptions="Center"
-                        UseCache="Operations"
-                        WidthRequest="130"
-                        ZIndex="10">
-
-                        <draw:SkiaControl.FillGradient>
-
-                            <draw:SkiaGradient
-                                EndXRatio="0"
-                                EndYRatio="1"
-                                StartXRatio="0"
-                                StartYRatio="0"
-                                Type="Linear">
-                                <draw:SkiaGradient.Colors>
-                                    <Color>#000000</Color>
-                                    <Color>#232323</Color>
-                                    <Color>#000000</Color>
-                                </draw:SkiaGradient.Colors>
-                            </draw:SkiaGradient>
-
-                        </draw:SkiaControl.FillGradient>
-
-                        <draw:SkiaScrollLooped
-                            FrictionScrolled="0.5"
-                            HorizontalOptions="Fill"
-                            Orientation="Vertical"
-                            SnapToChildren="Center"
-                            Tag="WheelScroll"
-                            TrackIndexPosition="Center"
-                            VerticalOptions="Fill"
-                            ZIndex="1">
-
-                            <draw:ScrollPickerWheel
-                                x:Name="Wheel"
-                                BackgroundColor="Transparent"
-                                DistortionAngle="1.0"
-                                HorizontalOptions="Fill"
-                                Spacing="0"
-                                Type="Column"
-                                WidthRequest="-1">
-
-                                <draw:SkiaLayout.ItemsSource>
-                                    <x:Array Type="{x:Type x:String}">
-                                        <x:String>10 m</x:String>
-                                        <x:String>20 m</x:String>
-                                        <x:String>30 m</x:String>
-                                        <x:String>40 m</x:String>
-                                        <x:String>50 m</x:String>
-                                        <x:String>60 m</x:String>
-                                        <x:String>70 m</x:String>
-                                        <x:String>80 m</x:String>
-                                        <x:String>90 m</x:String>
-                                        <x:String>100 m</x:String>
-                                        <x:String>110 m</x:String>
-                                        <x:String>120 m</x:String>
-                                    </x:Array>
-                                </draw:SkiaLayout.ItemsSource>
-
-                                <draw:SkiaLayout.ItemTemplate>
-                                    <DataTemplate>
-
-                                        <draw:ScrollPickerLabelContainer
-                                            x:DataType="{x:Type x:String}"
-                                            BackgroundColor="Transparent"
-                                            ColorText="White"
-                                            ColorTextSelected="Orange"
-                                            HeightRequest="44"
-                                            HorizontalOptions="Fill"
-                                            Spacing="0">
-
-                                            <draw:SkiaLabel
-                                                Padding="4"
-                                                FontSize="26"
-                                                HorizontalOptions="Center"
-                                                HorizontalTextAlignment="Center"
-                                                Text="{Binding .}"
-                                                TextColor="#ffffff"
-                                                VerticalOptions="Center"
-                                                VerticalTextAlignment="Center" />
-
-                                        </draw:ScrollPickerLabelContainer>
-
-                                    </DataTemplate>
-
-                                </draw:SkiaLayout.ItemTemplate>
-
-                            </draw:ScrollPickerWheel>
-
-                        </draw:SkiaScrollLooped>
-
-                        <draw:SkiaControl
-                            BackgroundColor="Gray"
-                            HeightRequest="0.75"
-                            HorizontalOptions="Fill"
-                            TranslationY="-22"
-                            VerticalOptions="Center" />
-
-                        <draw:SkiaControl
-                            BackgroundColor="Gray"
-                            HeightRequest="0.75"
-                            HorizontalOptions="Fill"
-                            TranslationY="22"
-                            VerticalOptions="Center" />
-
-                    </draw:SkiaLayout>
+                    <controls2:WheelPicker
+                        x:Name="Picker"
+                        SelectedIndex="{Binding PickerIndex}">
+                        <controls2:WheelPicker.DataSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>10 m</x:String>
+                                <x:String>20 m</x:String>
+                                <x:String>30 m</x:String>
+                                <x:String>40 m</x:String>
+                                <x:String>50 m</x:String>
+                                <x:String>60 m</x:String>
+                                <x:String>70 m</x:String>
+                                <x:String>80 m</x:String>
+                                <x:String>90 m</x:String>
+                                <x:String>100 m</x:String>
+                                <x:String>110 m</x:String>
+                                <x:String>120 m</x:String>
+                            </x:Array>
+                        </controls2:WheelPicker.DataSource>
+                    </controls2:WheelPicker>
 
                 </draw:SkiaLayout>
 
@@ -348,20 +222,24 @@
                         <draw:SkiaLayout.ItemTemplate>
                             <DataTemplate>
 
+                                <!--using a custom cell control for faster than bindings processing
+                                to set ui props from code-behind-->
                                 <partials:FastCellWithBanner
                                     x:DataType="viewModels:SimpleItemViewModel"
                                     IsClippedToBounds="True"
                                     VerticalOptions="Fill"
                                     WidthRequest="108">
 
-                                    <draw:SkiaShape
+                                    <!--using a custom SkiaShapeTouch to open popups from the center of a tapped cell-->
+                                    <partials:SkiaShapeTouch
+                                        UseCache="ImageDoubleBuffered"
                                         draw:HandleGestures.AnimationTapped="Ripple"
                                         BackgroundColor="Black"
+                                        CommandTapped="{Binding Source={x:Reference LineScroll}, Path=BindingContext.CommandOpenGallery}"
                                         CornerRadius="8"
                                         HorizontalOptions="Fill"
                                         MarginLeft="8"
                                         Tag="CachedShape"
-                                        UseCache="GPU"
                                         VerticalOptions="Fill">
 
                                         <draw:SkiaImage
@@ -438,7 +316,7 @@
                                             UseCache="Operations"
                                             VerticalOptions="Start" />
 
-                                    </draw:SkiaShape>
+                                    </partials:SkiaShapeTouch>
 
                                 </partials:FastCellWithBanner>
 
@@ -652,83 +530,7 @@
                 </draw:SkiaScroll>
 
             </draw:SkiaLayout>
-            <!--<draw:SkiaLayout
-                BackgroundColor="Gainsboro"
-                HorizontalOptions="Fill"
-                VerticalOptions="Fill">
-
-                <draw:SkiaControl.FillGradient>
-
-                    <draw:SkiaGradient
-                        EndXRatio="1"
-                        EndYRatio="1"
-                        StartXRatio="0"
-                        StartYRatio="0"
-                        Type="Linear">
-                        <draw:SkiaGradient.Colors>
-                            <Color>#222222</Color>
-                            <Color>#886655</Color>
-                        </draw:SkiaGradient.Colors>
-                    </draw:SkiaGradient>
-
-                </draw:SkiaControl.FillGradient>
-
-            -->
-            <!--  load from file and rescale for cover  -->
-            <!--
-                <draw:SkiaImage
-                    Aspect="AspectCover"
-                    BackgroundColor="Black"
-                    HorizontalOptions="Center"
-                    IsClippedToBounds="True"
-                    LockRatio="1"
-                    Source="Pics/food.jpg"
-                    TranslationY="80"
-                    UseCache="GPU"
-                    VerticalOptions="Start"
-                    WidthRequest="100" />
-
-            -->
-            <!--  BTN  -->
-            <!--
-                <controls2:SmallButton
-                    Margin="0,0,0,75"
-                    CommandTapped="{Binding RefreshCommandImage}"
-                    HorizontalOptions="Center"
-                    Text="Refresh!"
-                    VerticalOptions="End" />
-
-                <draw:SkiaShape
-                    HeightRequest="200"
-                    HorizontalOptions="Center"
-                    IsClippedToBounds="True"
-                    StrokeColor="White"
-                    StrokeWidth="4"
-                    Type="Circle"
-                    UseCache="Operations"
-                    VerticalOptions="Center"
-                    WidthRequest="200">
-
-            -->
-            <!--  load from web  -->
-            <!--
-                    <draw:SkiaImage
-                        Aspect="AspectCover"
-                        BackgroundColor="Gainsboro"
-                        Brightness="0.175"
-                        Effect="Sepia"
-                        EraseChangedContent="False"
-                        Gamma="0.1"
-                        HorizontalOptions="Fill"
-                        Saturation="1"
-                        Source="{Binding ImageUrl}"
-                        UseCache="Operations"
-                        VerticalOptions="Fill" />
-
-                </draw:SkiaShape>
-
-            </draw:SkiaLayout>-->
-
+   
 
         </draw:SkiaViewSwitcher>
 

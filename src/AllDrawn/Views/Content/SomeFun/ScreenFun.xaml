@@ -21,7 +21,7 @@
         <!--  notice of Operations cache inside scroll and its impact on fps  -->
         <draw:SkiaLayout
             Tag="Banner"
-            UseCache="Operations">
+            UseCache="Image">
 
             <draw:SkiaLabel
                 FontFamily="FontTextTitle"
