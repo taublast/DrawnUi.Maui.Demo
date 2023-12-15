@@ -19,7 +19,7 @@ Library repo will go public at Alpha stage, Pre-Alpha nuget package is already a
 __1.0.1.32-pre__
 [nuget](https://www.nuget.org/packages/AppoMobi.Maui.DrawnUi/1.0.1.32-pre)
 * Garbage collection effect reduced..
-* SkiaImageLoader now uses Glde on Android for urls. 
+* SkiaImageLoader now uses Glide on Android for urls. 
 * Images auto-detect going online to instantly reload missed sources from being offline.
 * Fixes: gestures in drawer, scroll, carousel etc.
 * Demo: ⛳ added __Parallax__ effect to cells in the second tab.
