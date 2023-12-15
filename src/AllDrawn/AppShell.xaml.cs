@@ -62,7 +62,7 @@ namespace AppoMobi.Maui.DrawnUi.Demo
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private async void Canvas_WillFirstTimeDraw(object sender, SkiaDrawingContext e)
+        private async void Canvas_WillFirstTimeDraw(object sender, SkiaDrawingContext? skiaDrawingContext)
         {
             Canvas.Opacity = 0.001;
             await Canvas.FadeTo(1, 3000, Easing.Linear);

@@ -34,7 +34,6 @@
                 <DataTemplate>
 
                     <draw:ZoomContent
-                        UseCache="GPU"
                         ZoomMax="2"
                         ZoomMin="1">
 

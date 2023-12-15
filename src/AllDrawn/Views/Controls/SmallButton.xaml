@@ -8,7 +8,7 @@
     HeightRequest="36"
     IsClippedToBounds="True"
     TouchEffectColor="White"
-    UseCache="ImageDoubleBuffered"
+    UseCache="Image"
     WidthRequest="150">
 
     <draw:SkiaShape

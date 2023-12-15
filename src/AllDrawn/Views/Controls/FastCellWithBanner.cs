@@ -3,8 +3,6 @@
 
 namespace AppoMobi.Maui.DrawnUi.Demo.Views.Content.Partials
 {
-
-
     /// <summary>
     ///  For faster rendering we are not using Maui Bindings that act on UI thread
     /// </summary>
@@ -48,6 +46,7 @@ namespace AppoMobi.Maui.DrawnUi.Demo.Views.Content.Partials
                 _lastY = this.DrawingRect.Top;
             }
         }
+
         public FastCellWithBanner()
         {
 
@@ -104,6 +103,7 @@ namespace AppoMobi.Maui.DrawnUi.Demo.Views.Content.Partials
             {
                 contextChanged++;
 
+
                 if (LabelId != null)
                 {
                     LabelId.Text = item.Id.ToString();
@@ -128,6 +128,7 @@ namespace AppoMobi.Maui.DrawnUi.Demo.Views.Content.Partials
                     item.BannerPreloadOrdered = true;
                     ImageBanner.Source = item.Banner;
                 }
+
 
                 return true;
             }
@@ -162,8 +163,9 @@ namespace AppoMobi.Maui.DrawnUi.Demo.Views.Content.Partials
 
         public virtual void UpdateCell()
         {
-            if (contextChanged > 1)
-                InvalidateChildrenTree(); //order to remeasure inside views for new content
+            //  if (contextChanged > 1)
+            //      InvalidateChildrenTree(); //order to remeasure inside views for new content
+
             Update();
         }
 

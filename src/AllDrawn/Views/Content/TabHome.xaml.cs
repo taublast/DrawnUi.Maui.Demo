@@ -2,10 +2,18 @@ namespace AppoMobi.Maui.DrawnUi.Demo.Views.Content;
 
 public partial class TabScrollCells
 {
-	public TabScrollCells()
-	{
-		InitializeComponent();
-	}
+    public TabScrollCells()
+    {
+        try
+        {
+            InitializeComponent();
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
+    }
 
 
 }

@@ -16,23 +16,19 @@ Library repo will go public at Alpha stage, Pre-Alpha nuget package is already a
 
 ## What's new
 
-__1.0.1.30-pre__
-[nuget](https://www.nuget.org/packages/AppoMobi.Maui.DrawnUi/1.0.1.30-pre)
-* Demo: ⛳ added __WheelPicker__ control, example opening popups from the center of a tapped control. Caching improved here and there.
-* SkiaMarkdownLabel and Skialabel: __Colored Emojies__  with skin tones 🏻🏼🏽🏾🏿
-* Performance improvements for SkiaImage and internal layout measurements __more fps__ 🤩!
-* Fixes for: Windows unicode, ZIndex in Row/Column layout and more..
-
-__Previously..__
-* Demo cells `UseCache="DoubleBufferedImage"` fixes smooth scrolling.
-* `SkiaControl` now derives from `VisualElement`. Full support for xaml styles, states, triggers, hotreload now works better, will be improved more.
-* SkiaShell breaking changes, it is now a reworked ContentPage, many methods renamed to be more inline with Maui Shell.
+__1.0.1.32-pre__
+[nuget](https://www.nuget.org/packages/AppoMobi.Maui.DrawnUi/1.0.1.32-pre)
+* Garbage collection effect reduced..
+* SkiaImageLoader now uses Glde on Android for urls. 
+* Images auto-detect going online to instantly reload missed sources from being offline.
+* Fixes: gestures in drawer, scroll, carousel etc.
+* Demo: ⛳ added __Parallax__ effect to cells in the second tab.
+* Docs: added more info about caching.
 
 ## Development Notes
 
 * All files to be consumed (images etc) must be placed inside the maui app Resources/Raw folder, subfolders allowed.
 * If you use the LiveTree toolbar in VS it would crash while debugging at some point please do not use it. 
-* GC.Collect might create sudden lag spikes during animations.
 
 ## Screenshots
 
@@ -163,6 +159,19 @@ As you can see in this example the Maui view `Canvas` will adapt it's size to dr
 
 Please check the demo app, it contains many examples of usage.
 
+## Images
+
+* Images loaded and converted for skia format are cached on a per-app run basis.
+
+* When am image fails to load then if the app was offline the image will get its method `ReloadSource` invoked. So when you go online your missing images will get automatically loded!
+
+* 'SkiaScroll' can also control loading of images via `VelocityImageLoaderLock` property, that would lock and unlock loading of images globally in case of a huge velocity scroll.
+
+Base control for using images is `SkiaImage` with many virtuals to be easily subclassed for your needs. The `Source` property is a usual maui `ImageSource`.
+`SkiaImageManager` loads platform sources and converts them to skia format. It falls back to default maui methods for loading `ImageSource` in some cases.
+
+On Android the `Glide` library is used for loading urls. It caches images, making it so if the app is offline it still gets its images from cache if they were loaded previously.
+
 ### Gestures
 
 To make your root `Canvas` catch gestures you need to attach a `TouchEffect` to it.
@@ -233,11 +242,15 @@ public enum SkiaCacheType
 
 You should tweak your design caching to avoid unnecessary re-drawing of elements. 
 The basic approach here is to cache small elements at some level. 
-For example you would cache small children like cells inside a SkiaScroll as `Image`. 
-At the same time avoid using bitmaps where just `Operations` type is enough, for example for __SkiaSvg__ results.
-You cannot include controls cached with type GPU inside controls cached with some different type, think of it like you can't include graphics memory inside cpu memory, will get a crash otherwise.
-
 When you start using any kind of animations you should start using caching to max your FPS. You can check the __DemoApp__ for such examples.
+
+#### Caching Tips:
+
+* Cache shapes, svg and text as `Operations`.
+* Prefer caching shadows and gradients as `Image` instead of `Operations`.
+* Cache large static overlays as `GPU`, large static blocks as `Image`.
+* For dinamically changing controls consider `ImageDoubleBuffered`, it consumes double the memory as `Image` but doesn't slow down rendering: you would see the latest prepared cache until the actual state wouldn't finish rendering itsself to a hidden cache layer in background.
+* Do not include controls cached with type GPU inside controls cached with some different type, will get a native crash otherwise.
 
 #### Loaded Images
 

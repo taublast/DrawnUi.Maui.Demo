@@ -31,7 +31,7 @@
 
     <!--  overlay separator line  -->
     <draw:SkiaControl
-        BackgroundColor="Gray"
+        BackgroundColor="#44cccccc"
         HeightRequest="0.75"
         HorizontalOptions="Fill"
         TranslationY="-22"
@@ -40,7 +40,7 @@
 
     <!--  overlay separator line  -->
     <draw:SkiaControl
-        BackgroundColor="Gray"
+        BackgroundColor="#44cccccc"
         HeightRequest="0.75"
         HorizontalOptions="Fill"
         TranslationY="22"

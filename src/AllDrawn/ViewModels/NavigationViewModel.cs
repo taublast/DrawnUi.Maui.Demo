@@ -152,17 +152,7 @@ public class NavigationViewModel : BaseViewModel
     private void OnShellNavigated(object sender, ShellNavigatedEventArgs e)
     {
 
-        if (e.Current.Location.ToString().SafeContains("/tabs"))
-        {
-            InitFlyout();
 
-            //todo can do one-time tasks if needed
-            //Super.StartTimer(TimeSpan.FromSeconds(1.5), () =>
-            //{
-            //    InsureSignalsConnected();
-            //    return false;
-            //});
-        }
     }
 
     /// <summary>

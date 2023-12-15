@@ -337,7 +337,7 @@ public class ScrollingCellsViewModel : ProjectViewModel, IFullscreenGalleryManag
                 if (!item.BannerPreloadOrdered)
                 {
                     item.BannerPreloadOrdered = true;
-                    await SkiaImageLoadingManager.Instance.Preload(item.Banner, cancel).ConfigureAwait(false);
+                    await SkiaImageManager.Instance.Preload(item.Banner, cancel).ConfigureAwait(false);
                 }
                 index++;
                 if (index > _items.Count - 1)
