@@ -40,7 +40,7 @@ https://github.com/taublast/AppoMobi.Maui.DrawnUi.Demo/assets/25801194/f562e126-
 
 https://github.com/taublast/AppoMobi.Maui.DrawnUi.Demo/assets/25801194/e86200de-16ba-4e24-a7f5-ec7ba944a9a9
 
-### Create your drawn controls_
+### _Create your drawn controls_
 
 https://github.com/taublast/AppoMobi.Maui.DrawnUi.Demo/assets/25801194/2182de51-929e-47f6-a560-e9d97ad16e52
 
@@ -48,9 +48,9 @@ https://github.com/taublast/AppoMobi.Maui.DrawnUi.Demo/assets/25801194/2182de51-
 
 https://github.com/taublast/AppoMobi.Maui.DrawnUi.Demo/assets/25801194/a2efa080-f234-4d04-a7f5-aab8af462fb2
 
-### _Feel free to draw anything_
+### _Play with the Canvas_
 
-https://github.com/taublast/AppoMobi.Maui.DrawnUi.Demo/assets/25801194/b2ac6dfb-f3c0-44a0-80dc-e45a028b7ca6
+https://github.com/taublast/AppoMobi.Maui.DrawnUi.Demo/assets/25801194/6f92241a-ab39-4f66-bc78-2f10755a2bae
 
 
 ## Features
