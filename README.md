@@ -174,7 +174,7 @@ On Android the `Glide` library is used for loading urls. It caches images, makin
 
 ### Gestures
 
-To make your root `Canvas` catch gestures you need to attach a `TouchEffect` to it.
+To make your root `Canvas` catch gestures you need to attach a `TouchEffect` to it. This can be done automatically by setting `GesturesEnabled="True"` for the `Canvas`.
 After that skia controls can process gestures in multiple ways:
 * At low level by implementing an `ISkiaGestureListener` interface and overriding `OnGestureReceived`.
 * At control level by overriding `ProcessGestures`, recommended for custom controls.
