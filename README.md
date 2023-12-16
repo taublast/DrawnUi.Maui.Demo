@@ -250,7 +250,7 @@ When you start using any kind of animations you should start using caching to ma
 * Prefer caching shadows and gradients as `Image` instead of `Operations`.
 * Cache large static overlays as `GPU`, large static blocks as `Image`.
 * For dinamically changing controls consider `ImageDoubleBuffered`, it consumes double the memory as `Image` but doesn't slow down rendering: you would see the latest prepared cache until the actual state wouldn't finish rendering itsself to a hidden cache layer in background.
-* Do not include controls cached with type GPU inside controls cached with some different type, will get a native crash otherwise.
+* Do not include controls cached with `GPU` inside controls that use different type of cache, except for `Disabled`, will get a native crash otherwise.
 
 #### Loaded Images
 
@@ -309,19 +309,22 @@ Layout supports `ItemTemplate` for most of layout types.
 
 Some differences from Xamarin.Forms/Maui to notice:
 
-* Layouts do not implement the Expand feature, in order to limit number of calculation passes, so if your children do not request a size, 
-the parent layout will not take any space if you do not ask it to `Fill`.
+* Layouts as other controls come with `HorizontalOptions` and `VerticalOptions` as `Start` and not `Fill` by default, so if your children do not request a size explicitely, 
+the parent layout will not take any space at all unless you ask it to `Fill` the desired dimension, for example a `Column` needs its  `HorizontalOptions` to be `Fill` or specified explicitely.
 
-* In Column and Row layouts we do not support Fill, End and Center for children, only Start, for the same reasons. When you need Fill, End and Center please use Absolute or Grid types of layout.
+* Actually for performance reasons in `Column` and `Row` layouts children cannot have `Fill`, `End` and `Center` in the direction of the layout, only `Start`. For example if you have a `Column` children must have `VerticalOptions` set to `Start`. When you still need these options for children please use `Absolute` or `Grid` layouts.
 
 _!_ Layouts `Column` and `Row`, watever templated or not, 
 will always check if child out of the visible scrren bounds and avoid rendering it in that case.
-That is especialy useful when the layout is inside a SkiaScroll, this way we always render 
-only the visible part.
+That is especialy useful when the layout is inside a `SkiaScroll`, this way we always render 
+only the visible part. You can tweak this but setting a `SkiaLayout` property `HiddenAmountToRender` in points, how many of the hidden amount outside the visible bounds should still be rendered. 
+This system ensures that you can have an infinite-size layout inside a scroll and it will work just fine drawing only the visible area.
+At the same time if you want a `SkiaScroll` to <s>lye</s> communicate to its content that everything is visible on the screen you can set its `VirtualizationEnabled="False"`.
 
-_!_ You can absolutely use the `Margin` property as usual in a Maui way. In case if you would need to bind a specific margin you can switch to 
+_!_ You can absolutely use the `Margin` property in a usual Maui way. In case if you would need to bind a specific margin you can switch to 
 using `MarginLeft`, `MarginTop`, `MarginRight`, `MarginBottom` properties, -1.0 by default, 
-if set they will override specific value from `Margin`, and the result would be accessible via `Margins` readonly bindable static property.
+if set they will override specific value from `Margin`, and the result would be accessible via `Margins` readonly bindable static property.  
+Even more, sometimes you might want to bind your code to `AddMarginTop`, `AddMarginLeft`, `AddMarginRight`, `AddMarginBottom`..  
 When designing custom controls please use `Margins` property to read the final margin value.
 
 #### Loading sources
