@@ -182,19 +182,19 @@ After that skia controls can process gestures in multiple ways:
 * Including a `SkiaHotspot` as a child.
 * Using a `SkiaButton`.
 
-Parent controls have full control over gestures and passing them to chidlren. 
-In a base scenarion a gesture would be passed all along to the ends of a view tree to its ends for every top-level control.
+Parent controls have full control over gestures and passing them to children. 
+In a base scenario a gesture would be passed all along to the ends of a view tree to its ends for every top-level control.
 If a gesture is marked as consumed (by returning `true`) a control would typically stop processing gestures at this level. 
 
 By overriding `ProcessGestures` any control might process gestures with or without passing them to children.
 
-When creating a custom control the standart code for the override would be to pass gestures below by caling `base` then processing at the current level. You might choose to do it differently acording your needs.
+When creating a custom control the standard code for the override would be to pass gestures below by calling `base` then processing at the current level. You might choose to do it differently according to your needs.
 
-The engine is designed to pass the ending gestures to thoses who already returned "consumed" for preceding gestures even if following gestures are out of their hitbox.
+The engine is designed to pass the ending gestures to those who already returned "consumed" for preceding gestures even if following gestures are out of their hitbox.
 
-When the DOWN gestures is received the engine will try to find the topmost control that can handle it. The overridable `AutoHitbox` would be checked for intersection with gesture, in base this hitbox is checking versus `DrawingRect`.
+When the DOWN gesture is received the engine will try to find the topmost control that can handle it. The overridable `AutoHitbox` would be checked for intersection with gesture, in base this hitbox is checking versus `DrawingRect`.
 
-Avoid trying to handle gastures below the cached level, as DrawingRect might still point to older position in the screen if the cached parent already moved.
+Avoid trying to handle gestures below the cached level, as DrawingRect might still point to older position in the screen if the cached parent already moved.
 
 
 ### Caching System
@@ -249,7 +249,7 @@ When you start using any kind of animations you should start using caching to ma
 * Cache shapes, svg and text as `Operations`.
 * Prefer caching shadows and gradients as `Image` instead of `Operations`.
 * Cache large static overlays as `GPU`, large static blocks as `Image`.
-* For dinamically changing controls consider `ImageDoubleBuffered`, it consumes double the memory as `Image` but doesn't slow down rendering: you would see the latest prepared cache until the actual state wouldn't finish rendering itsself to a hidden cache layer in background.
+* For dynamically changing controls consider `ImageDoubleBuffered`, it consumes double the memory as `Image` but doesn't slow down rendering: you would see the latest prepared cache until the actual state wouldn't finish rendering itsself to a hidden cache layer in background.
 * Do not include controls cached with `GPU` inside controls that use different type of cache, except for `Disabled`, will get a native crash otherwise.
 
 #### Loaded Images
@@ -259,7 +259,7 @@ _todo add options and link to ImageLoader and SkiaImage docs_
 
 _!_ When using images inside dynamic scene, like a a templated stack with scroll or other 
 you should try to set the image cache to `Image` this would most probably climb your fps.
-This is due the fact that image sources are usually of the wrong size and they need processing 
+This is due to the fact that image sources are usually of the wrong size and they need processing 
 before being drawn. When using `Image` cache the image would be processed only once and 
 then just redrawn.
 
@@ -281,7 +281,7 @@ then just redrawn.
 ### Animations
 
 One would create animations and effects using animators. Animators are attached to controls, but technically register themselves at the root canvas level and their code is executed on every rendering frame. If the canvas is not redrawing then animators will not be executed.
-When the canvas has a registered animator running it would constantly force re-drawing itsself until all animators are stopped.
+When the canvas has a registered animator running it would constantly force re-drawing itself until all animators are stopped.
 
 There are two types of animators: 
 * __Animators__ are executed before the drawing, so you can move and transform elements before the are rendered on the canvas.
@@ -300,30 +300,30 @@ and additional `MaximumWidthRequest`,  `MaximumHeightRequest`, `HorizontalFillRa
 * `LockRatio`will be used to calculate the width when the height is set or vice versa. If it's above 0 the max value will be applied, if it's below 0 the min value will be applied. If it's 0 then the ratio will be ignored.
 * `HorizontalFillRatio`, `VerticalFillRatio` will let you take a percent and the available size if you don't set a numeric request. For example if `HorizontalFillRatio` is set to 0.5 you will take 50% of the available width, at the same time being able to align the control at start, center or at the and in a usual way.
 
-For dynamic positionning or other precise cases use `TranslationX` and `TranslationY`.
+For dynamic positioning or other precise cases use `TranslationX` and `TranslationY`.
 
-Whn you need to layout children in a more arranged way you will want to wrap them with a `SkiaLayout`
+When you need to layout children in a more arranged way you will want to wrap them with a `SkiaLayout`
 of different `LayoutType` : Grid, Colum, Row and others.
 
 Layout supports `ItemTemplate` for most of layout types.
 
 Some differences from Xamarin.Forms/Maui to notice:
 
-* Layouts as other controls come with `HorizontalOptions` and `VerticalOptions` as `Start` and not `Fill` by default, so if your children do not request a size explicitely, 
-the parent layout will not take any space at all unless you ask it to `Fill` the desired dimension, for example a `Column` needs its  `HorizontalOptions` to be `Fill` or specified explicitely.
+* Layouts as other controls come with `HorizontalOptions` and `VerticalOptions` as `Start` and not `Fill` by default, so if your children do not request a size explicitly, 
+the parent layout will not take any space at all unless you ask it to `Fill` the desired dimension, for example a `Column` needs its  `HorizontalOptions` to be `Fill` or specified explicitly.
 
-* Actually for performance reasons in `Column` and `Row` layouts children cannot have `Fill`, `End` and `Center` in the direction of the layout, only `Start`. For example if you have a `Column` children must have `VerticalOptions` set to `Start`. When you still need these options for children please use `Absolute` or `Grid` layouts.
+* Actually for performance reasons in `Column` and `Row` layouts children cannot have `Fill`, `End` and `Center` in the direction of the layout, only `Start`. For example, if you have a `Column` children must have `VerticalOptions` set to `Start`. When you still need these options for children please use `Absolute` or `Grid` layouts.
 
-_!_ Layouts `Column` and `Row`, watever templated or not, 
-will always check if child out of the visible scrren bounds and avoid rendering it in that case.
-That is especialy useful when the layout is inside a `SkiaScroll`, this way we always render 
+_!_ Layouts `Column` and `Row`, whether templated or not, 
+will always check if child is out of the visible screen bounds and avoid rendering it in that case.
+That is especially useful when the layout is inside a `SkiaScroll`, this way we always render 
 only the visible part. You can tweak this but setting a `SkiaLayout` property `HiddenAmountToRender` in points, how many of the hidden amount outside the visible bounds should still be rendered. 
 This system ensures that you can have an infinite-size layout inside a scroll and it will work just fine drawing only the visible area.
 At the same time if you want a `SkiaScroll` to <s>lye</s> communicate to its content that everything is visible on the screen you can set its `VirtualizationEnabled="False"`.
 
 _!_ You can absolutely use the `Margin` property in a usual Maui way. In case if you would need to bind a specific margin you can switch to 
 using `MarginLeft`, `MarginTop`, `MarginRight`, `MarginBottom` properties, -1.0 by default, 
-if set they will override specific value from `Margin`, and the result would be accessible via `Margins` readonly bindable static property.  
+if set they will override the specific value from `Margin`, and the result would be accessible via `Margins` read-only bindable static property.  
 Even more, sometimes you might want to bind your code to `AddMarginTop`, `AddMarginLeft`, `AddMarginRight`, `AddMarginBottom`..  
 When designing custom controls please use `Margins` property to read the final margin value.
 
@@ -360,13 +360,13 @@ When dealing with subviews in code behind you could typically use two ways.
 Example for adding a subview:
  
 * Use method `SetParent` passing new parent. In this case parent layout will not be invalidated, use this for optimized logic when you know what you are doing. You can mainly use this way when just constructing parent, knowing it will be measured at start anyway.
-* Call parent's method `AddSubView` passing subview.Parent's layout will be invalidated, and OnChildAdded will be called on parent.
+* Call parent's method `AddSubView` passing subview Parent's layout will be invalidated, and OnChildAdded will be called on parent.
 * When working with `Children` property use `Add` method, it will set `Views` to a new instance of appropriate collection, and call `AddSubView` for each item.
 
 For removing a subview the usual options would be:
 
 * Call `SetParent` passing null, for soft removal.
-* Call parent's method `RemoveSubView` passing subview. Parent's layout will be invalidated, and OnChildRemoved will be called on parent.	
+* Call parent's method `RemoveSubView` passing subview`.Parent`'s layout will be invalidated, and OnChildRemoved will be called on parent.	
 * When working with `Children` property use `Remove` method, it will set `Views` to a new instance of appropriate collection, and call `RemoveSubView` for each item.
  
 #### In Deep
@@ -384,9 +384,8 @@ Use a simple `SkiaControl`. For complex shapes use `SkiaShape` or `SkiaPath`.
 
 #### Simulate Maui Grid
 
-`SkiaLayout` of `Grid` type, set children properties as usual (Grid.something)
+`SkiaLayout` of `Grid` type, set children properties as usual (`Grid.`something)
 
- 
 #### Simulate Maui CollectionView
 
 `SkiaScroll` + `SkiaLayout` (ItemTemplate=...). Set cache of the cell to Bitmap or Operations depending on your needs.
@@ -402,8 +401,8 @@ Use a simple `SkiaControl`. For complex shapes use `SkiaShape` or `SkiaPath`.
 
 When you want to dynamically change properties in Xaml you might want to use conditional styles.
 They look like regular Maui styles, but with some nuances:
-* When defining style is resources you must set a unique `Class` attibute
-* They are selected at runtime upon `Condition` or `State` bindable properties. `State` is like Maui `VisualState`but you can have several of them applied at same time.
+* When defining style is resources you must set a unique `Class` attribute
+* They are selected at runtime upon `Condition` or `State` bindable properties. `State` is like Maui `VisualState`but you can have several of them applied at the same time.
 
 Define a style inside `ResourceDictionary`:
 
@@ -510,14 +509,14 @@ __`Surface`__
 
 ### `SkiaShell`
 
-The usage is almost the same as the standart Maui Shell, 
+The usage is almost the same as the standard Maui Shell, 
 with some extra features.
 
-`SkiaShell` is derived from `FastShell` that uses maui interfaces 
-and implements methods for standart maui navigation, 
+`SkiaShell` is derived from `FastShell` that uses Maui interfaces 
+and implements methods for standard maui navigation, 
 then adds features to be able to navigate inside the Canvas.
 
-Some additional features to be mentionned are actions that can be executed for specific routes.
+Some additional features to be mentioned are actions that can be executed for specific routes.
 code example:
 
 ```csharp  
@@ -533,7 +532,7 @@ RegisterActionRoute("settings", () =>
 
 #### Usage
 
-Please see demo.
+Please see the demo.
 
 ## Drawn Controls
 
@@ -576,11 +575,11 @@ __`Orientation`__ a value of type `ScrollOrientation` that can be `Vertical` or 
 
 __`FrictionScrolled`__  Use this to control how fast the scroll will decelerate. Values 0.1f - 0.3f are the best, default is 0.1f.
 
-__`IgnoreWrongDirection`__  Will ignore gestures of the wrong direction, for example if this Orientation is Horizontal will ignore gestures with vertical direction velocity. Might want to set to true when you have a horizontal scroll inside a vertical scroll, this will let the parent scroll start scrolling vertically ven if gesture started inside its horizontal sroll child.
+__`IgnoreWrongDirection`__  Will ignore gestures of the wrong direction, for example, if this Orientation is Horizontal will ignore gestures with vertical direction velocity. Might want to set it to true when you have a horizontal scroll inside a vertical scroll, this will let the parent scroll start scrolling vertically even if the gesture started inside its horizontal scroll child.
 
 ### `SkiaLayout`
 
-`SkiaLayout` is a container that supports various layout types: `Absolute`, `Grid`, `Row`, `Column` and others. 
+`SkiaLayout` is a container that supports various layout types: `Absolute`, `Grid`, `Row`, `Column`, and others. 
 
 It also supports virtualization and recycling of its children with `ItemTemplate` property.
 
@@ -593,17 +592,17 @@ This lets one to create custom controls that can react to scrolling and other ev
 
 ### `SkiaShape`
 
-`SkiaShape` is a base class for all shapes. You could fill it, stroke, drop shadows, apply gradients and even clip other controls with it.
+`SkiaShape` is a base class for all shapes. You could fill it, stroke, drop shadows, apply gradients, and even clip other controls with it.
 
 ### `SkiaImage`
 
-`SkiaImage` is a control that renders images. It cant apply filters and transformations.
+`SkiaImage` is a control that renders images. It can't apply filters and transformations.
 
 
 
 ### `SkiaSvg`
 
-`SkiaSvg` is a control that renders svg files. It cant tint the svg with a color or gradient, and apply some transforms to it.
+`SkiaSvg` is a control that renders svg files. It can't tint the svg with a color or gradient, and apply some transforms to it.
 
 
 ### `SkiaLabel`
@@ -613,7 +612,7 @@ A multi-line label fighting for his place under the sun.
 #### _Properties_:
 
 __`FontWeight`__ a numeric value used in case you have properly registered your fonts to support weights. 
-You can use your font the usual Maui way but in case of custom font files used from resources you might want to register them, using the following example:
+You can use your font the usual Maui way but in the case of custom font files used from resources you might want to register them, using the following example:
 ```csharp
 .ConfigureFonts(fonts =>
 {
@@ -622,7 +621,7 @@ You can use your font the usual Maui way but in case of custom font files used f
 });
 ```
 Now if you set the `FontWeight` to `500` the control will use the `Gilroy-Medium.ttf` file.
-This might come very handy when your Figma design shows you to use this weight and you want just to pass it over to SkiaLabel.
+This might come in very handy when your Figma design shows you to use this weight and you want just to pass it over to SkiaLabel.
 
  __`HorizontalTextAlignment`__  : 
  ```csharp
@@ -641,11 +640,11 @@ public enum DrawTextAlignment
 
 ### `SkiaLottie`
 
-`SkiaLottie` is a control that renders lottie files. It can even tint some colors inside your animation!
+`SkiaLottie` is a control that renders Lottie files. It can even tint some colors inside your animation!
 
 ### `SkiaRive`
 
-Actually for Windows only, this plays and controls Rive animation files. Other platforms will be added soon, poke if you would like to help biding some c++;
+Actually for Windows only, this plays and controls Rive animation files. Other platforms will be added soon, poke if you would like to help binding some c++;
 
 ### SkiaHoverMask
 
