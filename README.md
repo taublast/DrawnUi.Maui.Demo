@@ -143,13 +143,12 @@ Consume:
      <draw:SkiaSvg
         Source="Svg/dotnet_bot.svg"
         LockRatio="1"
-		HorizontalOptions="Center"
         TintColor="White"
         WidthRequest="44" />
 </draw:Canvas>
 ```
 
-As you can see in this example the Maui view `Canvas` will adapt it's size to drawn content and should take 44x44 pts.
+As you can see in this example the Maui view `Canvas` will adapt it's size to drawn content and should take 44x44 pts. `LockRatio="1"` tells the engine to take the highest calculated dimension and multiply it by 1, so even we omitted `HeightRequest` it was set to 44.
 
 #### Code behind
 
