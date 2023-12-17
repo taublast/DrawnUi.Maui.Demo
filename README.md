@@ -177,23 +177,21 @@ To make your root `Canvas` catch gestures you need to attach a `TouchEffect` to 
 After that skia controls can process gestures in multiple ways:
 * At low level by implementing an `ISkiaGestureListener` interface and overriding `OnGestureReceived`.
 * At control level by overriding `ProcessGestures`, recommended for custom controls.
-* Attaching a `HandleGestures` effect that has properties similar `SkiaHotspot`.
+* Attaching a `HandleGestures` effect that has properties similar to `SkiaHotspot`.
 * Including a `SkiaHotspot` as a child.
 * Using a `SkiaButton`.
 
 Parent controls have full control over gestures and passing them to children. 
 In a base scenario a gesture would be passed all along to the ends of a view tree to its ends for every top-level control.
-If a gesture is marked as consumed (by returning `true`) a control would typically stop processing gestures at this level. 
+If a gesture is marked as consumed (by returning the reference of the consumer, not consumed if `null`) a control would typically stop processing gestures at its level. 
 
 By overriding `ProcessGestures` any control might process gestures with or without passing them to children.
 
 When creating a custom control the standard code for the override would be to pass gestures below by calling `base` then processing at the current level. You might choose to do it differently according to your needs.
 
-The engine is designed to pass the ending gestures to those who already returned "consumed" for preceding gestures even if following gestures are out of their hitbox.
+The engine is designed to pass the ending gestures to those who already returned "consumed" for preceding gestures even if the following gestures are out of their hitbox.
 
-When the DOWN gesture is received the engine will try to find the topmost control that can handle it. The overridable `AutoHitbox` would be checked for intersection with gesture, in base this hitbox is checking versus `DrawingRect`.
-
-Avoid trying to handle gestures below the cached level, as DrawingRect might still point to older position in the screen if the cached parent already moved.
+__More docs will be added on this matter.__
 
 
 ### Caching System
