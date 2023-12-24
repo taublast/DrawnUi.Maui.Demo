@@ -1,6 +1,6 @@
 ﻿# AppoMobi.Maui.DrawnUi DEMO
 
-Demo of an upcoming rendering engine for .Net MAUI to draw your UI on a Skia canvas, with gestures and animations. 
+Demo of an upcoming rendering engine for .Net MAUI to draw your UI on a Skia canvas, with gestures and animations, designed to draw pixel-perfect custom controls instead of using native ones.
 
 Supports **iOS**, **MacCatalyst**, **Android**, **Windows**.
 
