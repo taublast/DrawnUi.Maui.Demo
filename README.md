@@ -16,6 +16,8 @@ Library repo will go public at Alpha stage, Pre-Alpha nuget package is already a
 
 ## What's new
 
+### An updated niget and demo is incoming soon with performance improvements for iOS (Metal renderer) and more.
+
 __1.0.1.32-pre__
 [nuget](https://www.nuget.org/packages/AppoMobi.Maui.DrawnUi/1.0.1.32-pre)
 * Garbage collection effect reduced..
