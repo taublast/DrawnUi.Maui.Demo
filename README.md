@@ -18,14 +18,11 @@ Library repo will go public at Alpha stage, Pre-Alpha nuget package is already a
 
 ### An updated nuget and demo are incoming soon with performance improvements for iOS (Metal renderer) and more.
 
-__1.0.1.32-pre__
-[nuget](https://www.nuget.org/packages/AppoMobi.Maui.DrawnUi/1.0.1.32-pre)
-* Garbage collection effect reduced..
-* SkiaImageLoader now uses Glide on Android for urls. 
-* Images auto-detect going online to instantly reload missed sources from being offline.
-* Fixes: gestures in drawer, scroll, carousel etc.
-* Demo: ⛳ added __Parallax__ effect to cells in the second tab.
-* Docs: added more info about caching.
+__1.0.3.6-pre__
+* Temprorary release preparing reworked demo.
+* `SkiaBackdrop` new simple control actually with Blur only, more incoming. Can be seen used in demo tabbar.
+* Demo: custom switch controls added to demo project to demonstrate how easy it is to construct custom drawn controls.
+* Too many fixes etc.
 
 ## Development Notes
 
