@@ -22,8 +22,8 @@
         <draw:SkiaControl.FillGradient>
 
             <draw:SkiaGradient
-                EndXRatio="1"
-                EndYRatio="1"
+                EndXRatio="0.5"
+                EndYRatio="0.8"
                 StartXRatio="0"
                 StartYRatio="0"
                 Type="Linear">
