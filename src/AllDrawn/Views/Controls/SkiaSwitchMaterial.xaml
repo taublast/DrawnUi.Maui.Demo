@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<draw:SkiaSwitch
+    x:Class="AppoMobi.Maui.DrawnUi.Demo.Views.Controls.SkiaSwitchMaterial"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:draw="http://schemas.appomobi.com/drawnUi/2023/draw"
+    x:Name="ThisControl"
+    HeightRequest="28"
+    WidthRequest="56">
+
+    <draw:SkiaShape
+        Margin="4,4"
+        CornerRadius="20"
+        HorizontalOptions="Fill"
+        Tag="Frame"
+        Type="Rectangle"
+        VerticalOptions="Fill" />
+
+    <draw:SkiaShape
+        Tag="Thumb"
+        x:Name="ThumbRef"
+        Margin="0"
+        HorizontalOptions="Start"
+        LockRatio="-1"
+        Type="Circle"
+        VerticalOptions="Fill">
+
+        <draw:SkiaShape.Shadows>
+
+            <draw:SkiaShadow
+                Blur="2"
+                Opacity="0.5"
+                X="1"
+                Y="1"
+                Color="Black" />
+
+        </draw:SkiaShape.Shadows>
+
+    </draw:SkiaShape>
+
+    <draw:SkiaHotspot 
+        TransformView="{x:Reference ThumbRef}"
+        Tapped="OnTapped" />
+
+</draw:SkiaSwitch>
+

@@ -1,18 +1,18 @@
-﻿namespace AppoMobi.Maui.DrawnUi.Demo.Views.Content;
+﻿namespace AppoMobi.Maui.DrawnUi.Demo.Views.Controls;
 
 public class StackUsers : SkiaLayout
 {
-	private ScrollingCellsViewModel _vm;
+    private ScrollingCellsViewModel _vm;
 
-	public override void OnParentChanged(IDrawnBase newvalue, IDrawnBase oldvalue)
-	{
-		base.OnParentChanged(newvalue, oldvalue);
+    public override void OnParentChanged(IDrawnBase newvalue, IDrawnBase oldvalue)
+    {
+        base.OnParentChanged(newvalue, oldvalue);
 
-		if (_vm == null)
-		{
-			_vm = App.Instance.Services.GetService<ScrollingCellsViewModel>();
-		}
+        if (_vm == null)
+        {
+            _vm = App.Instance.Services.GetService<ScrollingCellsViewModel>();
+        }
 
-		BindingContext = _vm;
-	}
+        BindingContext = _vm;
+    }
 }

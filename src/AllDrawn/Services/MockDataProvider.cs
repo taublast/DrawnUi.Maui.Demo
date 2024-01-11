@@ -7,7 +7,14 @@ public class MockDataProvider
         index = 0;
     }
 
+    public void ResetIndexSmall()
+    {
+        indexSmall = 0;
+    }
+
     int seed = 0;
+
+    int seedSmall = 0;
 
     public List<SimpleItemViewModel> GetRandomItems(int count)
     {
@@ -16,7 +23,6 @@ public class MockDataProvider
         for (int i = 0; i < count; i++)
         {
             index++;
-            seed++;
 
             items.Add(new SimpleItemViewModel
             {
@@ -36,12 +42,11 @@ public class MockDataProvider
 
         for (int i = 0; i < count; i++)
         {
-            index++;
-            seed++;
+            indexSmall++;
 
             items.Add(new SimpleItemViewModel
             {
-                Id = (int)index,
+                Id = (int)indexSmall,
                 Title = GetRandomName(),
                 Description = GetRandomDescription(),
                 Banner = GetRandomSmallImage(),
@@ -63,16 +68,14 @@ public class MockDataProvider
 
     public string GetRandomImage()
     {
-        //return images[random.Next(images.Length)];
-
+        seed++;
         return $"https://picsum.photos/400/200?s={seed}";
     }
 
     public string GetRandomSmallImage()
     {
-        //return images[random.Next(images.Length)];
-
-        return $"https://picsum.photos/300/300?s={seed}";
+        seedSmall++;
+        return $"https://picsum.photos/300/300?s={seedSmall}";
     }
 
     public string GetRandomAvatar()
@@ -83,6 +86,7 @@ public class MockDataProvider
     private static Random random = new Random();
 
     long index;
+    long indexSmall;
 
 
     private static string[] descriptions = new string[]
@@ -114,12 +118,12 @@ public class MockDataProvider
 
         private static string[] firstNames = new string[]
         {
-        "John", "Jane", "Lilly", "Paul", "James", "Rex", "Soth", "Sara", "Robert", "Rachel", "Archie"
+        "John", "Jane", "Peter", "Paul", "James", "Jill", "Soth", "Sara", "Robert", "Rachel"
         };
 
         private static string[] lastNames = new string[]
         {
-        "Smith", "Bronson", "Rowen", "Brown", "Jones", "Mall", "Davis", "Garcia", "Goodwin", "Stout"
+        "Smith", "Bronson", "Williams", "Brown", "Jones", "Mall", "Davis", "Garcia", "Rodriguez", "Wilson"
         };
 
         public static string GenerateRandomName()

@@ -29,10 +29,9 @@ public partial class SmallButton : SkiaButton
         await icon.ScaleToAsync(1.0, 1.0, 50, Easing.SpringOut);
     }
 
-    public override bool OnDown(TouchActionEventArgs args, SKPoint childOffset, SKPoint childOffsetDirect,
-        ISkiaGestureListener wasConsumed)
+    public override bool OnDown(TouchActionEventArgs args, SKPoint childOffset, SKPoint childOffsetDirect, ISkiaGestureListener wasConsumed)
     {
-        this.ScaleToAsync(0.98, 0.98, 16, Easing.CubicOut);
+        this.ScaleToAsync(0.98, 0.95, 16, Easing.CubicOut);
 
         return base.OnDown(args, childOffset, childOffsetDirect, wasConsumed);
     }
@@ -44,6 +43,7 @@ public partial class SmallButton : SkiaButton
 
         base.OnUp();
     }
+
 
 
     SkiaLabel MainLabel;

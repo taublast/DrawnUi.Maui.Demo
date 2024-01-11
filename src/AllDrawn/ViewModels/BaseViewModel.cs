@@ -1,10 +1,50 @@
 ﻿using System.Globalization;
 using System.Reflection;
+using System.Runtime.CompilerServices;
 
 namespace AppoMobi.Maui.DrawnUi.Demo.ViewModels;
 
 public class BaseViewModel : BindableObject, IDisposable
 {
+
+    #region TAP LOCKS
+
+    public Dictionary<string, DateTime> TapLocks = new();
+
+    public bool CheckLocked(string uid)
+    {
+        if (TapLocks.TryGetValue(uid, out DateTime lockTime))
+        {
+            // If the lock is about to be removed, treat it as unlocked
+            if (DateTime.UtcNow >= lockTime)
+            {
+                TapLocks.Remove(uid);
+                return false;
+            }
+            return true;
+        }
+        return false;
+    }
+
+    public bool CheckLockAndSet([CallerMemberName] string uid = null, int ms = 900)
+    {
+        if (CheckLocked(uid))
+            return true;
+
+        var unlockTime = DateTime.UtcNow.AddMilliseconds(ms);
+        TapLocks[uid] = unlockTime;
+
+        _ = Task.Delay(ms).ContinueWith(t =>
+        {
+            TapLocks.Remove(uid);
+        });
+
+        return false;
+    }
+
+    #endregion
+
+
     public string UID { get; } = Guid.NewGuid().ToString();
 
     public DateTime BuildTime

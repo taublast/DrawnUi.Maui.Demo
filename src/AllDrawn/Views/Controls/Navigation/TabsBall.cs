@@ -1,6 +1,6 @@
 ﻿using AppoMobi.Maui.DrawnUi.Enums;
 
-namespace AppoMobi.Maui.DrawnUi.Demo.Views.Navigation
+namespace AppoMobi.Maui.DrawnUi.Demo.Views.Controls.Navigation
 {
     /// <summary>
 	/// A ball that moves between tabs to indicate which one is selected

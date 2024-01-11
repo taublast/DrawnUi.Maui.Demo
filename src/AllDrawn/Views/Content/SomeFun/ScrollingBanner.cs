@@ -1,4 +1,4 @@
-﻿using AppoMobi.Maui.DrawnUi.Drawn.Animations;
+﻿using AppoMobi.Maui.DrawnUi.Drawn.Animate;
 using AppoMobi.Maui.DrawnUi.Enums;
 
 namespace AppoMobi.Maui.DrawnUi.Demo.Views.Controls;

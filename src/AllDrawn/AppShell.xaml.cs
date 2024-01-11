@@ -1,11 +1,18 @@
 ﻿using AppoMobi.Maui.DrawnUi.Controls;
-using AppoMobi.Specials.Helpers;
+using AppoMobi.Maui.DrawnUi.Demo.Views.Content;
+
+
 
 namespace AppoMobi.Maui.DrawnUi.Demo
 {
     public partial class AppShell : SkiaShell
     {
         private readonly MainPageViewModel _vm;
+
+        /// <summary>
+        /// Not to be used, so made protected
+        /// </summary>
+        protected new INavigation Navigation { get; set; }
 
         public AppShell()
         {
@@ -22,13 +29,16 @@ namespace AppoMobi.Maui.DrawnUi.Demo
                     this.NavigationLayout.SelectedIndex = 2;
                 });
 
+                RegisterRoute("root", typeof(ScreenTabs));
+
                 //UI tweaks
-                AppShell.PopupsAnimationSpeed = 250;//ms, we slowed a bit to accentuate popup opening fron the center of a tapped cell
                 Super.BottomTabsHeight = 56;
                 Super.NavBarHeight = 47;
                 ToastTextFont = "FontText";
                 ToastTextFontWeight = 600;
                 ToastTextColor = Colors.GreenYellow;
+
+                TouchEffect.TappedWhenMovedThresholdPoints = 2f;
 
 #if DEBUG
                 //ViewsAdapter.LogEnabled = true;
@@ -38,6 +48,7 @@ namespace AppoMobi.Maui.DrawnUi.Demo
                 //SkiaLabel.DebugColor = Color.Parse("#22ff0000");
                 //DrawnUi.Views.Canvas.DebugGesturesColor=Color.Parse("#00ff0000");
 #endif
+
                 _vm = Services.GetService<MainPageViewModel>();
 
                 BindingContext = _vm;
@@ -55,6 +66,12 @@ namespace AppoMobi.Maui.DrawnUi.Demo
             }
         }
 
+        public override void OnNavBarInvalidated()
+        {
+            base.OnNavBarInvalidated();
+
+            _vm.Presentation.UpdateControls();
+        }
 
 
         /// <summary>
@@ -62,10 +79,10 @@ namespace AppoMobi.Maui.DrawnUi.Demo
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private async void Canvas_WillFirstTimeDraw(object sender, SkiaDrawingContext? skiaDrawingContext)
+        private async void Canvas_WillFirstTimeDraw(object sender, SkiaDrawingContext? ctx)
         {
             Canvas.Opacity = 0.001;
-            await Canvas.FadeTo(1, 3000, Easing.Linear);
+            await Canvas.FadeTo(1, 2500, Easing.Linear);
         }
 
     }

@@ -1,5 +1,4 @@
 ﻿using AppoMobi.Maui.DrawnUi.Controls;
-using AppoMobi.Maui.DrawnUi.Demo.Helpers;
 using AppoMobi.Maui.DrawnUi.Demo.Views.Content;
 using AppoMobi.Maui.DrawnUi.Enums;
 using AppoMobi.Maui.DrawnUi.Infrastructure;
@@ -167,7 +166,6 @@ namespace AppoMobi.Maui.DrawnUi.Demo.ViewModels
                 });
             }
         }
-
 
         public ICommand CommandTabReselected
         {
@@ -449,7 +447,7 @@ namespace AppoMobi.Maui.DrawnUi.Demo.ViewModels
                         await App.Shell.PushModalAsync(content, true, true, VisibilityParameters.Visible);
 
                         //var page = new ScreenVarious();
-                        //await Presentation.Shell.PushAsync(page, true);
+                        //await Presentation.Shell.PushDrawnAsync(page, true);
 
                     }).ConfigureAwait(false);
 
@@ -491,10 +489,10 @@ namespace AppoMobi.Maui.DrawnUi.Demo.ViewModels
                     //while we build page to be opened
                     await Task.Run(async () =>
                     {
-                        await App.Shell.GoToAsync(AppRoutes.Carousel.Route, true);
+                        await App.Shell.GoToAsync("carousel", true);
 
                         //var page = new ScreenCarousel();
-                        //await Presentation.Shell.PushAsync(page, true);
+                        //await Presentation.Shell.PushDrawnAsync(page, true);
 
                     }).ConfigureAwait(false);
                 });
@@ -512,7 +510,8 @@ namespace AppoMobi.Maui.DrawnUi.Demo.ViewModels
 
                     await Task.Run(async () =>
                     {
-                        await App.Shell.GoToAsync(AppRoutes.Controls.Route, true);
+                        await App.Shell.GoToAsync("controls", true);
+
                     }).ConfigureAwait(false);
                 });
             }

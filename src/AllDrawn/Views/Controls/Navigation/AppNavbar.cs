@@ -1,6 +1,6 @@
 ﻿
 
-namespace AppoMobi.Maui.DrawnUi.Demo.Views.Navigation
+namespace AppoMobi.Maui.DrawnUi.Demo.Views.Controls.Navigation
 {
 	public class AppNavbar : SkiaLayout
 	{

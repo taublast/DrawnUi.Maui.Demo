@@ -1,6 +1,6 @@
 ﻿using AppoMobi.Maui.DrawnUi.Controls;
 
-namespace AppoMobi.Maui.DrawnUi.Demo.Views.Navigation;
+namespace AppoMobi.Maui.DrawnUi.Demo.Views.Controls.Navigation;
 
 public class CustomColumnsSelector : GenericViewsSelector
 {

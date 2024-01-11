@@ -2,8 +2,8 @@
 <draw:ElementAdapter xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
                 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                 xmlns:draw="http://schemas.appomobi.com/drawnUi/2023/draw"
-                xmlns:navigation="using:AppoMobi.Maui.DrawnUi.Demo.Views.Navigation"
                 xmlns:viewModels="using:AppoMobi.Maui.DrawnUi.Demo.ViewModels"
+                xmlns:navigation1="clr-namespace:AppoMobi.Maui.DrawnUi.Demo.Views.Controls.Navigation"
                 x:DataType="viewModels:ItemDetailsViewModel"
                 x:Class="AppoMobi.Maui.DrawnUi.Demo.Views.ScreenItemDetails">
 
@@ -35,7 +35,7 @@
                 HeightRequest="{Binding Presentation.StatusBarHeightRequest}"
                 HorizontalOptions="Fill"
                 Tag="StatusBar"/>
-            <navigation:NavBarStandart BackgroundColor="Transparent"/>
+            <navigation1:NavBarStandart BackgroundColor="Transparent"/>
         </draw:SkiaLayout>
 
 

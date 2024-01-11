@@ -3,7 +3,7 @@ global using AppoMobi.Maui.DrawnUi.Demo.Views;
 global using AppoMobi.Maui.DrawnUi.Draw;
 global using AppoMobi.Maui.Gestures;
 global using AppoMobi.Maui.Navigation;
-global using AppoMobi.Specials.Extensions;
+global using AppoMobi.Specials;
 global using SkiaSharp;
 using AppoMobi.Maui.DrawnUi.Demo.Views.Content;
 using AppoMobi.Maui.DrawnUi.Infrastructure.Extensions;
@@ -49,6 +49,8 @@ namespace AppoMobi.Maui.DrawnUi.Demo
             builder.Services.AddTransient<ScreenCarousel>();
             builder.Services.AddTransient<ScreenCameraPhoto>();
             builder.Services.AddTransient<ScreenControls>();
+
+            builder.Services.AddTransient<ScreenTabs>();
 
             return builder.Build();
         }

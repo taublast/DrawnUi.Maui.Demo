@@ -4,24 +4,37 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:content="using:AppoMobi.Maui.DrawnUi.Demo.Views.Content"
-    xmlns:controls="http://schemas.appomobi.com/drawnUi/2023/controls"
-    xmlns:controls1="using:AppoMobi.Maui.DrawnUi.Demo.Views.Controls"
-    xmlns:demo="using:AppoMobi.Maui.DrawnUi.Demo"
+    xmlns:controls="using:AppoMobi.Maui.DrawnUi.Demo.Views.Controls"
     xmlns:draw="http://schemas.appomobi.com/drawnUi/2023/draw"
-    xmlns:gestures="clr-namespace:AppoMobi.Maui.Gestures;assembly=AppoMobi.Maui.Gestures"
-    xmlns:navigation="clr-namespace:AppoMobi.Maui.DrawnUi.Demo.Views.Navigation"
-    xmlns:partials="clr-namespace:AppoMobi.Maui.DrawnUi.Demo.Views.Content.Partials"
-    xmlns:viewModels="using:AppoMobi.Maui.DrawnUi.Demo.ViewModels"
-    xmlns:views="http://schemas.appomobi.com/drawnUi/2023/views">
+    xmlns:navigation="clr-namespace:AppoMobi.Maui.DrawnUi.Demo.Views.Controls.Navigation"
+    xmlns:viewModels="using:AppoMobi.Maui.DrawnUi.Demo.ViewModels">
 
 
-    <content:TabCollectionViewDemo
+    <controls:TabCollectionViewDemo
         x:DataType="viewModels:ScrollingCellsViewModel"
         BackgroundColor="WhiteSmoke"
         HorizontalOptions="Fill"
         Spacing="0"
         Tag="TabList"
         VerticalOptions="Fill">
+
+        
+        <draw:SkiaControl.FillGradient>
+
+            <draw:SkiaGradient
+                EndXRatio="1"
+                EndYRatio="1"
+                StartXRatio="0"
+                StartYRatio="0"
+                Type="Linear">
+                <draw:SkiaGradient.Colors>
+                    <Color>#886655</Color>
+                    <Color>#222222</Color>
+                </draw:SkiaGradient.Colors>
+            </draw:SkiaGradient>
+
+        </draw:SkiaControl.FillGradient>
+
 
         <draw:SkiaLayout
             HorizontalOptions="Fill"
@@ -37,7 +50,7 @@
                 HorizontalOptions="Fill"
                 Tag="StatusBar" />
 
-            <!--  toolbar  -->
+            <!--  toolbar with shadow  -->
             <!--
                 we use padding to save space for shadow
                 and negative margin to drop on the next item
@@ -46,7 +59,9 @@
                 Margin="0,0,0,-8"
                 Padding="0,0,0,8"
                 HorizontalOptions="Fill"
-                UseCache="GPU">
+                Tag="Toolbar"
+                UseCache="GPU"
+                ZIndex="1">
 
                 <draw:SkiaShape
                     BackgroundColor="Black"
@@ -55,8 +70,8 @@
                     ZIndex="-1">
                     <draw:SkiaControl.Shadows>
                         <draw:SkiaShadow
-                            Blur="3"
-                            Opacity="0.66"
+                            Blur="2"
+                            Opacity="0.33"
                             X="0"
                             Y="2"
                             Color="#000000" />
@@ -71,7 +86,7 @@
                     SelectedIndex="{Binding Source={x:Reference StackCells}, Path=MaxColumns}"
                     Type="Grid">
 
-                    <controls1:SmallButton
+                    <controls:SmallButton
                         CommandTapped="{Binding CommandSetColumns}"
                         CommandTappedParameter="1"
                         HorizontalOptions="Center"
@@ -79,7 +94,7 @@
                         VerticalOptions="Center"
                         WidthRequest="36" />
 
-                    <controls1:SmallButton
+                    <controls:SmallButton
                         Grid.Column="1"
                         CommandTapped="{Binding CommandSetColumns}"
                         CommandTappedParameter="2"
@@ -88,7 +103,7 @@
                         VerticalOptions="Center"
                         WidthRequest="36" />
 
-                    <controls1:SmallButton
+                    <controls:SmallButton
                         Grid.Column="2"
                         CommandTapped="{Binding CommandSetColumns}"
                         CommandTappedParameter="3"
@@ -102,19 +117,21 @@
             </draw:SkiaLayout>
 
             <!--  drawn CollectionView alternative  -->
+            <!--LoadMoreCommand="{Binding CommandLoadMore}"-->
             <draw:SkiaScroll
+                FrictionScrolled="0.3"
                 x:Name="BannersScroll"
                 HeaderBehind="True"
                 HeaderParallaxRatio="0.75"
                 HorizontalOptions="Fill"
+                RefreshEnabled="True"
+                IgnoreWrongDirection="True"
                 IsRefreshing="{Binding IsLoading, Mode=TwoWay}"
-                LoadMoreCommand="{Binding CommandLoadMore}"
                 LoadMoreOffset="500"
                 MaxVelocity="10000"
                 ParallaxOverscrollEnabled="True"
                 RefreshCommand="{Binding CommandRefreshData}"
-                RefreshEnabled="True"
-                ResetScrollPositionOnContentSizeChanged="True"
+                ResetScrollPositionOnContentSizeChanged="False"
                 Tag="ScrollCells"
                 VerticalOptions="Fill">
 
@@ -122,17 +139,17 @@
                 <draw:SkiaScroll.Header>
 
                     <draw:SkiaLayout
-                        Padding="16"
+                        Padding="0,8"
                         draw:HandleGestures.AnimationTapped="Ripple"
                         draw:HandleGestures.CommandTapped="{Binding CommandAbout}"
                         BackgroundColor="Transparent"
                         HeightRequest="-1"
                         HorizontalOptions="Fill"
                         Tag="Header"
-                        UseCache="GPU">
+                        Type="Column">
 
                         <draw:SkiaMarkdownLabel
-                            Margin="8,0"
+                            Margin="24,8"
                             FontFamily="FontText"
                             FontSize="13"
                             HorizontalOptions="Fill"
@@ -140,9 +157,160 @@
                             LineSpacing="1.33"
                             ParagraphSpacing="0"
                             Text="App totally __drawn on one canvas__ using _SkiaSharp_ 🎨🖌❤.&#x0a;Recycled 💯 cells are loading images from internet in realtime. 🔥 Tap this header for more info. 🔎"
-                            TextColor="Black"
-                            UseCache="Operations"
-                            VerticalOptions="Center" />
+                            TextColor="White"
+                            UseCache="GPU" />
+
+                        <!--  HORIZONTAL SCROLL  -->
+                        <draw:SkiaScroll
+                            FrictionScrolled="0.3"
+                            x:Name="LineScroll"
+                            Bounces="True"
+                            HeightRequest="140"
+                            HorizontalOptions="Fill"
+                            IgnoreWrongDirection="True"
+                            LockChildrenGestures="PassTap"
+                            Orientation="Horizontal"
+                            Tag="HScroll">
+
+                            <!--  in this screen we load 10 items and simulate a templated horizontal stackLayout, not recycled  -->
+                            <draw:SkiaLayout
+                                InitializeTemplatesInBackgroundDelay="10"
+                                ItemsSource="{Binding ItemsSmall}"
+                                RecyclingTemplate="Disabled"
+                                Spacing="0"
+                                Tag="HScrollStack"
+                                Type="Row"
+                                VerticalOptions="Fill">
+
+                                <draw:SkiaLayout.ItemTemplate>
+                                    <DataTemplate>
+
+                                        <!--
+                                            using a custom cell control for faster than bindings processing
+                                            to set ui props from code-behind
+                                        -->
+                                        <!--can use CellWIthHorizontalParallax with no caching then..-->
+                                        <controls:FastCellWithBanner
+                                            UseCache="GPU"
+                                            draw:HandleGestures.AnimationTapped="Ripple"
+                                            x:DataType="viewModels:SimpleItemViewModel"
+                                            VerticalOptions="Fill"
+                                            WidthRequest="148">
+
+                                            <!--  clipped cell content container - cache DoubleImage  -->
+                                            <!--  using a custom SkiaShapeTouch to open popups from the center of a tapped cell  -->
+                                            <!--  uisng ImageDoubleBuffered cache as this changes dinamically  -->
+                                            <controls:SkiaShapeTouch
+                                                BackgroundColor="Black"
+                                                CommandTapped="{Binding Source={x:Reference LineScroll}, Path=BindingContext.CommandOpenGallery}"
+                                                CornerRadius="8"
+                                                HorizontalOptions="Fill"
+                                                MarginLeft="8"
+                                                VerticalOptions="Fill">
+
+                                                <!--  image will be parallaxed, we cache and then offset the cache with TranslationX  -->
+                                                <!--  cache is bigger than surrounding shape because of negative margins  -->
+                                                <draw:SkiaImage
+                                                    Margin="-16"
+                                                    Aspect="AspectCover"
+                                                    EraseChangedContent="True"
+                                                    HorizontalOptions="Fill"
+                                                    Tag="ImageBanner"
+                                                    UseCache="Image"
+                                                    VerticalOptions="Fill"
+                                                    ZIndex="-1" />
+
+                                                <!--  cached overlay data  -->
+                                                <!--  using Image cache for gradient  -->
+                                                <draw:SkiaLayout
+                                                    HorizontalOptions="Fill"
+                                                    UseCache="Image"
+                                                    VerticalOptions="Fill">
+
+                                                    <draw:SkiaShape
+                                                        HorizontalOptions="Fill"
+                                                        VerticalOptions="Fill">
+                                                        <draw:SkiaShape.FillGradient>
+                                                            <draw:SkiaGradient
+                                                                EndXRatio="0"
+                                                                EndYRatio="1"
+                                                                StartXRatio="0"
+                                                                StartYRatio="0"
+                                                                Type="Linear">
+                                                                <draw:SkiaGradient.Colors>
+                                                                    <Color>#00000000</Color>
+                                                                    <Color>#33000000</Color>
+                                                                    <Color>#F0000000</Color>
+                                                                </draw:SkiaGradient.Colors>
+                                                                <draw:SkiaGradient.ColorPositions>
+                                                                    <x:Double>0.4</x:Double>
+                                                                    <x:Double>0.5</x:Double>
+                                                                    <x:Double>1.0</x:Double>
+                                                                </draw:SkiaGradient.ColorPositions>
+                                                            </draw:SkiaGradient>
+                                                        </draw:SkiaShape.FillGradient>
+                                                    </draw:SkiaShape>
+
+                                                    <draw:SkiaLabel
+                                                        Margin="8,0"
+                                                        FontFamily="FontTextBold"
+                                                        FontSize="20"
+                                                        LineBreakMode="TailTruncation"
+                                                        MaxLines="1"
+                                                        Style="{x:StaticResource SkiaLabelDefaultStyle}"
+                                                        Tag="LabelTitle"
+                                                        Text="Title"
+                                                        TextColor="White"
+                                                        TranslationY="8"
+                                                        VerticalOptions="Center" />
+
+                                                    <draw:SkiaLabel
+                                                        Margin="8,0"
+                                                        FontSize="10"
+                                                        LineBreakMode="TailTruncation"
+                                                        LineSpacing="-2"
+                                                        MaxLines="3"
+                                                        Opacity="0.66"
+                                                        Style="{x:StaticResource SkiaLabelDefaultStyle}"
+                                                        Tag="LabelDesc"
+                                                        Text="Description"
+                                                        TextColor="White"
+                                                        TranslationY="30"
+                                                        VerticalOptions="Center" />
+
+                                                    <draw:SkiaLabel
+                                                        Margin="8"
+                                                        FontFamily="FontTextBold"
+                                                        FontSize="30"
+                                                        HorizontalOptions="End"
+                                                        MaxLines="1"
+                                                        Style="{x:StaticResource SkiaLabelDefaultStyle}"
+                                                        Tag="LabelId"
+                                                        Text="ID"
+                                                        TextColor="#99ff0000"
+                                                        VerticalOptions="Start" />
+
+                                                </draw:SkiaLayout>
+
+                                            </controls:SkiaShapeTouch>
+
+                                        </controls:FastCellWithBanner>
+
+
+                                    </DataTemplate>
+                                </draw:SkiaLayout.ItemTemplate>
+
+                            </draw:SkiaLayout>
+
+                            <!--  FOOTER  -->
+                            <!--  using footer as padding here  -->
+                            <draw:SkiaScroll.Footer>
+                                <draw:SkiaControl
+                                    VerticalOptions="Fill"
+                                    WidthRequest="8">
+                                </draw:SkiaControl>
+                            </draw:SkiaScroll.Footer>
+                        </draw:SkiaScroll>
 
                     </draw:SkiaLayout>
                 </draw:SkiaScroll.Header>
@@ -178,14 +346,19 @@
                 </draw:SkiaScroll.RefreshIndicator>
 
                 <!--  CELLS  -->
-                <!--  RecyclingTemplate + ImageDoubleBuffered..  -->
-                <draw:SkiaLayout
+                <!--  RecyclingTemplate + UseCacheDoubleBuffering..  -->
+
+                <!--  ItemsSource="{Binding Items}"  -->
+
+                <content:AnimateVerticalStack
+                    InitializeTemplatesInBackgroundDelay="10"
                     x:Name="StackCells"
                     DynamicColumns="True"
                     HorizontalOptions="Fill"
                     ItemsSource="{Binding Items}"
                     MaxColumns="{Binding Columns}"
                     RecyclingTemplate="Enabled"
+                    Rendered="OnEventStackCellsRendered"
                     Spacing="2"
                     Tag="StackItems"
                     Type="Column">
@@ -193,11 +366,7 @@
                     <draw:SkiaLayout.ItemTemplate>
                         <DataTemplate>
 
-                            <!--
-                                using a custom cell control for faster than bindings processing
-                                to set ui props from code-behind
-                            -->
-                            <partials:FastCellWithBanner
+                            <controls:FastCellWithBanner
                                 x:DataType="viewModels:SimpleItemViewModel"
                                 HeightRequest="140"
                                 HorizontalOptions="Fill"
@@ -219,8 +388,7 @@
                                     ZIndex="1">
 
                                     <!--  usual cell content  -->
-                                    <!--  using a custom SkiaShapeTouch to open popups from the center of a tapped cell  -->
-                                    <partials:SkiaShapeTouch
+                                    <controls:SkiaShapeTouch
                                         Margin="4,2"
                                         draw:HandleGestures.AnimationTapped="Ripple"
                                         CommandTapped="{Binding Source={x:Reference StackCells}, Path=BindingContext.CommandOpenGallery}"
@@ -307,7 +475,7 @@
                                             FontSize="10"
                                             LineBreakMode="TailTruncation"
                                             LineSpacing="-2"
-                                            MaxLines="2"
+                                            MaxLines="3"
                                             Opacity="0.66"
                                             Style="{x:StaticResource SkiaLabelDefaultStyle}"
                                             Tag="LabelDesc"
@@ -327,10 +495,10 @@
                                             Style="{x:StaticResource SkiaLabelDefaultStyle}"
                                             Tag="LabelId"
                                             Text="ID"
-                                            TextColor="Red"
+                                            TextColor="#66ff0000"
                                             UseCache="Operations" />
 
-                                    </partials:SkiaShapeTouch>
+                                    </controls:SkiaShapeTouch>
 
                                 </draw:SkiaDrawer>
 
@@ -348,22 +516,45 @@
                                         LockRatio="1"
                                         UseCache="Operations"
                                         VerticalOptions="Center">
+
                                         <draw:SkiaLabel
+                                            TextColor="White"
                                             FontSize="20"
                                             HorizontalOptions="Center"
                                             Text="X"
-                                            TextColor="White"
                                             VerticalOptions="Center" />
+
                                     </draw:SkiaShape>
 
                                 </draw:SkiaLayout>
 
-                            </partials:FastCellWithBanner>
+                            </controls:FastCellWithBanner>
 
                         </DataTemplate>
                     </draw:SkiaLayout.ItemTemplate>
 
-                </draw:SkiaLayout>
+                    <!--  EMPTY  -->
+                    <draw:SkiaLayout.EmptyView>
+
+                        <draw:SkiaLayout
+                            HeightRequest="150"
+                            HorizontalOptions="Fill">
+
+                            <draw:SkiaLottie
+                                AutoPlay="True"
+                                ColorTint="Red"
+                                HorizontalOptions="Center"
+                                LockRatio="1"
+                                Repeat="-1"
+                                Source="Lottie/Loader.json"
+                                VerticalOptions="Center"
+                                WidthRequest="50" />
+
+                        </draw:SkiaLayout>
+
+                    </draw:SkiaLayout.EmptyView>
+
+                </content:AnimateVerticalStack>
 
 
             </draw:SkiaScroll>
@@ -390,6 +581,6 @@
             Text="{Binding Source={x:Reference StackCells}, Path=DebugString}"
             VerticalOptions="End" />-->
 
-    </content:TabCollectionViewDemo>
+    </controls:TabCollectionViewDemo>
 
 </draw:ElementAdapter>

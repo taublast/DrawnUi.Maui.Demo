@@ -1,4 +1,5 @@
-﻿using AppoMobi.Maui.DrawnUi.Drawn.Animations;
+﻿using AppoMobi.Maui.DrawnUi.Animate.Animators;
+using AppoMobi.Maui.DrawnUi.Drawn.Animate;
 using AppoMobi.Maui.DrawnUi.Drawn.Infrastructure.Interfaces;
 using AppoMobi.Maui.DrawnUi.Infrastructure.Extensions;
 
@@ -26,7 +27,7 @@ public partial class Lake : SkiaLayout
     private double _velocityRatoX;
     private double _velocityRatoY;
     private DroppingLetters _welcome;
-    private ExecuteOnTick _appLoop;
+    private ActionOnTickAnimator _appLoop;
 
     /// <summary>
     /// Execute on drawing tick

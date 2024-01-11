@@ -1,4 +1,4 @@
-﻿namespace AppoMobi.Maui.DrawnUi.Demo.Views.Content.Partials;
+﻿namespace AppoMobi.Maui.DrawnUi.Demo.Views.Controls;
 
 public class CellWIthHorizontalParallax : FastCellWithBanner
 {
@@ -6,6 +6,11 @@ public class CellWIthHorizontalParallax : FastCellWithBanner
     {
         base.OnScrolled();
 
+        UpdateParallax();
+    }
+
+    void UpdateParallax()
+    {
         // for cell-aware parallax
         // the idea is to offset the image from the center of the screen
         // (so the parallax value is 0 when cell is in the middle of the screen)
@@ -15,8 +20,15 @@ public class CellWIthHorizontalParallax : FastCellWithBanner
         // Apply the parallax effect to the images inside the cell
         if (ImageBanner != null)
         {
-            ImageBanner.HorizontalOffset = parallaxValue;
+            ImageBanner.TranslationX = parallaxValue;
         }
+    }
+
+    protected override void OnBindingContextChanged()
+    {
+        base.OnBindingContextChanged();
+
+        UpdateParallax();
     }
 
     /// <summary>
@@ -26,8 +38,10 @@ public class CellWIthHorizontalParallax : FastCellWithBanner
     double CalculateHorizontalOffsetPts()
     {
         // Calculate the cell's horizontal position relative to the center of the screen
-        double ptsCenterX = this.DrawingRect.MidX / RenderingScale; // Get the cell's center X position
+        double ptsCenterX = this.GetPositionOnCanvasInPoints(false).X + this.Width / 2.0; // Get the cell's center X position
+
         var screenCenterX = App.Shell.RootLayout.MeasuredSize.Units.Width / 2f; //center of the screen
+
         return ptsCenterX - screenCenterX;
     }
 
@@ -38,7 +52,6 @@ public class CellWIthHorizontalParallax : FastCellWithBanner
     /// <returns></returns>
     double CalculateParallaxValue(double horizontalOffset)
     {
-        // Adjust the scaling factor as needed for your desired effect
         double scalingFactor = 0.1;
         return -horizontalOffset * scalingFactor;
     }

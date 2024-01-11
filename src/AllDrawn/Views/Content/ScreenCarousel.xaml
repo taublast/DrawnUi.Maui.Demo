@@ -4,13 +4,14 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:draw="http://schemas.appomobi.com/drawnUi/2023/draw"
-    xmlns:navigation="using:AppoMobi.Maui.DrawnUi.Demo.Views.Navigation"
     xmlns:viewModels="using:AppoMobi.Maui.DrawnUi.Demo.ViewModels"
+    xmlns:navigation="clr-namespace:AppoMobi.Maui.DrawnUi.Demo.Views.Controls.Navigation"
     x:DataType="viewModels:SimplePageViewModel"
     BackgroundColor="Black"
     HorizontalOptions="Fill"
     Spacing="0"
     VerticalOptions="Fill">
+
 
     <draw:SkiaControl.FillGradient>
 
@@ -54,11 +55,15 @@
             FontSize="20"
             Text="{Binding SomeBoolean, StringFormat='In transition: {0}'}" />
 
-
         <draw:SkiaLabel
             BackgroundColor="Black"
             FontSize="20"
             Text="{Binding SelectedIndex, StringFormat='Index: {0}'}" />
+
+        <draw:SkiaLabel
+            BackgroundColor="Black"
+            FontSize="20"
+            Text="{Binding Source={x:Reference MainCarousel}, Path=ScrollAmount, StringFormat='ScrollAmount: {0.00}'}" />
 
     </draw:SkiaLayout>
 
@@ -73,6 +78,7 @@
         SidesOffset="40"
         Spacing="20"
         Tag="Carousel"
+        x:Name="MainCarousel"
         VerticalOptions="Center">
 
         <draw:SkiaLayout
@@ -85,6 +91,7 @@
                 HorizontalOptions="Center"
                 HorizontalTextAlignment="Center"
                 Text="Here we have Spacing 20 and SidesOffset 40."
+                
                 VerticalOptions="Center" />
 
         </draw:SkiaLayout>
@@ -99,6 +106,7 @@
                 HorizontalOptions="Center"
                 HorizontalTextAlignment="Center"
                 Text="You could use ItemTemplate or include controls with unique design."
+                
                 VerticalOptions="Center" />
 
         </draw:SkiaLayout>
@@ -107,21 +115,10 @@
             BackgroundColor="Blue"
             UseCache="Operations">
 
-            <draw:SkiaLayout
-                HorizontalOptions="Fill"
-                Type="Column"
-                VerticalOptions="Center">
-
-                <draw:SkiaButton
-                    HorizontalOptions="Center"
-                    Text="Index 2" />
-
-                <draw:SkiaLabel
-                    FontSize="16"
-                    HorizontalOptions="Center"
-                    HorizontalTextAlignment="Center"
-                    Text="In this case we use controls with unique design instead of ItemTemplate." />
-            </draw:SkiaLayout>
+            <draw:SkiaButton
+                HorizontalOptions="Center"
+                Text="Index 2"
+                VerticalOptions="Center" />
 
         </draw:SkiaLayout>
 
@@ -134,6 +131,7 @@
                 FontSize="20"
                 HorizontalOptions="Center"
                 Text="Index 3"
+                
                 VerticalOptions="Center" />
 
         </draw:SkiaLayout>
@@ -190,6 +188,5 @@
 
             </draw:SkiaCarousel>-->
 
+
 </draw:SkiaLayout>
-
-

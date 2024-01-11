@@ -1,7 +1,7 @@
 ﻿using AppoMobi.Maui.DrawnUi.Controls;
+using AppoMobi.Maui.DrawnUi.Infrastructure.Models;
 
-
-namespace AppoMobi.Maui.DrawnUi.Demo.Views.Content.Partials
+namespace AppoMobi.Maui.DrawnUi.Demo.Views.Controls
 {
     /// <summary>
     ///  For faster rendering we are not using Maui Bindings that act on UI thread
@@ -60,6 +60,37 @@ namespace AppoMobi.Maui.DrawnUi.Demo.Views.Content.Partials
         protected SkiaLabel LabelTitle;
         protected SkiaLabel LabelDesc;
         protected SkiaImage ImageBanner;
+        protected SkiaControl ImagePlaceholder;
+
+        public override void OnDisposing()
+        {
+            if (ImageBanner != null)
+            {
+                ImageBanner.OnSuccess -= OnImageLoaded;
+                ImageBanner.OnCleared -= OnImageCleared;
+            }
+
+            base.OnDisposing();
+
+            Drawer = null;
+            LabelTitle = null;
+            LabelDesc = null;
+            ImageBanner = null;
+            ImagePlaceholder = null;
+            LabelId = null;
+        }
+
+        private void OnImageLoaded(object sender, ContentLoadedEventArgs e)
+        {
+            if (ImagePlaceholder != null)
+                ImagePlaceholder.IsVisible = false;
+        }
+
+        private void OnImageCleared(object sender, EventArgs e)
+        {
+            if (ImagePlaceholder != null)
+                ImagePlaceholder.IsVisible = true;
+        }
 
         void FindViews()
         {
@@ -82,11 +113,16 @@ namespace AppoMobi.Maui.DrawnUi.Demo.Views.Content.Partials
             if (ImageBanner == null)
             {
                 ImageBanner = FindView<SkiaImage>("ImageBanner");
+                if (ImageBanner != null)
+                {
+                    ImageBanner.OnSuccess += OnImageLoaded;
+                    ImageBanner.OnCleared += OnImageCleared;
+                }
             }
-            //if (ImagePlaceholder == null)
-            //{
-            //    ImagePlaceholder = FindView<SkiaSvg>("ImagePlaceholder");
-            //}
+            if (ImagePlaceholder == null)
+            {
+                ImagePlaceholder = FindViewByTag("ImagePlaceholder");
+            }
         }
 
         int contextChanged;
@@ -163,8 +199,8 @@ namespace AppoMobi.Maui.DrawnUi.Demo.Views.Content.Partials
 
         public virtual void UpdateCell()
         {
-            //  if (contextChanged > 1)
-            //      InvalidateChildrenTree(); //order to remeasure inside views for new content
+            if (contextChanged > 1)
+                InvalidateChildrenTree(); //order to remeasure inside views for new content
 
             Update();
         }

@@ -69,7 +69,7 @@
 
 
 	<ItemGroup>
-		<PackageReference Include="AppoMobi.Maui.DrawnUi" Version="1.0.1.32-pre" />
+		<PackageReference Include="AppoMobi.Maui.DrawnUi" Version="1.0.3.6-pre" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
 	</ItemGroup>
  
@@ -87,6 +87,9 @@
 	    <DependentUpon>ResStrings.resx</DependentUpon>
 	    <DesignTime>True</DesignTime>
 	    <AutoGen>True</AutoGen>
+	  </Compile>
+	  <Compile Update="Views\ScreenTabs.xaml.cs">
+	    <DependentUpon>ScreenTabs.xaml</DependentUpon>
 	  </Compile>
 	  </ItemGroup>
 
@@ -116,7 +119,16 @@
 	</ItemGroup>
 
   <ItemGroup>
-    <MauiXaml Update="Views\MainScreen.xaml">
+    <MauiXaml Update="Views\Content\ScreenControls.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </MauiXaml>
+    <MauiXaml Update="Views\Controls\SkiaSwitchCupertino.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </MauiXaml>
+    <MauiXaml Update="Views\Controls\SkiaSwitchMaterial.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </MauiXaml>
+    <MauiXaml Update="Views\ScreenTabs.xaml">
       <Generator>MSBuild:Compile</Generator>
     </MauiXaml>
   </ItemGroup>

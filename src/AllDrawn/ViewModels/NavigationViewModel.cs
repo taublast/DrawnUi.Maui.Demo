@@ -1,5 +1,5 @@
 ﻿using AppoMobi.Maui.DrawnUi.Controls;
-using AppoMobi.Specials.Helpers;
+using AppoMobi.Specials;
 using System.Collections.Concurrent;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
@@ -152,7 +152,17 @@ public class NavigationViewModel : BaseViewModel
     private void OnShellNavigated(object sender, ShellNavigatedEventArgs e)
     {
 
+        if (e.Current.Location.ToString().SafeContains("/tabs"))
+        {
+            InitFlyout();
 
+            //todo can do one-time tasks if needed
+            //Super.StartTimer(TimeSpan.FromSeconds(1.5), () =>
+            //{
+            //    InsureSignalsConnected();
+            //    return false;
+            //});
+        }
     }
 
     /// <summary>
@@ -372,48 +382,6 @@ public class NavigationViewModel : BaseViewModel
 
 
 
-    private async void OnNotificationsReceived(object sender, List<Tree> tree)
-    {
-
-        var notification = tree.FirstOrDefault(x => x.Id == "chat");
-        if (notification != null)
-        {
-            NotificationsChat = notification.Total;
-        }
-        else
-        {
-            NotificationsChat = 0;
-        }
-
-
-        notification = tree.FirstOrDefault(x => x.Id == "system");
-        if (notification != null)
-        {
-            NotificationsSystem = notification.Total;
-        }
-        else
-            NotificationsSystem = 0;
-
-
-
-        notification = tree.FirstOrDefault(x => x.Id == "profile");
-        if (notification != null)
-        {
-            NotificationsProfile = notification.Total;
-        }
-        else
-        {
-            NotificationsProfile = 0;
-        }
-
-
-        NotificationsSystem += NotificationsProfile;
-
-
-        Notifications = tree;
-    }
-
-
 
     bool StartupFinished { get; set; }
 
@@ -508,12 +476,7 @@ public class NavigationViewModel : BaseViewModel
         }
     }
 
-    public static readonly BindableProperty NotificationsProperty = BindableProperty.Create(nameof(Notifications), typeof(List<Tree>), typeof(NavigationViewModel), new List<Tree>()); //, BindingMode.TwoWay
-    public List<Tree> Notifications
-    {
-        get { return (List<Tree>)GetValue(NotificationsProperty); }
-        set { SetValue(NotificationsProperty, value); }
-    }
+
 
 
     #endregion
@@ -565,15 +528,20 @@ public class NavigationViewModel : BaseViewModel
     public async Task GoBack(bool animate = true)
     {
 
-        //could also just do Shell.GoToAsync("..");
+        //App.Instance.Shell.GoToAsync("..");
 
-        if (Shell.ModalStack.Count > 0)
+        //return;
+
+        if (Shell != null)
         {
-            await Shell.PopModalAsync(animate);
-        }
-        else
-        {
-            await Shell.PopAsync(animate);
+            if (Shell.ModalStack.Count > 0)
+            {
+                await Shell.PopModalAsync(animate);
+            }
+            else
+            {
+                await Shell.PopAsync(animate);
+            }
         }
 
     }

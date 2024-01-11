@@ -2,7 +2,7 @@
 using AppoMobi.Maui.DrawnUi.Drawn.Infrastructure.Interfaces;
 using AppoMobi.Maui.DrawnUi.Infrastructure;
 
-namespace AppoMobi.Maui.DrawnUi.Demo.Views.Content.Partials;
+namespace AppoMobi.Maui.DrawnUi.Demo.Views.Controls;
 
 public class SkiaShapeTouch : SkiaShape
 {

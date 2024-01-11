@@ -1,5 +1,5 @@
-﻿using AppoMobi.Maui.DrawnUi.Demo.Resources.Strings;
-using AppoMobi.Specials.Helpers;
+﻿using AppoMobi.Maui.DrawnUi.Controls;
+using AppoMobi.Maui.DrawnUi.Demo.Resources.Strings;
 using System.Globalization;
 
 
@@ -15,7 +15,6 @@ namespace AppoMobi.Maui.DrawnUi.Demo
 
             Boostrap();
         }
-
 
         void ResizeWindow(Window window)
         {
@@ -66,7 +65,7 @@ namespace AppoMobi.Maui.DrawnUi.Demo
             {
 #if ANDROID
 
-                Super.SetNavigationBarColor(Color.Parse("#11161D"), Color.Parse("#11161D"), true);
+				Super.SetNavigationBarColor(Color.Parse("#11161D"), Color.Parse("#11161D"), true);
 
 #endif
                 if (nav != null)
@@ -80,10 +79,10 @@ namespace AppoMobi.Maui.DrawnUi.Demo
 
 #if ANDROID
 
-                Super.SetNavigationBarColor(Color.Parse("#11161D"), Color.Parse("#11161D"), true);
+				Super.SetNavigationBarColor(Color.Parse("#11161D"), Color.Parse("#11161D"), true);
 
-                //Super.SetNavigationBarColor(Colors.White, Colors.Transparent, false);
-                //Super.Native?.SetNavigationBarColor(AppResources.Get<Color>("ColorPrimary"), false);
+				//Super.SetNavigationBarColor(Colors.White, Colors.Transparent, false);
+				//Super.Native?.SetNavigationBarColor(AppResources.Get<Color>("ColorPrimary"), false);
 #endif
                 if (nav != null)
                 {
@@ -105,35 +104,35 @@ namespace AppoMobi.Maui.DrawnUi.Demo
         void Boostrap()
         {
             SetupCulture(new EnabledLanguage[]
+            {
+                new EnabledLanguage
                 {
-                    new EnabledLanguage
-                    {
-                        Code = "en", Display = "English"
-                    },
-                    new EnabledLanguage
-                    {
-                        Code = "es", Display = "Español"
-                    },
-                    new EnabledLanguage
-                    {
-                        Code = "fr", Display = "Français"
-                    },            new EnabledLanguage
-                    {
-                        Code = "de", Display = "Deutsch"
-                    },
-                    new EnabledLanguage
-                    {
-                        Code = "ru", Display = "Русский"
-                    },
+                    Code = "en", Display = "English"
                 },
-                null); //default null will use system language
+                new EnabledLanguage
+                {
+                    Code = "es", Display = "Español"
+                },
+                new EnabledLanguage
+                {
+                    Code = "fr", Display = "Français"
+                },
+                new EnabledLanguage
+                {
+                    Code = "de", Display = "Deutsch"
+                },
+                new EnabledLanguage
+                {
+                    Code = "ru", Display = "Русский"
+                },
+            });
 
             Presentation.Initialize(AppRoutes.Root.Route);
         }
 
         public static App Instance => App.Current as App;
 
-        public static AppShell Shell => Instance.Presentation.Shell;
+        public static SkiaShell Shell => Instance.Presentation.Shell;
 
         private NavigationViewModel _navigationVm;
         public NavigationViewModel Presentation
@@ -191,11 +190,11 @@ namespace AppoMobi.Maui.DrawnUi.Demo
             //Settings.Set("Lang", lang);
         }
 
-        public void SetupCulture(IEnumerable<EnabledLanguage> allowed, string defaultLanguage)
+        public void SetupCulture(IEnumerable<EnabledLanguage> allowed)
         {
             EnabledLanguages = allowed;
 
-            var customLang = string.Empty; //_settings.Get("Lang", defaultLanguage);
+            var customLang = string.Empty;// Settings.Get("Lang", string.Empty);
             if (string.IsNullOrEmpty(customLang))
             {
                 //looks like forst run, so set current device culture

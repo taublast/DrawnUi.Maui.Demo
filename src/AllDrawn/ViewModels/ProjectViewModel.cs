@@ -15,43 +15,6 @@ public class ProjectViewModel : BaseViewModel
 
     public NavigationViewModel Presentation { get; }
 
-    #region TAP LOCKS
-
-    public ConcurrentDictionary<string, DateTime> TapLocks = new();
-
-    public bool CheckLocked(string uid)
-    {
-        if (TapLocks.TryGetValue(uid, out DateTime lockTime))
-        {
-            // If the lock is about to be removed, treat it as unlocked
-            if (DateTime.UtcNow >= lockTime)
-            {
-                TapLocks.TryRemove(uid, out _);
-                return false;
-            }
-            return true;
-        }
-        return false;
-    }
-
-    public bool CheckLockAndSet([CallerMemberName] string uid = null, int ms = 500)
-    {
-        if (CheckLocked(uid))
-            return true;
-
-        var unlockTime = DateTime.UtcNow.AddMilliseconds(ms);
-        TapLocks[uid] = unlockTime;
-
-        _ = Task.Delay(ms).ContinueWith(t =>
-        {
-            TapLocks.TryRemove(uid, out _);
-        });
-
-        return false;
-    }
-
-    #endregion
-
     public ICommand CommandShareUrl
     {
         get

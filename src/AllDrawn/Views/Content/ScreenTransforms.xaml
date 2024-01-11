@@ -4,13 +4,13 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:draw="http://schemas.appomobi.com/drawnUi/2023/draw"
-    xmlns:navigation="using:AppoMobi.Maui.DrawnUi.Demo.Views.Navigation"
     xmlns:viewModels="using:AppoMobi.Maui.DrawnUi.Demo.ViewModels"
+    xmlns:navigation="clr-namespace:AppoMobi.Maui.DrawnUi.Demo.Views.Controls.Navigation"
     x:DataType="viewModels:SimplePageViewModel"
     BackgroundColor="Black"
     HorizontalOptions="Fill"
-    Type = "Column"
     Spacing="0"
+    Type="Column"
     VerticalOptions="Fill">
 
     <draw:SkiaControl.FillGradient>
@@ -51,25 +51,27 @@
 
         <!--  HINT  -->
         <draw:SkiaLayout
+            Tag="WithShape"
             Margin="64,0"
             HorizontalOptions="Fill"
+            VerticalOptions="Start"
             TranslationY="380"
             UseCache="GPU"
             ZIndex="4">
 
             <draw:SkiaShape
                 HorizontalOptions="Fill"
+                VerticalOptions="Fill"
                 StrokeColor="#66ffffff"
                 StrokePath="16,8"
-                StrokeWidth="1"
-                VerticalOptions="Fill" />
+                StrokeWidth="1"/>
 
             <draw:SkiaLabel
                 Margin="16,8"
-                DrawCharByChar="True"
+                DrawCharByChar="False"
                 FontFamily="FontTextBold"
                 FontSize="16"
-                HorizontalOptions="Fill"
+                HorizontalOptions="Center"
                 HorizontalTextAlignment="Center"
                 Text="Checking transforms, gradients etc. List is scrollable!"
                 TextColor="White" />
@@ -91,7 +93,6 @@
 
         <!--  LIST  -->
         <draw:SkiaShape
-            UseCache="Operations"
             Margin="0,0,0,0"
             CameraAngleX="15"
             CameraAngleY="6"
@@ -166,7 +167,7 @@
                 <draw:SkiaLayout
                     Padding="10"
                     HorizontalOptions="Fill"
-                    Type = "Column">
+                    Type="Column">
 
                     <draw:SkiaLayout.ItemsSource>
                         <x:Array Type="{x:Type x:String}">
@@ -188,27 +189,27 @@
                     <draw:SkiaLayout.ItemTemplate>
                         <DataTemplate>
 
-          
 
-                                <draw:SkiaLayout
+
+                            <draw:SkiaLayout
+                                HeightRequest="40"
+                                HorizontalOptions="Fill"
+                                UseCache="Operations">
+
+                                <draw:SkiaLabel
+                                    Padding="4"
+                                    FontFamily="FontTextTitle"
+                                    FontSize="12"
                                     HeightRequest="40"
-                                    HorizontalOptions="Fill"
-                                    UseCache="Operations">
+                                    HorizontalOptions="Center"
+                                    Tag="MainLabel"
+                                    Text="{Binding .}"
+                                    TextColor="#ffffff"
+                                    VerticalOptions="Center" />
 
-                                    <draw:SkiaLabel
-                                        Padding="4"
-                                        FontFamily="FontTextTitle"
-                                        FontSize="12"
-                                        HeightRequest="40"
-                                        HorizontalOptions="Center"
-                                        Tag="MainLabel"
-                                        Text="{Binding .}"
-                                        TextColor="#ffffff"
-                                        VerticalOptions="Center" />
+                            </draw:SkiaLayout>
 
-                                </draw:SkiaLayout>
 
-     
                         </DataTemplate>
 
                     </draw:SkiaLayout.ItemTemplate>
@@ -218,7 +219,6 @@
             </draw:SkiaScroll>
 
         </draw:SkiaShape>
-
 
         <!--  wrapper to cache with shadows  -->
         <draw:SkiaLayout

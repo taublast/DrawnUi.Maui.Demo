@@ -3,7 +3,7 @@ using Android.Content;
 using Android.Content.PM;
 using Android.OS;
 using AppoMobi.Maui.DrawnUi.Demo.Resources.Strings;
-using AppoMobi.Specials.Helpers;
+using AppoMobi.Specials;
 
 namespace AppoMobi.Maui.DrawnUi.Demo
 {
@@ -37,7 +37,7 @@ namespace AppoMobi.Maui.DrawnUi.Demo
                 this.MoveTaskToBack(true);
             }
 
-            if (!App.Shell.GoBack())
+            if (!App.Shell.GoBack(true))
             {
                 App.Shell.ShowToast(ResStrings.PressBACKOnceAgain);
                 maybe_exit = true;

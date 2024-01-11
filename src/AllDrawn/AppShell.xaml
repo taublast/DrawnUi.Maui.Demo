@@ -3,34 +3,25 @@
     x:Class="AppoMobi.Maui.DrawnUi.Demo.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:content="clr-namespace:AppoMobi.Maui.DrawnUi.Demo.Views.Content"
+    xmlns:controls="clr-namespace:AppoMobi.Maui.DrawnUi.Demo.Views.Controls"
     xmlns:draw="http://schemas.appomobi.com/drawnUi/2023/draw"
+    xmlns:navigation="clr-namespace:AppoMobi.Maui.DrawnUi.Demo.Views.Controls.Navigation"
     xmlns:viewModels="using:AppoMobi.Maui.DrawnUi.Demo.ViewModels"
-    x:DataType="viewModels:MainPageViewModel"
-    BackgroundColor="Transparent"
-    NavigationPage.HasNavigationBar="false">
+    x:DataType="viewModels:MainPageViewModel">
 
     <draw:Canvas
         x:Name="Canvas"
-        GesturesEnabled="True"
+        Gestures="Enabled"
         HorizontalOptions="Fill"
         VerticalOptions="Fill"
+        HardwareAccelerated="True"
         WillFirstTimeDraw="Canvas_WillFirstTimeDraw">
-
-        <draw:Canvas.HardwareAccelerated>
-            <OnPlatform x:TypeArguments="x:Boolean">
-                <On
-                    Platform="Android"
-                    Value="true" />
-            </OnPlatform>
-        </draw:Canvas.HardwareAccelerated>
 
         <!--  ShellLayout  -->
         <draw:SkiaLayout
             HorizontalOptions="Fill"
             VerticalOptions="Fill">
-            
-            <!--  required root layout wil be replaced by skiashell -->
-            <draw:SkiaControl Tag="RootLayout" />
 
             <!--  FPS  -->
             <draw:SkiaLabelFps
@@ -42,13 +33,11 @@
                 TextColor="White"
                 VerticalOptions="End" />
 
-            <!--  required root layout placeholder wil be replaced by skiashell -->
-            <!--can use placeholder for later changing with navigation or just inlude your solid content directly here-->
+            <!--  required root layout wil be replaced by skiashell -->
             <draw:SkiaControl Tag="RootLayout" />
 
         </draw:SkiaLayout>
 
     </draw:Canvas>
-
 
 </draw:SkiaShell>

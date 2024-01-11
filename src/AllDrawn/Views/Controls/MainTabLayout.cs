@@ -1,34 +1,33 @@
-﻿namespace AppoMobi.Maui.DrawnUi.Demo.Views.Content;
+﻿namespace AppoMobi.Maui.DrawnUi.Demo.Views.Controls;
 
 public class MainTabLayout : SkiaLayout, IInsideViewport
 {
-	bool vmSet;
+    bool vmSet;
 
-	protected override void OnBindingContextChanged()
-	{
-		//avoid parent tabs binding context
-		if (BindingContext != null && !(BindingContext is SomeTabsViewModel))
-		{
-			BindingContext = null;
-			return;
-		}
+    public void OnAppearing()
+    {
+        if (!vmSet)
+        {
+            vmSet = true;
+            var vm = App.Instance.Services.GetService<SomeTabsViewModel>();
+            BindingContext = vm;
+            vm.CommandRefreshSmallData.Execute(null);
+        }
+    }
 
-		base.OnBindingContextChanged();
-	}
+    protected override void OnBindingContextChanged()
+    {
+        //avoid parent tabs binding context
+        if (BindingContext != null && !(BindingContext is SomeTabsViewModel))
+        {
+            BindingContext = null;
+            return;
+        }
 
-	public override void OnLoaded()
-	{
-		base.OnLoaded();
+        base.OnBindingContextChanged();
+    }
 
-		if (!vmSet)
-		{
-			vmSet = true;
-			var vm = App.Instance.Services.GetService<SomeTabsViewModel>();
-			BindingContext = vm;
-			vm.RefreshCommandData.Execute(null);
-		}
 
-	}
 
 
 }

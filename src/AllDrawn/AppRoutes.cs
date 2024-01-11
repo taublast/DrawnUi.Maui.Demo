@@ -8,7 +8,7 @@ namespace AppoMobi.Maui.DrawnUi.Demo;
 /// </summary>
 public static class AppRoutes
 {
-    public static readonly (string Route, Type Type) Root = ("root", typeof(MainScreen));
+    public static readonly (string Route, Type Type) Root = ("root", typeof(ScreenTabs));
     public static readonly (string Route, Type Type) Details = ("details", typeof(ScreenItemDetails));
     public static readonly (string Route, Type Type) Controls = ("controls", typeof(ScreenControls));
     public static readonly (string Route, Type Type) Carousel = ("carousel", typeof(ScreenCarousel));

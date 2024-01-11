@@ -11,5 +11,9 @@ public partial class ScreenTransforms : SkiaLayout
         InitializeComponent();
     }
 
-
+    public override void OnParentChanged(IDrawnBase newvalue, IDrawnBase oldvalue)
+    {
+        Console.WriteLine($"[OnParentChanged] ScreenTransforms {newvalue}");
+        base.OnParentChanged(newvalue, oldvalue);
+    }
 }

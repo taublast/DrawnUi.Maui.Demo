@@ -4,7 +4,8 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:draw="http://schemas.appomobi.com/drawnUi/2023/draw"
-    xmlns:navigation="clr-namespace:AppoMobi.Maui.DrawnUi.Demo.Views.Navigation"
+    xmlns:navigation1="clr-namespace:AppoMobi.Maui.DrawnUi.Demo.Views.Controls.Navigation"
+    xmlns:controls="clr-namespace:AppoMobi.Maui.DrawnUi.Demo.Views.Controls"
     BackgroundColor="Black"
     HorizontalOptions="Fill"
     VerticalOptions="Fill">
@@ -37,7 +38,7 @@
             HeightRequest="{Binding Presentation.StatusBarHeightRequest}"
             HorizontalOptions="Fill"
             Tag="StatusBar" />
-        <navigation:NavBarStandart BackgroundColor="Transparent" />
+        <navigation1:NavBarStandart BackgroundColor="Transparent" />
 
     </draw:SkiaLayout>
 
@@ -55,19 +56,19 @@
             Spacing="24"
             Type="Row">
 
-            <draw:SkiaSwitchCupertino
+            <controls:SkiaSwitchCupertino
                 ColorFrameOn="{StaticResource ColorAccent}"
                 ColorThumbOn="White"
                 HorizontalOptions="Center" />
 
-            <draw:SkiaSwitchMaterial
+            <controls:SkiaSwitchMaterial
                 ColorFrameOff="DarkGray"
                 ColorFrameOn="{StaticResource ColorAccentLight}"
                 ColorThumbOff="White"
                 ColorThumbOn="{StaticResource ColorAccent}"
                 HorizontalOptions="Center" />
 
-            <draw:SkiaSwitchMaterialAir
+            <controls:SkiaSwitchMaterialAir
                 ColorFrameOff="DarkGray"
                 ColorFrameOn="{StaticResource ColorAccentLight}"
                 ColorThumbOff="DarkGray"

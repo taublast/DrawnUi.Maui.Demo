@@ -1,11 +1,11 @@
-﻿using AppoMobi.Maui.DrawnUi.Demo.Helpers;
-using AppoMobi.Maui.DrawnUi.Demo.Interfaces;
+﻿using AppoMobi.Maui.DrawnUi.Demo.Interfaces;
 using AppoMobi.Maui.DrawnUi.Demo.Services;
 using AppoMobi.Maui.DrawnUi.Demo.Views.Content;
 using AppoMobi.Maui.DrawnUi.Infrastructure;
 using System.Windows.Input;
 
 namespace AppoMobi.Maui.DrawnUi.Demo.ViewModels;
+
 
 
 public class ScrollingCellsViewModel : ProjectViewModel, IFullscreenGalleryManager
@@ -15,29 +15,9 @@ public class ScrollingCellsViewModel : ProjectViewModel, IFullscreenGalleryManag
         Title = "SkiaScroll + SkiaLayout = CollectionView";
 
         Items = new();
+        ItemsSmall = new();
 
         _mock = new MockDataProvider();
-    }
-
-    public ICommand CommandAbout
-    {
-        get
-        {
-            return new Command(async (object context) =>
-            {
-                if (CheckLockAndSet())
-                    return;
-
-                //do not block ui, lets us see the touch effect
-                //while we build page to be opened
-                await Task.Run(async () =>
-                {
-
-                    App.Shell.ShowToast("A drawn _CollectionView_ 😋👍 alternative, only visible on screen cells are rendered, refresh view uses ___SkiaLottie___. Slide cells to reveal a mock edit control behind.");
-
-                }).ConfigureAwait(false);
-            });
-        }
     }
 
 
@@ -73,7 +53,6 @@ public class ScrollingCellsViewModel : ProjectViewModel, IFullscreenGalleryManag
                 await Task.Run(async () =>
                 {
                     SKPoint? cellCenter = null;
-                    Task onAppearing = null;
                     SelectedGalleryIndex = 0;
 
                     if (context is SkiaTouchResultContext touchContext)
@@ -84,12 +63,14 @@ public class ScrollingCellsViewModel : ProjectViewModel, IFullscreenGalleryManag
                             location.X + touchContext.Control.MeasuredSize.Pixels.Width / 2f,
                             location.Y + touchContext.Control.MeasuredSize.Pixels.Height / 2f);
                         context = touchContext.Context;
+
                     }
 
                     if (context is SimpleItemViewModel item)
                     {
                         Item = item;
 
+                        //todo find index of the passed url
                         var index = Items.IndexOf(Item);
                         if (index >= 0)
                             SelectedGalleryIndex = index;
@@ -98,7 +79,7 @@ public class ScrollingCellsViewModel : ProjectViewModel, IFullscreenGalleryManag
                     var gallery = new PopupGallerySlider(this);
 
                     await Presentation.Shell.OpenPopupAsync(gallery.AttachControl, true,
-                        true, cellCenter, onAppearing);
+                        true, cellCenter);
 
                 }).ConfigureAwait(false);
 
@@ -106,7 +87,6 @@ public class ScrollingCellsViewModel : ProjectViewModel, IFullscreenGalleryManag
             });
         }
     }
-
 
 
     #region IGalleryManager
@@ -243,7 +223,23 @@ public class ScrollingCellsViewModel : ProjectViewModel, IFullscreenGalleryManag
         }
     }
 
+    public ObservableRangeCollection<SimpleItemViewModel> ItemsSmall { get; }
 
+
+    public ICommand CommandRefreshSmallData
+    {
+        get
+        {
+            return new Command(async () =>
+            {
+                if (ItemsSmall.Count == 0)
+                {
+                    _mock.ResetIndexSmall();
+                    await AddItemsToUi(_mock.GetRandomSmallItems(10), ItemsSmall, true);
+                }
+            });
+        }
+    }
 
     public ICommand CommandRefreshData
     {
@@ -259,10 +255,36 @@ public class ScrollingCellsViewModel : ProjectViewModel, IFullscreenGalleryManag
 
                 try
                 {
+                    CommandRefreshSmallData.Execute(null);
 
                     _mock.ResetIndex();
-                    await AddItemsToUi(_mock.GetRandomItems(PageSize), true, Items.Count != 0);
+                    await AddItemsToUi(_mock.GetRandomItems(PageSize), Items, true, Items.Count != 0);
 
+                    //todo preload images in background
+
+                    CancelPreload?.Cancel();
+                    var cancel = new CancellationTokenSource();
+                    CancelPreload = cancel;
+
+                    if (_items.Count > 0 && !cancel.IsCancellationRequested)
+                    {
+                        var index = 0;
+                        var item = _items[index];
+                        while (!cancel.IsCancellationRequested)
+                        {
+                            if (!item.BannerPreloadOrdered)
+                            {
+                                item.BannerPreloadOrdered = true;
+                                await SkiaImageManager.Instance.Preload(item.Banner, cancel).ConfigureAwait(false);
+                            }
+                            index++;
+                            if (index > _items.Count - 1)
+                            {
+                                break;
+                            }
+                            item = _items[index];
+                        }
+                    }
                 }
                 catch (Exception e)
                 {
@@ -283,13 +305,8 @@ public class ScrollingCellsViewModel : ProjectViewModel, IFullscreenGalleryManag
     /// </summary>
     /// <param name="items"></param>
     /// <returns></returns>
-    async Task AddItemsToUi(IEnumerable<SimpleItemViewModel> items, bool reset = false, bool mainThread = true)
+    async Task AddItemsToUi(IEnumerable<SimpleItemViewModel> items, ObservableRangeCollection<SimpleItemViewModel> collection, bool reset = false, bool mainThread = true)
     {
-        //SkiaImageLoadingManager.LogEnabled = true;
-
-        CancelPreload?.Cancel();
-        var cancel = new CancellationTokenSource();
-        CancelPreload = cancel;
 
         async Task Action()
         {
@@ -297,11 +314,10 @@ public class ScrollingCellsViewModel : ProjectViewModel, IFullscreenGalleryManag
             {
                 if (reset)
                 {
-                    Items.Clear();
+                    collection.Clear();
                 }
-                //IsLoading = true;
                 await Task.Delay(10);
-                Items.AddRange(items);
+                collection.AddRange(items);
             }
             catch (Exception ex)
             {
@@ -314,11 +330,13 @@ public class ScrollingCellsViewModel : ProjectViewModel, IFullscreenGalleryManag
             }
         }
 
+        //simulate internet load for demo only!
+        await Task.Delay(1500);
+
         if (mainThread)
             MainThread.BeginInvokeOnMainThread(async () =>
             {
-                //simulate internet load for demo only!
-                await Task.Delay(2000);
+
 
                 await Action();
             });
@@ -327,26 +345,7 @@ public class ScrollingCellsViewModel : ProjectViewModel, IFullscreenGalleryManag
             await Action();
         }
 
-        //todo preload images in background
-        if (_items.Count > 0 && !cancel.IsCancellationRequested)
-        {
-            var index = 0;
-            var item = _items[index];
-            while (!cancel.IsCancellationRequested)
-            {
-                if (!item.BannerPreloadOrdered)
-                {
-                    item.BannerPreloadOrdered = true;
-                    await SkiaImageManager.Instance.Preload(item.Banner, cancel).ConfigureAwait(false);
-                }
-                index++;
-                if (index > _items.Count - 1)
-                {
-                    break;
-                }
-                item = _items[index];
-            }
-        }
+
 
     }
 
@@ -363,7 +362,7 @@ public class ScrollingCellsViewModel : ProjectViewModel, IFullscreenGalleryManag
 
                 try
                 {
-                    await AddItemsToUi(_mock.GetRandomItems(PageSize));
+                    await AddItemsToUi(_mock.GetRandomItems(PageSize), Items);
                 }
                 catch (Exception e)
                 {
@@ -372,6 +371,27 @@ public class ScrollingCellsViewModel : ProjectViewModel, IFullscreenGalleryManag
                     //IsLoading = false;
                     IsBusy = false;
                 }
+            });
+        }
+    }
+
+    public ICommand CommandAbout
+    {
+        get
+        {
+            return new Command(async (object context) =>
+            {
+                if (CheckLockAndSet())
+                    return;
+
+                //do not block ui, lets us see the touch effect
+                //while we build page to be opened
+                await Task.Run(async () =>
+                {
+
+                    App.Shell.ShowToast("This demo is loading images from internet in realtime. 🚀🤩😋");
+
+                }).ConfigureAwait(false);
             });
         }
     }

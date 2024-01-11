@@ -4,20 +4,26 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:draw="http://schemas.appomobi.com/drawnUi/2023/draw"
+    Padding="1"
     ApplyEffect="Ripple"
     HeightRequest="36"
     IsClippedToBounds="True"
     TouchEffectColor="White"
-    UseCache="Image"
+    UseCache="Operations"
     WidthRequest="150">
 
+    <!--
+        we cannot have relative bindings in this xaml (because the root is not Element?)
+        {Binding Source={RelativeSource AncestorType={x:Type draw:SkiaButton}}, Path=Text}
+        So we will set the text in code-behind
+    -->
     <draw:SkiaShape
         BackgroundColor="CornflowerBlue"
         CornerRadius="20"
         HorizontalOptions="Fill"
         IsClippedToBounds="True"
         StrokeColor="Gainsboro"
-        StrokeWidth="1.5"
+        StrokeWidth="2"
         Tag="MainFrame"
         VerticalOptions="Fill" />
 

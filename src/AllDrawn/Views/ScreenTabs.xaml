@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<draw:SkiaLayout
+    x:Class="AppoMobi.Maui.DrawnUi.Demo.Views.ScreenTabs"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:content="using:AppoMobi.Maui.DrawnUi.Demo.Views.Content"
+    xmlns:controls="using:AppoMobi.Maui.DrawnUi.Demo.Views.Controls"
+    xmlns:draw="http://schemas.appomobi.com/drawnUi/2023/draw"
+    xmlns:navigation="using:AppoMobi.Maui.DrawnUi.Demo.Views.Controls.Navigation"
+    HorizontalOptions="Fill"
+    VerticalOptions="Fill">
+
+    <draw:SkiaViewSwitcher
+        x:Name="Switcher"
+        AnimateTabs="True"
+        AnimationEasing="{x:Static Easing.CubicOut}"
+        AnimationSpeed="250"
+        HorizontalOptions="FillAndExpand"
+        IsClippedToBounds="True"
+        SelectedIndex="{Binding SelectedIndex, Mode=TwoWay}"
+        Tag="NavigationLayout"
+        VerticalOptions="FillAndExpand">
+
+        <content:TabScrollCells />
+        <content:TabWithTopTabs />
+        <content:TabButtons />
+
+
+
+    </draw:SkiaViewSwitcher>
+
+    <!--  cannot cache with blurred tabs changes with every scrolling  -->
+    <draw:SkiaLayout
+        HorizontalOptions="Fill"
+        IsClippedToBounds="True"
+        VerticalOptions="End"
+        ZIndex="90">
+
+        <!--  static shadow+texture  -->
+        <!--  cached GPU  -->
+        <draw:SkiaLayout
+            Margin="0,0,0,-2"
+            Padding="0,16,0,0"
+            HorizontalOptions="Fill"
+            UseCache="GPU"
+            VerticalOptions="Fill"
+            ZIndex="-1">
+
+            <draw:SkiaShape
+                BackgroundColor="#66cccccc"
+                ClipBackgroundColor="True"
+                CornerRadius="20,0"
+                HorizontalOptions="Fill"
+                StrokeColor="Red"
+                StrokeWidth="2"
+                VerticalOptions="Fill">
+
+                <!--  texture  to mix with  -->
+                <draw:SkiaImage
+                    Aspect="AspectCover"
+                    Darken="0.33"
+                    Effect="Darken"
+                    HorizontalOptions="Fill"
+                    Opacity="0.4"
+                    Source="Pics/glass2.jpg"
+                    VerticalOptions="Fill" />
+
+                <draw:SkiaShape.StrokeGradient>
+
+                    <draw:SkiaGradient
+                        EndXRatio="0.905"
+                        EndYRatio="1"
+                        StartXRatio="0.9"
+                        StartYRatio="0"
+                        Type="Linear">
+                        <draw:SkiaGradient.Colors>
+                            <Color>#99ffffff</Color>
+                            <Color>#222222</Color>
+                        </draw:SkiaGradient.Colors>
+                    </draw:SkiaGradient>
+
+                </draw:SkiaShape.StrokeGradient>
+                <draw:SkiaControl.Shadows>
+                    <draw:SkiaShadow
+                        Blur="5"
+                        Opacity="0.75"
+                        X="1"
+                        Y="-1"
+                        Color="#000000" />
+
+                </draw:SkiaControl.Shadows>
+
+            </draw:SkiaShape>
+        </draw:SkiaLayout>
+
+        <!--  SkiaBackdrop  -->
+        <!--  cached never  -->
+        <draw:SkiaLayout
+            Margin="0,0,0,-2"
+            Padding="0,16,0,0"
+            HorizontalOptions="Fill"
+            UseCache="None"
+            VerticalOptions="Fill"
+            ZIndex="-1">
+
+            <draw:SkiaShape
+                CornerRadius="20,0"
+                HorizontalOptions="Fill"
+                VerticalOptions="Fill">
+
+                <draw:SkiaBackdrop
+                    Blur="10"
+                    HorizontalOptions="Fill"
+                    Tag="Blur"
+                    VerticalOptions="Fill" />
+
+            </draw:SkiaShape>
+        </draw:SkiaLayout>
+
+        <!--  dynamic blurred control draws other control's cache, not cached  -->
+        <!--  notice CacheZoom used for refraction effect  -->
+        <!--<controls:CacheConsumer
+            Margin="0,0,0,-2"
+            BackgroundColor="#22000000"
+            CacheBlur="9"
+            CacheOpacity="0.625"
+            CacheSource="{x:Reference Switcher}"
+            CacheZoom="1.0125"
+            CornerRadius="20,0"
+            HorizontalOptions="Fill"
+            MarginTop="16"
+            Tag="Test"
+            VerticalOptions="Fill" />-->
+
+        <!--  bottom tabs selector not cached as background redrawn on scrolling  -->
+        <!--  cached GPU  -->
+        <navigation:BottomTabsSelector
+            x:Name="Tabs"
+            Margin="0,0,0,2"
+            ColumnDefinitions="*,*,*"
+            ColumnSpacing="0"
+            CommandTabReselected="{Binding CommandTabReselected}"
+            HeightRequest="{Binding Presentation.BottomTabsHeightRequest}"
+            HorizontalOptions="Fill"
+            MarginTop="16"
+            RowDefinitions="*"
+            SelectedIndex="{Binding Source={x:Reference Switcher}, Path=SelectedIndex, Mode=TwoWay}"
+            Tag="Tabs"
+            Type="Grid"
+            UseCache="GPU">
+
+            <draw:SkiaSvg
+                HeightRequest="28"
+                HorizontalOptions="Center"
+                IsClippedToBounds="True"
+                LockRatio="1"
+                SvgString="{x:StaticResource SvgHome}"
+                TintColor="White"
+                UseCache="Operations"
+                VerticalOptions="Center" />
+
+            <draw:SkiaHotspot
+                AnimationTapped="None"
+                CommandTapped="{Binding Source={x:Reference Tabs}, Path=CommandTappedTab}"
+                CommandTappedParameter="0"
+                ZIndex="3" />
+
+            <draw:SkiaSvg
+                Grid.Column="1"
+                HeightRequest="29"
+                HorizontalOptions="Center"
+                IsClippedToBounds="True"
+                LockRatio="1"
+                SvgString="{x:StaticResource SvgChat}"
+                TintColor="White"
+                UseCache="Operations"
+                VerticalOptions="Center" />
+
+            <draw:SkiaHotspot
+                Grid.Column="1"
+                AnimationTapped="None"
+                CommandTapped="{Binding Source={x:Reference Tabs}, Path=CommandTappedTab}"
+                CommandTappedParameter="1"
+                ZIndex="3" />
+
+            <draw:SkiaSvg
+                Grid.Column="2"
+                HeightRequest="28"
+                HorizontalOptions="Center"
+                IsClippedToBounds="True"
+                LockRatio="1"
+                SvgString="{x:StaticResource SvgSettings}"
+                TintColor="White"
+                UseCache="Operations"
+                VerticalOptions="Center" />
+
+            <draw:SkiaHotspot
+                Grid.Column="2"
+                AnimationTapped="None"
+                CommandTapped="{Binding Source={x:Reference Tabs}, Path=CommandTappedTab}"
+                CommandTappedParameter="2"
+                ZIndex="3" />
+
+            <navigation:TabsBall
+                Grid.ColumnSpan="3"
+                BackgroundColor="#000000FF"
+                CircleRadius="3"
+                SelectedIndex="{Binding Source={x:Reference Switcher}, Path=SelectedIndex, Mode=OneWay}"
+                TabsCount="3"
+                VerticalOffset="20"
+                Color="{StaticResource ColorAccent}" />
+
+        </navigation:BottomTabsSelector>
+
+    </draw:SkiaLayout>
+
+</draw:SkiaLayout>

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <navigation:AppNavbar
-    x:Class="AppoMobi.Maui.DrawnUi.Demo.Views.Navigation.NavBarStandart"
+    x:Class="AppoMobi.Maui.DrawnUi.Demo.Views.Controls.Navigation.NavBarStandart"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:draw="http://schemas.appomobi.com/drawnUi/2023/draw"
-    xmlns:navigation="using:AppoMobi.Maui.DrawnUi.Demo.Views.Navigation"
     xmlns:viewModels="clr-namespace:AppoMobi.Maui.DrawnUi.Demo.ViewModels"
+    xmlns:navigation="clr-namespace:AppoMobi.Maui.DrawnUi.Demo.Views.Controls.Navigation"
     BackgroundColor="Black"
     HeightRequest="50"
     x:DataType="viewModels:ProjectViewModel"
