@@ -96,13 +96,13 @@ public class TopTabsSelector : SkiaTabsSelector
         UpdateIcons();
     }
 
-    public override void OnTabSelectionChanged(bool tabsChanged)
+    public override async Task OnTabSelectionChanged(bool tabsChanged, int index)
     {
         if (SelectedIndex >= 0 && !tabsChanged)
         {
             UpdateIcons();
         }
 
-        base.OnTabSelectionChanged(tabsChanged);
+        await base.OnTabSelectionChanged(tabsChanged, index);
     }
 }

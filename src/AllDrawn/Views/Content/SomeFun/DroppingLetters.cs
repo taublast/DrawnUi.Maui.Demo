@@ -21,15 +21,7 @@ public class DroppingLetters : SkiaLabel
         base.OnDisposing();
     }
 
-    protected override void OnParentVisibilityChanged(bool newvalue)
-    {
-        if (!newvalue)
-        {
-            StopAnimators();
-        }
 
-        base.OnParentVisibilityChanged(newvalue);
-    }
 
     protected override void OnPropertyChanged(string propertyName = "")
     {
@@ -132,6 +124,7 @@ public class DroppingLetters : SkiaLabel
                     }
                 })
                 {
+                    IsOneDirectional = true,
                     Speed = 3.0,
                     mMinValue = 0,
                     mMaxValue = max,

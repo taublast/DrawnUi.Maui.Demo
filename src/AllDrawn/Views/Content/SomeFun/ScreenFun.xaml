@@ -18,7 +18,7 @@
         IsBanner="True"
         Orientation="Horizontal">
 
-        <!--  notice of Operations cache inside scroll and its impact on fps  -->
+        <!--  notice cache inside scroll and its impact on fps  -->
         <draw:SkiaLayout
             Tag="Banner"
             UseCache="Image">
@@ -122,9 +122,6 @@
             </draw:SkiaLabel.FillGradient>
         </controls:DroppingLetters>
 
-
-
-
         <!--  still don't know why fps is better here with Operations instead of Bitmap ahaha  -->
         <draw:SkiaLayout
             Tag="Duck"
@@ -150,8 +147,6 @@
                 ZIndex="-1" />
 
         </draw:SkiaLayout>
-
-
 
 
     </controls:Lake>

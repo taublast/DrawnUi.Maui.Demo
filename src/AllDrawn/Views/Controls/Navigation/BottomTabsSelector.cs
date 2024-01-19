@@ -22,7 +22,7 @@ public class BottomTabsSelector : SkiaTabsSelector
         return base.ProcessGestures(type, args, touchAction, childOffset, childOffsetDirect, alreadyConsumed);
     }
 
-    async void AnimatePulseIcon(SkiaControl icon)
+    async Task AnimatePulseIcon(SkiaControl icon)
     {
         await icon.ScaleToAsync(0.8, 0.8, 50, Easing.CubicOut);
         await icon.ScaleToAsync(1.2, 1.2, 100, Easing.CubicInOut);
@@ -44,16 +44,16 @@ public class BottomTabsSelector : SkiaTabsSelector
         //}
     }
 
-    public override void OnTabSelectionChanged(bool tabsChanged)
+    public override async Task OnTabSelectionChanged(bool tabsChanged, int index)
     {
         if (SelectedIndex >= 0 && !tabsChanged)
         {
-            AnimatePulseIcon(SelectableTabs[SelectedIndex].VIew);
+            await AnimatePulseIcon(SelectableTabs[index].VIew);
 
             UpdateIcons();
         }
 
-        base.OnTabSelectionChanged(tabsChanged);
+        await base.OnTabSelectionChanged(tabsChanged, index);
     }
 
     protected override void OnLayoutChanged()

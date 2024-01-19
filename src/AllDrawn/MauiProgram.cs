@@ -22,7 +22,15 @@ namespace AppoMobi.Maui.DrawnUi.Demo
             builder
                 .UseMauiApp<App>()
 
-                .UseDrawnUi<App>()
+                .UseDrawnUi(new()
+                {
+                    DesktopWindow = new()
+                    {
+                        Width = 500,
+                        Height = 800,
+                        IsFixedSize = true //user cannot resize window
+                    }
+                })
 
                 .ConfigureFonts(fonts =>
                 {

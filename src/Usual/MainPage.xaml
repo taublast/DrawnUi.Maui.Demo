@@ -41,7 +41,7 @@
             <draw:Canvas
                 x:Name="MainCanvas"
                 Margin="0,0,0,32"
-                GesturesEnabled="True"
+                Gestures="Enabled"
                 HorizontalOptions="Fill">
 
                 <!--  VSTACK  -->

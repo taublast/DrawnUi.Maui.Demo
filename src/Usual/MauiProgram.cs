@@ -16,7 +16,7 @@ namespace SomeMauiApp
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
 
-            builder.UseDrawnUi<App>(); //gamechanger
+            builder.UseDrawnUi();
 
 #if DEBUG
             builder.Logging.AddDebug();

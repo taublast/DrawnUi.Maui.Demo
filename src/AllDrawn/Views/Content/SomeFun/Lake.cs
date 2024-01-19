@@ -8,6 +8,8 @@ namespace AppoMobi.Maui.DrawnUi.Demo.Views.Controls;
 public partial class Lake : SkiaLayout
 {
 
+
+
     private SkiaControl _duck;
 
     private VelocitySkiaAnimator _animationDuckMoveX;
@@ -118,6 +120,7 @@ public partial class Lake : SkiaLayout
                     }
                 })
                 {
+                    IsOneDirectional = true,
                     Speed = 5.2,
                     mMinValue = 0,
                     mMaxValue = 100,
@@ -177,15 +180,7 @@ public partial class Lake : SkiaLayout
         _duck.TranslationY = _moveToY;
     }
 
-    protected override void OnParentVisibilityChanged(bool newvalue)
-    {
-        if (!newvalue)
-        {
-            StopAnimators();
-        }
 
-        base.OnParentVisibilityChanged(newvalue);
-    }
 
     private void StopAnimators()
     {
@@ -203,6 +198,8 @@ public partial class Lake : SkiaLayout
 
         //		Trace.WriteLine($"[IN] {type} {action} dY: {args.Distance.Delta.Y:0.00} dX: {args.Distance.Delta.X:0.00} | vX: {args.Distance.Velocity.X:0.00} vY: {args.Distance.Velocity.Y:0.00}");
 
+
+
         if (_duck != null)
         {
 
@@ -211,7 +208,7 @@ public partial class Lake : SkiaLayout
 
                 if (action == TouchActionResult.Down && args.NumberOfTouches < 2)
                 {
-                    StopAnimators();
+                    //StopAnimators();
                     _movingDuck = true;
                 }
                 else
@@ -224,6 +221,13 @@ public partial class Lake : SkiaLayout
                     var velocityY = (float)(args.Distance.Velocity.Y / _velocityRatoY);
                     _animationDuckMoveY.SetVelocity(velocityY).SetValue((float)_duck.TranslationY).Start();
 
+                    //var velocityX = args.Distance.Velocity.X / _velocityRatoX;
+                    //_animationDuckMoveX.SetVelocity((float)velocityX).SetValue((float)_duck.TranslationX).Start();
+
+                    //var velocityY = args.Distance.Velocity.Y / _velocityRatoY;
+                    //_animationDuckMoveY.SetVelocity((float)velocityY).SetValue((float)_duck.TranslationY).Start();
+
+                    //Console.WriteLine($"[V] {velocityX:0.00} {velocityY:0.00}");
                 }
                 else
                 if (action == TouchActionResult.Up)
@@ -231,6 +235,13 @@ public partial class Lake : SkiaLayout
                     if (GestureStartedInside(args))
                     {
                         _movingDuck = false;
+
+                        //var velocityX = (float)(args.Distance.Velocity.X / _velocityRatoX);
+                        //_animationDuckMoveX.SetVelocity(velocityX).SetValue((float)_duck.TranslationX).Start();
+
+                        //var velocityY = (float)(args.Distance.Velocity.Y / _velocityRatoY);
+                        //_animationDuckMoveY.SetVelocity(velocityY).SetValue((float)_duck.TranslationY).Start();
+
 
                         if (!_animationDuckMoveX.IsRunning)
                             MoveDuckX(args.Location.X / RenderingScale - _duck.Width / 2);

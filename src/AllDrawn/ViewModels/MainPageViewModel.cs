@@ -51,7 +51,7 @@ namespace AppoMobi.Maui.DrawnUi.Demo.ViewModels
                     if (CheckLockAndSet("cam", 3500) || App.Shell.HasTopmostModalBindingContext<TakePictureViewModel>())
                         return;
 
-                    SkiaCamera.CheckPermissions(async () =>
+                    SkiaCamera.CheckPermissions(async (presented) =>
                         {
                             var vm = App.Instance.Services.GetService<TakePictureViewModel>();
                             //todo set callback
@@ -92,7 +92,7 @@ namespace AppoMobi.Maui.DrawnUi.Demo.ViewModels
                             });
 
                         },
-                        () =>
+                        (presented) =>
                         {
                             //no permissions no camera screen bye bye
                             App.Shell.ShowToast("No permissions");

@@ -60,6 +60,8 @@
 	  <None Remove="Resources\Raw\Lottie\robot.json" />
 	  <None Remove="Resources\Raw\Lottie\successtick.json" />
 	  <None Remove="Resources\Raw\Pics\food.jpg" />
+	  <None Remove="Resources\Raw\Pics\glass2.jpg" />
+	  <None Remove="Resources\Raw\Pics\glass3.jpg" />
 	  <None Remove="Resources\Raw\Rive\demo.riv" />
 	  <None Remove="Resources\Raw\Svg\dotnet_bot.svg" />
     <None Remove="Resources\Images\" />
@@ -69,7 +71,7 @@
 
 
 	<ItemGroup>
-		<PackageReference Include="AppoMobi.Maui.DrawnUi" Version="1.0.3.6-pre" />
+		<PackageReference Include="AppoMobi.Maui.DrawnUi" Version="1.0.4.3-pre" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
 	</ItemGroup>
  

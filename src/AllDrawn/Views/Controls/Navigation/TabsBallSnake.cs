@@ -44,7 +44,21 @@ namespace AppoMobi.Maui.DrawnUi.Demo.Views.Controls.Navigation
                 }
                 Ball.WidthRequest = width;
 
-            }, speed, Easing.CubicOut, _cts);
+            },
+                () =>
+                {
+                    double width = minSnakeWidth + (maxSnakeWidth - minSnakeWidth);
+                    if (movingLeft)
+                    {
+                        Ball.TranslationX = (float)(previousIndexX - (width - minSnakeWidth));
+                    }
+                    else
+                    {
+                        Ball.TranslationX = (float)(previousIndexX);
+                    }
+                    Ball.WidthRequest = width;
+                },
+                speed, Easing.CubicOut, _cts);
 
             //collapse to target 
             await AnimateAsync((range) =>
@@ -61,7 +75,22 @@ namespace AppoMobi.Maui.DrawnUi.Demo.Views.Controls.Navigation
                 }
                 Ball.WidthRequest = width;
 
-            }, speed, Easing.CubicIn, _cts);
+            },
+                () =>
+                {
+                    var width = maxSnakeWidth - (maxSnakeWidth - minSnakeWidth);
+                    if (movingLeft)
+                    {
+                        Ball.TranslationX = newIndexX;
+                    }
+                    else
+                    {
+                        Ball.TranslationX = (float)(previousIndexX + pathX);
+                    }
+                    Ball.WidthRequest = width;
+                },
+
+                speed, Easing.CubicIn, _cts);
         }
 
 
