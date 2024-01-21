@@ -4,8 +4,10 @@ public class MainTabLayout : SkiaLayout, IInsideViewport
 {
     bool vmSet;
 
-    public void OnAppearing()
+    public override void OnAppearing()
     {
+        base.OnAppearing();
+
         if (!vmSet)
         {
             vmSet = true;

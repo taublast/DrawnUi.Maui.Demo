@@ -1,12 +1,11 @@
 ﻿global using AppoMobi.Maui.DrawnUi.Demo.ViewModels;
 global using AppoMobi.Maui.DrawnUi.Demo.Views;
-global using AppoMobi.Maui.DrawnUi.Draw;
 global using AppoMobi.Maui.Gestures;
 global using AppoMobi.Maui.Navigation;
 global using AppoMobi.Specials;
+global using DrawnUi.Maui;
+global using DrawnUi.Maui.Draw;
 global using SkiaSharp;
-using AppoMobi.Maui.DrawnUi.Demo.Views.Content;
-using AppoMobi.Maui.DrawnUi.Infrastructure.Extensions;
 using Microsoft.Extensions.Logging;
 using DeviceInfo = Microsoft.Maui.Devices.DeviceInfo;
 
@@ -83,7 +82,7 @@ namespace AppoMobi.Maui.DrawnUi.Demo
             {
 
 #if ANDROID
-				return true;
+                return true;
 #else
                 return false;
 #endif

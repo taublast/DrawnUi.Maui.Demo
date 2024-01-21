@@ -1,4 +1,6 @@
-﻿namespace AppoMobi.Maui.DrawnUi.Demo.Services;
+﻿using AppoMobi.Maui.DrawnUi.Demo.ViewModels;
+
+namespace AppoMobi.Maui.DrawnUi.Demo.Services;
 
 public class MockDataProvider
 {

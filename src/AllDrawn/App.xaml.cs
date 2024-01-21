@@ -1,7 +1,8 @@
-﻿using AppoMobi.Maui.DrawnUi.Controls;
-using AppoMobi.Maui.DrawnUi.Demo.Resources.Strings;
+﻿using AppoMobi.Maui.DrawnUi.Demo.Resources.Strings;
+using AppoMobi.Maui.DrawnUi.Demo.ViewModels;
+using DrawnUi.Maui;
+using DrawnUi.Maui.Controls;
 using System.Globalization;
-
 
 namespace AppoMobi.Maui.DrawnUi.Demo
 {
@@ -38,23 +39,6 @@ namespace AppoMobi.Maui.DrawnUi.Demo
         {
             var window = base.CreateWindow(activationState);
 
-#if WINDOWS
-
-            ResizeWindow(window);
-
-            //window.DisplayDensityChanged += OnScaleChanged;
-            //window.SizeChanged += OnSizeChanged;
-
-#elif MACCATALYST
-
-            ResizeWindow(window);
-
-            //window.DisplayDensityChanged += OnScaleChanged;
-            //window.SizeChanged += OnSizeChanged;
-
-#endif
-
-
             #region UI TWEAKS
 
             Super.ColorAccent = Color.FromArgb("FF6A47");
@@ -65,7 +49,7 @@ namespace AppoMobi.Maui.DrawnUi.Demo
             {
 #if ANDROID
 
-				Super.SetNavigationBarColor(Color.Parse("#11161D"), Color.Parse("#11161D"), true);
+                Super.SetNavigationBarColor(Color.Parse("#11161D"), Color.Parse("#11161D"), true);
 
 #endif
                 if (nav != null)
@@ -79,10 +63,10 @@ namespace AppoMobi.Maui.DrawnUi.Demo
 
 #if ANDROID
 
-				Super.SetNavigationBarColor(Color.Parse("#11161D"), Color.Parse("#11161D"), true);
+                Super.SetNavigationBarColor(Color.Parse("#11161D"), Color.Parse("#11161D"), true);
 
-				//Super.SetNavigationBarColor(Colors.White, Colors.Transparent, false);
-				//Super.Native?.SetNavigationBarColor(AppResources.Get<Color>("ColorPrimary"), false);
+                //Super.SetNavigationBarColor(Colors.White, Colors.Transparent, false);
+                //Super.Native?.SetNavigationBarColor(AppResources.Get<Color>("ColorPrimary"), false);
 #endif
                 if (nav != null)
                 {
@@ -158,6 +142,15 @@ namespace AppoMobi.Maui.DrawnUi.Demo
             });
         }
 
+        protected override void OnSleep()
+        {
+            base.OnSleep();
+
+            MainThread.BeginInvokeOnMainThread(() =>
+            {
+                DeviceDisplay.Current.KeepScreenOn = false;
+            });
+        }
 
         protected override void OnResume()
         {

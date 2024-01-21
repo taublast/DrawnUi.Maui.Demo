@@ -1,4 +1,4 @@
-﻿using AppoMobi.Maui.DrawnUi.Controls;
+﻿using DrawnUi.Maui.Controls;
 
 namespace AppoMobi.Maui.DrawnUi.Demo.Views.Controls.Navigation;
 

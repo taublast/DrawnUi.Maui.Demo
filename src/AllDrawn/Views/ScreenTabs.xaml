@@ -3,7 +3,7 @@
     x:Class="AppoMobi.Maui.DrawnUi.Demo.Views.ScreenTabs"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:content="using:AppoMobi.Maui.DrawnUi.Demo.Views.Content"
+    xmlns:content="using:AppoMobi.Maui.DrawnUi.Demo.Views"
     xmlns:controls="using:AppoMobi.Maui.DrawnUi.Demo.Views.Controls"
     xmlns:draw="http://schemas.appomobi.com/drawnUi/2023/draw"
     xmlns:navigation="using:AppoMobi.Maui.DrawnUi.Demo.Views.Controls.Navigation"
@@ -24,8 +24,6 @@
         <content:TabScrollCells />
         <content:TabWithTopTabs />
         <content:TabButtons />
-
-
 
     </draw:SkiaViewSwitcher>
 
@@ -58,7 +56,7 @@
                 <!--  texture  to mix with  -->
                 <draw:SkiaImage
                     Aspect="AspectCover"
-                    Darken="0.33"
+                    Darken="0.35"
                     Effect="Darken"
                     HorizontalOptions="Fill"
                     Opacity="0.4"
@@ -95,44 +93,21 @@
 
         <!--  SkiaBackdrop  -->
         <!--  cached never  -->
-        <draw:SkiaLayout
-            Margin="0,0,0,-2"
-            Padding="0,16,0,0"
+        <draw:SkiaShape
+            Margin="0,16,0,-2"
+            CornerRadius="20,0"
             HorizontalOptions="Fill"
-            UseCache="None"
             VerticalOptions="Fill"
             ZIndex="-1">
 
-            <draw:SkiaShape
-                CornerRadius="20,0"
+            <draw:SkiaBackdrop
+                Blur="10"
                 HorizontalOptions="Fill"
-                VerticalOptions="Fill">
+                Tag="Blur"
+                VerticalOptions="Fill" />
 
-                <draw:SkiaBackdrop
-                    Blur="10"
-                    HorizontalOptions="Fill"
-                    Tag="Blur"
-                    VerticalOptions="Fill" />
+        </draw:SkiaShape>
 
-            </draw:SkiaShape>
-        </draw:SkiaLayout>
-
-        <!--  dynamic blurred control draws other control's cache, not cached  -->
-        <!--  notice CacheZoom used for refraction effect  -->
-        <!--<controls:CacheConsumer
-            Margin="0,0,0,-2"
-            BackgroundColor="#22000000"
-            CacheBlur="9"
-            CacheOpacity="0.625"
-            CacheSource="{x:Reference Switcher}"
-            CacheZoom="1.0125"
-            CornerRadius="20,0"
-            HorizontalOptions="Fill"
-            MarginTop="16"
-            Tag="Test"
-            VerticalOptions="Fill" />-->
-
-        <!--  bottom tabs selector not cached as background redrawn on scrolling  -->
         <!--  cached GPU  -->
         <navigation:BottomTabsSelector
             x:Name="Tabs"

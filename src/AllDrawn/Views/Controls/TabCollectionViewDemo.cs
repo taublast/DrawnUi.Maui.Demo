@@ -1,11 +1,13 @@
 ﻿namespace AppoMobi.Maui.DrawnUi.Demo.Views.Controls;
 
-public class TabCollectionViewDemo : SkiaLayout, IInsideViewport
+public class TabCollectionViewDemo : SkiaLayout
 {
     bool vmSet;
 
-    public void OnAppearing()
+    public override void OnAppearing()
     {
+        base.OnAppearing();
+
         if (!vmSet)
         {
             vmSet = true;
@@ -14,6 +16,5 @@ public class TabCollectionViewDemo : SkiaLayout, IInsideViewport
             vm.CommandRefreshData.Execute(null);
         }
     }
-
 
 }

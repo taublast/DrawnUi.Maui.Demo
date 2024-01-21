@@ -1,6 +1,6 @@
 ﻿using System.Windows.Input;
-using AppoMobi.Maui.DrawnUi.Drawn.Infrastructure.Interfaces;
-using AppoMobi.Maui.DrawnUi.Infrastructure;
+using DrawnUi.Maui.Drawn.Infrastructure.Interfaces;
+using DrawnUi.Maui.Infrastructure;
 
 namespace AppoMobi.Maui.DrawnUi.Demo.Views.Controls;
 

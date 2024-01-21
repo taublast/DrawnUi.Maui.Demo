@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <draw:ElementAdapter
-    x:Class="AppoMobi.Maui.DrawnUi.Demo.Views.Content.ScreenCameraPhoto"
+    x:Class="AppoMobi.Maui.DrawnUi.Demo.Views.ScreenCameraPhoto"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:content="clr-namespace:AppoMobi.Maui.DrawnUi.Demo.Views.Content"
+    xmlns:content="clr-namespace:AppoMobi.Maui.DrawnUi.Demo.Views"
     xmlns:controls="clr-namespace:AppoMobi.Maui.DrawnUi.Demo.Views.Controls"
     xmlns:draw="http://schemas.appomobi.com/drawnUi/2023/draw"
     xmlns:viewModels="clr-namespace:AppoMobi.Maui.DrawnUi.Demo.ViewModels">
@@ -129,7 +129,7 @@
 
             <!--  middle button CAPTURE  -->
             <draw:SkiaShape
-                draw:HandleGestures.CommandTapped="{Binding CommandCaptureStillPhoto}"
+                draw:AddGestures.CommandTapped="{Binding CommandCaptureStillPhoto}"
                 BackgroundColor="{StaticResource ColorPrimary}"
                 CornerRadius="20"
                 HeightRequest="76"

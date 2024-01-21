@@ -1,5 +1,5 @@
-﻿using AppoMobi.Maui.DrawnUi.Controls;
-using AppoMobi.Maui.DrawnUi.Infrastructure.Models;
+﻿using DrawnUi.Maui.Controls;
+using DrawnUi.Maui.Infrastructure.Models;
 
 namespace AppoMobi.Maui.DrawnUi.Demo.Views.Controls
 {

@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <draw:ElementAdapter
-    x:Class="AppoMobi.Maui.DrawnUi.Demo.Views.Content.TabButtons"
+    x:Class="AppoMobi.Maui.DrawnUi.Demo.Views.TabButtons"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:controls1="clr-namespace:AppoMobi.Maui.DrawnUi.Demo.Views.Controls"
@@ -20,7 +20,6 @@
             BackgroundColor="Blue"
             HorizontalOptions="Fill"
             Tag="TabScroll"
-            
             VerticalOptions="Fill">
 
             <draw:SkiaControl.FillGradient>
@@ -52,16 +51,37 @@
                 <!--  BUTTONS  -->
                 <draw:SkiaLayout
                     HorizontalOptions="Fill"
-                    Spacing="20"
+                    Spacing="16"
                     Type="Column"
                     UseCache="Operations">
 
                     <draw:SkiaLabel
+                        StrokeColor="White"
+                        StrokeWidth="2"
                         FontFamily="FontTextTitle"
                         FontSize="44"
                         HorizontalOptions="Center"
                         Text="{Binding Title}"
-                        UseCache="Operations" />
+                        UseCache="Operations">
+                        <draw:SkiaLabel.FillGradient>
+
+                            <draw:SkiaGradient
+                                EndXRatio="0"
+                                EndYRatio="1"
+                                StartXRatio="0"
+                                StartYRatio="0"
+                                Type="Linear">
+                                <draw:SkiaGradient.Colors>
+                                    <Color>White</Color>
+                                    <Color>Yellow</Color>
+                                    <Color>Orange</Color>
+                                    <Color>Red</Color>
+                                    <Color>DarkRed</Color>
+                                </draw:SkiaGradient.Colors>
+                            </draw:SkiaGradient>
+
+                        </draw:SkiaLabel.FillGradient>
+                    </draw:SkiaLabel>
 
                     <draw:SkiaLabel
                         HorizontalOptions="Center"

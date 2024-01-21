@@ -1,5 +1,4 @@
-﻿using AppoMobi.Maui.DrawnUi.Demo.Views.Content;
-using System.Reflection;
+﻿using System.Reflection;
 
 namespace AppoMobi.Maui.DrawnUi.Demo;
 

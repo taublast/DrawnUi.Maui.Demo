@@ -1,4 +1,4 @@
-using AppoMobi.Maui.DrawnUi;
+using DrawnUi.Maui;
 
 namespace Reversi.Views.Partials;
 

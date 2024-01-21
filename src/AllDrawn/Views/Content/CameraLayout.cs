@@ -1,7 +1,8 @@
-using AppoMobi.Maui.DrawnUi.Controls;
 using AppoMobi.Maui.DrawnUi.Demo.Interfaces;
+using DrawnUi.Maui.Controls;
 
-namespace AppoMobi.Maui.DrawnUi.Demo.Views.Content;
+
+namespace AppoMobi.Maui.DrawnUi.Demo.Views;
 
 /// <summary>
 /// We are subclassing just to use overrides because inside ElementAdapter we cannot

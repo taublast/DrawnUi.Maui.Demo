@@ -1,7 +1,5 @@
-﻿using AppoMobi.Maui.DrawnUi.Draw;
-using AppoMobi.Maui.Gestures;
-using Microsoft.Maui.Controls.Internals;
-using System.Diagnostics;
+﻿using AppoMobi.Maui.Gestures;
+using DrawnUi.Maui.Draw;
 
 namespace SomeMauiApp
 {
@@ -11,8 +9,6 @@ namespace SomeMauiApp
         {
             InitializeComponent();
         }
-
-
 
         private void HandleLinkTapped(object sender, string e)
         {

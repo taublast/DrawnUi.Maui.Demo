@@ -1,5 +1,5 @@
-﻿using AppoMobi.Maui.DrawnUi.Enums;
-using AppoMobi.Maui.DrawnUi.Views;
+﻿using DrawnUi.Maui;
+using DrawnUi.Maui.Views;
 
 
 namespace AppoMobi.Maui.DrawnUi.Demo.Views.Controls;
@@ -151,10 +151,6 @@ public class CacheConsumer : SkiaShape
                     //var smallerImage = smallerSurface.Snapshot();
                     //_imageHolder.SetImageInternal(smallerImage);
 
-                }
-                else
-                {
-                    var shitHappened = true;
                 }
 
             }

@@ -1,7 +1,8 @@
-using AppoMobi.Maui.DrawnUi.Drawn.Animate;
+using DrawnUi.Maui.Draw;
+using DrawnUi.Maui.Drawn.Animate;
 using System.Diagnostics;
 
-namespace AppoMobi.Maui.DrawnUi.Demo.Views.Content;
+namespace AppoMobi.Maui.DrawnUi.Demo.Views;
 
 public partial class TabScrollCells
 {
@@ -34,7 +35,7 @@ public class AnimateVerticalStack : AnimateHorizontalStack
     {
         this.Opacity = 0;
         this.TranslationY = Parent.Height;
-        readyForAnimation = true;
+        ReadyForAnimation = true;
     }
 
     protected override async Task Animate()
@@ -77,16 +78,9 @@ public class AnimateVerticalStack : AnimateHorizontalStack
 
 public class AnimateHorizontalStack : SkiaLayout
 {
-    uint speed = 750;
-
-    bool animated = false;
-    bool hasData;
-    protected bool readyForAnimation;
-
-    public override ScaledSize Measure(float widthConstraint, float heightConstraint, float scale)
-    {
-        return base.Measure(widthConstraint, heightConstraint, scale);
-    }
+    readonly uint _Speed = 750;
+    bool _HasData;
+    protected bool ReadyForAnimation;
 
     public AnimateHorizontalStack()
     {
@@ -118,37 +112,36 @@ public class AnimateHorizontalStack : SkiaLayout
     {
         this.Opacity = 0;
         this.TranslationX = Parent.Width;
-        readyForAnimation = true;
+        ReadyForAnimation = true;
     }
 
     protected virtual async Task Animate()
     {
         await this.AnimateWith(
-            (c) => c.FadeToAsync(1, speed),
-            (c) => c.TranslateToAsync(0, 0, speed));
+            (c) => c.FadeToAsync(1, _Speed),
+            (c) => c.TranslateToAsync(0, 0, _Speed));
     }
 
     async Task<bool> AnimateOnAppearing()
     {
         //animate onappearing
-        if (ItemsSource != null && this.LastParentVisible && readyForAnimation)
+        if (ItemsSource != null && this.LastParentVisible && ReadyForAnimation)
         {
             if (ItemsSource.Count > 0)
             {
                 //looks like we loaded something?
-                if (!hasData) //animate once
+                if (!_HasData) //animate once
                 {
                     SetupForAnimation();
-                    readyForAnimation = false;
-                    hasData = true;
+                    ReadyForAnimation = false;
+                    _HasData = true;
                     await Animate();
-                    animated = true;
                     return true;
                 }
             }
             else
             {
-                hasData = false;
+                _HasData = false;
             }
         }
         return false;

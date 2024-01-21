@@ -1,6 +1,7 @@
-﻿using AppoMobi.Maui.DrawnUi.Controls;
-using AppoMobi.Maui.DrawnUi.Demo.Interfaces;
-using AppoMobi.Maui.DrawnUi.Enums;
+﻿using AppoMobi.Maui.DrawnUi.Demo.Interfaces;
+using DrawnUi.Maui;
+using DrawnUi.Maui.Controls;
+using DrawnUi.Maui.Draw;
 using System.Windows.Input;
 
 namespace AppoMobi.Maui.DrawnUi.Demo.ViewModels

@@ -16,7 +16,7 @@ namespace AppoMobi.Maui.DrawnUi.Demo
         internal static void ClearCache(Type[]? types) { }
         internal static void UpdateApplication(Type[]? types)
         {
-            Trace.WriteLine("[HOTREALOD] Code-behind triggered!");
+            Trace.WriteLine("[HOTRELOD] Code-behind triggered!");
             UpdateApplicationEvent?.Invoke(types); //todo attach Super
         }
     }

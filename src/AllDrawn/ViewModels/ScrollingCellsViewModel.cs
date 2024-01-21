@@ -1,7 +1,7 @@
 ﻿using AppoMobi.Maui.DrawnUi.Demo.Interfaces;
 using AppoMobi.Maui.DrawnUi.Demo.Services;
-using AppoMobi.Maui.DrawnUi.Demo.Views.Content;
-using AppoMobi.Maui.DrawnUi.Infrastructure;
+using AppoMobi.Maui.DrawnUi.Demo.Views;
+using DrawnUi.Maui.Infrastructure;
 using System.Windows.Input;
 
 namespace AppoMobi.Maui.DrawnUi.Demo.ViewModels;
@@ -168,26 +168,7 @@ public class ScrollingCellsViewModel : ProjectViewModel, IFullscreenGalleryManag
         }
     }
 
-    public string Title
-    {
-        get
-        {
-            return _title;
-        }
-
-        set
-        {
-            if (_title != value)
-            {
-                _title = value;
-                OnPropertyChanged();
-            }
-        }
-    }
-    string _title;
     private readonly MockDataProvider _mock;
-
-
 
 
     private int _Columns = 1;

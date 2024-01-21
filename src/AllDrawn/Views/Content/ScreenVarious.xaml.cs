@@ -1,4 +1,4 @@
-namespace AppoMobi.Maui.DrawnUi.Demo.Views.Content;
+namespace AppoMobi.Maui.DrawnUi.Demo.Views;
 
 public partial class ScreenVarious : SkiaLayout
 {

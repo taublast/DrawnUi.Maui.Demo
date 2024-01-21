@@ -1,4 +1,4 @@
-﻿using AppoMobi.Maui.DrawnUi.Infrastructure.Extensions;
+﻿global using DrawnUi.Maui;
 using Microsoft.Extensions.Logging;
 
 namespace SomeMauiApp
@@ -14,9 +14,16 @@ namespace SomeMauiApp
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
-                });
+                })
 
-            builder.UseDrawnUi();
+                .UseDrawnUi(new()
+                {
+                    DesktopWindow = new() //optional
+                    {
+                        Width = 500,
+                        Height = 800,
+                    }
+                });
 
 #if DEBUG
             builder.Logging.AddDebug();

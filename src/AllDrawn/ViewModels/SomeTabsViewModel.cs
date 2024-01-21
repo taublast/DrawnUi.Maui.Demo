@@ -1,7 +1,7 @@
 ﻿using AppoMobi.Maui.DrawnUi.Demo.Interfaces;
 using AppoMobi.Maui.DrawnUi.Demo.Services;
-using AppoMobi.Maui.DrawnUi.Demo.Views.Content;
-using AppoMobi.Maui.DrawnUi.Infrastructure;
+using AppoMobi.Maui.DrawnUi.Demo.Views;
+using DrawnUi.Maui.Infrastructure;
 using System.Windows.Input;
 
 namespace AppoMobi.Maui.DrawnUi.Demo.ViewModels;
@@ -165,8 +165,7 @@ public class SomeTabsViewModel : ProjectViewModel, IFullscreenGalleryManager
 
 
     string _title = "WithTabs!!";
-
-    public string Title
+    public new string Title
     {
         get
         {

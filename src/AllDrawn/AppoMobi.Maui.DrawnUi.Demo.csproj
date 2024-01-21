@@ -13,7 +13,7 @@
 		<ApplicationTitle>Drawn UI Demo</ApplicationTitle>
 
 		<!-- App Identifier -->
-		<ApplicationId>com.appomobi.maui.drawnui.demo</ApplicationId>
+		<ApplicationId>com.appomobi.drawnui.demo</ApplicationId>
 		<ApplicationIdGuid>d6d6930b-b6eb-4739-8cb9-a7de08a54e22</ApplicationIdGuid>
 
 		<!-- Versions -->
@@ -71,7 +71,7 @@
 
 
 	<ItemGroup>
-		<PackageReference Include="AppoMobi.Maui.DrawnUi" Version="1.0.4.3-pre" />
+		<PackageReference Include="AppoMobi.Maui.DrawnUi" Version="1.0.5.7-pre" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
 	</ItemGroup>
  
@@ -89,6 +89,10 @@
 	    <DependentUpon>ResStrings.resx</DependentUpon>
 	    <DesignTime>True</DesignTime>
 	    <AutoGen>True</AutoGen>
+	  </Compile>
+	  <Compile Update="Views\Controls\Navigation\NavBarStandart.xaml.cs">
+	    <SubType>Code</SubType>
+	    <DependentUpon>%(Filename)</DependentUpon>
 	  </Compile>
 	  <Compile Update="Views\ScreenTabs.xaml.cs">
 	    <DependentUpon>ScreenTabs.xaml</DependentUpon>
@@ -121,17 +125,11 @@
 	</ItemGroup>
 
   <ItemGroup>
-    <MauiXaml Update="Views\Content\ScreenControls.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </MauiXaml>
-    <MauiXaml Update="Views\Controls\SkiaSwitchCupertino.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </MauiXaml>
-    <MauiXaml Update="Views\Controls\SkiaSwitchMaterial.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </MauiXaml>
-    <MauiXaml Update="Views\ScreenTabs.xaml">
+    <MauiXaml Update="Views\Controls\Navigation\NavBarStandart.xaml">
+      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </MauiXaml>
   </ItemGroup>
+
+   
 </Project>

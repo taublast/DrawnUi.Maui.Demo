@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <draw:ElementAdapter
-    x:Class="AppoMobi.Maui.DrawnUi.Demo.Views.Content.PopupGallerySlider"
+    x:Class="AppoMobi.Maui.DrawnUi.Demo.Views.PopupGallerySlider"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:content="using:AppoMobi.Maui.DrawnUi.Demo.Views.Content"
+    xmlns:content="using:AppoMobi.Maui.DrawnUi.Demo.Views"
     xmlns:draw="http://schemas.appomobi.com/drawnUi/2023/draw"
     xmlns:interfaces="clr-namespace:AppoMobi.Maui.DrawnUi.Demo.Interfaces"
     x:Name="ThisControl"
@@ -12,8 +12,8 @@
     <!--  ItemsSource="{Binding GalleryItems}"  -->
 
     <content:GalleryPopupLayout
-        draw:HandleGestures.CommandLongPressing="{Binding CommandPressingImage}"
-        draw:HandleGestures.CommandTapped="{Binding CommandCloseGallery}"
+        draw:AddGestures.CommandLongPressing="{Binding CommandPressingImage}"
+        draw:AddGestures.CommandTapped="{Binding CommandCloseGallery}"
         BackgroundColor="Black"
         HorizontalOptions="Fill"
         VerticalOptions="Fill">

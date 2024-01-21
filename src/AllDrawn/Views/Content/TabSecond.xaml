@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <draw:ElementAdapter
-    x:Class="AppoMobi.Maui.DrawnUi.Demo.Views.Content.TabWithTopTabs"
+    x:Class="AppoMobi.Maui.DrawnUi.Demo.Views.TabWithTopTabs"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:controls2="clr-namespace:AppoMobi.Maui.DrawnUi.Demo.Views.Controls"
@@ -103,8 +103,6 @@
                 VerticalOptions="Fill">
 
                 <!--  background gradient  -->
-
-
                 <draw:SkiaControl.FillGradient>
 
                     <draw:SkiaGradient
@@ -151,7 +149,7 @@
                         FontSize="12"
                         HorizontalOptions="End"
                         Text="{Binding Source={x:Reference Picker}, Path=SelectedIndex, StringFormat='Picker: {0}'}"
-                        TextColor="Red"
+                        TextColor="DarkGray"
                         UseCache="Operations"
                         ZIndex="1" />
 
@@ -182,10 +180,10 @@
 
                 <!--  BOTTOM SCROLL  -->
                 <draw:SkiaScroll
-                    FrictionScrolled="0.3"
                     x:Name="LineScroll"
                     Margin="0,0,0,60"
                     Bounces="True"
+                    FrictionScrolled="0.3"
                     HeightRequest="140"
                     HorizontalOptions="Fill"
                     LockChildrenGestures="PassTap"
@@ -209,9 +207,9 @@
                                     to set ui props from code-behind
                                 -->
                                 <controls2:FastCellWithBanner
-                                    UseCache="GPU"
-                                    draw:HandleGestures.AnimationTapped="Ripple"
+                                    draw:AddGestures.AnimationTapped="Ripple"
                                     x:DataType="viewModels:SimpleItemViewModel"
+                                    UseCache="GPU"
                                     VerticalOptions="Fill"
                                     WidthRequest="148">
 
@@ -273,26 +271,26 @@
                                                 FontSize="20"
                                                 LineBreakMode="TailTruncation"
                                                 MaxLines="1"
-                                                Style="{x:StaticResource SkiaLabelDefaultStyle}"
                                                 Tag="LabelTitle"
                                                 Text="Title"
                                                 TextColor="White"
                                                 TranslationY="8"
                                                 VerticalOptions="Center" />
 
+                                            <!--  sub-title  -->
                                             <draw:SkiaLabel
                                                 Margin="8,0"
                                                 FontSize="10"
                                                 LineBreakMode="TailTruncation"
                                                 LineSpacing="-2"
-                                                MaxLines="2"
+                                                MaxLines="3"
                                                 Opacity="0.66"
-                                                Style="{x:StaticResource SkiaLabelDefaultStyle}"
                                                 Tag="LabelDesc"
                                                 Text="Description"
                                                 TextColor="White"
-                                                TranslationY="30"
-                                                VerticalOptions="Center" />
+                                                TranslationY="92"
+                                                UseCache="Operations"
+                                                VerticalOptions="Start" />
 
                                             <draw:SkiaLabel
                                                 Margin="8"
@@ -300,7 +298,6 @@
                                                 FontSize="30"
                                                 HorizontalOptions="End"
                                                 MaxLines="1"
-                                                Style="{x:StaticResource SkiaLabelDefaultStyle}"
                                                 Tag="LabelId"
                                                 Text="ID"
                                                 TextColor="#99ff0000"

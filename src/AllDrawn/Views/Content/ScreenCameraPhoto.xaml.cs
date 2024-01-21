@@ -1,7 +1,7 @@
-using AppoMobi.Maui.DrawnUi.Controls;
-using AppoMobi.Maui.DrawnUi.Enums;
+using DrawnUi.Maui.Controls;
+using DrawnUi.Maui;
 
-namespace AppoMobi.Maui.DrawnUi.Demo.Views.Content;
+namespace AppoMobi.Maui.DrawnUi.Demo.Views;
 
 public partial class ScreenCameraPhoto
 {

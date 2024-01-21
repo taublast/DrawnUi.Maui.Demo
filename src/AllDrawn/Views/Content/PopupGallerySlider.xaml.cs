@@ -1,6 +1,6 @@
 using AppoMobi.Maui.DrawnUi.Demo.Interfaces;
 
-namespace AppoMobi.Maui.DrawnUi.Demo.Views.Content;
+namespace AppoMobi.Maui.DrawnUi.Demo.Views;
 
 public partial class PopupGallerySlider
 {

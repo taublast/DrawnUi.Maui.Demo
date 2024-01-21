@@ -1,7 +1,8 @@
-﻿using AppoMobi.Maui.DrawnUi.Controls;
-using AppoMobi.Maui.DrawnUi.Demo.Views.Content;
-using AppoMobi.Maui.DrawnUi.Enums;
-using AppoMobi.Maui.DrawnUi.Infrastructure;
+﻿using AppoMobi.Maui.DrawnUi.Demo.Views;
+using AppoMobi.Maui.DrawnUi.Demo.Views;
+using DrawnUi.Maui.Controls;
+using DrawnUi.Maui.Draw;
+using DrawnUi.Maui.Infrastructure;
 using Reversi.Views.Partials;
 using System.Windows.Input;
 
@@ -306,28 +307,6 @@ namespace AppoMobi.Maui.DrawnUi.Demo.ViewModels
         //    }
         //}
 
-
-        public ICommand CommandPushPage
-        {
-            get
-            {
-                return new Command(async () =>
-                {
-                    if (CheckLockAndSet())
-                        return;
-
-                    //do not block ui, lets us see the touch effect
-                    //while we build page to be opened
-                    await Task.Run(async () =>
-                    {
-                        var page = Presentation.Shell.NavigationLayout.GetSavedControl("StackUsers");
-                        await Presentation.Shell.PushAsync(page, true);
-
-                    }).ConfigureAwait(false);
-
-                });
-            }
-        }
 
         public ICommand CommandPushFun
         {
@@ -636,8 +615,6 @@ namespace AppoMobi.Maui.DrawnUi.Demo.ViewModels
         }
 
         private bool _HasData;
-        private bool _trackingReselection;
-
         public bool HasData
         {
             get

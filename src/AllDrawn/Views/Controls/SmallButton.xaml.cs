@@ -1,4 +1,4 @@
-using AppoMobi.Maui.DrawnUi.Drawn.Infrastructure.Interfaces;
+using DrawnUi.Maui.Drawn.Infrastructure.Interfaces;
 
 namespace AppoMobi.Maui.DrawnUi.Demo.Views.Controls;
 

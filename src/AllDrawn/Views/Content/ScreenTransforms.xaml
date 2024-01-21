@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <draw:SkiaLayout
-    x:Class="AppoMobi.Maui.DrawnUi.Demo.Views.Content.ScreenTransforms"
+    x:Class="AppoMobi.Maui.DrawnUi.Demo.Views.ScreenTransforms"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:draw="http://schemas.appomobi.com/drawnUi/2023/draw"
-    xmlns:viewModels="using:AppoMobi.Maui.DrawnUi.Demo.ViewModels"
     xmlns:navigation="clr-namespace:AppoMobi.Maui.DrawnUi.Demo.Views.Controls.Navigation"
+    xmlns:viewModels="using:AppoMobi.Maui.DrawnUi.Demo.ViewModels"
     x:DataType="viewModels:SimplePageViewModel"
     BackgroundColor="Black"
     HorizontalOptions="Fill"
@@ -51,43 +51,33 @@
 
         <!--  HINT  -->
         <draw:SkiaLayout
-            Tag="WithShape"
             Margin="64,0"
             HorizontalOptions="Fill"
-            VerticalOptions="Start"
+            Tag="WithShape"
             TranslationY="380"
             UseCache="GPU"
+            VerticalOptions="Start"
             ZIndex="4">
 
             <draw:SkiaShape
                 HorizontalOptions="Fill"
-                VerticalOptions="Fill"
                 StrokeColor="#66ffffff"
                 StrokePath="16,8"
-                StrokeWidth="1"/>
+                StrokeWidth="1"
+                VerticalOptions="Fill" />
 
             <draw:SkiaLabel
                 Margin="16,8"
-                DrawCharByChar="False"
+                CameraAngleX="35"
                 FontFamily="FontTextBold"
-                FontSize="16"
+                FontSize="20"
                 HorizontalOptions="Center"
                 HorizontalTextAlignment="Center"
+                StrokeColor="#22FF0000"
+                StrokeWidth="3"
                 Text="Checking transforms, gradients etc. List is scrollable!"
-                TextColor="White" />
-
-            <!--<draw:SkiaLabel
-                TranslationX="2"
-                TranslationY="2"
-                Margin="16,8"
-                FontFamily="FontTextBold"
-                FontSize="16"
-                HorizontalOptions="Fill"
-                HorizontalTextAlignment="Center"
-                Opacity="0.75"
-                Text="Checking transforms, shadows etc. List is scrollable!"
-                TextColor="Black"
-                ZIndex="-1" />-->
+                TextColor="White"
+                TranslationY="-3" />
 
         </draw:SkiaLayout>
 
@@ -165,7 +155,7 @@
                 VerticalOptions="Fill">
 
                 <draw:SkiaLayout
-                    Padding="10"
+                    Padding="10,10,10,0"
                     HorizontalOptions="Fill"
                     Type="Column">
 
@@ -197,6 +187,8 @@
                                 UseCache="Operations">
 
                                 <draw:SkiaLabel
+                                    DropShadowColor="#22000000"
+                                    DropShadowOffsetX="-2"
                                     Padding="4"
                                     FontFamily="FontTextTitle"
                                     FontSize="12"

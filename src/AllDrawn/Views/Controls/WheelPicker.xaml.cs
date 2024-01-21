@@ -1,5 +1,5 @@
-﻿using AppoMobi.Maui.DrawnUi.Drawn.Animate;
-using AppoMobi.Maui.DrawnUi.Enums;
+﻿using DrawnUi.Maui.Drawn.Animate;
+using DrawnUi.Maui;
 using System.Collections;
 
 namespace AppoMobi.Maui.DrawnUi.Demo.Views.Controls

@@ -1,5 +1,6 @@
-﻿using AppoMobi.Maui.DrawnUi.Controls;
-using AppoMobi.Specials;
+﻿using AppoMobi.Specials;
+using DrawnUi.Maui.Controls;
+using DrawnUi.Maui.Draw;
 using System.Collections.Concurrent;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
@@ -629,7 +630,7 @@ public class NavigationViewModel : BaseViewModel
         typeof(NavigationViewModel),
         defaultValue: null);
 
-    public new ICommand CommandOnSearch
+    public ICommand CommandOnSearch
     {
         get { return (ICommand)GetValue(CommandOnSearchProperty); }
         set { SetValue(CommandOnSearchProperty, value); }
@@ -1002,8 +1003,6 @@ public class NavigationViewModel : BaseViewModel
         return value;
     }
 
-    private bool lockTimer;
-
     #endregion
 
 
@@ -1028,29 +1027,6 @@ public class NavigationViewModel : BaseViewModel
 
     }
 
-    public static readonly BindableProperty HasSearchProperty = BindableProperty.Create(
-    nameof(HasSearch),
-    typeof(bool),
-    typeof(NavigationViewModel),
-    false);
-
-    public new bool HasSearch
-    {
-        get { return (bool)GetValue(HasSearchProperty); }
-        set { SetValue(HasSearchProperty, value); }
-    }
-
-    public static readonly BindableProperty ShowLogoProperty = BindableProperty.Create(
-        nameof(ShowLogo),
-        typeof(bool),
-        typeof(NavigationViewModel),
-        false);
-
-    public new bool ShowLogo
-    {
-        get { return (bool)GetValue(ShowLogoProperty); }
-        set { SetValue(ShowLogoProperty, value); }
-    }
 
     public static readonly BindableProperty HideNavigationProperty = BindableProperty.Create(
         nameof(HideNavigation),

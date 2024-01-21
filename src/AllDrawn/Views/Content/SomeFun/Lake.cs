@@ -1,7 +1,8 @@
-﻿using AppoMobi.Maui.DrawnUi.Animate.Animators;
-using AppoMobi.Maui.DrawnUi.Drawn.Animate;
-using AppoMobi.Maui.DrawnUi.Drawn.Infrastructure.Interfaces;
-using AppoMobi.Maui.DrawnUi.Infrastructure.Extensions;
+﻿using DrawnUi.Maui.Animate.Animators;
+using DrawnUi.Maui.Draw;
+using DrawnUi.Maui.Drawn.Animate;
+using DrawnUi.Maui.Drawn.Infrastructure.Interfaces;
+using DrawnUi.Maui.Infrastructure.Extensions;
 
 namespace AppoMobi.Maui.DrawnUi.Demo.Views.Controls;
 
@@ -29,7 +30,6 @@ public partial class Lake : SkiaLayout
     private double _velocityRatoX;
     private double _velocityRatoY;
     private DroppingLetters _welcome;
-    private ActionOnTickAnimator _appLoop;
 
     /// <summary>
     /// Execute on drawing tick
@@ -92,7 +92,6 @@ public partial class Lake : SkiaLayout
 
                 _animationDuckMoveX = new(_duck)
                 {
-                    Uid = "duckX",
                     mMinValue = _duckMinX,
                     mMaxValue = _duckMaxX,
                     Friction = ANIMATE_Friction,
@@ -102,7 +101,6 @@ public partial class Lake : SkiaLayout
 
                 _animationDuckMoveY = new(_duck)
                 {
-                    Uid = "duckY",
                     mMinValue = _duckMinY,
                     mMaxValue = _duckMaxY,
                     Friction = ANIMATE_Friction,
@@ -125,7 +123,6 @@ public partial class Lake : SkiaLayout
                     mMinValue = 0,
                     mMaxValue = 100,
                     Amplitude = 100,
-                    Uid = "Jump"
                 };
 
 
