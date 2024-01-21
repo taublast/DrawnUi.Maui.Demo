@@ -17,10 +17,10 @@ Library repo will go public at Alpha stage, Pre-Alpha nuget package is already a
 
 ## What's new
 
-### An updated nuget and demo are incoming soon with performance improvements for iOS (Metal renderer) and more.
-
 __1.0.5.7-pre__
 * Still a temporary release preparing a reworked demo with more custom controls examples.
+* iOS hardware acceleration is now using Metal.
+* Platform-independent keyboard support and more. Soon will be demonstrated in the Space Shooter Game demo.
 * Many fixes
 
 ## Development Notes
