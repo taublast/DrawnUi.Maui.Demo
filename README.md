@@ -1,16 +1,17 @@
 ﻿# AppoMobi.Maui.DrawnUi DEMO
 
-Demo of an upcoming rendering engine for .Net MAUI to draw your UI on a Skia canvas, with gestures and animations, designed to draw pixel-perfect custom controls instead of using native ones.
+Demo of an upcoming rendering engine for .NET MAUI to draw your UI on a Skia canvas, with gestures and animations, designed to draw pixel-perfect custom controls instead of using native ones.
 
 Supports **iOS**, **MacCatalyst**, **Android**, **Windows**.
 
 * To use inside a usual Maui app, consume drawn controls here and there inside `Canvas` views.
 * Create a totally drawn app with just one `Canvas` as root view and consume controls inside, `SkiaShell` is provided for navigation.
 * Drawn controls are totally virtual and are basically commands for the DrawnUi library on what and how to draw on a skia canvas.
+* This *is not* a set of custom controls but a toolkit for you to easily create and draw your own.
  
 _The current development state is __PRE-ALPHA__, some features remain to be implemented, the project is active._
 
-The rendering engine is free to use, the goal is to provide an easy way to create and draw custom-made ui elements.
+The rendering engine is free to use and is provided under the MIT license. 
 
 Library repo will go public at Alpha stage, Pre-Alpha nuget package is already available to be consumed. 
 
@@ -18,11 +19,9 @@ Library repo will go public at Alpha stage, Pre-Alpha nuget package is already a
 
 ### An updated nuget and demo are incoming soon with performance improvements for iOS (Metal renderer) and more.
 
-__1.0.3.6-pre__
-* Temprorary release preparing reworked demo.
-* `SkiaBackdrop` new simple control actually with Blur only, more incoming. Can be seen used in demo tabbar.
-* Demo: custom switch controls added to demo project to demonstrate how easy it is to construct custom drawn controls.
-* Too many fixes etc.
+__1.0.5.7-pre__
+* Still a temporary release preparing a reworked demo with more custom controls examples.
+* Many fixes
 
 ## Development Notes
 
@@ -70,7 +69,7 @@ https://github.com/taublast/AppoMobi.Maui.DrawnUi.Demo/assets/25801194/6f92241a-
 	* __SkiaLottie__ with tint customization
 	* __SkiaRive__ (actually Windows only)
 	* __SkiaLayout__ (Absolute, Grid, Vertical stack, Horizontal stack, _todo Masonry_) with templates support
-	* __SkiaScroll__ (Horizonal, Vertical, Both) with header, footer, zoom support and adjustable inertia, bounce, snap and much more. Can act like a collectionview with custom refresh indicator, load more etc
+	* __SkiaScroll__ (Horizontal, Vertical, Both) with header, footer, zoom support and adjustable inertia, bounce, snap and much more. Can act like a collectionview with custom refresh indicator, load more etc
 	* __SkiaHotspot__ to handle gestures in a easy way
 	* __SkiaMauiElement__ for when skia is not enough
 
@@ -127,8 +126,8 @@ builder.UseDrawnUi<App>();
 
 You will be mainly using Maui view `Canvas` that will wrap your SkiaControls.
 Anywhere in your existing Maui app you can include a `Canvas` and start drawing your UI.
-The `Canvas` control is aware of its children size and will resize accordingly.
-At the same time you could set a fixed size for the `Canvas` and its children will adapt to it.
+The `Canvas` control is aware of its children's size and will resize accordingly.
+At the same time, you could set a fixed size for the `Canvas` and its children will adapt to it.
 
 #### Xaml
 Import the namespace:
@@ -147,7 +146,7 @@ Consume:
 </draw:Canvas>
 ```
 
-As you can see in this example the Maui view `Canvas` will adapt it's size to drawn content and should take 44x44 pts. `LockRatio="1"` tells the engine to take the highest calculated dimension and multiply it by 1, so even we omitted `HeightRequest` it was set to 44.
+As you can see in this example the Maui view `Canvas` will adapt its size to drawn content and should take 44x44 pts. `LockRatio="1"` tells the engine to take the highest calculated dimension and multiply it by 1, so even we omitted `HeightRequest` it was set to 44.
 
 #### Code behind
 
@@ -161,9 +160,9 @@ Please check the demo app, it contains many examples of usage.
 
 * Images loaded and converted for skia format are cached on a per-app run basis.
 
-* When am image fails to load then if the app was offline the image will get its method `ReloadSource` invoked. So when you go online your missing images will get automatically loded!
+* When an image fails to load then if the app was offline the image will get its method `ReloadSource` invoked. So when you go online your missing images will get automatically loded!
 
-* 'SkiaScroll' can also control loading of images via `VelocityImageLoaderLock` property, that would lock and unlock loading of images globally in case of a huge velocity scroll.
+* 'SkiaScroll' can also control the loading of images via `VelocityImageLoaderLock` property, that would lock and unlock loading of images globally in case of a huge velocity scroll.
 
 Base control for using images is `SkiaImage` with many virtuals to be easily subclassed for your needs. The `Source` property is a usual maui `ImageSource`.
 `SkiaImageManager` loads platform sources and converts them to skia format. It falls back to default maui methods for loading `ImageSource` in some cases.
@@ -176,12 +175,12 @@ To make your root `Canvas` catch gestures you need to attach a `TouchEffect` to 
 After that skia controls can process gestures in multiple ways:
 * At low level by implementing an `ISkiaGestureListener` interface and overriding `OnGestureReceived`.
 * At control level by overriding `ProcessGestures`, recommended for custom controls.
-* Attaching a `HandleGestures` effect that has properties similar to `SkiaHotspot`.
+* Attaching an `AddGestures` effect that has properties similar to `SkiaHotspot`.
 * Including a `SkiaHotspot` as a child.
 * Using a `SkiaButton`.
 
 Parent controls have full control over gestures and passing them to children. 
-In a base scenario a gesture would be passed all along to the ends of a view tree to its ends for every top-level control.
+In a base scenario, a gesture would be passed all along to the ends of a view tree to its ends for every top-level control.
 If a gesture is marked as consumed (by returning the reference of the consumer, not consumed if `null`) a control would typically stop processing gestures at its level. 
 
 By overriding `ProcessGestures` any control might process gestures with or without passing them to children.
@@ -253,7 +252,7 @@ When you start using any kind of animations you should start using caching to ma
 We are using the __EasyCaching.InMemory__ library for caching loaded bitmaps. It's impact can much be seen when using recycled cells inside a scroll. 
 _todo add options and link to ImageLoader and SkiaImage docs_
 
-_!_ When using images inside dynamic scene, like a a templated stack with scroll or other 
+_!_ When using images inside dynamic scenes, like a a templated stack with scroll or other 
 you should try to set the image cache to `Image` this would most probably climb your fps.
 This is due to the fact that image sources are usually of the wrong size and they need processing 
 before being drawn. When using `Image` cache the image would be processed only once and 
@@ -390,90 +389,6 @@ Use a simple `SkiaControl`. For complex shapes use `SkiaShape` or `SkiaPath`.
 #### Simulate Maui StackLayout with a BidableLayout.ItemTemplate 
 
 `SkiaScroll` (Virtualisation=false) + `SkiaLayout` (ItemTemplate=..., UseCache=CacheType.Operations) 
-
-
-
-#### *Styles*
-
-When you want to dynamically change properties in Xaml you might want to use conditional styles.
-They look like regular Maui styles, but with some nuances:
-* When defining style is resources you must set a unique `Class` attribute
-* They are selected at runtime upon `Condition` or `State` bindable properties. `State` is like Maui `VisualState`but you can have several of them applied at the same time.
-
-Define a style inside `ResourceDictionary`:
-
-```xml  
-    <Style
-        x:Key="SkiaLabelDefaultStyle"
-        Class="SkiaLabelDefaultStyle"
-        TargetType="draw:SkiaLabel">
-        <Setter Property="TextColor" Value="#E8E3D7" />
-        <Setter Property="FontFamily" Value="FontText" />
-        <Setter Property="FontSize" Value="15" />
-    </Style>
-```
-
-Apply a style:
-
-```xml  
-<draw:SkiaLabel
-    Style="{StaticResource SkiaLabelStyle}"
-    Text="Simple Styled Label" />
-```
-Apply styles upon conditions:
-
-```xml  
-   <views:SkiaShape
-    LockRatio="1"
-    Type="Circle"
-    WidthRequest="16">
-    <views:SkiaControl.Styles>
-        <views:ConditionalStyle
-            State="Normal"
-            Style="{x:StaticResource StyleCameraDot}" />
-        <views:ConditionalStyle
-            Condition="{Binding .}"
-            Style="{x:StaticResource StyleCameraDotOn}" />
-    </views:SkiaControl.Styles>
-
-</views:SkiaShape>
-```
-
-Same as:
-
-```xml  
-   <views:SkiaShape
-    Style="{StaticResource StyleCameraDot}"
-    LockRatio="1"
-    Type="Circle"
-    WidthRequest="16">
-    <views:SkiaControl.Styles>
-        <views:ConditionalStyle
-            Condition="{Binding .}"
-            Style="{x:StaticResource StyleCameraDotOn}" />
-    </views:SkiaControl.Styles>
-
-</views:SkiaShape>
-```
-When the BindingContext (x:Boolean) is True the style `StyleCameraDotOn` will be applied, otherwise `StyleCameraDot` will be applied.
-
-To apply styles upon states you will be using standart Maui *VisualStates* mechanism, or you can even have serveral states at the same time, every `SkiaControl` has a `string[]  States` bindable property to server this purpose:
-
-```xml  
-   <views:SkiaShape
-    States="{Binding VisualStates}"
-	LockRatio="1"
-	Type="Circle"
-	WidthRequest="16">
-	<views:SkiaControl.Styles>
-		<views:ConditionalStyle
-			State="Normal"
-			Style="{x:StaticResource StyleCameraDot}" />
-		<views:ConditionalStyle
-			State="IsOn"
-			Style="{x:StaticResource StyleCameraDotOn}" />
-	</views:SkiaControl.Styles>
-```
 
 ### Hints
 
