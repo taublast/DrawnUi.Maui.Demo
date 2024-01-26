@@ -3,9 +3,9 @@
     x:Class="AppoMobi.Maui.DrawnUi.Demo.Views.ScreenControls"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:AppoMobi.Maui.DrawnUi.Demo.Views.Controls"
     xmlns:draw="http://schemas.appomobi.com/drawnUi/2023/draw"
     xmlns:navigation1="clr-namespace:AppoMobi.Maui.DrawnUi.Demo.Views.Controls.Navigation"
-    xmlns:controls="clr-namespace:AppoMobi.Maui.DrawnUi.Demo.Views.Controls"
     BackgroundColor="Black"
     HorizontalOptions="Fill"
     VerticalOptions="Fill">
@@ -43,49 +43,138 @@
     </draw:SkiaLayout>
 
     <!--  CONTENT  -->
-    <draw:SkiaLayout
-        Padding="24"
+    <draw:SkiaScroll
         HorizontalOptions="Fill"
-        MarginTop="{Binding Source={x:Reference NavBar}, Path=Height}"
-        Type="Column">
+        IgnoreWrongDirection="True"
+        VerticalOptions="Fill">
 
-        <!--  SWITCHES  -->
         <draw:SkiaLayout
+            Padding="24"
             HorizontalOptions="Fill"
-            MinimumHeightRequest="60"
-            Spacing="24"
-            Type="Row">
+            MarginTop="{Binding Source={x:Reference NavBar}, Path=Height}"
+            Type="Column">
 
-            <controls:SkiaSwitchCupertino
-                ColorFrameOn="{StaticResource ColorAccent}"
-                ColorThumbOn="White"
-                HorizontalOptions="Center" />
+            <!--  SWITCHES  -->
+            <draw:SkiaLayout
+                HorizontalOptions="Fill"
+                MinimumHeightRequest="60"
+                Spacing="24"
+                Type="Row">
 
-            <controls:SkiaSwitchMaterial
-                ColorFrameOff="DarkGray"
-                ColorFrameOn="{StaticResource ColorAccentLight}"
-                ColorThumbOff="White"
-                ColorThumbOn="{StaticResource ColorAccent}"
-                HorizontalOptions="Center" />
+                <controls:SkiaSwitchCupertino
+                    ColorFrameOn="{StaticResource ColorAccent}"
+                    ColorThumbOn="White" />
 
-            <controls:SkiaSwitchMaterialAir
-                ColorFrameOff="DarkGray"
-                ColorFrameOn="{StaticResource ColorAccentLight}"
-                ColorThumbOff="DarkGray"
-                ColorThumbOn="{StaticResource ColorAccent}"
-                HorizontalOptions="Center" />
+                <controls:SkiaSwitchMaterial
+                    ColorFrameOff="DarkGray"
+                    ColorFrameOn="{StaticResource ColorAccentLight}"
+                    ColorThumbOff="White"
+                    ColorThumbOn="{StaticResource ColorAccent}" />
+
+                <controls:SkiaSwitchMaterialAir
+                    ColorFrameOff="DarkGray"
+                    ColorFrameOn="{StaticResource ColorAccentLight}"
+                    ColorThumbOff="DarkGray"
+                    ColorThumbOn="{StaticResource ColorAccent}" />
+
+            </draw:SkiaLayout>
+
+            <draw:SkiaLayout
+                Padding="50,24"
+                BackgroundColor="#fefefe"
+                HorizontalOptions="Fill"
+                Type="Column">
+
+                <draw:SkiaLabel
+                    Margin="0,16"
+                    Padding="2"
+                    BackgroundColor="#11000000"
+                    HorizontalOptions="Fill"
+                    HorizontalTextAlignment="Center"
+                    Text="Fun Slider"
+                    TextColor="Black" />
+
+                <controls:SkiaSliderFun
+                    HorizontalOptions="Fill"
+                    Max="1"
+                    Min="0"
+                    MinMaxStringFormat="P0"
+                    SliderHeight="46"
+                    Step="0.01" />
+
+                <draw:SkiaLabel
+                    Margin="0,16"
+                    Padding="2"
+                    BackgroundColor="#11000000"
+                    HorizontalOptions="Fill"
+                    HorizontalTextAlignment="Center"
+                    Text="Tech Slider"
+                    TextColor="Black" />
+
+                <controls:SkiaSliderTech
+                    HorizontalOptions="Fill"
+                    Max="1"
+                    Min="0"
+                    MinMaxStringFormat="P0"
+                    SliderHeight="40"
+                    Step="0.01" />
+
+                <draw:SkiaLabel
+                    Margin="0,16"
+                    Padding="2"
+                    BackgroundColor="#11000000"
+                    HorizontalOptions="Fill"
+                    HorizontalTextAlignment="Center"
+                    Text="Simple Slider"
+                    TextColor="Black" />
+
+                <controls:SkiaSliderRanged
+                    End="10"
+                    HorizontalOptions="Fill"
+                    Max="5000"
+                    Min="10"
+                    MinMaxStringFormat="C"
+                    RangeMin="5"
+                    SliderHeight="20"
+                    Start="10"
+                    Step="5"
+                    ValueStringFormat="C" />
+
+                <draw:SkiaLabel
+                    Margin="0,16"
+                    Padding="2"
+                    BackgroundColor="#11000000"
+                    HorizontalOptions="Fill"
+                    HorizontalTextAlignment="Center"
+                    Text="Range Slider" />
+
+                <controls:SkiaSliderRanged
+                    EnableRange="True"
+                    End="10000"
+                    Max="10000"
+                    Min="10"
+                    MinMaxStringFormat="C"
+                    RangeMin="5"
+                    SliderHeight="20"
+                    Start="10"
+                    Step="5"
+                    ValueStringFormat="C" />
+
+            </draw:SkiaLayout>
+
+
+            <draw:SkiaMarkdownLabel
+                FontFamily="FontText"
+                FontSize="18"
+                HorizontalOptions="Center"
+                HorizontalTextAlignment="Center"
+                MarginTop="16"
+                MarginBottom="60"
+                Text="🚧 Under heavy construction 🚧"
+                TextColor="#66ffffff" />
 
         </draw:SkiaLayout>
 
-        <draw:SkiaMarkdownLabel
-            MarginTop="16"
-            FontFamily="FontText"
-            FontSize="18"
-            HorizontalOptions="Center"
-            HorizontalTextAlignment="Center"
-            Text="🚧 Under heavy construction 🚧"
-            TextColor="#66ffffff" />
-
-    </draw:SkiaLayout>
+    </draw:SkiaScroll>
 
 </draw:SkiaLayout>

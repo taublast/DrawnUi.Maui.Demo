@@ -71,7 +71,7 @@
 
 
 	<ItemGroup>
-		<PackageReference Include="AppoMobi.Maui.DrawnUi" Version="1.0.5.7-pre" />
+		<PackageReference Include="AppoMobi.Maui.DrawnUi" Version="1.0.6.6-pre" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
 	</ItemGroup>
  
@@ -127,6 +127,15 @@
   <ItemGroup>
     <MauiXaml Update="Views\Controls\Navigation\NavBarStandart.xaml">
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </MauiXaml>
+    <MauiXaml Update="Views\Controls\SkiaSliderFun.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </MauiXaml>
+    <MauiXaml Update="Views\Controls\SkiaSliderRanged.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </MauiXaml>
+    <MauiXaml Update="Views\Controls\SkiaSliderTech.xaml">
       <Generator>MSBuild:Compile</Generator>
     </MauiXaml>
   </ItemGroup>

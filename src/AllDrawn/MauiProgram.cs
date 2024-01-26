@@ -4,7 +4,7 @@ global using AppoMobi.Maui.Gestures;
 global using AppoMobi.Maui.Navigation;
 global using AppoMobi.Specials;
 global using DrawnUi.Maui;
-global using DrawnUi.Maui.Draw;
+global using DrawnUi.Maui.Controls;
 global using SkiaSharp;
 using Microsoft.Extensions.Logging;
 using DeviceInfo = Microsoft.Maui.Devices.DeviceInfo;

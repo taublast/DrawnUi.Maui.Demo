@@ -15,7 +15,6 @@
     Tag="TabList"
     VerticalOptions="Fill">
 
-
     <draw:SkiaControl.FillGradient>
 
         <draw:SkiaGradient
@@ -62,8 +61,8 @@
                     StartYRatio="1"
                     Type="Linear">
                     <draw:SkiaGradient.Colors>
-                        <Color>#584237</Color>
                         <Color>#2F231D</Color>
+                        <Color>#000000</Color>
                     </draw:SkiaGradient.Colors>
                     <draw:SkiaGradient.ColorPositions>
                         <x:Double>0.0</x:Double>
@@ -111,8 +110,8 @@
                         StartYRatio="1"
                         Type="Linear">
                         <draw:SkiaGradient.Colors>
-                            <Color>#584237</Color>
                             <Color>#2F231D</Color>
+                            <Color>#000000</Color>
                         </draw:SkiaGradient.Colors>
                         <draw:SkiaGradient.ColorPositions>
                             <x:Double>0.0</x:Double>
@@ -222,7 +221,7 @@
                         <draw:SkiaLayout
                             InitializeTemplatesInBackgroundDelay="10"
                             ItemsSource="{Binding ItemsSmall}"
-                            RecyclingTemplate="Disabled"
+                            RecyclingTemplate="Enabled"
                             Spacing="0"
                             Tag="HScrollStack"
                             Type="Row"
@@ -239,7 +238,7 @@
                                     <controls:FastCellWithBanner
                                         draw:AddGestures.AnimationTapped="Ripple"
                                         x:DataType="viewModels:SimpleItemViewModel"
-                                        UseCache="GPU"
+                                        UseCache="ImageDoubleBuffered"
                                         VerticalOptions="Fill"
                                         WidthRequest="148">
 
@@ -248,7 +247,7 @@
                                         <!--  uisng ImageDoubleBuffered cache as this changes dinamically  -->
                                         <controls:SkiaShapeTouch
                                             BackgroundColor="Black"
-                                            CommandTapped="{Binding Source={x:Reference LineScroll}, Path=BindingContext.CommandOpenGallery}"
+                                            CommandTapped="{Binding Source={x:Reference LineScroll}, Path=BindingContext.CommandOpenHGallery}"
                                             CornerRadius="8"
                                             HorizontalOptions="Fill"
                                             MarginLeft="8"
@@ -257,12 +256,12 @@
                                             <!--  image will be parallaxed, we cache and then offset the cache with TranslationX  -->
                                             <!--  cache is bigger than surrounding shape because of negative margins  -->
                                             <draw:SkiaImage
+                                                LoadSourceOnFirstDraw="True"
                                                 Margin="-16"
                                                 Aspect="AspectCover"
                                                 EraseChangedContent="True"
                                                 HorizontalOptions="Fill"
                                                 Tag="ImageBanner"
-                                                UseCache="Image"
                                                 VerticalOptions="Fill"
                                                 ZIndex="-1" />
 
@@ -326,7 +325,7 @@
                                                     VerticalOptions="Start" />
 
                                                 <!--  id  -->
-                                                <draw:SkiaLabel
+                                                <!--<draw:SkiaLabel
                                                     Margin="8"
                                                     FontFamily="FontTextBold"
                                                     FontSize="30"
@@ -335,7 +334,7 @@
                                                     Tag="LabelId"
                                                     Text="ID"
                                                     TextColor="#99ff0000"
-                                                    VerticalOptions="Start" />
+                                                    VerticalOptions="Start" />-->
 
                                             </draw:SkiaLayout>
 
@@ -403,7 +402,6 @@
                 ItemsSource="{Binding Items}"
                 MaxColumns="{Binding Columns}"
                 RecyclingTemplate="Enabled"
-                Rendered="OnEventStackCellsRendered"
                 Spacing="4"
                 Tag="StackItems"
                 Type="Column">
@@ -413,7 +411,7 @@
 
                         <controls:FastCellWithBanner
                             x:DataType="viewModels:SimpleItemViewModel"
-                            HeightRequest="200"
+                            HeightRequest="220"
                             HorizontalOptions="Fill"
                             IsClippedToBounds="True"
                             Tag="ListCell"
@@ -441,7 +439,7 @@
                                     HorizontalOptions="Fill"
                                     IsClippedToBounds="True"
                                     Tag="DrawerContent"
-                                    UseCache="None"
+                                    UseCache="Image"
                                     VerticalOptions="Fill">
 
                                     <draw:SkiaControl.FillGradient>
@@ -466,9 +464,8 @@
                                         Aspect="AspectCover"
                                         EraseChangedContent="True"
                                         HorizontalOptions="Fill"
-                                        LoadSourceOnFirstDraw="False"
+                                        LoadSourceOnFirstDraw="True"
                                         Tag="ImageBanner"
-                                        UseCache="Operations"
                                         VerticalOptions="Fill"
                                         ZIndex="-1" />
 
@@ -514,9 +511,9 @@
 
                                     <!--  sub-title  -->
                                     <draw:SkiaLabel
-                                        Margin="16,150,16,0"
+                                        Margin="16,164,16,0"
                                         FontFamily="FontText"
-                                        FontSize="12"
+                                        FontSize="14"
                                         LineBreakMode="TailTruncation"
                                         LineSpacing="-2"
                                         MaxLines="2"
@@ -529,7 +526,7 @@
 
                                     <!--  NUMBER  -->
                                     <draw:SkiaLabel
-                                        Margin="16"
+                                        Margin="0,16,24,0"
                                         FontFamily="FontTextBold"
                                         FontSize="30"
                                         HorizontalOptions="End"

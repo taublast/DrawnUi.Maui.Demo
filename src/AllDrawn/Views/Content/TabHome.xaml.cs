@@ -1,5 +1,3 @@
-using DrawnUi.Maui.Draw;
-using DrawnUi.Maui.Drawn.Animate;
 using System.Diagnostics;
 
 namespace AppoMobi.Maui.DrawnUi.Demo.Views;
@@ -26,16 +24,14 @@ public partial class TabScrollCells
     }
 
 }
-
 public class AnimateVerticalStack : AnimateHorizontalStack
 {
-
 
     protected override void SetupForAnimation()
     {
         this.Opacity = 0;
         this.TranslationY = Parent.Height;
-        ReadyForAnimation = true;
+        readyForAnimation = true;
     }
 
     protected override async Task Animate()
@@ -52,35 +48,44 @@ public class AnimateVerticalStack : AnimateHorizontalStack
         return base.Measure(widthConstraint, heightConstraint, scale);
     }
 
-    protected override void OnMeasured()
-    {
-        base.OnMeasured();
-
-    }
-
-    protected override bool ApplyIsEmpty(bool value)
+    protected override void ApplyIsEmpty(bool value)
     {
         if (!value && wasEmpty)
         {
             //overriding to fade out
-            _emptyView?.FadeToAsync(0, 300).ContinueWith(async (s) =>
+            _emptyView?.FadeToAsync(0, 300)
+                .ContinueWith(async (s) =>
             {
                 await Task.Delay(10); //update ui with last opacity=0
-                base.ApplyIsEmpty(value);
+                try
+                {
+                    base.ApplyIsEmpty(false);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e);
+                }
             });
 
-            return true; //fake
+            return; //fake
         }
 
-        return base.ApplyIsEmpty(value);
+        base.ApplyIsEmpty(value);
     }
 }
 
 public class AnimateHorizontalStack : SkiaLayout
 {
-    readonly uint _Speed = 750;
-    bool _HasData;
-    protected bool ReadyForAnimation;
+    uint speed = 750;
+
+    bool animated = false;
+    bool hasData;
+    protected bool readyForAnimation;
+
+    public override ScaledSize Measure(float widthConstraint, float heightConstraint, float scale)
+    {
+        return base.Measure(widthConstraint, heightConstraint, scale);
+    }
 
     public AnimateHorizontalStack()
     {
@@ -101,6 +106,8 @@ public class AnimateHorizontalStack : SkiaLayout
         }
     }
 
+
+
     protected override async void OnLayoutChanged()
     {
         base.OnLayoutChanged();
@@ -112,36 +119,37 @@ public class AnimateHorizontalStack : SkiaLayout
     {
         this.Opacity = 0;
         this.TranslationX = Parent.Width;
-        ReadyForAnimation = true;
+        readyForAnimation = true;
     }
 
     protected virtual async Task Animate()
     {
         await this.AnimateWith(
-            (c) => c.FadeToAsync(1, _Speed),
-            (c) => c.TranslateToAsync(0, 0, _Speed));
+            (c) => c.FadeToAsync(1, speed),
+            (c) => c.TranslateToAsync(0, 0, speed));
     }
 
     async Task<bool> AnimateOnAppearing()
     {
         //animate onappearing
-        if (ItemsSource != null && this.LastParentVisible && ReadyForAnimation)
+        if (ItemsSource != null && LastParentVisible && readyForAnimation)
         {
             if (ItemsSource.Count > 0)
             {
                 //looks like we loaded something?
-                if (!_HasData) //animate once
+                if (!hasData) //animate once
                 {
                     SetupForAnimation();
-                    ReadyForAnimation = false;
-                    _HasData = true;
+                    readyForAnimation = false;
+                    hasData = true;
                     await Animate();
+                    animated = true;
                     return true;
                 }
             }
             else
             {
-                _HasData = false;
+                hasData = false;
             }
         }
         return false;
@@ -157,19 +165,4 @@ public class AnimateHorizontalStack : SkiaLayout
         }
     }
 
-}
-
-public class EmptyTest : SkiaLayout
-{
-    public override void Render(SkiaDrawingContext context, SKRect destination, float scale)
-    {
-        Debug.WriteLine($"[EMPTY] {destination}");
-
-        base.Render(context, destination, scale);
-    }
-
-    public override ScaledSize Measure(float widthConstraint, float heightConstraint, float scale)
-    {
-        return base.Measure(widthConstraint, heightConstraint, scale);
-    }
 }

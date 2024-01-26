@@ -1,7 +1,7 @@
 ﻿using DrawnUi.Maui.Animate.Animators;
-using DrawnUi.Maui.Draw;
-using DrawnUi.Maui.Drawn.Animate;
-using DrawnUi.Maui.Drawn.Infrastructure.Interfaces;
+
+
+
 using DrawnUi.Maui.Infrastructure.Extensions;
 
 namespace AppoMobi.Maui.DrawnUi.Demo.Views.Controls;

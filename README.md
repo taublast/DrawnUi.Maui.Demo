@@ -17,11 +17,13 @@ Library repo will go public at Alpha stage, Pre-Alpha nuget package is already a
 
 ## What's new
 
-__1.0.5.7-pre__
+__1.0.6.6-pre__
 * Still a temporary release preparing a reworked demo with more custom controls examples.
 * iOS hardware acceleration is now using Metal.
-* Platform-independent keyboard support and more. Soon will be demonstrated in the Space Shooter Game demo.
-* Many fixes
+* Faster image loading everywhere.
+* Platform-independent keyboard support and much more.
+* Many fixes.
+* Demo: some neat stuff. Do not miss sliders on `Some Controls` screen.
 
 ## Development Notes
 
@@ -57,46 +59,47 @@ https://github.com/taublast/AppoMobi.Maui.DrawnUi.Demo/assets/25801194/6f92241a-
 * __Easily create your controls and animations__
 * __Design in Xaml or code-behind__
 * __2D and 3D Transforms__
-* __Animations__ targeting max fps
-* __Gestures__ support for panning, scrolling and zooming (_rotation incoming_)
+* __Animations and transforms__ targeting max fps
+* __Gestures__ support for panning, scrolling and zooming (_rotation on the roadmap_)
 * __Caching system__ for elements and images
 * __Optimized for performance__, rendering only visible elements, recycling templates etc
+* __Navigate__ on canvas using MAUI familiar Shell techniques 
+
 * __Prebuilt Basic Ui Elements__	
-	* __SkiaShape__ (Rounded rectangle, Circle, Gauge, _more to come_) can wrap other elements
-	* __SkiaLabel__, multiline with many options
-	* __SkiaImage__ with options and filters
+	* __SkiaControl__ Your lego brick to create anything
+	* __SkiaShape__ (Rounded rectangle, Circle, Gauge and _more to come_) can wrap other elements to be clipped inside
+	* __SkiaLabel__, multiline with many options like dropshadow, gradients etc
+	* __SkiaImage__ with many options and filters
 	* __SkiaSvg__ with many options
-	* __SkiaLottie__ with tint customization
-	* __SkiaRive__ (actually Windows only)
 	* __SkiaLayout__ (Absolute, Grid, Vertical stack, Horizontal stack, _todo Masonry_) with templates support
 	* __SkiaScroll__ (Horizontal, Vertical, Both) with header, footer, zoom support and adjustable inertia, bounce, snap and much more. Can act like a collectionview with custom refresh indicator, load more etc
-	* __SkiaHotspot__ to handle gestures in a easy way
-	* __SkiaMauiElement__ for when skia is not enough
+	* __SkiaHotspot__ to handle gestures in a lazy way
+	* __SkiaMauiElement__ to embeed maui controls in your canvas
+	* __and more..__ 
 
 * __Derived custom controls__
-	* __SkiaButton__ include anything inside, text, images etc
 	* __SkiaScrollLooped__ for neverending scrolls
+	* __RefreshIndicator__ can use lottie and anything for your scroll refresh view
     * __SkiaDrawer__ to swipe in and out your controls
 	* __SkiaCarousel__ swipe and slide controls inside a carousel
-	* __SkiaHoverMask__ to overlay a clipping shape
-	* __SkiaLabelFps__ for developement
 	* __SkiaDecoratedGrid__ to draw shapes between rows and columns
 	* __ScrollPickerWheel__ for creating wheel pickers
-	* __RefreshIndicator__ can use lottie and anything for your scroll refresh view
 	* __SkiaTabsSelector__ create top and bottom tabs
 	* __SkiaViewSwitcher__ switch your views, pop, push and slide	
+	* __SkiaLottie__ with tint customization
+	* __SkiaGif__ _soon_
+	* __SkiaRive__ (actually Windows only)
+	* __SkiaButton__ include anything inside, text, images etc
+	* __SkiaSlider__ incuding range selction capability
+	* __SkiaHoverMask__ to overlay a clipping shape
+	* __SkiaLabelFps__ for developement
 	* __Create your own!__ 
 
 * Animated Effects
 	* __Ripple__
 	* __Shimmer__
 	* __BlinkColors__
-	* (_todo Pulse, Shake etc_)
 	* __Commit yours!__
-
-* Animators
-	
-	* _todo add info
 
 * Transforms
 	* TranslationX
@@ -119,7 +122,7 @@ Install the package __AppoMobi.Maui.DrawnUi__ from NuGet. Check the pre-release 
 After that initialize the library inside your MauiProgram.cs file:
 
 ```csharp
-builder.UseDrawnUi<App>();
+builder.UseDrawnUi();
 ```
 
 ## Quick Start

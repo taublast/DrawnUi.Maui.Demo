@@ -56,6 +56,7 @@
                                 ZIndex="-1" />
 
                             <draw:SkiaImage
+                                LoadSourceOnFirstDraw="True"
                                 Margin="0"
                                 Aspect="AspectFit"
                                 EraseChangedContent="True"

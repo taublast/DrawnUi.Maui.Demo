@@ -1,8 +1,4 @@
-﻿using AppoMobi.Maui.DrawnUi.Demo.Views;
-using AppoMobi.Maui.DrawnUi.Demo.Views;
-using DrawnUi.Maui.Controls;
-using DrawnUi.Maui.Draw;
-using DrawnUi.Maui.Infrastructure;
+﻿using DrawnUi.Maui.Infrastructure;
 using Reversi.Views.Partials;
 using System.Windows.Input;
 

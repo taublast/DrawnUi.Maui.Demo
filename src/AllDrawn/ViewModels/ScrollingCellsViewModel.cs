@@ -41,6 +41,54 @@ public class ScrollingCellsViewModel : ProjectViewModel, IFullscreenGalleryManag
     }
     private SimpleItemViewModel _item;
 
+    public ICommand CommandOpenHGallery
+    {
+        get
+        {
+            return new Command(async (context) =>
+            {
+                if (CheckLockAndSet())
+                    return;
+
+                await Task.Run(async () =>
+                {
+                    SKPoint? cellCenter = null;
+                    SelectedGalleryIndex = 0;
+
+                    if (context is SkiaTouchResultContext touchContext)
+                    {
+                        //calculate data to animate gallery popup towards the center popup
+                        var location = touchContext.Control.GetPositionOnCanvas();
+                        cellCenter = new SKPoint(
+                            location.X + touchContext.Control.MeasuredSize.Pixels.Width / 2f,
+                            location.Y + touchContext.Control.MeasuredSize.Pixels.Height / 2f);
+                        context = touchContext.Context;
+
+                    }
+
+                    if (context is SimpleItemViewModel item)
+                    {
+                        Item = item;
+
+                        //todo find index of the passed url
+                        var index = ItemsSmall.IndexOf(Item);
+                        if (index >= 0)
+                            SelectedGalleryIndex = index;
+                    }
+
+                    GalleryItems = ItemsSmall.Select(x => x.Banner).ToList();
+                    var gallery = new PopupGallerySlider(this);
+                    await Presentation.Shell.OpenPopupAsync(gallery.AttachControl, true,
+                        true, cellCenter);
+
+                }).ConfigureAwait(false);
+
+
+            });
+        }
+    }
+
+
     public ICommand CommandOpenGallery
     {
         get
@@ -76,8 +124,8 @@ public class ScrollingCellsViewModel : ProjectViewModel, IFullscreenGalleryManag
                             SelectedGalleryIndex = index;
                     }
 
+                    GalleryItems = Items.Select(x => x.Banner).ToList();
                     var gallery = new PopupGallerySlider(this);
-
                     await Presentation.Shell.OpenPopupAsync(gallery.AttachControl, true,
                         true, cellCenter);
 
@@ -121,15 +169,7 @@ public class ScrollingCellsViewModel : ProjectViewModel, IFullscreenGalleryManag
         }
     }
 
-    public IList<string> GalleryItems
-    {
-        get
-        {
-            //return all images from Items
-            var items = Items.Select(x => x.Banner).ToList();
-            return items;
-        }
-    }
+    public IList<string> GalleryItems { get; protected set; }
 
     private int _SelectedGalleryIndex;
     public int SelectedGalleryIndex
