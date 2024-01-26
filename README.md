@@ -50,8 +50,8 @@ https://github.com/taublast/AppoMobi.Maui.DrawnUi.Demo/assets/25801194/a2efa080-
 
 ### _Play with the Canvas_
 
-https://github.com/taublast/AppoMobi.Maui.DrawnUi.Demo/assets/25801194/6f92241a-ab39-4f66-bc78-2f10755a2bae
-
+https://github.com/taublast/AppoMobi.Maui.DrawnUi.Demo/assets/25801194/b300e367-9a45-4150-83f1-6c77d37afaae
+[Example](https://github.com/taublast/AppoMobi.Maui.DrawnUi.SpaceShooter)
 
 ## Features
 
