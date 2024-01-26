@@ -28,7 +28,7 @@ __1.0.6.6-pre__
 ## Development Notes
 
 * All files to be consumed (images etc) must be placed inside the maui app Resources/Raw folder, subfolders allowed.
-* If you use the LiveTree toolbar in VS it would crash while debugging at some point please do not use it. 
+* Accessibility support is compatible and is on the roadmap.
 
 ## Screenshots
 
