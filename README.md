@@ -27,7 +27,7 @@ __1.0.6.6-pre__
 
 ## Development Notes
 
-* All files to be consumed (images etc) must be placed inside the maui app Resources/Raw folder, subfolders allowed.
+* All files to be consumed (images etc) must be placed inside the maui app Resources/Raw folder, subfolders allowed. If you need to load from the native app folder use prefix "file://".
 * Accessibility support is compatible and is on the roadmap.
 
 ## Screenshots
