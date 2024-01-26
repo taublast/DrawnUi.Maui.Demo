@@ -7,7 +7,7 @@ Supports **iOS**, **MacCatalyst**, **Android**, **Windows**.
 * To use inside a usual Maui app, consume drawn controls here and there inside `Canvas` views.
 * Create a totally drawn app with just one `Canvas` as root view and consume controls inside, `SkiaShell` is provided for navigation.
 * Drawn controls are totally virtual and are basically commands for the DrawnUi library on what and how to draw on a skia canvas.
-* This *is not* a set of custom controls but a toolkit for you to easily create and draw your own.
+* This *is not* a set of custom controls but a toolkit to let you easily create and draw your own.
  
 _The current development state is __PRE-ALPHA__, some features remain to be implemented, the project is active._
 
