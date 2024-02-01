@@ -17,13 +17,11 @@ Library repo will go public at Alpha stage, Pre-Alpha nuget package is already a
 
 ## What's new
 
-__1.0.6.6-pre__
-* Still a temporary release preparing a reworked demo with more custom controls examples.
-* iOS hardware acceleration is now using Metal.
-* Faster image loading everywhere.
-* Platform-independent keyboard support and much more.
-* Many fixes.
-* Demo: some neat stuff. Do not miss sliders on `Some Controls` screen.
+__1.0.7.6-pre__
+* `Path` type added to `SkiaShape`
+* `SkiaLabel` now can drop its own shadow
+* `Canvas` hardware acceleration new kind `Prerender` for faster startup
+* Many other improvements and fixes, including the demo
 
 ## Development Notes
 

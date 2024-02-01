@@ -206,11 +206,8 @@
                 VerticalOptions="End">
 
 
-                <!--delay for tabs transition animation duration-->
-                <!--otherwise will start creating templates in the middle of animation-->
-
                 <draw:SkiaLayout
-                    InitializeTemplatesInBackgroundDelay="300"
+                    InitializeTemplatesInBackgroundDelay="50"
                     ItemsSource="{Binding ItemsSmall}"
                     Spacing="0"
                     Tag="HScrollStack"
