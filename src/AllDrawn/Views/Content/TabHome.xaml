@@ -27,6 +27,7 @@
                 <Color>#FEFEFE</Color>
                 <Color>#889955</Color>
                 <Color>#584237</Color>
+                <Color>#2D221C</Color>
             </draw:SkiaGradient.Colors>
             <draw:SkiaGradient.ColorPositions>
                 <x:Double>0.0</x:Double>
@@ -45,44 +46,11 @@
         Type="Column"
         VerticalOptions="Fill">
 
-        <!--  STATUS BAR  -->
-        <draw:SkiaShape
-            BackgroundColor="#6A4F42"
-            HeightRequest="{Binding Presentation.StatusBarHeightRequest}"
-            HorizontalOptions="Fill"
-            Tag="StatusBar"
-            UseCache="Operations">
-            <draw:SkiaControl.FillGradient>
-
-                <draw:SkiaGradient
-                    EndXRatio="1"
-                    EndYRatio="1"
-                    StartXRatio="0"
-                    StartYRatio="1"
-                    Type="Linear">
-                    <draw:SkiaGradient.Colors>
-                        <Color>#2F231D</Color>
-                        <Color>#000000</Color>
-                    </draw:SkiaGradient.Colors>
-                    <draw:SkiaGradient.ColorPositions>
-                        <x:Double>0.0</x:Double>
-                        <x:Double>0.5</x:Double>
-                    </draw:SkiaGradient.ColorPositions>
-                </draw:SkiaGradient>
-
-            </draw:SkiaControl.FillGradient>
-        </draw:SkiaShape>
-
-        <!--  toolbar with shadow  -->
-        <!--
-            we use padding to save space for shadow
-            and negative margin to drop on the next item
-        -->
+        <!--  navbar stack  -->
         <draw:SkiaLayout
             Margin="0,0,0,-8"
             Padding="0,0,0,8"
             HorizontalOptions="Fill"
-            Tag="Toolbar"
             UseCache="GPU"
             ZIndex="1">
 
@@ -95,10 +63,10 @@
                 <draw:SkiaControl.Shadows>
                     <draw:SkiaShadow
                         Blur="3"
-                        Opacity="0.5"
+                        Opacity="0.8"
                         X="0"
                         Y="2"
-                        Color="#000000" />
+                        Color="#222222" />
                 </draw:SkiaControl.Shadows>
 
                 <draw:SkiaControl.FillGradient>
@@ -111,7 +79,7 @@
                         Type="Linear">
                         <draw:SkiaGradient.Colors>
                             <Color>#2F231D</Color>
-                            <Color>#000000</Color>
+                            <Color>#110000</Color>
                         </draw:SkiaGradient.Colors>
                         <draw:SkiaGradient.ColorPositions>
                             <x:Double>0.0</x:Double>
@@ -121,43 +89,91 @@
 
                 </draw:SkiaControl.FillGradient>
 
+                <draw:SkiaImage
+                    UseCache="Image"
+                    Aspect="Cover"
+                    HorizontalOptions="Fill"
+                    InputTransparent="True"
+                    Opacity="0.25"
+                    Source="Pics/glass3.jpg"
+                    VerticalOptions="Fill" />
+
             </draw:SkiaShape>
 
-            <navigation:CustomColumnsSelector
-                ColumnDefinitions="*,*,*"
-                HeightRequest="52"
+            <draw:SkiaLayout
                 HorizontalOptions="Fill"
-                RowDefinitions="*"
-                SelectedIndex="{Binding Source={x:Reference StackCells}, Path=MaxColumns}"
-                Type="Grid">
+                Spacing="0"
+                Type="Column">
 
-                <controls:SmallButton
-                    CommandTapped="{Binding CommandSetColumns}"
-                    CommandTappedParameter="1"
-                    HorizontalOptions="Center"
-                    Text="1"
-                    VerticalOptions="Center"
-                    WidthRequest="36" />
+                <!--  STATUS BAR  -->
+                <draw:SkiaShape
+                    BackgroundColor="#6A4F42"
+                    HeightRequest="{Binding Presentation.StatusBarHeightRequest}"
+                    HorizontalOptions="Fill"
+                    Tag="StatusBar"
+                    UseCache="Operations">
+                    <draw:SkiaControl.FillGradient>
 
-                <controls:SmallButton
-                    Grid.Column="1"
-                    CommandTapped="{Binding CommandSetColumns}"
-                    CommandTappedParameter="2"
-                    HorizontalOptions="Center"
-                    Text="2"
-                    VerticalOptions="Center"
-                    WidthRequest="36" />
+                        <draw:SkiaGradient
+                            EndXRatio="1"
+                            EndYRatio="1"
+                            StartXRatio="0"
+                            StartYRatio="1"
+                            Type="Linear">
+                            <draw:SkiaGradient.Colors>
+                                <Color>#2F231D</Color>
+                                <Color>#110000</Color>
+                            </draw:SkiaGradient.Colors>
+                            <draw:SkiaGradient.ColorPositions>
+                                <x:Double>0.0</x:Double>
+                                <x:Double>0.5</x:Double>
+                            </draw:SkiaGradient.ColorPositions>
+                        </draw:SkiaGradient>
 
-                <controls:SmallButton
-                    Grid.Column="2"
-                    CommandTapped="{Binding CommandSetColumns}"
-                    CommandTappedParameter="3"
-                    HorizontalOptions="Center"
-                    Text="3"
-                    VerticalOptions="Center"
-                    WidthRequest="36" />
+                    </draw:SkiaControl.FillGradient>
+                </draw:SkiaShape>
 
-            </navigation:CustomColumnsSelector>
+                <!--  btns  -->
+                <navigation:CustomColumnsSelector
+                    ColumnDefinitions="*,*,*"
+                    HeightRequest="52"
+                    HorizontalOptions="Fill"
+                    RowDefinitions="*"
+                    SelectedIndex="{Binding Source={x:Reference StackCells}, Path=MaxColumns}"
+                    Tag="Toolbar"
+                    Type="Grid"
+                    UseCache="Image"
+                    ZIndex="1">
+
+                    <controls:SmallButton
+                        CommandTapped="{Binding CommandSetColumns}"
+                        CommandTappedParameter="1"
+                        HorizontalOptions="Center"
+                        Text="1"
+                        VerticalOptions="Center"
+                        WidthRequest="36" />
+
+                    <controls:SmallButton
+                        Grid.Column="1"
+                        CommandTapped="{Binding CommandSetColumns}"
+                        CommandTappedParameter="2"
+                        HorizontalOptions="Center"
+                        Text="2"
+                        VerticalOptions="Center"
+                        WidthRequest="36" />
+
+                    <controls:SmallButton
+                        Grid.Column="2"
+                        CommandTapped="{Binding CommandSetColumns}"
+                        CommandTappedParameter="3"
+                        HorizontalOptions="Center"
+                        Text="3"
+                        VerticalOptions="Center"
+                        WidthRequest="36" />
+
+                </navigation:CustomColumnsSelector>
+
+            </draw:SkiaLayout>
 
         </draw:SkiaLayout>
 
@@ -165,13 +181,15 @@
         <!--  LoadMoreCommand="{Binding CommandLoadMore}"  -->
         <draw:SkiaScroll
             x:Name="BannersScroll"
-            FrictionScrolled="0.3"
+            ChangeVelocityPanned="1.75"
+            FrictionScrolled="0.66"
             HeaderBehind="True"
             HeaderParallaxRatio="0.75"
             HorizontalOptions="Fill"
             IgnoreWrongDirection="True"
             IsRefreshing="{Binding IsLoading, Mode=TwoWay}"
             LoadMoreOffset="500"
+            MaxBounceVelocity="400"
             MaxVelocity="10000"
             ParallaxOverscrollEnabled="True"
             RefreshCommand="{Binding CommandRefreshData}"
@@ -256,11 +274,11 @@
                                             <!--  image will be parallaxed, we cache and then offset the cache with TranslationX  -->
                                             <!--  cache is bigger than surrounding shape because of negative margins  -->
                                             <draw:SkiaImage
-                                                LoadSourceOnFirstDraw="True"
                                                 Margin="-16"
                                                 Aspect="AspectCover"
                                                 EraseChangedContent="True"
                                                 HorizontalOptions="Fill"
+                                                LoadSourceOnFirstDraw="True"
                                                 Tag="ImageBanner"
                                                 VerticalOptions="Fill"
                                                 ZIndex="-1" />
@@ -402,7 +420,7 @@
                 ItemsSource="{Binding Items}"
                 MaxColumns="{Binding Columns}"
                 RecyclingTemplate="Enabled"
-                Spacing="4"
+                Spacing="-8"
                 Tag="StackItems"
                 Type="Column">
 
@@ -432,7 +450,7 @@
 
                                 <!--  usual cell content  -->
                                 <controls:SkiaShapeTouch
-                                    Margin="8,2"
+                                    Margin="8,2,8,14"
                                     draw:AddGestures.AnimationTapped="Ripple"
                                     CommandTapped="{Binding Source={x:Reference StackCells}, Path=BindingContext.CommandOpenGallery}"
                                     CornerRadius="12,12,40,12"

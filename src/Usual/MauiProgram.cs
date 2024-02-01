@@ -1,4 +1,4 @@
-﻿global using DrawnUi.Maui;
+﻿global using DrawnUi.Maui.Draw;
 using Microsoft.Extensions.Logging;
 
 namespace SomeMauiApp

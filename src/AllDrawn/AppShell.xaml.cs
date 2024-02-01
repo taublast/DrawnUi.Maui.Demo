@@ -28,7 +28,7 @@ public partial class AppShell : SkiaShell
                 this.NavigationLayout.SelectedIndex = 2;
             });
 
-            RegisterRoute("root", typeof(ScreenTabs));
+            RegisterRoute("root", typeof(MainPage));
 
             //UI tweaks
             Super.BottomTabsHeight = 56;

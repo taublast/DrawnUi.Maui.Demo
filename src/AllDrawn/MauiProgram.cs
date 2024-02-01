@@ -3,8 +3,8 @@ global using AppoMobi.Maui.DrawnUi.Demo.Views;
 global using AppoMobi.Maui.Gestures;
 global using AppoMobi.Maui.Navigation;
 global using AppoMobi.Specials;
-global using DrawnUi.Maui;
 global using DrawnUi.Maui.Controls;
+global using DrawnUi.Maui.Draw;
 global using SkiaSharp;
 using Microsoft.Extensions.Logging;
 using DeviceInfo = Microsoft.Maui.Devices.DeviceInfo;
@@ -57,7 +57,7 @@ namespace AppoMobi.Maui.DrawnUi.Demo
             builder.Services.AddTransient<ScreenCameraPhoto>();
             builder.Services.AddTransient<ScreenControls>();
 
-            builder.Services.AddTransient<ScreenTabs>();
+            builder.Services.AddTransient<MainPage>();
 
             return builder.Build();
         }

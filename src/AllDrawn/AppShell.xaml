@@ -15,7 +15,7 @@
         Gestures="Enabled"
         HorizontalOptions="Fill"
         VerticalOptions="Fill"
-        HardwareAccelerated="True"
+        HardwareAcceleration="Enabled"
         WillFirstTimeDraw="Canvas_WillFirstTimeDraw">
 
         <!--  ShellLayout  -->

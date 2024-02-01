@@ -1,8 +1,8 @@
 namespace AppoMobi.Maui.DrawnUi.Demo.Views;
 
-public partial class ScreenTabs
+public partial class MainPage
 {
-    public ScreenTabs()
+    public MainPage()
     {
         InitializeComponent();
     }

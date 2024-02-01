@@ -8,7 +8,8 @@
     HorizontalOptions="Fill"
     Tag="SliderFun"
     Type="Column"
-    UseCache="Operations">
+    AvailableWidthAdjustment="2"
+    UseCache="Image">
 
     <draw:SkiaSlider.Resources>
         <ResourceDictionary>
@@ -39,7 +40,7 @@
 
         <!--  TRAIL  -->
         <draw:SkiaShape
-            BackgroundColor="#333366"
+            BackgroundColor="{StaticResource ColorPrimaryDark}"
             CornerRadius="6"
             HeightRequest="9"
             HorizontalOptions="Fill"
@@ -49,38 +50,20 @@
 
         <!--  SELECTED TRAIL  -->
         <draw:SliderTrail
-            BackgroundColor="Red"
+            BackgroundColor="{StaticResource ColorPrimary}"
             CornerRadius="10"
             HeightRequest="16"
             HorizontalOptions="Start"
             ModifyXPosEnd="20"
             SideOffset="0"
             StrokeBlendMode="Color"
-            StrokeColor="#333366"
+            StrokeColor="{StaticResource ColorPrimaryDark}"
             StrokeWidth="2"
             Tag="SelectedTrail"
             VerticalOptions="Center"
             XPos="{Binding Source={x:Reference StartThumb}, Path=TranslationX}"
             XPosEnd="{Binding Source={x:Reference EndThumb}, Path=TranslationX}">
-            <draw:SkiaControl.FillGradient>
-
-                <draw:SkiaGradient
-                    EndXRatio="1"
-                    EndYRatio="1"
-                    StartXRatio="1"
-                    StartYRatio="0"
-                    Type="Linear">
-                    <draw:SkiaGradient.Colors>
-                        <Color>#FF6666</Color>
-                        <Color>#FF0000</Color>
-                        <Color>#FF0000</Color>
-                        <Color>#EE0000</Color>
-                        <Color>#AA0000</Color>
-                    </draw:SkiaGradient.Colors>
-                </draw:SkiaGradient>
-
-            </draw:SkiaControl.FillGradient>
-
+         
         </draw:SliderTrail>
 
         <!--  START THUMB - RANGED ONLY  -->
@@ -94,7 +77,7 @@
             WidthRequest="{Binding Source={x:Reference ThisSliderGrid}, Path=Height}">
 
             <draw:SkiaShape
-                BackgroundColor="Red"
+                BackgroundColor="{StaticResource ColorPrimary}"
                 HorizontalOptions="Fill"
                 Type="Circle"
                 VerticalOptions="Fill">
@@ -124,7 +107,7 @@
 
             <draw:SkiaShape
                 Margin="4"
-                BackgroundColor="#333366"
+                BackgroundColor="{StaticResource ColorPrimaryDark}"
                 HorizontalOptions="Fill"
                 Type="Circle"
                 VerticalOptions="Fill">
@@ -135,7 +118,7 @@
                         Opacity="0.5"
                         X="1"
                         Y="1"
-                        Color="#333366" />
+                        Color="{StaticResource ColorPrimaryDark}" />
 
                 </draw:SkiaShape.Shadows>
 

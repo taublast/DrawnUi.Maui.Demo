@@ -8,6 +8,8 @@
     xmlns:navigation1="clr-namespace:AppoMobi.Maui.DrawnUi.Demo.Views.Controls.Navigation"
     BackgroundColor="Black"
     HorizontalOptions="Fill"
+    Spacing="0"
+    Type="Column"
     VerticalOptions="Fill">
 
     <draw:SkiaControl.FillGradient>
@@ -38,12 +40,14 @@
             HeightRequest="{Binding Presentation.StatusBarHeightRequest}"
             HorizontalOptions="Fill"
             Tag="StatusBar" />
+
         <navigation1:NavBarStandart BackgroundColor="Transparent" />
 
     </draw:SkiaLayout>
 
     <!--  CONTENT  -->
     <draw:SkiaScroll
+        x:Name="MainScroll"
         HorizontalOptions="Fill"
         IgnoreWrongDirection="True"
         VerticalOptions="Fill">
@@ -51,7 +55,6 @@
         <draw:SkiaLayout
             Padding="24"
             HorizontalOptions="Fill"
-            MarginTop="{Binding Source={x:Reference NavBar}, Path=Height}"
             Type="Column">
 
             <!--  SWITCHES  -->
@@ -79,6 +82,8 @@
 
             </draw:SkiaLayout>
 
+            <!--controls have UseCache="ImageDOubleBuffered" inside-->
+
             <draw:SkiaLayout
                 Padding="50,24"
                 BackgroundColor="#fefefe"
@@ -86,6 +91,7 @@
                 Type="Column">
 
                 <draw:SkiaLabel
+                    UseCache="Operations"
                     Margin="0,16"
                     Padding="2"
                     BackgroundColor="#11000000"
@@ -103,6 +109,7 @@
                     Step="0.01" />
 
                 <draw:SkiaLabel
+                    UseCache="Operations"
                     Margin="0,16"
                     Padding="2"
                     BackgroundColor="#11000000"
@@ -120,6 +127,7 @@
                     Step="0.01" />
 
                 <draw:SkiaLabel
+                    UseCache="Operations"
                     Margin="0,16"
                     Padding="2"
                     BackgroundColor="#11000000"
@@ -141,6 +149,7 @@
                     ValueStringFormat="C" />
 
                 <draw:SkiaLabel
+                    UseCache="Operations"
                     Margin="0,16"
                     Padding="2"
                     BackgroundColor="#11000000"
@@ -162,8 +171,8 @@
 
             </draw:SkiaLayout>
 
-
             <draw:SkiaMarkdownLabel
+                UseCache="Operations"
                 FontFamily="FontText"
                 FontSize="18"
                 HorizontalOptions="Center"

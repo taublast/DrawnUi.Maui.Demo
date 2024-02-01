@@ -33,13 +33,12 @@
 
     <!--  STATUS BAR  -->
     <draw:SkiaControl
-        BackgroundColor="Black"
         HeightRequest="{Binding Presentation.StatusBarHeightRequest}"
         HorizontalOptions="Fill"
         Tag="StatusBar" />
 
     <!--  NAVBAR  -->
-    <navigation:NavBarStandart />
+    <navigation:NavBarStandart BackgroundColor="Transparent"/>
 
     <!--  absolute layout wrapper wrapper  -->
     <draw:SkiaLayout

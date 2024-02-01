@@ -18,7 +18,7 @@
         So we will set the text in code-behind
     -->
     <draw:SkiaShape
-        BackgroundColor="CornflowerBlue"
+        BackgroundColor="{StaticResource ColorPrimary}"
         CornerRadius="20"
         HorizontalOptions="Fill"
         IsClippedToBounds="True"

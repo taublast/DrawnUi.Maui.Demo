@@ -1,0 +1,71 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34221.43
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{C8603ADC-60AC-43C2-BB38-5805FC47123F}"
+	ProjectSection(SolutionItems) = preProject
+		..\README.md = ..\README.md
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SomeMauiApp", "Usual\SomeMauiApp.csproj", "{DD34EC8B-819B-4BCB-B2CC-DFF384789861}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "All Drawn", "All Drawn", "{BA2C959B-8CCB-4436-9457-3D90D2FDE698}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Usual Maui", "Usual Maui", "{2E0707A4-45A5-4112-9683-93A5611AD93D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AppoMobi.Maui.DrawnUi", "..\..\AppoMobi.Maui.DrawnUi\src\Lib\AppoMobi.Maui.DrawnUi.csproj", "{2F36017D-120A-43B4-A979-BD56CB854BB7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AppoMobi.Maui.Gestures", "..\..\AppoMobi.Maui.DrawnUi\src\Refs\AppoMobi.Maui.Gestures\src\AppoMobi.Maui.Gestures.csproj", "{2A085364-0F90-4255-9AAF-F04D8FBFB50D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AppoMobi.Maui.Navigation", "..\..\AppoMobi.Maui.DrawnUi\src\Refs\AppoMobi.Maui.Navigation\src\AppoMobi.Maui.Navigation.csproj", "{C0D41350-E6B7-4EA0-945C-C12E54DBD2AF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AppoMobi.Maui.DrawnUi.DemoRefs", "AllDrawn\AppoMobi.Maui.DrawnUi.DemoRefs.csproj", "{29140317-525D-4BE5-BBDF-541CB7EA2087}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Refs", "Refs", "{7085DDC1-E257-449A-89BA-0F600FF97ACB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DD34EC8B-819B-4BCB-B2CC-DFF384789861}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD34EC8B-819B-4BCB-B2CC-DFF384789861}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD34EC8B-819B-4BCB-B2CC-DFF384789861}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{DD34EC8B-819B-4BCB-B2CC-DFF384789861}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD34EC8B-819B-4BCB-B2CC-DFF384789861}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD34EC8B-819B-4BCB-B2CC-DFF384789861}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{2F36017D-120A-43B4-A979-BD56CB854BB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F36017D-120A-43B4-A979-BD56CB854BB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F36017D-120A-43B4-A979-BD56CB854BB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F36017D-120A-43B4-A979-BD56CB854BB7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A085364-0F90-4255-9AAF-F04D8FBFB50D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A085364-0F90-4255-9AAF-F04D8FBFB50D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A085364-0F90-4255-9AAF-F04D8FBFB50D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A085364-0F90-4255-9AAF-F04D8FBFB50D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0D41350-E6B7-4EA0-945C-C12E54DBD2AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0D41350-E6B7-4EA0-945C-C12E54DBD2AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0D41350-E6B7-4EA0-945C-C12E54DBD2AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0D41350-E6B7-4EA0-945C-C12E54DBD2AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{29140317-525D-4BE5-BBDF-541CB7EA2087}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29140317-525D-4BE5-BBDF-541CB7EA2087}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29140317-525D-4BE5-BBDF-541CB7EA2087}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{29140317-525D-4BE5-BBDF-541CB7EA2087}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29140317-525D-4BE5-BBDF-541CB7EA2087}.Release|Any CPU.Build.0 = Release|Any CPU
+		{29140317-525D-4BE5-BBDF-541CB7EA2087}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{DD34EC8B-819B-4BCB-B2CC-DFF384789861} = {2E0707A4-45A5-4112-9683-93A5611AD93D}
+		{2F36017D-120A-43B4-A979-BD56CB854BB7} = {7085DDC1-E257-449A-89BA-0F600FF97ACB}
+		{2A085364-0F90-4255-9AAF-F04D8FBFB50D} = {7085DDC1-E257-449A-89BA-0F600FF97ACB}
+		{C0D41350-E6B7-4EA0-945C-C12E54DBD2AF} = {7085DDC1-E257-449A-89BA-0F600FF97ACB}
+		{29140317-525D-4BE5-BBDF-541CB7EA2087} = {BA2C959B-8CCB-4436-9457-3D90D2FDE698}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {32153395-79F5-4A86-A32F-233F943EE6B0}
+	EndGlobalSection
+EndGlobal

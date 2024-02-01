@@ -1,18 +1,34 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <draw:SkiaLayout
-    x:Class="AppoMobi.Maui.DrawnUi.Demo.Views.ScreenTabs"
+    x:Class="AppoMobi.Maui.DrawnUi.Demo.Views.MainPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:content="using:AppoMobi.Maui.DrawnUi.Demo.Views"
-    xmlns:controls="using:AppoMobi.Maui.DrawnUi.Demo.Views.Controls"
     xmlns:draw="http://schemas.appomobi.com/drawnUi/2023/draw"
     xmlns:navigation="using:AppoMobi.Maui.DrawnUi.Demo.Views.Controls.Navigation"
     HorizontalOptions="Fill"
+   BackgroundColor="Black"
     VerticalOptions="Fill">
+
+    <draw:SkiaControl.FillGradient>
+
+        <draw:SkiaGradient
+            EndXRatio="0.5"
+            EndYRatio="0.8"
+            StartXRatio="0"
+            StartYRatio="0"
+            Type="Linear">
+            <draw:SkiaGradient.Colors>
+                <Color>#886655</Color>
+                <Color>#222222</Color>
+            </draw:SkiaGradient.Colors>
+        </draw:SkiaGradient>
+
+    </draw:SkiaControl.FillGradient>
 
     <draw:SkiaViewSwitcher
         x:Name="Switcher"
-        AnimateTabs="True"
+        AnimateTabs="False"
         AnimationEasing="{x:Static Easing.CubicOut}"
         AnimationSpeed="250"
         HorizontalOptions="FillAndExpand"
@@ -20,6 +36,7 @@
         SelectedIndex="{Binding SelectedIndex, Mode=TwoWay}"
         Tag="NavigationLayout"
         VerticalOptions="FillAndExpand">
+
 
         <content:TabScrollCells />
         <content:TabWithTopTabs />

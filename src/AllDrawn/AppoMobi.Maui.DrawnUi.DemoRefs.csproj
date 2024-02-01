@@ -71,7 +71,7 @@
 
 
 	<ItemGroup>
-		<PackageReference Include="AppoMobi.Maui.DrawnUi" Version="1.0.7.6-pre" />
+		<!--<PackageReference Include="AppoMobi.Maui.DrawnUi" Version="1.0.7.3-pre" />-->
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
 	</ItemGroup>
  
@@ -94,8 +94,8 @@
 	    <SubType>Code</SubType>
 	    <DependentUpon>%(Filename)</DependentUpon>
 	  </Compile>
-	  <Compile Update="Views\ScreenTabs.xaml.cs">
-	    <DependentUpon>ScreenTabs.xaml</DependentUpon>
+	  <Compile Update="Views\MainPage.xaml.cs">
+	    <DependentUpon>MainPage.xaml</DependentUpon>
 	  </Compile>
 	  </ItemGroup>
 
@@ -125,19 +125,9 @@
 	</ItemGroup>
 
   <ItemGroup>
-    <MauiXaml Update="Views\Controls\Navigation\NavBarStandart.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </MauiXaml>
-    <MauiXaml Update="Views\Controls\SkiaSliderFun.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </MauiXaml>
-    <MauiXaml Update="Views\Controls\SkiaSliderRanged.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </MauiXaml>
-    <MauiXaml Update="Views\Controls\SkiaSliderTech.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </MauiXaml>
+    <ProjectReference Include="..\..\..\AppoMobi.Maui.DrawnUi\src\Lib\AppoMobi.Maui.DrawnUi.csproj" />
+    <ProjectReference Include="..\..\..\AppoMobi.Maui.DrawnUi\src\Refs\AppoMobi.Maui.Gestures\src\AppoMobi.Maui.Gestures.csproj" />
+    <ProjectReference Include="..\..\..\AppoMobi.Maui.DrawnUi\src\Refs\AppoMobi.Maui.Navigation\src\AppoMobi.Maui.Navigation.csproj" />
   </ItemGroup>
 
    

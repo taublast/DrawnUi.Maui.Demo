@@ -7,7 +7,10 @@
     x:Name="ThisSlider"
     HorizontalOptions="Fill"
     Type="Column"
-    UseCache="Operations">
+    AvailableWidthAdjustment="-2"
+    UseCache="Image">
+
+    <!--AvailableWidthAdjustment tuned for thumb shadow-->
 
     <draw:SkiaSlider.Resources>
         <ResourceDictionary>
@@ -41,20 +44,26 @@
     </draw:SkiaSlider.Resources>
 
     <!--  VALUE LABELS  -->
-    <draw:SkiaLayout HorizontalOptions="Fill">
+    
+    <!--we predefine height so that stack height doesn't change
+    dinamically upon text size inside labels, to improve performance-->
+
+    <draw:SkiaLayout
+        HeightRequest="30"
+        HorizontalOptions="Fill">
 
         <!--  START DESC  -->
         <draw:SliderValueDesc
             x:Name="StartDesc"
             Padding="0"
-            BackgroundColor="Red"
+            BackgroundColor="{StaticResource ColorPrimary}"
             CornerRadius="0"
             HorizontalOptions="Start"
             IsVisible="{Binding Source={x:Reference ThisSlider}, Path=EnableRange}"
             StrokeColor="Black"
             StrokeWidth="1"
             Text="{Binding Source={x:Reference ThisSlider}, Path=StartDesc}"
-            VerticalOptions="Start"
+            VerticalOptions="Fill"
             XCenter="{Binding Source={x:Reference StartThumb}, Path=XCenter}"
             XMaxLimit="{Binding Source={x:Reference EndDesc}, Path=TranslationX}"
             XMinLimit="0">
@@ -72,13 +81,13 @@
         <draw:SliderValueDesc
             x:Name="EndDesc"
             Padding="0"
-            BackgroundColor="Red"
+            BackgroundColor="{StaticResource ColorPrimary}"
             CornerRadius="0"
             HorizontalOptions="Start"
             StrokeColor="Black"
             StrokeWidth="1"
             Text="{Binding Source={x:Reference ThisSlider}, Path=EndDesc}"
-            VerticalOptions="Start"
+            VerticalOptions="Fill"
             XCenter="{Binding Source={x:Reference EndThumb}, Path=XCenter}"
             XMaxLimit="{Binding Source={x:Reference ThisSlider}, Path=Width}"
             XMinLimit="{Binding Source={x:Reference StartDesc}, Path=RightX}">
@@ -111,7 +120,7 @@
 
         <!--  SELECTED TRAIL  -->
         <draw:SliderTrail
-            BackgroundColor="Red"
+            BackgroundColor="{StaticResource ColorPrimary}"
             HeightRequest="2"
             HorizontalOptions="Start"
             VerticalOptions="Center"
@@ -137,7 +146,7 @@
                     Binding="{Binding Source={x:Reference ThisSlider}, Path=EnableRange}"
                     TargetType="draw:SkiaShape"
                     Value="False">
-                    <Setter Property="BackgroundColor" Value="Red" />
+                    <Setter Property="BackgroundColor" Value="{StaticResource ColorPrimary}" />
                 </DataTrigger>
             </draw:SkiaShape.Triggers>
         </draw:SkiaShape>
@@ -162,7 +171,7 @@
             WidthRequest="{Binding Source={x:Reference ThisSliderGrid}, Path=Height}">
 
             <draw:SkiaShape
-                BackgroundColor="Red"
+                BackgroundColor="{StaticResource ColorPrimary}"
                 HorizontalOptions="Fill"
                 Type="Circle"
                 VerticalOptions="Fill">
@@ -189,7 +198,7 @@
             VerticalOptions="Start"
             WidthRequest="{Binding Source={x:Reference ThisSliderGrid}, Path=Height}">
             <draw:SkiaShape
-                BackgroundColor="Red"
+                BackgroundColor="{StaticResource ColorPrimary}"
                 HorizontalOptions="Fill"
                 Type="Circle"
                 VerticalOptions="Fill">

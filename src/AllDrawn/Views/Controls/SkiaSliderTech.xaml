@@ -6,7 +6,7 @@
     xmlns:draw="http://schemas.appomobi.com/drawnUi/2023/draw"
     x:Name="ThisSlider"
     HorizontalOptions="Fill"
-    UseCache="Operations"
+    UseCache="Image"
     Type="Column">
 
     <draw:SkiaSlider.Resources>
@@ -21,7 +21,7 @@
 
             </x:String>
 
-            <Color x:Key="ColorMixedLight">#976ea0</Color>
+ 
 
         </ResourceDictionary>
     </draw:SkiaSlider.Resources>
@@ -63,7 +63,7 @@
 
         <!--  SELECTED TRAIL  -->
         <draw:SliderTrail
-            BackgroundColor="Red"
+            BackgroundColor="{StaticResource ColorPrimary}"
             CornerRadius="5"
             HeightRequest="8"
             HorizontalOptions="Start"
@@ -81,8 +81,8 @@
                     StartYRatio="1"
                     Type="Linear">
                     <draw:SkiaGradient.Colors>
-                        <Color>#99FF0000</Color>
-                        <Color>#FF0000</Color>
+                        <Color>#99889955</Color>
+                        <Color>#889955</Color>
                     </draw:SkiaGradient.Colors>
                 </draw:SkiaGradient>
 
@@ -102,7 +102,7 @@
             WidthRequest="{Binding Source={x:Reference ThisSliderGrid}, Path=Height}">
 
             <draw:SkiaShape
-                BackgroundColor="Red"
+                BackgroundColor="{StaticResource ColorPrimary}"
                 HorizontalOptions="Fill"
                 Type="Circle"
                 VerticalOptions="Fill">
@@ -132,7 +132,7 @@
 
             <draw:SkiaShape
                 Padding="8"
-                BackgroundColor="Red"
+                BackgroundColor="{StaticResource ColorPrimary}"
                 CornerRadius="8"
                 HorizontalOptions="Fill"
                 StrokeColor="Black"

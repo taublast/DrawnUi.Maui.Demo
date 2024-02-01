@@ -68,13 +68,14 @@ https://github.com/taublast/AppoMobi.Maui.DrawnUi.Demo/assets/25801194/00e9c876-
 
 * __Prebuilt Basic Ui Elements__	
 	* __SkiaControl__ Your lego brick to create anything
-	* __SkiaShape__ (Rounded rectangle, Circle, Gauge and _more to come_) can wrap other elements to be clipped inside
+	* __SkiaShape__ Path, Rectangle, Circle, Ellipse, Gauge etc, can wrap other elements to be clipped inside
 	* __SkiaLabel__, multiline with many options like dropshadow, gradients etc
 	* __SkiaImage__ with many options and filters
 	* __SkiaSvg__ with many options
 	* __SkiaLayout__ (Absolute, Grid, Vertical stack, Horizontal stack, _todo Masonry_) with templates support
 	* __SkiaScroll__ (Horizontal, Vertical, Both) with header, footer, zoom support and adjustable inertia, bounce, snap and much more. Can act like a collectionview with custom refresh indicator, load more etc
 	* __SkiaHotspot__ to handle gestures in a lazy way
+	* __SkiaBackdrop__ to apply effects to background below, like blur etc
 	* __SkiaMauiElement__ to embeed maui controls in your canvas
 	* __and more..__ 
 
@@ -302,9 +303,11 @@ and additional `MaximumWidthRequest`,  `MaximumHeightRequest`, `HorizontalFillRa
 For dynamic positioning or other precise cases use `TranslationX` and `TranslationY`.
 
 When you need to layout children in a more arranged way you will want to wrap them with a `SkiaLayout`
-of different `LayoutType` : Grid, Colum, Row and others.
+of different `LayoutType` : `Grid`, `Colum`, `Row` and others.
 
 Layout supports `ItemTemplate` for most of layout types.
+
+For grid we have so useful feats like, intead of using `RowDefinitions="32,32,32,32"` you can just do i nice `DefaultRowDefinition="32"`.
 
 Some differences from Xamarin.Forms/Maui to notice:
 
@@ -567,4 +570,9 @@ A control deriving from SkiaShape that can be used to create hover effects.
 It will render a mask over its children when hovered, think of it as an inverted shape.
 
 ### Docs under construction
+
+## MAUI Compatibility Limitations
+
+* Binding RelativeSource with FindAncestorBindingContext not working
+
  
