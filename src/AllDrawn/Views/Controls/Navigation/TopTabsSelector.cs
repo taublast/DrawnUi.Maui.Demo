@@ -24,12 +24,12 @@ public class CustomColumnsSelector : GenericViewsSelector
                     if (skiaControl == selected)
                     {
                         skiaControl.Scale = 1;
-                        skiaControl.Opacity = 1;
+                        skiaControl.Opacity = 0.75;
                     }
                     else
                     {
                         skiaControl.Scale = 0.85;
-                        skiaControl.Opacity = 0.66;
+                        skiaControl.Opacity = 0.75;
                     }
                 }
 

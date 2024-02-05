@@ -63,10 +63,10 @@
                 <draw:SkiaControl.Shadows>
                     <draw:SkiaShadow
                         Blur="3"
-                        Opacity="0.8"
+                        Opacity="0.6"
                         X="0"
-                        Y="2"
-                        Color="#222222" />
+                        Y="3"
+                        Color="#111111" />
                 </draw:SkiaControl.Shadows>
 
                 <draw:SkiaControl.FillGradient>
@@ -74,12 +74,12 @@
                     <draw:SkiaGradient
                         EndXRatio="1"
                         EndYRatio="1"
-                        StartXRatio="0"
-                        StartYRatio="1"
+                        StartXRatio="0.2"
+                        StartYRatio="0.0"
                         Type="Linear">
                         <draw:SkiaGradient.Colors>
-                            <Color>#2F231D</Color>
-                            <Color>#110000</Color>
+                            <Color>#889955</Color>
+                            <Color>#717F46</Color>
                         </draw:SkiaGradient.Colors>
                         <draw:SkiaGradient.ColorPositions>
                             <x:Double>0.0</x:Double>
@@ -89,14 +89,14 @@
 
                 </draw:SkiaControl.FillGradient>
 
-                <draw:SkiaImage
-                    UseCache="Image"
-                    Aspect="Cover"
-                    HorizontalOptions="Fill"
-                    InputTransparent="True"
-                    Opacity="0.25"
-                    Source="Pics/glass3.jpg"
-                    VerticalOptions="Fill" />
+                <!--  <draw:SkiaImage  -->
+                <!--  UseCache="Image"  -->
+                <!--  Aspect="Cover"  -->
+                <!--  HorizontalOptions="Fill"  -->
+                <!--  InputTransparent="True"  -->
+                <!--  Opacity="0.25"  -->
+                <!--  Source="Pics/glass3.jpg"  -->
+                <!--  VerticalOptions="Fill" />  -->
 
             </draw:SkiaShape>
 
@@ -117,12 +117,12 @@
                         <draw:SkiaGradient
                             EndXRatio="1"
                             EndYRatio="1"
-                            StartXRatio="0"
-                            StartYRatio="1"
+                            StartXRatio="0.2"
+                            StartYRatio="0.0"
                             Type="Linear">
                             <draw:SkiaGradient.Colors>
-                                <Color>#2F231D</Color>
-                                <Color>#110000</Color>
+                                <Color>#494949</Color>
+                                <Color>#3B3B3B</Color>
                             </draw:SkiaGradient.Colors>
                             <draw:SkiaGradient.ColorPositions>
                                 <x:Double>0.0</x:Double>
@@ -181,8 +181,10 @@
         <!--  LoadMoreCommand="{Binding CommandLoadMore}"  -->
         <draw:SkiaScroll
             x:Name="BannersScroll"
-            ChangeVelocityPanned="1.75"
-            FrictionScrolled="0.66"
+            ChangeVelocityPanned="1.0"
+            ChangeVelocityScrolled="1.2"
+            FrictionScrolled="0.25"
+            ResetScrollPositionOnContentSizeChanged="True"
             HeaderBehind="True"
             HeaderParallaxRatio="0.75"
             HorizontalOptions="Fill"
@@ -194,7 +196,6 @@
             ParallaxOverscrollEnabled="True"
             RefreshCommand="{Binding CommandRefreshData}"
             RefreshEnabled="True"
-            ResetScrollPositionOnContentSizeChanged="False"
             Tag="ScrollCells"
             VerticalOptions="Fill">
 
@@ -266,7 +267,7 @@
                                         <controls:SkiaShapeTouch
                                             BackgroundColor="Black"
                                             CommandTapped="{Binding Source={x:Reference LineScroll}, Path=BindingContext.CommandOpenHGallery}"
-                                            CornerRadius="8"
+                                            CornerRadius="12"
                                             HorizontalOptions="Fill"
                                             MarginLeft="8"
                                             VerticalOptions="Fill">
@@ -415,6 +416,7 @@
             <content:AnimateVerticalStack
                 x:Name="StackCells"
                 DynamicColumns="True"
+                HiddenAmountToRender="150"
                 HorizontalOptions="Fill"
                 InitializeTemplatesInBackgroundDelay="10"
                 ItemsSource="{Binding Items}"

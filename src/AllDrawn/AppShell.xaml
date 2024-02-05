@@ -13,9 +13,9 @@
     <draw:Canvas
         x:Name="Canvas"
         Gestures="Enabled"
+        HardwareAcceleration="Enabled"
         HorizontalOptions="Fill"
         VerticalOptions="Fill"
-        HardwareAcceleration="Enabled"
         WillFirstTimeDraw="Canvas_WillFirstTimeDraw">
 
         <!--  ShellLayout  -->
@@ -33,7 +33,7 @@
                 TextColor="White"
                 VerticalOptions="End" />
 
-            <!--  required root layout wil be replaced by skiashell -->
+            <!--  required root layout wil be replaced by skiashell  -->
             <draw:SkiaControl Tag="RootLayout" />
 
         </draw:SkiaLayout>

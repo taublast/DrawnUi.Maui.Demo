@@ -52,8 +52,10 @@ namespace AppoMobi.Maui.DrawnUi.Demo.Views.Controls.Navigation
         protected void OnSelectedIndexChanged()
         {
             if (LastSelectedIndex >= 0)
+            {
+                Log($"[BALL] {SelectedIndex}");
                 Animate();
-
+            }
             LastSelectedIndex = SelectedIndex;
         }
 
