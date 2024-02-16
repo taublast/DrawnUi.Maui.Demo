@@ -9,6 +9,11 @@ Supports **iOS**, **MacCatalyst**, **Android**, **Windows**.
  * Drawn controls are totally virtual, these are commands for the engine on what and how to draw on a skia canvas. 
 * Free to use under the MIT license, a nuget package is available. 
 
+## What's New
+
+* Engine: Many performance and features improvements, breaking for `SkiaShell` modals and popups can have dynamic or frozen background below.
+* Demo: Added shadows to recycled cells, sliders enhanced and more.
+
 ## Screenshots
 
 ### _Draw your recycled cells on a canvas_

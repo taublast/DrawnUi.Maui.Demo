@@ -6,8 +6,8 @@
     xmlns:content="using:AppoMobi.Maui.DrawnUi.Demo.Views"
     xmlns:draw="http://schemas.appomobi.com/drawnUi/2023/draw"
     xmlns:navigation="using:AppoMobi.Maui.DrawnUi.Demo.Views.Controls.Navigation"
+    BackgroundColor="Black"
     HorizontalOptions="Fill"
-   BackgroundColor="Black"
     VerticalOptions="Fill">
 
     <draw:SkiaControl.FillGradient>

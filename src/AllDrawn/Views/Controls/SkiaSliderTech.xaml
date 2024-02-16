@@ -6,8 +6,8 @@
     xmlns:draw="http://schemas.appomobi.com/drawnUi/2023/draw"
     x:Name="ThisSlider"
     HorizontalOptions="Fill"
-    UseCache="Image"
-    Type="Column">
+    Type="Column"
+    UseCache="Image">
 
     <draw:SkiaSlider.Resources>
         <ResourceDictionary>
@@ -21,7 +21,7 @@
 
             </x:String>
 
- 
+
 
         </ResourceDictionary>
     </draw:SkiaSlider.Resources>
@@ -35,6 +35,7 @@
         Margin="0,8,0,0"
         HeightRequest="{Binding Source={x:Reference ThisSlider}, Path=SliderHeight}"
         HorizontalOptions="Fill"
+        Tag="Trail"
         VerticalOptions="Start">
 
         <!--  TRAIL  -->
@@ -67,9 +68,9 @@
             CornerRadius="5"
             HeightRequest="8"
             HorizontalOptions="Start"
+            ModifyXPosEnd="5"
             SideOffset="0"
             VerticalOptions="Center"
-            ModifyXPosEnd="5"
             XPos="{Binding Source={x:Reference StartThumb}, Path=TranslationX}"
             XPosEnd="{Binding Source={x:Reference EndThumb}, Path=TranslationX}">
             <draw:SkiaControl.FillGradient>

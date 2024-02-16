@@ -53,7 +53,7 @@ namespace AppoMobi.Maui.DrawnUi.Demo.ViewModels
                             var vm = App.Instance.Services.GetService<TakePictureViewModel>();
                             //todo set callback
                             var content = new ScreenCameraPhoto(vm);
-                            await App.Shell.PushModalAsync(content, false, true, VisibilityParameters.Visible, new Dictionary<string, object>
+                            await App.Shell.PushModalAsync(content, false, true, true, new Dictionary<string, object>
                             {
                                 {"callback", new Command(async (context) =>
                                 {
@@ -100,69 +100,7 @@ namespace AppoMobi.Maui.DrawnUi.Demo.ViewModels
         }
 
 
-        static int helperCount;
 
-        public ICommand CommandOpenPopup
-        {
-            get
-            {
-                return new Command(async () =>
-                {
-                    if (CheckLockAndSet())
-                        return;
-
-                    //do not block ui, lets us see the touch effect
-                    //while we build page to be opened
-                    await Task.Run(async () =>
-                    {
-
-                        var content = new SkiaLayout()
-                        {
-                            UseCache = SkiaCacheType.Operations,
-                            BackgroundColor = Colors.Black,
-                            HorizontalOptions = LayoutOptions.Center,
-                            VerticalOptions = LayoutOptions.Center,
-                            Margin = new Thickness(64),
-                            Padding = new Thickness(24),
-                            CreateChildren = () => new()
-                           {
-                               new SkiaLabel()
-                               {
-                                   TextColor = Colors.White,
-                                   Text = $"{++helperCount} Popup",
-                                   FontFamily = "FontText",
-                                   FontSize = 24
-                               }
-                           }
-                        };
-
-                        var popup = await App.Shell.OpenPopupAsync(content);
-
-                    }).ConfigureAwait(false);
-                });
-            }
-        }
-
-        public ICommand CommandOpenToast
-        {
-            get
-            {
-                return new Command(async () =>
-                {
-                    if (CheckLockAndSet())
-                        return;
-
-                    //do not block ui, lets us see the touch effect
-                    //while we build page to be opened
-                    await Task.Run(async () =>
-                    {
-
-                        App.Shell.ShowToast("Hello World! This is all drawn using **SkiaSharp** 2.88 library. 👍😍🤩");
-
-                    }).ConfigureAwait(false);
-                });
-            }
-        }
 
         public ICommand CommandTabReselected
         {
@@ -203,10 +141,7 @@ namespace AppoMobi.Maui.DrawnUi.Demo.ViewModels
                     await Task.Run(async () =>
                     {
                         var content = new ModalContent();
-                        await Presentation.Shell.PushModalAsync(content, true, true, new VisibilityParameters
-                        {
-                            IsVisible = true,
-                        });
+                        await Presentation.Shell.PushModalAsync(content, true, true, true);
 
                     }).ConfigureAwait(false);
 
@@ -419,7 +354,7 @@ namespace AppoMobi.Maui.DrawnUi.Demo.ViewModels
                     await Task.Run(async () =>
                     {
                         var content = new ScreenBrowser("SkiaMauiElement - WebView", "https://dotnet.microsoft.com/en-us/apps/maui");
-                        await App.Shell.PushModalAsync(content, true, true, VisibilityParameters.Visible);
+                        await App.Shell.PushModalAsync(content, true, true, true);
 
                         //var page = new ScreenVarious();
                         //await Presentation.Shell.PushDrawnAsync(page, true);

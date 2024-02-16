@@ -132,7 +132,7 @@ public class AnimateHorizontalStack : SkiaLayout
     async Task<bool> AnimateOnAppearing()
     {
         //animate onappearing
-        if (ItemsSource != null && LastParentVisible && readyForAnimation)
+        if (ItemsSource != null && IsVisibleInViewTree() && readyForAnimation)
         {
             if (ItemsSource.Count > 0)
             {

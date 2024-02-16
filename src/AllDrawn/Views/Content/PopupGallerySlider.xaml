@@ -1,88 +1,81 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<draw:ElementAdapter
+<draw:SkiaLayout
     x:Class="AppoMobi.Maui.DrawnUi.Demo.Views.PopupGallerySlider"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:content="using:AppoMobi.Maui.DrawnUi.Demo.Views"
     xmlns:draw="http://schemas.appomobi.com/drawnUi/2023/draw"
     xmlns:interfaces="clr-namespace:AppoMobi.Maui.DrawnUi.Demo.Interfaces"
     x:Name="ThisControl"
-    x:DataType="interfaces:IFullscreenGalleryManager">
+    draw:AddGestures.CommandLongPressing="{Binding CommandPressingImage}"
+    draw:AddGestures.CommandTapped="{Binding CommandCloseGallery}"
+    x:DataType="interfaces:IFullscreenGalleryManager"
+    HorizontalOptions="Fill"
+    VerticalOptions="Fill">
 
-    <!--  ItemsSource="{Binding GalleryItems}"  -->
-
-    <content:GalleryPopupLayout
-        draw:AddGestures.CommandLongPressing="{Binding CommandPressingImage}"
-        draw:AddGestures.CommandTapped="{Binding CommandCloseGallery}"
-        BackgroundColor="Black"
+    <draw:SkiaCarousel
+        x:Name="MainCarousel"
+        Bounces="True"
         HorizontalOptions="Fill"
+        InitializeTemplatesInBackgroundDelay="10"
+        ItemsSource="{Binding GalleryItems}"
+        SelectedIndex="{Binding SelectedGalleryIndex}"
+        SidesOffset="0"
+        Spacing="16"
+        Tag="Carousel"
         VerticalOptions="Fill">
 
-        <draw:SkiaCarousel
-            x:Name="MainCarousel"
-            Bounces="True"
-            HorizontalOptions="Fill"
-            InitializeTemplatesInBackgroundDelay="10"
-            ItemsSource="{Binding GalleryItems}"
-            SelectedIndex="{Binding SelectedGalleryIndex}"
-            SidesOffset="0"
-            Spacing="16"
-            Tag="Carousel"
-            VerticalOptions="Fill">
+        <draw:SkiaLayout.ItemTemplate>
+            <DataTemplate>
 
-            <draw:SkiaLayout.ItemTemplate>
-                <DataTemplate>
+                <draw:ZoomContent
+                    ZoomMax="2"
+                    ZoomMin="1">
 
-                    <draw:ZoomContent
-                        ZoomMax="2"
-                        ZoomMin="1">
+                    <draw:SkiaLayout
+                        x:DataType="x:String"
+                        BackgroundColor="Transparent"
+                        HorizontalOptions="Fill"
+                        Tag="Tpl"
+                        VerticalOptions="Fill">
 
-                        <draw:SkiaLayout
-                            x:DataType="x:String"
-                            BackgroundColor="Black"
+                        <draw:SkiaSvg
+                            HeightRequest="110"
+                            HorizontalOptions="Center"
+                            LockRatio="1"
+                            Opacity="0.15"
+                            SvgString="{StaticResource SvgGallery}"
+                            TintColor="{StaticResource Gray950}"
+                            UseCache="Operations"
+                            VerticalOptions="Center"
+                            ZIndex="-1" />
+
+                        <draw:SkiaImage
+                            Margin="0"
+                            Aspect="AspectFit"
+                            EraseChangedContent="True"
                             HorizontalOptions="Fill"
-                            Tag="Tpl"
-                            VerticalOptions="Fill">
+                            LoadSourceOnFirstDraw="False"
+                            Source="{Binding .}"
+                            VerticalOptions="Fill" />
 
-                            <draw:SkiaSvg
-                                HeightRequest="110"
-                                HorizontalOptions="Center"
-                                LockRatio="1"
-                                Opacity="0.15"
-                                SvgString="{StaticResource SvgGallery}"
-                                TintColor="{StaticResource Gray950}"
-                                UseCache="Operations"
-                                VerticalOptions="Center"
-                                ZIndex="-1" />
+                    </draw:SkiaLayout>
 
-                            <draw:SkiaImage
-                                LoadSourceOnFirstDraw="True"
-                                Margin="0"
-                                Aspect="AspectFit"
-                                EraseChangedContent="True"
-                                HorizontalOptions="Fill"
-                                Source="{Binding .}"
-                                VerticalOptions="Fill" />
+                </draw:ZoomContent>
 
-                        </draw:SkiaLayout>
+            </DataTemplate>
 
-                    </draw:ZoomContent>
+        </draw:SkiaLayout.ItemTemplate>
 
-                </DataTemplate>
+    </draw:SkiaCarousel>
 
-            </draw:SkiaLayout.ItemTemplate>
+    <draw:SkiaMarkdownLabel
+        Margin="32"
+        HorizontalOptions="Fill"
+        HorizontalTextAlignment="Center"
+        Style="{StaticResource MarkdownLabelDefaultStyle}"
+        Text="Using a ***SkiaCarousel*** inside a ***SkiaShell*** popup. Showing a ***SkiaImage*** inside, a powerful control that can apply effects and provide responsive aspects like _AspectCover_ etc."
+        UseCache="Image"
+        VerticalOptions="End" />
 
-        </draw:SkiaCarousel>
 
-        <draw:SkiaMarkdownLabel
-            Margin="32"
-            HorizontalOptions="Fill"
-            HorizontalTextAlignment="Center"
-            Style="{StaticResource MarkdownLabelDefaultStyle}"
-            Text="Using a ***SkiaCarousel*** inside a ***SkiaShell*** popup. Showing a ***SkiaImage*** inside, a powerful control that can apply effects and provide responsive aspects like _AspectCover_ etc."
-            UseCache="Image"
-            VerticalOptions="End" />
-
-    </content:GalleryPopupLayout>
-
-</draw:ElementAdapter>
+</draw:SkiaLayout>

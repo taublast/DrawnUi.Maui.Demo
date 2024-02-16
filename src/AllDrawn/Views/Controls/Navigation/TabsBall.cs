@@ -53,7 +53,7 @@ namespace AppoMobi.Maui.DrawnUi.Demo.Views.Controls.Navigation
         {
             if (LastSelectedIndex >= 0)
             {
-                Log($"[BALL] {SelectedIndex}");
+                //Super.Log($"[BALL] {SelectedIndex}");
                 Animate();
             }
             LastSelectedIndex = SelectedIndex;

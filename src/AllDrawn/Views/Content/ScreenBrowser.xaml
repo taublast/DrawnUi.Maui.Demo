@@ -88,7 +88,7 @@
         </draw:SkiaLayout>
 
         <draw:SkiaControl
-            BackgroundColor="{StaticResource White}"
+            BackgroundColor="{StaticResource Gray600}"
             HorizontalOptions="Fill"
             MarginTop="20"
             VerticalOptions="Fill"
@@ -96,6 +96,7 @@
 
         <!--  CONTENT  -->
         <draw:SkiaMauiElement
+            Margin="1,0"
             HorizontalOptions="Fill"
             MarginTop="60"
             VerticalOptions="Fill">

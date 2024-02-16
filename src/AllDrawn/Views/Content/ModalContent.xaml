@@ -10,6 +10,7 @@
 
     <!--  HEADER  -->
     <draw:SkiaLayout
+        UseCache="Image"
         BackgroundColor="Black"
         HeightRequest="50"
         HorizontalOptions="Fill">

@@ -71,7 +71,7 @@
 
 
 	<ItemGroup>
-		<PackageReference Include="AppoMobi.Maui.DrawnUi" Version="1.0.8.2" />
+		<!--<PackageReference Include="AppoMobi.Maui.DrawnUi" Version="1.0.8.1-pre" />-->
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
 	</ItemGroup>
  
@@ -89,6 +89,9 @@
 	    <DependentUpon>ResStrings.resx</DependentUpon>
 	    <DesignTime>True</DesignTime>
 	    <AutoGen>True</AutoGen>
+	  </Compile>
+	  <Compile Update="TestPage.xaml.cs">
+	    <DependentUpon>%(Filename)</DependentUpon>
 	  </Compile>
 	  <Compile Update="Views\Controls\Navigation\NavBarStandart.xaml.cs">
 	    <SubType>Code</SubType>
@@ -124,7 +127,28 @@
 	  </MauiImage>
 	</ItemGroup>
 
- 
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\DrawnUi.Maui\src\Engine\DrawnUi.Maui.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <MauiXaml Update="TestPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </MauiXaml>
+    <MauiXaml Update="Views\Controls\Navigation\NavBarStandart.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </MauiXaml>
+    <MauiXaml Update="Views\Controls\SkiaSliderFun.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </MauiXaml>
+    <MauiXaml Update="Views\Controls\SkiaSliderRanged.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </MauiXaml>
+    <MauiXaml Update="Views\Controls\SkiaSliderTech.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </MauiXaml>
+  </ItemGroup>
 
    
 </Project>

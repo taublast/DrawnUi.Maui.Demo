@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<draw:SkiaLayout
+    x:Class="AppoMobi.Maui.DrawnUi.Demo.TestPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:AppoMobi.Maui.DrawnUi.Demo.Views.Controls"
+    xmlns:demo="clr-namespace:AppoMobi.Maui.DrawnUi.Demo"
+    xmlns:draw="http://schemas.appomobi.com/drawnUi/2023/draw"
+    xmlns:viewModels="clr-namespace:AppoMobi.Maui.DrawnUi.Demo.ViewModels"
+    x:DataType="viewModels:ProjectViewModel"
+    BackgroundColor="Black"
+    HorizontalOptions="Fill"
+    VerticalOptions="Fill">
+
+    <draw:SkiaImage
+        Aspect="AspectCover"
+        HorizontalOptions="Fill"
+        Source="Pics/draw1.png"
+        VerticalOptions="Fill" />
+
+    <draw:SkiaShape
+        Margin="16"
+        BackgroundColor="Gray"
+        CornerRadius="6"
+        HorizontalOptions="Center"
+        TranslationY="100"
+        UseCache="None"
+        VerticalOptions="Start">
+
+        <draw:SkiaLayout
+            Spacing="8"
+            Type="Column">
+
+            <draw:SkiaLabel
+                BackgroundColor="Red"
+                FontFamily="FontText"
+                FontSize="12"
+                HorizontalOptions="Start"
+                MaxLines="1"
+                Tag="Text"
+                Text="HELLO................."
+                TextColor="Black"
+                UseCache="Operations"
+                VerticalOptions="Start" />
+
+            <draw:SkiaShape
+                BackgroundColor="Yellow"
+                HorizontalOptions="End"
+                LockRatio="1"
+                Tag="Shape"
+                VerticalOptions="Start"
+                WidthRequest="20" />
+
+        </draw:SkiaLayout>
+
+    </draw:SkiaShape>
+
+    <controls:SmallButton
+        CommandTapped="{Binding CommandOpenPopupT}"
+        HorizontalOptions="Center"
+        Text="Popup Dynamic Back"
+        TranslationY="24"
+        WidthRequest="200" />
+
+    <controls:SmallButton
+        CommandTapped="{Binding CommandOpenPopup}"
+        HorizontalOptions="Center"
+        Text="Popup Back Frozen"
+        TranslationY="70"
+        WidthRequest="200" />
+
+    <controls:SmallButton
+        CommandTapped="{Binding CommandOpenModalT}"
+        HorizontalOptions="Center"
+        Text="Modal Dynamic Back"
+        TranslationY="120"
+        WidthRequest="200" />
+
+    <controls:SmallButton
+        CommandTapped="{Binding CommandOpenModal}"
+        HorizontalOptions="Center"
+        Text="Modal Frozen Back"
+        TranslationY="170"
+        WidthRequest="200" />
+
+    <demo:ControlBlinking
+        Margin="16"
+        BackgroundColor="Black"
+        HeightRequest="40"
+        LockRatio="1" />
+
+</draw:SkiaLayout>

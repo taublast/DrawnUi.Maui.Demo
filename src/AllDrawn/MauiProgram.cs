@@ -57,6 +57,9 @@ namespace AppoMobi.Maui.DrawnUi.Demo
             builder.Services.AddTransient<ScreenCameraPhoto>();
             builder.Services.AddTransient<ScreenControls>();
 
+            builder.Services.AddTransient<ProjectViewModel>();
+            builder.Services.AddTransient<TestPage>();
+
             builder.Services.AddTransient<MainPage>();
 
             return builder.Build();

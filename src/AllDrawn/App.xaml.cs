@@ -111,7 +111,7 @@ namespace AppoMobi.Maui.DrawnUi.Demo
                 },
             });
 
-            Presentation.Initialize(AppRoutes.Root.Route);
+            Presentation.Initialize(AppRoutes.GetStartupRoute());
         }
 
         public static App Instance => App.Current as App;

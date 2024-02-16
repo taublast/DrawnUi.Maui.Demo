@@ -23,8 +23,8 @@ namespace AppoMobi.Maui.DrawnUi.Demo.Views.Controls
 
                 SetContent();
 
-                if (ImageBanner != null)
-                    ImageBanner.LoadSourceOnFirstDraw = true; //steroids up!
+                //if (ImageBanner != null)
+                //    ImageBanner.LoadSourceOnFirstDraw = true; //steroids up!
             }
 
         }
@@ -139,7 +139,6 @@ namespace AppoMobi.Maui.DrawnUi.Demo.Views.Controls
             {
                 contextChanged++;
 
-
                 if (LabelId != null)
                 {
                     LabelId.Text = item.Id.ToString();
@@ -164,7 +163,6 @@ namespace AppoMobi.Maui.DrawnUi.Demo.Views.Controls
                     item.BannerPreloadOrdered = true;
                     ImageBanner.Source = item.Banner;
                 }
-
 
                 return true;
             }
@@ -199,8 +197,8 @@ namespace AppoMobi.Maui.DrawnUi.Demo.Views.Controls
 
         public virtual void UpdateCell()
         {
-            if (contextChanged > 1)
-                InvalidateChildrenTree(); //order to remeasure inside views for new content
+            //            if (contextChanged > 1)
+            //                InvalidateChildrenTree(); //order to remeasure inside views for new content
 
             Update();
         }

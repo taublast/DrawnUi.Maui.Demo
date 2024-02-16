@@ -17,6 +17,8 @@ public partial class AppShell : SkiaShell
     {
         try
         {
+            Super.SetLocale("en");
+
             //ROUTES
             foreach (var appRoute in AppRoutes.GetRoutes())
             {

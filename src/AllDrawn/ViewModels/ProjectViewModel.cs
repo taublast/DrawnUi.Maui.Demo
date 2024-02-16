@@ -1,4 +1,6 @@
 ﻿using AppoMobi.Maui.DrawnUi.Demo.Resources.Strings;
+using AppoMobi.Maui.DrawnUi.Demo.Views.Controls;
+using DrawnUi.Maui.Infrastructure;
 using System.Collections.Concurrent;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
@@ -80,5 +82,161 @@ public class ProjectViewModel : BaseViewModel
         //await Presentation.Shell.GoToAsync(route, true);
     });
 
+    static int helperCount;
+
+    public ICommand CommandOpenPopup
+    {
+        get
+        {
+            return new Command(async () =>
+            {
+                if (CheckLockAndSet())
+                    return;
+
+                //do not block ui, lets us see the touch effect
+                //while we build page to be opened
+                await Task.Run(async () =>
+                {
+
+                    var content = new SkiaLayout()
+                    {
+                        UseCache = SkiaCacheType.Operations,
+                        BackgroundColor = Colors.Black,
+                        HorizontalOptions = LayoutOptions.Center,
+                        VerticalOptions = LayoutOptions.Center,
+                        Margin = new Thickness(64),
+                        Padding = new Thickness(24),
+                        CreateChildren = () => new()
+                        {
+                            new SkiaLabel()
+                            {
+                                TextColor = Colors.White,
+                                Text = $"{++helperCount} Popup",
+                                FontFamily = "FontText",
+                                FontSize = 24
+                            }
+                        }
+                    };
+
+                    var popup = await App.Shell.OpenPopupAsync(content);
+
+                }).ConfigureAwait(false);
+            });
+        }
+    }
+
+    public ICommand CommandOpenPopupT
+    {
+        get
+        {
+            return new Command(async () =>
+            {
+                if (CheckLockAndSet())
+                    return;
+
+                //do not block ui, lets us see the touch effect
+                //while we build page to be opened
+                await Task.Run(async () =>
+                {
+
+                    var content = new SkiaLayout()
+                    {
+                        UseCache = SkiaCacheType.Operations,
+                        Type = LayoutType.Column,
+                        BackgroundColor = Colors.Black,
+                        HorizontalOptions = LayoutOptions.Center,
+                        VerticalOptions = LayoutOptions.Center,
+                        Margin = new Thickness(64),
+                        Padding = new Thickness(24),
+                        CreateChildren = () => new()
+                        {
+                            new SkiaLabel()
+                            {
+                                TextColor = Colors.White,
+                                Text = $"{++helperCount} Popup",
+                                FontFamily = "FontText",
+                                FontSize = 24
+                            },
+                            new SmallButton()
+                            {
+                                Text = "Modal",
+                                CommandTapped = this.CommandOpenModal
+                            }
+                        }
+                    };
+
+                    var popup = await App.Shell.OpenPopupAsync(content, true, true, false);
+
+                }).ConfigureAwait(false);
+            });
+        }
+    }
+
+    public ICommand CommandOpenToast
+    {
+        get
+        {
+            return new Command(async () =>
+            {
+                if (CheckLockAndSet())
+                    return;
+
+                //do not block ui, lets us see the touch effect
+                //while we build page to be opened
+                await Task.Run(async () =>
+                {
+
+                    App.Shell.ShowToast("Hello World! This is all drawn using **SkiaSharp** 2.88 library. 👍😍🤩");
+
+                }).ConfigureAwait(false);
+            });
+        }
+    }
+
+    public ICommand CommandOpenModal
+    {
+        get
+        {
+            return new Command(async () =>
+            {
+                if (CheckLockAndSet())
+                    return;
+
+                await Task.Run(async () =>
+                {
+                    //var content = new ScreenBrowser("SkiaMauiElement - WebView", "https://dotnet.microsoft.com/en-us/apps/maui");
+                    var content = new ModalContent();
+                    await App.Shell.PushModalAsync(content, true, true, true);
+
+                    //var page = new ScreenVarious();
+                    //await Presentation.Shell.PushDrawnAsync(page, true);
+
+                }).ConfigureAwait(false);
+            });
+        }
+    }
+
+    public ICommand CommandOpenModalT
+    {
+        get
+        {
+            return new Command(async () =>
+            {
+                if (CheckLockAndSet())
+                    return;
+
+                await Task.Run(async () =>
+                {
+                    //var content = new ScreenBrowser("SkiaMauiElement - WebView", "https://dotnet.microsoft.com/en-us/apps/maui");
+                    var content = new ModalContent();
+                    await App.Shell.PushModalAsync(content, true, true, false);
+
+                    //var page = new ScreenVarious();
+                    //await Presentation.Shell.PushDrawnAsync(page, true);
+
+                }).ConfigureAwait(false);
+            });
+        }
+    }
 
 }
