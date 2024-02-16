@@ -36,7 +36,7 @@ https://github.com/taublast/AppoMobi.Maui.DrawnUi.Demo/assets/25801194/a2efa080-
 
 https://github.com/taublast/AppoMobi.Maui.DrawnUi.Demo/assets/25801194/00e9c876-c529-40d2-b67d-6bbc39794109
 
-[Example](https://github.com/taublast/AppoMobi.Maui.DrawnUi.SpaceShooter)
+https://github.com/taublast/AppoMobi.Maui.DrawnUi.SpaceShooter
 
 ## Features
 
