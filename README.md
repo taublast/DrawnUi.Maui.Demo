@@ -11,6 +11,7 @@ Supports **iOS**, **MacCatalyst**, **Android**, **Windows**.
 
 ## What's New
 
+* MacCatalyst net8 crash fix
 * Engine: Many performance and features improvements, breaking for `SkiaShell` modals and popups can have dynamic or frozen background below.
 * Demo: Added shadows to recycled cells, sliders enhanced and more.
 
