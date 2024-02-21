@@ -71,7 +71,7 @@
 
 
 	<ItemGroup>
-		<PackageReference Include="AppoMobi.Maui.DrawnUi" Version="1.0.8.4" />
+		<PackageReference Include="AppoMobi.Maui.DrawnUi" Version="1.0.8.5" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
 	</ItemGroup>
 
