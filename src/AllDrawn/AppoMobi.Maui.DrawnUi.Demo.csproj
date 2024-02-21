@@ -1,8 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFrameworks>net7.0-android;net7.0-ios;net7.0-maccatalyst</TargetFrameworks>
-		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net7.0-windows10.0.19041.0</TargetFrameworks>
+		<TargetFrameworks>net8.0-android;net8.0-ios;net8.0-maccatalyst</TargetFrameworks>
+		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net8.0-windows10.0.19041.0</TargetFrameworks>
 		<OutputType>Exe</OutputType>
 		<RootNamespace>AppoMobi.Maui.DrawnUi.Demo</RootNamespace>
 		<UseMaui>true</UseMaui>
@@ -31,7 +31,7 @@
 	</PropertyGroup>
 
 
-	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net7.0-ios|AnyCPU'">
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net8.0-ios|AnyCPU'">
 	  <CreatePackage>false</CreatePackage>
 	</PropertyGroup>
 
@@ -71,15 +71,9 @@
 
 
 	<ItemGroup>
-		<PackageReference Include="AppoMobi.Maui.DrawnUi" Version="1.0.8.3" />
-		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
+		<PackageReference Include="AppoMobi.Maui.DrawnUi" Version="1.0.8.4" />
+		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
 	</ItemGroup>
- 
-  <ItemGroup>
-    <MauiImage Include="Resources\Raw\Svg\dotnet_bot.svg">
-      <BaseSize>168,208</BaseSize>
-    </MauiImage>
-  </ItemGroup>
 
 	<ItemGroup>
 	  <Compile Update="AppShell.xaml.cs">
@@ -89,13 +83,6 @@
 	    <DependentUpon>ResStrings.resx</DependentUpon>
 	    <DesignTime>True</DesignTime>
 	    <AutoGen>True</AutoGen>
-	  </Compile>
-	  <Compile Update="Views\Controls\Navigation\NavBarStandart.xaml.cs">
-	    <SubType>Code</SubType>
-	    <DependentUpon>%(Filename)</DependentUpon>
-	  </Compile>
-	  <Compile Update="Views\ScreenTabs.xaml.cs">
-	    <DependentUpon>ScreenTabs.xaml</DependentUpon>
 	  </Compile>
 	  </ItemGroup>
 
@@ -123,8 +110,6 @@
 	    <BaseSize>168,208</BaseSize>
 	  </MauiImage>
 	</ItemGroup>
-
- 
-
+	
    
 </Project>

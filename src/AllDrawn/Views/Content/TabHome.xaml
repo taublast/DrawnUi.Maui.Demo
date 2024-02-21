@@ -181,7 +181,6 @@
         <!--  LoadMoreCommand="{Binding CommandLoadMore}"  -->
         <draw:SkiaScroll
             x:Name="BannersScroll"
-            ChangeVelocityPanned="1.0"
             ChangeVelocityScrolled="1.2"
             FrictionScrolled="0.25"
             HeaderBehind="True"
