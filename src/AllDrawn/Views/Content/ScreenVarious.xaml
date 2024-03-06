@@ -47,6 +47,7 @@
         VerticalOptions="Fill">
 
         <draw:SkiaLayout
+            Tag="StackContent"
             Padding="16"
             HorizontalOptions="Fill"
             Type = "Column"
@@ -55,6 +56,8 @@
             <!--  ENTRY with FRAME  -->
             <!--  do not cache this wrapper for entry to work  -->
             <draw:SkiaLayout
+                Tag="StackEntry"
+
                 Margin="24,24,24,0"
                 HorizontalOptions="Fill">
 

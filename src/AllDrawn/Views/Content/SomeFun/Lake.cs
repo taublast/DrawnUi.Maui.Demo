@@ -232,6 +232,8 @@ public partial class Lake : SkiaLayout
                     if (GestureStartedInside(args))
                     {
                         _movingDuck = false;
+                        _welcome.StopAnimators();
+                        _anumatorJump.Stop();
 
                         //var velocityX = (float)(args.Distance.Velocity.X / _velocityRatoX);
                         //_animationDuckMoveX.SetVelocity(velocityX).SetValue((float)_duck.TranslationX).Start();

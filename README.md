@@ -13,12 +13,11 @@ Supports **iOS**, **MacCatalyst**, **Android**, **Windows**.
 
 __This would be the last version using SkiaSharp 2.xx, the next one will adopt SkiaSharp 3.0 which would start the era of MAUI shaders, with the latest SKSL syntax, Windows+MacCatalyst hardware acceleration and more!__
 
-* __1.0.8.5 [nuget](https://www.nuget.org/packages/AppoMobi.Maui.DrawnUi)__
-* Demo targeting NET 8.
-* Smooth scrolling is back from when it became broken few months ago 😇.
-* `MauiElement` layout fix, `SkiaCarousel` gestures fix mainly affecting the Apple platform.
-* MacCatalyst fixes for the `Sandbox` project.
-* Other fixes and improvements.
+__1.0.8.7 [nuget](https://www.nuget.org/packages/AppoMobi.Maui.DrawnUi)__
+* Gestures fixes for many controls solving problems with sensitive displays.
+* SkiaScroll multidirectional scrolling and swiping fixes.
+* Rendering loop fixes for capping android fps and some other.
+* MauiElement and drawn entry/editor fixes.
 
 ## Screenshots
 

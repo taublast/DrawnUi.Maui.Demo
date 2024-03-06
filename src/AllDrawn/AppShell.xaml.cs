@@ -39,8 +39,6 @@ public partial class AppShell : SkiaShell
             ToastTextFontWeight = 600;
             ToastTextColor = Colors.GreenYellow;
 
-            TouchEffect.TappedWhenMovedThresholdPoints = 2f;
-
 #if DEBUG
             //ViewsAdapter.LogEnabled = true;
             //SkiaImageLoadingManager.LogEnabled = true;

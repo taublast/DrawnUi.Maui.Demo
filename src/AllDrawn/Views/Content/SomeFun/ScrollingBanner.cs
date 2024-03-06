@@ -41,7 +41,9 @@ public class ScrollingBanner : SkiaScrollLooped
 
         //calc speed pts/sec
         var scrollAmount = this.ContentSize.Units.Width + Viewport.Units.Width;
-        var k = Math.Round(60 * RenderingScale) / 1000.0 / RenderingScale; //pts/sec,
+
+        var k = 70 / 1000.0; // pts/ 1 sec (1000ms),
+
         var speed = scrollAmount / k; //ms
 
         if (_animator == null)
