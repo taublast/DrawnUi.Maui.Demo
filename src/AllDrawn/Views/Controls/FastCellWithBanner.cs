@@ -197,8 +197,8 @@ namespace AppoMobi.Maui.DrawnUi.Demo.Views.Controls
 
         public virtual void UpdateCell()
         {
-            //            if (contextChanged > 1)
-            //                InvalidateChildrenTree(); //order to remeasure inside views for new content
+            if (contextChanged > 1)
+                InvalidateChildrenTree(); //order to remeasure inside views for new content
 
             Update();
         }

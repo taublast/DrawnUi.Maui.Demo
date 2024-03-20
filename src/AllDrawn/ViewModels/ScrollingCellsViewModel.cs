@@ -309,7 +309,7 @@ public class ScrollingCellsViewModel : ProjectViewModel, IFullscreenGalleryManag
                 }
                 catch (Exception e)
                 {
-                    Console.WriteLine(e);
+                    Super.Log(e);
 
                     IsLoading = false;
                     IsBusy = false;
@@ -338,11 +338,12 @@ public class ScrollingCellsViewModel : ProjectViewModel, IFullscreenGalleryManag
                     collection.Clear();
                 }
                 await Task.Delay(10);
+                
                 collection.AddRange(items);
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex);
+                Super.Log(ex);
             }
             finally
             {

@@ -28,6 +28,7 @@
 
     <draw:SkiaViewSwitcher
         x:Name="Switcher"
+        UseCache="Operations"
         AnimateTabs="False"
         AnimationEasing="{x:Static Easing.CubicOut}"
         AnimationSpeed="250"
@@ -62,11 +63,11 @@
             ZIndex="-1">
 
             <draw:SkiaShape
-                BackgroundColor="#66cccccc"
+                BackgroundColor="#20cccccc"
                 ClipBackgroundColor="True"
                 CornerRadius="20,0"
                 HorizontalOptions="Fill"
-                StrokeColor="Red"
+                StrokeColor="#20cccccc"
                 StrokeWidth="2"
                 VerticalOptions="Fill">
 
@@ -74,7 +75,7 @@
                 <draw:SkiaImage
                     Aspect="AspectCover"
                     Darken="0.35"
-                    Effect="Darken"
+                    AddEffect="Darken"
                     HorizontalOptions="Fill"
                     Opacity="0.4"
                     Source="Pics/glass2.jpg"
@@ -98,7 +99,7 @@
                 <draw:SkiaControl.Shadows>
                     <draw:SkiaShadow
                         Blur="5"
-                        Opacity="0.75"
+                        Opacity="0.5"
                         X="1"
                         Y="-1"
                         Color="#000000" />
@@ -115,9 +116,10 @@
             CornerRadius="20,0"
             HorizontalOptions="Fill"
             VerticalOptions="Fill"
-            ZIndex="-1">
+            ZIndex="-2">
 
             <draw:SkiaBackdrop
+                CacheSource="{x:Reference Switcher}"
                 Blur="10"
                 HorizontalOptions="Fill"
                 Tag="Blur"
@@ -132,15 +134,25 @@
             ColumnDefinitions="*,*,*"
             ColumnSpacing="0"
             CommandTabReselected="{Binding CommandTabReselected}"
-            HeightRequest="{Binding Presentation.BottomTabsHeightRequest}"
             HorizontalOptions="Fill"
             MarginTop="16"
-            RowDefinitions="*"
+            RowSpacing="0"
             SelectedIndex="{Binding Source={x:Reference Switcher}, Path=SelectedIndex, Mode=TwoWay}"
             Tag="Tabs"
             Type="Grid"
             UseCache="GPU">
 
+            <draw:SkiaLayout.RowDefinitions>
+                <RowDefinition Height="{Binding Presentation.BottomTabsHeightRequest}"/>
+                <RowDefinition Height="{Binding Presentation.PaddingBottom}"/>
+            </draw:SkiaLayout.RowDefinitions>
+            
+            <!-- <draw:SkiaControl  -->
+            <!--     HorizontalOptions="Fill" -->
+            <!--     Grid.ColumnSpan="3" -->
+            <!--     BackgroundColor="Black" -->
+            <!--     Grid.Row="1"/> -->
+            
             <draw:SkiaSvg
                 HeightRequest="28"
                 HorizontalOptions="Center"
