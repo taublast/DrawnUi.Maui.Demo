@@ -13,6 +13,7 @@
     Spacing="0"
     Tag="WIthTabs"
     Type="Column"
+    x:DataType="viewModels:SomeTabsViewModel"
     VerticalOptions="Fill">
 
     <!--  background gradient  -->
@@ -114,6 +115,7 @@
             BackgroundColor="Gainsboro"
             HorizontalOptions="Fill"
             Tag="StackEditors"
+            AddMarginBottom="{Binding Presentation.BottomTabsUnderPadding}"
             VerticalOptions="Fill">
 
             <!--  background gradient  -->
@@ -195,7 +197,6 @@
             <!--  BOTTOM SCROLL  -->
             <draw:SkiaScroll
                 x:Name="LineScroll"
-                Margin="0,0,0,60"
                 Bounces="True"
                 FrictionScrolled="0.3"
                 HeightRequest="140"
@@ -204,7 +205,6 @@
                 Orientation="Horizontal"
                 Tag="HScroll"
                 VerticalOptions="End">
-
 
                 <draw:SkiaLayout
                     InitializeTemplatesInBackgroundDelay="50"
@@ -339,6 +339,7 @@
                     </draw:SkiaControl>
                 </draw:SkiaScroll.Footer>
             </draw:SkiaScroll>
+            
 
         </draw:SkiaLayout>
 

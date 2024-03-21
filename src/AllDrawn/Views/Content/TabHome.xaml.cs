@@ -8,15 +8,7 @@ public partial class TabScrollCells
     {
         InitializeComponent();
     }
-
-    protected override void OnBindingContextChanged()
-    {
-
-        var test = this.BindingContext;
-        
-        base.OnBindingContextChanged();
-    }
-
+    
     private void OnEventStackCellsRendered(object sender, EventArgs e)
     {
         if (sender is SkiaLayout layout)

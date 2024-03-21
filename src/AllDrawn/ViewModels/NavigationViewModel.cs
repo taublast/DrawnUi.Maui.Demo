@@ -712,7 +712,7 @@ public class NavigationViewModel : BaseViewModel
 
         BottomTabsHeightRequest = Super.BottomTabsHeight;
 
-        BottomTabsUnderPadding = BottomTabsHeightRequest - 2; //for shadow
+        BottomTabsUnderPadding = BottomTabsHeightRequest + PaddingBottom - 2; //for shadow
 
         NavAndTabsMargin = new Thickness(0, PaddingHeightRequest, 0, 0);
         
