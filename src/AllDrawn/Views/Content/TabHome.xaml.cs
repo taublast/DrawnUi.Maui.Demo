@@ -8,7 +8,7 @@ public partial class TabScrollCells
     {
         InitializeComponent();
     }
-
+    
     private void OnEventStackCellsRendered(object sender, EventArgs e)
     {
         if (sender is SkiaLayout layout)
@@ -50,25 +50,25 @@ public class AnimateVerticalStack : AnimateHorizontalStack
 
     protected override void ApplyIsEmpty(bool value)
     {
-        if (!value && wasEmpty)
-        {
-            //overriding to fade out
-            _emptyView?.FadeToAsync(0, 300)
-                .ContinueWith(async (s) =>
-            {
-                await Task.Delay(10); //update ui with last opacity=0
-                try
-                {
-                    base.ApplyIsEmpty(false);
-                }
-                catch (Exception e)
-                {
-                    Console.WriteLine(e);
-                }
-            });
-
-            return; //fake
-        }
+        // if (!value && wasEmpty)
+        // {
+        //     //overriding to fade out
+        //     _emptyView?.FadeToAsync(0, 300)
+        //         .ContinueWith(async (s) =>
+        //     {
+        //         await Task.Delay(10); //update ui with last opacity=0
+        //         try
+        //         {
+        //             base.ApplyIsEmpty(false);
+        //         }
+        //         catch (Exception e)
+        //         {
+        //             Super.Log(e);
+        //         }
+        //     });
+        //
+        //     return; //fake
+        // }
 
         base.ApplyIsEmpty(value);
     }

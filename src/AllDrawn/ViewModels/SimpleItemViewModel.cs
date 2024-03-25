@@ -1,6 +1,6 @@
 ﻿namespace AppoMobi.Maui.DrawnUi.Demo.ViewModels
 {
-    public class SimpleItemViewModel
+    public class SimpleItemViewModel : IHasBanner
     {
         public int Id { get; set; }
         public string Title { get; set; }
@@ -9,4 +9,6 @@
 
         public bool BannerPreloadOrdered { get; set; }
     }
+
+
 }

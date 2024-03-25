@@ -712,10 +712,18 @@ public class NavigationViewModel : BaseViewModel
 
         BottomTabsHeightRequest = Super.BottomTabsHeight;
 
-        BottomTabsUnderPadding = BottomTabsHeightRequest - 2; //for shadow
+        BottomTabsUnderPadding = BottomTabsHeightRequest + PaddingBottom - 2; //for shadow
 
         NavAndTabsMargin = new Thickness(0, PaddingHeightRequest, 0, 0);
+        
+    }
 
+    public double BottomTabsWithInsetsHeightRequest
+    {
+        get
+        {
+            return BottomTabsHeightRequest + PaddingBottom;
+        }
     }
 
     private double _StatusOpacity;
@@ -811,9 +819,10 @@ public class NavigationViewModel : BaseViewModel
             {
                 _PaddingBottom = value;
                 OnPropertyChanged();
-                OnPropertyChanged("PaddingBottomTabsAndSafeInsets");
-                OnPropertyChanged("BottomSafeInsetsOrKeyboard");
-                OnPropertyChanged("KeyboardOffset");
+                OnPropertyChanged(nameof(PaddingBottomTabsAndSafeInsets));
+                OnPropertyChanged(nameof(BottomSafeInsetsOrKeyboard));
+                OnPropertyChanged(nameof(KeyboardOffset));
+                OnPropertyChanged(nameof(BottomTabsWithInsetsHeightRequest));
             }
         }
     }

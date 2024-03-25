@@ -9,11 +9,13 @@
     xmlns:viewModels="clr-namespace:AppoMobi.Maui.DrawnUi.Demo.ViewModels"
     xmlns:views="http://schemas.appomobi.com/drawnUi/2023/views"
     xmlns:views1="clr-namespace:AppoMobi.Maui.DrawnUi.Demo.Views"
+    xmlns:generic="clr-namespace:System.Collections.Generic;assembly=System.Collections"
     x:DataType="viewModels:MainPageViewModel"
     HorizontalOptions="Fill"
     Tag="ThisTab"
     VerticalOptions="Fill">
-
+    
+ 
     <draw:SkiaScroll
         BackgroundColor="Blue"
         HorizontalOptions="Fill"

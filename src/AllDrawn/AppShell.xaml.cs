@@ -33,7 +33,7 @@ public partial class AppShell : SkiaShell
             RegisterRoute("root", typeof(MainPage));
 
             //UI tweaks
-            Super.BottomTabsHeight = 56;
+            Super.BottomTabsHeight = 64;
             Super.NavBarHeight = 47;
             ToastTextFont = "FontText";
             ToastTextFontWeight = 600;

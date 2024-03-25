@@ -2,6 +2,7 @@
 using AppoMobi.Maui.DrawnUi.Demo.Services;
 using AppoMobi.Maui.DrawnUi.Demo.Views;
 using DrawnUi.Maui.Infrastructure;
+using System.Threading.Channels;
 using System.Windows.Input;
 
 namespace AppoMobi.Maui.DrawnUi.Demo.ViewModels;
@@ -253,14 +254,18 @@ public class ScrollingCellsViewModel : ProjectViewModel, IFullscreenGalleryManag
         {
             return new Command(async () =>
             {
-                if (ItemsSmall.Count == 0)
+                //if (ItemsSmall.Count == 0)
                 {
                     _mock.ResetIndexSmall();
-                    await AddItemsToUi(_mock.GetRandomSmallItems(10), ItemsSmall, true);
+                    var data = _mock.GetRandomSmallItems(10);
+                    await AddItemsToUi(data, ItemsSmall, true);
+                    SkiaImageManager.Instance.PreloadBanners(data);
                 }
             });
         }
     }
+
+
 
     public ICommand CommandRefreshData
     {
@@ -279,37 +284,20 @@ public class ScrollingCellsViewModel : ProjectViewModel, IFullscreenGalleryManag
                     CommandRefreshSmallData.Execute(null);
 
                     _mock.ResetIndex();
-                    await AddItemsToUi(_mock.GetRandomItems(PageSize), Items, true, Items.Count != 0);
 
-                    //todo preload images in background
+                    var data = _mock.GetRandomItems(PageSize);
+                    await AddItemsToUi(data, Items, true, Items.Count != 0);
 
+                    //preload images in background
                     CancelPreload?.Cancel();
                     var cancel = new CancellationTokenSource();
                     CancelPreload = cancel;
+                    SkiaImageManager.Instance.PreloadBanners(data, cancel); //you can use PreloadImages intead
 
-                    if (_items.Count > 0 && !cancel.IsCancellationRequested)
-                    {
-                        var index = 0;
-                        var item = _items[index];
-                        while (!cancel.IsCancellationRequested)
-                        {
-                            if (!item.BannerPreloadOrdered)
-                            {
-                                item.BannerPreloadOrdered = true;
-                                await SkiaImageManager.Instance.Preload(item.Banner, cancel).ConfigureAwait(false);
-                            }
-                            index++;
-                            if (index > _items.Count - 1)
-                            {
-                                break;
-                            }
-                            item = _items[index];
-                        }
-                    }
                 }
                 catch (Exception e)
                 {
-                    Console.WriteLine(e);
+                    Super.Log(e);
 
                     IsLoading = false;
                     IsBusy = false;
@@ -338,11 +326,12 @@ public class ScrollingCellsViewModel : ProjectViewModel, IFullscreenGalleryManag
                     collection.Clear();
                 }
                 await Task.Delay(10);
+
                 collection.AddRange(items);
             }
             catch (Exception ex)
             {
-                Console.WriteLine(ex);
+                Super.Log(ex);
             }
             finally
             {
@@ -381,7 +370,14 @@ public class ScrollingCellsViewModel : ProjectViewModel, IFullscreenGalleryManag
 
                 try
                 {
+                    var data = _mock.GetRandomItems(PageSize);
                     await AddItemsToUi(_mock.GetRandomItems(PageSize), Items);
+
+                    //preload images in background
+                    CancelPreload?.Cancel();
+                    var cancel = new CancellationTokenSource();
+                    CancelPreload = cancel;
+                    SkiaImageManager.Instance.PreloadBanners(data, cancel);
                 }
                 catch (Exception e)
                 {

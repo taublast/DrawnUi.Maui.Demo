@@ -60,14 +60,14 @@
                 VerticalOptions="Fill"
                 ZIndex="-1">
 
-                <draw:SkiaControl.Shadows>
+                <draw:SkiaShape.Shadows>
                     <draw:SkiaShadow
                         Blur="3"
                         Opacity="0.6"
                         X="0"
                         Y="3"
                         Color="#111111" />
-                </draw:SkiaControl.Shadows>
+                </draw:SkiaShape.Shadows>
 
                 <draw:SkiaControl.FillGradient>
 
@@ -106,32 +106,11 @@
                 Type="Column">
 
                 <!--  STATUS BAR  -->
-                <draw:SkiaShape
-                    BackgroundColor="#6A4F42"
+                <draw:SkiaControl
                     HeightRequest="{Binding Presentation.StatusBarHeightRequest}"
                     HorizontalOptions="Fill"
                     Tag="StatusBar"
-                    UseCache="Operations">
-                    <draw:SkiaControl.FillGradient>
-
-                        <draw:SkiaGradient
-                            EndXRatio="1"
-                            EndYRatio="1"
-                            StartXRatio="0.2"
-                            StartYRatio="0.0"
-                            Type="Linear">
-                            <draw:SkiaGradient.Colors>
-                                <Color>#494949</Color>
-                                <Color>#3B3B3B</Color>
-                            </draw:SkiaGradient.Colors>
-                            <draw:SkiaGradient.ColorPositions>
-                                <x:Double>0.0</x:Double>
-                                <x:Double>0.5</x:Double>
-                            </draw:SkiaGradient.ColorPositions>
-                        </draw:SkiaGradient>
-
-                    </draw:SkiaControl.FillGradient>
-                </draw:SkiaShape>
+                    UseCache="Operations"/>
 
                 <!--  btns  -->
                 <navigation:CustomColumnsSelector
@@ -465,7 +444,7 @@
                                         Tag="DrawerContent"
                                         VerticalOptions="Fill">
 
-                                        <draw:SkiaControl.Shadows>
+                                        <draw:SkiaShape.Shadows>
 
                                             <draw:SkiaShadow
                                                 Blur="3"
@@ -474,7 +453,7 @@
                                                 Y="3"
                                                 Color="Black" />
 
-                                        </draw:SkiaControl.Shadows>
+                                        </draw:SkiaShape.Shadows>
 
                                         <draw:SkiaControl.FillGradient>
 
