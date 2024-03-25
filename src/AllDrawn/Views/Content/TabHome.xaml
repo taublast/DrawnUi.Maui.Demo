@@ -60,14 +60,14 @@
                 VerticalOptions="Fill"
                 ZIndex="-1">
 
-                <draw:SkiaControl.Shadows>
+                <draw:SkiaShape.Shadows>
                     <draw:SkiaShadow
                         Blur="3"
                         Opacity="0.6"
                         X="0"
                         Y="3"
                         Color="#111111" />
-                </draw:SkiaControl.Shadows>
+                </draw:SkiaShape.Shadows>
 
                 <draw:SkiaControl.FillGradient>
 
@@ -444,7 +444,7 @@
                                         Tag="DrawerContent"
                                         VerticalOptions="Fill">
 
-                                        <draw:SkiaControl.Shadows>
+                                        <draw:SkiaShape.Shadows>
 
                                             <draw:SkiaShadow
                                                 Blur="3"
@@ -453,7 +453,7 @@
                                                 Y="3"
                                                 Color="Black" />
 
-                                        </draw:SkiaControl.Shadows>
+                                        </draw:SkiaShape.Shadows>
 
                                         <draw:SkiaControl.FillGradient>
 

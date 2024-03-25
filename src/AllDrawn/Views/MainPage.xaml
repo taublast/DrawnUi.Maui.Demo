@@ -6,8 +6,10 @@
     xmlns:content="using:AppoMobi.Maui.DrawnUi.Demo.Views"
     xmlns:draw="http://schemas.appomobi.com/drawnUi/2023/draw"
     xmlns:navigation="using:AppoMobi.Maui.DrawnUi.Demo.Views.Controls.Navigation"
+    xmlns:viewModels="using:AppoMobi.Maui.DrawnUi.Demo.ViewModels"
     BackgroundColor="Black"
     HorizontalOptions="Fill"
+    x:DataType="viewModels:MainPageViewModel"
     VerticalOptions="Fill">
 
     <draw:SkiaControl.FillGradient>
@@ -96,7 +98,7 @@
                     </draw:SkiaGradient>
 
                 </draw:SkiaShape.StrokeGradient>
-                <draw:SkiaControl.Shadows>
+                <draw:SkiaShape.Shadows>
                     <draw:SkiaShadow
                         Blur="5"
                         Opacity="0.5"
@@ -104,7 +106,7 @@
                         Y="-1"
                         Color="#000000" />
 
-                </draw:SkiaControl.Shadows>
+                </draw:SkiaShape.Shadows>
 
             </draw:SkiaShape>
         </draw:SkiaLayout>

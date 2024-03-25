@@ -36,7 +36,7 @@
                 Tag="TabsBackground"
                 VerticalOptions="Fill"
                 ZIndex="-1">
-                <draw:SkiaControl.Shadows>
+                <draw:SkiaShape.Shadows>
 
                     <draw:SkiaShadow
                         Blur="3"
@@ -45,7 +45,7 @@
                         Y="3"
                         Color="{StaticResource Gray400}" />
 
-                </draw:SkiaControl.Shadows>
+                </draw:SkiaShape.Shadows>
             </draw:SkiaShape>
 
             <!--  container navbar without status  -->

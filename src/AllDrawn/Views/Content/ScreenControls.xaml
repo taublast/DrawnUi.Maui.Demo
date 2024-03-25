@@ -6,10 +6,12 @@
     xmlns:controls="clr-namespace:AppoMobi.Maui.DrawnUi.Demo.Views.Controls"
     xmlns:draw="http://schemas.appomobi.com/drawnUi/2023/draw"
     xmlns:navigation1="clr-namespace:AppoMobi.Maui.DrawnUi.Demo.Views.Controls.Navigation"
+    xmlns:viewModels="using:AppoMobi.Maui.DrawnUi.Demo.ViewModels"
     BackgroundColor="Black"
     HorizontalOptions="Fill"
     Spacing="0"
     Type="Column"
+    x:DataType="viewModels:ProjectViewModel"
     VerticalOptions="Fill">
 
     <draw:SkiaControl.FillGradient>
