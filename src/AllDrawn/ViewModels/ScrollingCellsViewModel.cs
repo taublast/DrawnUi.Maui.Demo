@@ -264,7 +264,7 @@ public class ScrollingCellsViewModel : ProjectViewModel, IFullscreenGalleryManag
 
                     var cancel = new CancellationTokenSource();
                     CancelPreloadSmall = cancel;
-                    Tasks.StartDelayed(TimeSpan.FromSeconds(3), () =>
+                    Tasks.StartDelayed(TimeSpan.FromSeconds(1), () =>
                     {
                         SkiaImageManager.Instance.PreloadBanners(data, cancel);
                     });
@@ -300,7 +300,7 @@ public class ScrollingCellsViewModel : ProjectViewModel, IFullscreenGalleryManag
                     //preload images in background
                     var cancel = new CancellationTokenSource();
                     CancelPreload = cancel;
-                    Tasks.StartDelayed(TimeSpan.FromSeconds(3), () =>
+                    Tasks.StartDelayed(TimeSpan.FromSeconds(1), () =>
                     {
                         SkiaImageManager.Instance.PreloadBanners(data, cancel); //you can use PreloadImages intead
                     });
@@ -390,7 +390,7 @@ public class ScrollingCellsViewModel : ProjectViewModel, IFullscreenGalleryManag
                     //preload images in background
                     var cancel = new CancellationTokenSource();
                     CancelPreload = cancel;
-                    Tasks.StartDelayed(TimeSpan.FromSeconds(3), () =>
+                    Tasks.StartDelayed(TimeSpan.FromSeconds(1), () =>
                     {
                         SkiaImageManager.Instance.PreloadBanners(data, cancel);
                     });
