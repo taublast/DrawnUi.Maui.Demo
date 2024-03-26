@@ -41,7 +41,7 @@ public partial class AppShell : SkiaShell
 
 #if DEBUG
             //ViewsAdapter.LogEnabled = true;
-            //SkiaImageLoadingManager.LogEnabled = true;
+            //SkiaImageManager.LogEnabled = true;
             //TouchEffect.LogEnabled = true;
             //SkiaShell.LogEnabled = true;
             //SkiaLabel.DebugColor = Color.Parse("#22ff0000");
