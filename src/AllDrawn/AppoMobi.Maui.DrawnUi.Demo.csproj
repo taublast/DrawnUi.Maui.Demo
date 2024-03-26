@@ -41,7 +41,7 @@
     <ProjectReference Include="..\..\..\DrawnUi.Maui\src\Engine\DrawnUi.Maui.csproj" />
   </ItemGroup>
     <ItemGroup Condition="'$(UseNuget)' == 'true'"  >
-    <PackageReference Include="AppoMobi.Maui.DrawnUi" Version="1.3.0.22-pre" />
+    <PackageReference Include="AppoMobi.Maui.DrawnUi" Version="1.3.0.23-pre" />
   </ItemGroup>
     
   <ItemGroup>    
