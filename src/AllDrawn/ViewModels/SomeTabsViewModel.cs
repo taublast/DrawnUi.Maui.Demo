@@ -237,7 +237,7 @@ public class SomeTabsViewModel : ProjectViewModel, IFullscreenGalleryManager
         {
             return new Command(async () =>
             {
-                SetImage();
+                //SetImage();
 
                 if (ItemsSmall.Count == 0)
                 {

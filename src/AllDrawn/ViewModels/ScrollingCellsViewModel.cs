@@ -254,21 +254,15 @@ public class ScrollingCellsViewModel : ProjectViewModel, IFullscreenGalleryManag
         {
             return new Command(async () =>
             {
-                //if (ItemsSmall.Count == 0)
-                {
-                    _mock.ResetIndexSmall();
-                    var data = _mock.GetRandomSmallItems(10);
+                CancelPreloadSmall?.Cancel();
+                _mock.ResetIndexSmall();
 
-                    CancelPreloadSmall?.Cancel();
-                    await AddItemsToUi(data, ItemsSmall, true);
+                var data = _mock.GetRandomSmallItems(10);
+                var cancel = new CancellationTokenSource(TimeSpan.FromSeconds(5));
+                CancelPreloadSmall = cancel;
+                await SkiaImageManager.Instance.PreloadBanners(data, cancel);
 
-                    var cancel = new CancellationTokenSource();
-                    CancelPreloadSmall = cancel;
-                    Tasks.StartDelayed(TimeSpan.FromSeconds(1), () =>
-                    {
-                        SkiaImageManager.Instance.PreloadBanners(data, cancel);
-                    });
-                }
+                await AddItemsToUi(data, ItemsSmall, true);
             });
         }
     }
@@ -295,16 +289,12 @@ public class ScrollingCellsViewModel : ProjectViewModel, IFullscreenGalleryManag
                     _mock.ResetIndex();
 
                     var data = _mock.GetRandomItems(PageSize);
-                    await AddItemsToUi(data, Items, true, Items.Count != 0);
-
                     //preload images in background
-                    var cancel = new CancellationTokenSource();
+                    var cancel = new CancellationTokenSource(TimeSpan.FromSeconds(5));
                     CancelPreload = cancel;
-                    Tasks.StartDelayed(TimeSpan.FromSeconds(1), () =>
-                    {
-                        SkiaImageManager.Instance.PreloadBanners(data, cancel); //you can use PreloadImages intead
-                    });
+                    await SkiaImageManager.Instance.PreloadBanners(data, cancel); //you can use PreloadImages intead
 
+                    await AddItemsToUi(data, Items, true, Items.Count != 0);
                 }
                 catch (Exception e)
                 {
@@ -352,14 +342,13 @@ public class ScrollingCellsViewModel : ProjectViewModel, IFullscreenGalleryManag
             }
         }
 
-        //simulate internet load for demo only!
-        await Task.Delay(1500);
+        //simulate internet/db delay for demo only!
+        //todo remove this !!!
+        await Task.Delay(50);
 
         if (mainThread)
             await Dispatcher.DispatchAsync(async () =>
             {
-
-
                 await Action();
             });
         else
@@ -385,15 +374,12 @@ public class ScrollingCellsViewModel : ProjectViewModel, IFullscreenGalleryManag
                     var data = _mock.GetRandomItems(PageSize);
 
                     CancelPreload?.Cancel();
-                    await AddItemsToUi(_mock.GetRandomItems(PageSize), Items);
-
                     //preload images in background
-                    var cancel = new CancellationTokenSource();
+                    var cancel = new CancellationTokenSource(TimeSpan.FromSeconds(5));
                     CancelPreload = cancel;
-                    Tasks.StartDelayed(TimeSpan.FromSeconds(1), () =>
-                    {
-                        SkiaImageManager.Instance.PreloadBanners(data, cancel);
-                    });
+                    await SkiaImageManager.Instance.PreloadBanners(data, cancel);
+
+                    await AddItemsToUi(data, Items);
                 }
                 catch (Exception e)
                 {

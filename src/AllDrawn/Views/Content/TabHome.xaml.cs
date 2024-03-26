@@ -8,7 +8,7 @@ public partial class TabScrollCells
     {
         InitializeComponent();
     }
-    
+
     private void OnEventStackCellsRendered(object sender, EventArgs e)
     {
         if (sender is SkiaLayout layout)
