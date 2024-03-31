@@ -1,14 +1,18 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<draw:ElementAdapter
+<content:CameraLayout
     x:Class="AppoMobi.Maui.DrawnUi.Demo.Views.ScreenCameraPhoto"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:content="clr-namespace:AppoMobi.Maui.DrawnUi.Demo.Views"
     xmlns:controls="clr-namespace:AppoMobi.Maui.DrawnUi.Demo.Views.Controls"
     xmlns:draw="http://schemas.appomobi.com/drawnUi/2023/draw"
-    xmlns:viewModels="clr-namespace:AppoMobi.Maui.DrawnUi.Demo.ViewModels">
+    xmlns:viewModels="clr-namespace:AppoMobi.Maui.DrawnUi.Demo.ViewModels"
+    Margin="0,0"
+    x:DataType="viewModels:TakePictureViewModel"
+    HorizontalOptions="Fill"
+    VerticalOptions="Fill">
 
-    <draw:ElementAdapter.Resources>
+    <content:CameraLayout.Resources>
         <ResourceDictionary>
 
             <x:String x:Key="SvgShutter">
@@ -20,86 +24,81 @@
             </x:String>
 
         </ResourceDictionary>
-    </draw:ElementAdapter.Resources>
+    </content:CameraLayout.Resources>
 
-    <!--  WRAPPER  -->
-    <content:CameraLayout
-        Margin="0,0"
-        x:DataType="viewModels:TakePictureViewModel"
+
+
+
+    <!--  CAMERA PREVIEW ETC  -->
+    <draw:SkiaCamera
+        x:Name="CameraControl"
+        BackgroundColor="Black"
+        CapturePhotoQuality="Medium"
+        Facing="Default"
         HorizontalOptions="Fill"
-        VerticalOptions="Fill">
+        Tag="Camera"
+        VerticalOptions="Fill"
+        ZIndex="-1"
+        ZoomLimitMax="10"
+        ZoomLimitMin="1" />
+
+    <!--  MASK  -->
+    <draw:SkiaHoverMask
+        Margin="0"
+        BackgroundColor="#33000000"
+        CornerRadius="40"
+        HorizontalOptions="Fill"
+        LockRatio="-1"
+        Tag="Mask"
+        Type="Rectangle"
+        VerticalOptions="Center" />
+
+    <!--  CLOSE ICON  -->
+    <draw:SkiaSvg
+        x:Name="IconClose"
+        Margin="0,56,32,0"
+        HorizontalOptions="End"
+        LockRatio="1"
+        SvgString="{StaticResource SvgClose}"
+        TintColor="White"
+        WidthRequest="16" />
+
+    <!--  CLOSE HOTSPOT  -->
+    <draw:SkiaHotspot
+        Margin="0,24,8,0"
+        AnimationTapped="Ripple"
+        CommandTapped="{Binding CommandCloseModal}"
+        HeightRequest="40"
+        HorizontalOptions="End"
+        LockRatio="1"
+        TransformView="{x:Reference IconClose}"
+        VerticalOptions="Start"
+        WidthRequest="75"
+        ZIndex="1" />
+
+    <!--  CONTROLS  -->
+    <controls:SmallButton
+        Margin="8,32,0,0"
+        Tapped="TappedSwitchCamera"
+        Text="Source"
+        WidthRequest="100" />
+
+    <controls:SmallButton
+        Margin="8,80,0,0"
+        IsVisible="{Binding IsDebug}"
+        Tapped="TappedTurnCamera"
+        Text="On/Off"
+        WidthRequest="100" />
+
+    <controls:SmallButton
+        Margin="124,32,0,0"
+        Tapped="TappedCycleEffects"
+        Text="Effect"
+        WidthRequest="100" />
 
 
-        <!--  CAMERA PREVIEW ETC  -->
-        <draw:SkiaCamera
-            x:Name="CameraControl"
-            BackgroundColor="Black"
-            CapturePhotoQuality="Medium"
-            Facing="Default"
-            HorizontalOptions="Fill"
-            Tag="Camera"
-            VerticalOptions="Fill"
-            ZIndex="-1"
-            ZoomLimitMax="10"
-            ZoomLimitMin="1" />
-
-        <!--  MASK  -->
-        <draw:SkiaHoverMask
-            Margin="0"
-            BackgroundColor="#33000000"
-            CornerRadius="40"
-            HorizontalOptions="Fill"
-            LockRatio="-1"
-            Tag="Mask"
-            Type="Rectangle"
-            VerticalOptions="Center" />
-
-        <!--  CLOSE ICON  -->
-        <draw:SkiaSvg
-            x:Name="IconClose"
-            Margin="0,56,32,0"
-            HorizontalOptions="End"
-            LockRatio="1"
-            SvgString="{StaticResource SvgClose}"
-            TintColor="White"
-            WidthRequest="16" />
-
-        <!--  CLOSE HOTSPOT  -->
-        <draw:SkiaHotspot
-            Margin="0,24,8,0"
-            AnimationTapped="Ripple"
-            CommandTapped="{Binding CommandCloseModal}"
-            HeightRequest="40"
-            HorizontalOptions="End"
-            LockRatio="1"
-            TransformView="{x:Reference IconClose}"
-            VerticalOptions="Start"
-            WidthRequest="75"
-            ZIndex="1" />
-
-        <!--  CONTROLS  -->
-        <controls:SmallButton
-            Margin="8,32,0,0"
-            Tapped="TappedSwitchCamera"
-            Text="Source"
-            WidthRequest="100" />
-
-        <controls:SmallButton
-            Margin="8,80,0,0"
-            IsVisible="{Binding IsDebug}"
-            Tapped="TappedTurnCamera"
-            Text="On/Off"
-            WidthRequest="100" />
-
-        <controls:SmallButton
-            Margin="124,32,0,0"
-            Tapped="TappedCycleEffects"
-            Text="Effect"
-            WidthRequest="100" />
-
-
-        <!--  RESUME CAMERA  -->
-        <!--<controls:SmallButton
+    <!--  RESUME CAMERA  -->
+    <!--<controls:SmallButton
             HorizontalOptions="Center"
             IsVisible="{Binding ShowResume}"
             Tapped="TappedResume"
@@ -108,67 +107,67 @@
             WidthRequest="150"
             ZIndex="110" />-->
 
-        <draw:SkiaHotspot
+    <draw:SkiaHotspot
+        HorizontalOptions="Center"
+        IsVisible="{Binding ShowResume}"
+        LockRatio="1"
+        Tapped="TappedResume"
+        VerticalOptions="Center"
+        WidthRequest="290"
+        ZIndex="110" />
+
+    <!--  bottom tabs wrapper [cached]  -->
+    <!--  we use padding to reserve space for shadow  -->
+    <draw:SkiaLayout
+        Padding="0,8,0,0"
+        HorizontalOptions="Fill"
+        IsClippedToBounds="True"
+        UseCache="GPU"
+        VerticalOptions="End"
+        ZIndex="90">
+
+        <!--  middle button CAPTURE  -->
+        <draw:SkiaShape
+            draw:AddGestures.CommandTapped="{Binding CommandCaptureStillPhoto}"
+            BackgroundColor="{StaticResource ColorPrimary}"
+            CornerRadius="20"
+            HeightRequest="76"
             HorizontalOptions="Center"
-            IsVisible="{Binding ShowResume}"
-            LockRatio="1"
-            Tapped="TappedResume"
-            VerticalOptions="Center"
-            WidthRequest="290"
-            ZIndex="110" />
+            MarginBottom="16"
+            VerticalOptions="Start"
+            WidthRequest="76"
+            ZIndex="96">
 
-        <!--  bottom tabs wrapper [cached]  -->
-        <!--  we use padding to reserve space for shadow  -->
-        <draw:SkiaLayout
-            Padding="0,8,0,0"
-            HorizontalOptions="Fill"
-            IsClippedToBounds="True"
-            UseCache="GPU"
-            VerticalOptions="End"
-            ZIndex="90">
-
-            <!--  middle button CAPTURE  -->
-            <draw:SkiaShape
-                draw:AddGestures.CommandTapped="{Binding CommandCaptureStillPhoto}"
-                BackgroundColor="{StaticResource ColorPrimary}"
-                CornerRadius="20"
-                HeightRequest="76"
+            <draw:SkiaSvg
+                HeightRequest="32"
                 HorizontalOptions="Center"
-                MarginBottom="16"
-                VerticalOptions="Start"
-                WidthRequest="76"
-                ZIndex="96">
+                LockRatio="1"
+                SvgString="{x:StaticResource SvgShutter}"
+                TintColor="{x:StaticResource ColorTextButton}"
+                UseCache="Operations"
+                VerticalOptions="Center" />
 
-                <draw:SkiaSvg
-                    HeightRequest="32"
-                    HorizontalOptions="Center"
-                    LockRatio="1"
-                    SvgString="{x:StaticResource SvgShutter}"
-                    TintColor="{x:StaticResource ColorTextButton}"
-                    UseCache="Operations"
-                    VerticalOptions="Center" />
+            <draw:SkiaShape.Shadows>
 
-                <draw:SkiaShape.Shadows>
+                <draw:SkiaShadow
+                    Blur="8"
+                    Opacity="0.33"
+                    X="4"
+                    Y="4"
+                    Color="{StaticResource ColorPrimary}" />
 
-                    <draw:SkiaShadow
-                        Blur="8"
-                        Opacity="0.33"
-                        X="4"
-                        Y="4"
-                        Color="{StaticResource ColorPrimary}" />
+            </draw:SkiaShape.Shadows>
 
-                </draw:SkiaShape.Shadows>
+        </draw:SkiaShape>
 
-            </draw:SkiaShape>
+    </draw:SkiaLayout>
 
-        </draw:SkiaLayout>
+    <!--  catch pinch to zoom  -->
+    <draw:SkiaHotspotZoom
+        ZoomMax="3"
+        ZoomMin="1"
+        Zoomed="OnZoomed" />
 
-        <!--  catch pinch to zoom  -->
-        <draw:SkiaHotspotZoom
-            ZoomMax="3"
-            ZoomMin="1"
-            Zoomed="OnZoomed" />
 
-    </content:CameraLayout>
 
-</draw:ElementAdapter>
+</content:CameraLayout>
