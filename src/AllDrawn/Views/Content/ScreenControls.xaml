@@ -7,11 +7,11 @@
     xmlns:draw="http://schemas.appomobi.com/drawnUi/2023/draw"
     xmlns:navigation1="clr-namespace:AppoMobi.Maui.DrawnUi.Demo.Views.Controls.Navigation"
     xmlns:viewModels="using:AppoMobi.Maui.DrawnUi.Demo.ViewModels"
+    x:DataType="viewModels:ProjectViewModel"
     BackgroundColor="Black"
     HorizontalOptions="Fill"
     Spacing="0"
     Type="Column"
-    x:DataType="viewModels:ProjectViewModel"
     VerticalOptions="Fill">
 
     <draw:SkiaControl.FillGradient>
@@ -64,7 +64,8 @@
                 HorizontalOptions="Fill"
                 MinimumHeightRequest="60"
                 Spacing="24"
-                Type="Row">
+                Type="Row"
+                UseCache="ImageDoubleBuffered">
 
                 <controls:SkiaSwitchCupertino
                     ColorFrameOn="{StaticResource ColorAccent}"
@@ -84,23 +85,24 @@
 
             </draw:SkiaLayout>
 
-            <!--controls have UseCache="ImageDOubleBuffered" inside-->
+            <!--  controls have UseCache="ImageDOubleBuffered" inside  -->
 
             <draw:SkiaLayout
                 Padding="50,24"
                 BackgroundColor="#fefefe"
                 HorizontalOptions="Fill"
-                Type="Column">
+                Type="Column"
+                UseCache="Operations">
 
                 <draw:SkiaLabel
-                    UseCache="Operations"
                     Margin="0,16"
                     Padding="2"
                     BackgroundColor="#11000000"
                     HorizontalOptions="Fill"
                     HorizontalTextAlignment="Center"
                     Text="Fun Slider"
-                    TextColor="Black" />
+                    TextColor="Black"
+                    UseCache="Operations" />
 
                 <controls:SkiaSliderFun
                     HorizontalOptions="Fill"
@@ -111,14 +113,14 @@
                     Step="0.01" />
 
                 <draw:SkiaLabel
-                    UseCache="Operations"
                     Margin="0,16"
                     Padding="2"
                     BackgroundColor="#11000000"
                     HorizontalOptions="Fill"
                     HorizontalTextAlignment="Center"
                     Text="Tech Slider"
-                    TextColor="Black" />
+                    TextColor="Black"
+                    UseCache="Operations" />
 
                 <controls:SkiaSliderTech
                     HorizontalOptions="Fill"
@@ -129,14 +131,14 @@
                     Step="0.01" />
 
                 <draw:SkiaLabel
-                    UseCache="Operations"
                     Margin="0,16"
                     Padding="2"
                     BackgroundColor="#11000000"
                     HorizontalOptions="Fill"
                     HorizontalTextAlignment="Center"
                     Text="Simple Slider"
-                    TextColor="Black" />
+                    TextColor="Black"
+                    UseCache="Operations" />
 
                 <controls:SkiaSliderRanged
                     End="10"
@@ -151,13 +153,13 @@
                     ValueStringFormat="C" />
 
                 <draw:SkiaLabel
-                    UseCache="Operations"
                     Margin="0,16"
                     Padding="2"
                     BackgroundColor="#11000000"
                     HorizontalOptions="Fill"
                     HorizontalTextAlignment="Center"
-                    Text="Range Slider" />
+                    Text="Range Slider"
+                    UseCache="Operations" />
 
                 <controls:SkiaSliderRanged
                     EnableRange="True"
@@ -174,15 +176,15 @@
             </draw:SkiaLayout>
 
             <draw:SkiaMarkdownLabel
-                UseCache="Operations"
                 FontFamily="FontText"
                 FontSize="18"
                 HorizontalOptions="Center"
                 HorizontalTextAlignment="Center"
-                MarginTop="16"
                 MarginBottom="60"
+                MarginTop="16"
                 Text="🚧 Under heavy construction 🚧"
-                TextColor="#66ffffff" />
+                TextColor="#66ffffff"
+                UseCache="Operations" />
 
         </draw:SkiaLayout>
 

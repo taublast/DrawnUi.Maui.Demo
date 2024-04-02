@@ -107,7 +107,7 @@
 
                 <!--  STATUS BAR  -->
                 <draw:SkiaControl
-                    HeightRequest="{Binding Presentation.StatusBarHeightRequest}"
+                    HeightRequest="{Binding Presentation.Shell.TopInsets}"
                     HorizontalOptions="Fill"
                     Tag="StatusBar"
                     UseCache="Operations"/>

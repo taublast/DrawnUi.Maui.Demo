@@ -30,7 +30,6 @@
 
     <draw:SkiaViewSwitcher
         x:Name="Switcher"
-        UseCache="Operations"
         AnimateTabs="False"
         AnimationEasing="{x:Static Easing.CubicOut}"
         AnimationSpeed="250"
@@ -121,7 +120,6 @@
             ZIndex="-2">
 
             <draw:SkiaBackdrop
-                CacheSource="{x:Reference Switcher}"
                 Blur="10"
                 HorizontalOptions="Fill"
                 Tag="Blur"
