@@ -65,9 +65,9 @@ public partial class AppShell : SkiaShell
         }
     }
 
-    public override void OnNavBarInvalidated()
+    public override void OnLayoutInvalidated()
     {
-        base.OnNavBarInvalidated();
+        base.OnLayoutInvalidated();
 
         _vm.Presentation.UpdateControls();
     }

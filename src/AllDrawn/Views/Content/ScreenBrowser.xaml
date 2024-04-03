@@ -1,18 +1,20 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<draw:ElementAdapter
+<draw:SkiaLayout
     x:Class="AppoMobi.Maui.DrawnUi.Demo.Views.ScreenBrowser"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:draw="http://schemas.appomobi.com/drawnUi/2023/draw"
     xmlns:drawnUi="clr-namespace:AppoMobi.Maui.DrawnUi;assembly=AppoMobi.Maui.DrawnUi"
+    
+    x:Name="MainLayout"
+    Margin="0,40,0,0"
+    x:DataType="viewModels1:SimplePageViewModel"
+    HorizontalOptions="Fill"
+    VerticalOptions="Fill"
+    
     xmlns:viewModels1="clr-namespace:AppoMobi.Maui.DrawnUi.Demo.ViewModels">
 
-    <draw:SkiaLayout
-        x:Name="MainLayout"
-        Margin="0,40,0,0"
-        x:DataType="viewModels1:SimplePageViewModel"
-        HorizontalOptions="Fill"
-        VerticalOptions="Fill">
+ 
 
         <!--  HEADER  -->
         <!--  top nav bar wrapper [cached]  -->
@@ -109,6 +111,6 @@
         </draw:SkiaMauiElement>
 
 
-    </draw:SkiaLayout>
+ 
 
-</draw:ElementAdapter>
+</draw:SkiaLayout>

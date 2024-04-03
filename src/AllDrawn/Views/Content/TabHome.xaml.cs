@@ -24,6 +24,7 @@ public partial class TabScrollCells
     }
 
 }
+
 public class AnimateVerticalStack : AnimateHorizontalStack
 {
 
@@ -41,51 +42,16 @@ public class AnimateVerticalStack : AnimateHorizontalStack
             (c) => c.TranslateToAsync(0, 0, 500));
     }
 
-    public override ScaledSize Measure(float widthConstraint, float heightConstraint, float scale)
-    {
-        var check = this._emptyView.IsVisible;
 
-        return base.Measure(widthConstraint, heightConstraint, scale);
-    }
-
-    protected override void ApplyIsEmpty(bool value)
-    {
-        // if (!value && wasEmpty)
-        // {
-        //     //overriding to fade out
-        //     _emptyView?.FadeToAsync(0, 300)
-        //         .ContinueWith(async (s) =>
-        //     {
-        //         await Task.Delay(10); //update ui with last opacity=0
-        //         try
-        //         {
-        //             base.ApplyIsEmpty(false);
-        //         }
-        //         catch (Exception e)
-        //         {
-        //             Super.Log(e);
-        //         }
-        //     });
-        //
-        //     return; //fake
-        // }
-
-        base.ApplyIsEmpty(value);
-    }
 }
 
 public class AnimateHorizontalStack : SkiaLayout
 {
-    uint speed = 750;
 
     bool animated = false;
     bool hasData;
     protected bool readyForAnimation;
 
-    public override ScaledSize Measure(float widthConstraint, float heightConstraint, float scale)
-    {
-        return base.Measure(widthConstraint, heightConstraint, scale);
-    }
 
     public AnimateHorizontalStack()
     {
@@ -106,8 +72,6 @@ public class AnimateHorizontalStack : SkiaLayout
         }
     }
 
-
-
     protected override async void OnLayoutChanged()
     {
         base.OnLayoutChanged();
@@ -125,8 +89,8 @@ public class AnimateHorizontalStack : SkiaLayout
     protected virtual async Task Animate()
     {
         await this.AnimateWith(
-            (c) => c.FadeToAsync(1, speed),
-            (c) => c.TranslateToAsync(0, 0, speed));
+            (c) => c.FadeToAsync(1, 700),
+            (c) => c.TranslateToAsync(0, 0, 350));
     }
 
     async Task<bool> AnimateOnAppearing()
@@ -161,7 +125,7 @@ public class AnimateHorizontalStack : SkiaLayout
 
         if (newvalue && LayoutReady)
         {
-            AnimateOnAppearing();
+            AnimateOnAppearing().ConfigureAwait(false);
         }
     }
 

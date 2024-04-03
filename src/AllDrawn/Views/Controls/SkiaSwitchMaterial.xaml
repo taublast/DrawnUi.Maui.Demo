@@ -5,7 +5,9 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:draw="http://schemas.appomobi.com/drawnUi/2023/draw"
     x:Name="ThisControl"
-    HeightRequest="28"
+    Padding="3"
+    HeightRequest="30"
+    UseCache="Image"
     WidthRequest="56">
 
     <draw:SkiaShape
@@ -17,11 +19,10 @@
         VerticalOptions="Fill" />
 
     <draw:SkiaShape
-        Tag="Thumb"
         x:Name="ThumbRef"
-        Margin="0"
         HorizontalOptions="Start"
         LockRatio="-1"
+        Tag="Thumb"
         Type="Circle"
         VerticalOptions="Fill">
 
@@ -38,9 +39,9 @@
 
     </draw:SkiaShape>
 
-    <draw:SkiaHotspot 
-        TransformView="{x:Reference ThumbRef}"
-        Tapped="OnTapped" />
+    <draw:SkiaHotspot
+        Tapped="OnTapped"
+        TransformView="{x:Reference ThumbRef}" />
 
 </draw:SkiaSwitch>
 
