@@ -200,6 +200,7 @@
                 Bounces="True"
                 FrictionScrolled="0.3"
                 HeightRequest="140"
+                SnapToChildren="Side"                
                 HorizontalOptions="Fill"
                 LockChildrenGestures="PassTap"
                 Orientation="Horizontal"

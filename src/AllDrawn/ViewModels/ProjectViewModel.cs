@@ -15,6 +15,24 @@ public class ProjectViewModel : BaseViewModel
         Presentation = navModel;
     }
 
+
+
+    public ICommand CommandToggleBlur
+    {
+        get
+        {
+            return new Command(async (context) =>
+            {
+
+                if (CheckLockAndSet())
+                    return;
+
+                Presentation.HasBlur = !Presentation.HasBlur;
+
+            });
+        }
+    }
+
     public NavigationViewModel Presentation { get; }
 
     public ICommand CommandShareUrl

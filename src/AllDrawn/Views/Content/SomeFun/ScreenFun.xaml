@@ -53,6 +53,7 @@
     </controls:ScrollingBanner>
 
     <controls:Lake
+        UseCache="Operations"
         Margin="0,0,0,75"
         HorizontalOptions="Fill"
         Tag="Lake"
@@ -64,7 +65,7 @@
             MarginTop="80"
             Opacity="0.5"
             Type="Column"
-            UseCache="GPU"
+            UseCache="Operations"
             ZIndex="-1">
 
             <draw:SkiaLabel
@@ -122,10 +123,9 @@
             </draw:SkiaLabel.FillGradient>
         </controls:DroppingLetters>
 
-        <!--  still don't know why fps is better here with Operations instead of Bitmap ahaha  -->
         <draw:SkiaLayout
             Tag="Duck"
-            UseCache="GPU">
+            UseCache="Operations">
 
             <!--  SvgString="{StaticResource SvgDuck}"  -->
 
@@ -147,7 +147,6 @@
                 ZIndex="-1" />
 
         </draw:SkiaLayout>
-
 
     </controls:Lake>
 
