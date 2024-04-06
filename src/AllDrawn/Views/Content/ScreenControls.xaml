@@ -92,7 +92,7 @@
                 BackgroundColor="#fefefe"
                 HorizontalOptions="Fill"
                 Type="Column"
-                UseCache="Operations">
+                UseCache="ImageDoubleBuffered">
 
                 <draw:SkiaLabel
                     Margin="0,16"

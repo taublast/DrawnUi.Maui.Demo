@@ -183,7 +183,7 @@
                 <draw:SkiaLayout
                     Padding="0,8"
                     draw:AddGestures.AnimationTapped="Ripple"
-                    draw:AddGestures.CommandTapped="{Binding CommandAbout}"
+                    draw:AddGestures.CommandTapped="{Binding CommandToggleBlur}"
                     BackgroundColor="Transparent"
                     HeightRequest="-1"
                     HorizontalOptions="Fill"
@@ -198,7 +198,7 @@
                         HorizontalTextAlignment="Center"
                         LineSpacing="1.33"
                         ParagraphSpacing="0"
-                        Text="App totally __drawn on one canvas__ using _SkiaSharp_ 🎨🖌❤.&#x0a;Recycled 💯 cells are loading images from internet in realtime. 🔥 Tap this header for more info. 🔎"
+                        Text="App totally __drawn on one canvas__ using _SkiaSharp_ 🎨🖌❤.&#x0a;Recycled 💯 cells are loading images from internet in realtime. 🔥 Tap this header to toggle blurred tabbar. 🔎"
                         TextColor="Black"
                         UseCache="GPU" />
 

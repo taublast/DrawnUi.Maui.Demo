@@ -78,6 +78,22 @@ public class NavigationViewModel : BaseViewModel
 
     #endregion
 
+    private bool _HasBlur;
+    public bool HasBlur
+    {
+        get
+        {
+            return _HasBlur;
+        }
+        set
+        {
+            if (_HasBlur != value)
+            {
+                _HasBlur = value;
+                OnPropertyChanged();
+            }
+        }
+    }
 
     public NavigationViewModel()
     {
@@ -715,7 +731,7 @@ public class NavigationViewModel : BaseViewModel
         BottomTabsUnderPadding = BottomTabsHeightRequest + PaddingBottom - 2; //for shadow
 
         NavAndTabsMargin = new Thickness(0, PaddingHeightRequest, 0, 0);
-        
+
     }
 
     public double BottomTabsWithInsetsHeightRequest

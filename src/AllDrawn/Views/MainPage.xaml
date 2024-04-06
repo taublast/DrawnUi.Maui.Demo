@@ -113,6 +113,7 @@
         <!--  SkiaBackdrop  -->
         <!--  cached never  -->
         <draw:SkiaShape
+            IsVisible="{Binding Presentation.HasBlur}"
             Margin="0,16,0,-2"
             CornerRadius="20,0"
             HorizontalOptions="Fill"

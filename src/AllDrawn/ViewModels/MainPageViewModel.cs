@@ -149,6 +149,9 @@ namespace AppoMobi.Maui.DrawnUi.Demo.ViewModels
             }
         }
 
+
+
+
         private bool _DrawerOpen;
         public bool DrawerOpen
         {
