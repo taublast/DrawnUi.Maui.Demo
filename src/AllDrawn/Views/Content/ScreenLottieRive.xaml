@@ -4,13 +4,13 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:draw="http://schemas.appomobi.com/drawnUi/2023/draw"
-    xmlns:viewModels="using:AppoMobi.Maui.DrawnUi.Demo.ViewModels"
     xmlns:navigation="clr-namespace:AppoMobi.Maui.DrawnUi.Demo.Views.Controls.Navigation"
+    xmlns:viewModels="using:AppoMobi.Maui.DrawnUi.Demo.ViewModels"
     x:DataType="viewModels:SimplePageViewModel"
     BackgroundColor="Black"
     HorizontalOptions="Fill"
-    Type = "Column"
     Spacing="0"
+    Type="Column"
     VerticalOptions="Fill">
 
     <draw:SkiaControl.FillGradient>
@@ -30,13 +30,12 @@
 
     </draw:SkiaControl.FillGradient>
 
-
     <!--  STATUS BAR  -->
     <draw:SkiaShape
         BackgroundColor="Black"
         HeightRequest="{Binding Presentation.StatusBarHeightRequest}"
         HorizontalOptions="Fill"
-        Tag="StatusBar" />
+        Tag="StatusBar2" />
 
     <!--  NAVBAR  -->
     <navigation:NavBarStandart />
@@ -48,19 +47,21 @@
         <draw:SkiaLayout
             Padding="16"
             HorizontalOptions="Fill"
-            Type = "Column"
-            Spacing="24">
+            Spacing="24"
+            Type="Column">
 
             <!--  RIVE!  -->
 
             <draw:SkiaLayout
                 HorizontalOptions="Fill"
-                Type = "Column"
-                Spacing="24">
-                
+                Spacing="24"
+                Type="Column">
+
                 <draw:SkiaControl.IsVisible>
                     <OnPlatform x:TypeArguments="x:Boolean">
-                        <On Platform="WinUI" Value="True" />
+                        <On
+                            Platform="WinUI"
+                            Value="True" />
                     </OnPlatform>
                 </draw:SkiaControl.IsVisible>
 
@@ -81,7 +82,7 @@
                     WidthRequest="180" />
 
                 <draw:SkiaControl
-                    BackgroundColor="#88665"
+                    BackgroundColor="#886650"
                     HeightRequest="1"
                     HorizontalOptions="Fill" />
 
@@ -130,6 +131,5 @@
         </draw:SkiaLayout>
 
     </draw:SkiaScroll>
-
 
 </draw:SkiaLayout>

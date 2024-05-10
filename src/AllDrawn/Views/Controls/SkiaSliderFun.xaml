@@ -9,22 +9,16 @@
     HorizontalOptions="Fill"
     Tag="SliderFun"
     Type="Column"
-    UseCache="Image">
+    UseCache="None">
 
     <draw:SkiaSlider.Resources>
-        <ResourceDictionary>
-
-
-
-        </ResourceDictionary>
+        <ResourceDictionary />
     </draw:SkiaSlider.Resources>
-
-
 
     <!--  MAIN GRID  -->
     <draw:SkiaLayout
         x:Name="ThisSliderGrid"
-        Margin="0,8,0,0"
+        Margin="0,0,0,0"
         HeightRequest="{Binding Source={x:Reference ThisSlider}, Path=SliderHeight}"
         HorizontalOptions="Fill"
         Tag="Trail"
@@ -36,9 +30,8 @@
             CornerRadius="6"
             HeightRequest="9"
             HorizontalOptions="Fill"
-            VerticalOptions="Center">
-
-        </draw:SkiaShape>
+            UseCache="Operations"
+            VerticalOptions="Center" />
 
         <!--  SELECTED TRAIL  -->
         <draw:SliderTrail
@@ -54,9 +47,7 @@
             Tag="SelectedTrail"
             VerticalOptions="Center"
             XPos="{Binding Source={x:Reference StartThumb}, Path=TranslationX}"
-            XPosEnd="{Binding Source={x:Reference EndThumb}, Path=TranslationX}">
-
-        </draw:SliderTrail>
+            XPosEnd="{Binding Source={x:Reference EndThumb}, Path=TranslationX}" />
 
         <!--  START THUMB - RANGED ONLY  -->
         <draw:SliderThumb
@@ -65,40 +56,16 @@
             HorizontalOptions="Start"
             IsVisible="{Binding Source={x:Reference ThisSlider}, Path=EnableRange}"
             TranslationX="{Binding Source={x:Reference ThisSlider}, Path=StartThumbX}"
+            UseCache="Image"
             VerticalOptions="Start"
             WidthRequest="{Binding Source={x:Reference ThisSliderGrid}, Path=Height}">
 
             <draw:SkiaShape
+                Margin="4"
                 BackgroundColor="{StaticResource ColorPrimary}"
                 HorizontalOptions="Fill"
-                Type="Circle"
-                VerticalOptions="Fill">
-                <draw:SkiaShape.Shadows>
-
-                    <draw:SkiaShadow
-                        Blur="2"
-                        Opacity="0.5"
-                        X="1"
-                        Y="1"
-                        Color="Black" />
-
-                </draw:SkiaShape.Shadows>
-            </draw:SkiaShape>
-
-        </draw:SliderThumb>
-
-        <!--  END THUMB  -->
-        <draw:SliderThumb
-            x:Name="EndThumb"
-            HeightRequest="{Binding Source={x:Reference ThisSliderGrid}, Path=Height}"
-            TranslationX="{Binding Source={x:Reference ThisSlider}, Path=EndThumbX}"
-            UseCache="Image"
-            WidthRequest="{Binding Source={x:Reference ThisSliderGrid}, Path=Height}">
-
-            <draw:SkiaShape
-                Margin="4"
-                BackgroundColor="{StaticResource ColorPrimaryDark}"
-                HorizontalOptions="Fill"
+                StrokeColor="{StaticResource ColorPrimaryDark}"
+                StrokeWidth="1"
                 Type="Circle"
                 VerticalOptions="Fill">
                 <draw:SkiaShape.Shadows>
@@ -112,7 +79,53 @@
 
                 </draw:SkiaShape.Shadows>
 
+                <draw:SkiaShape
+                    BackgroundColor="White"
+                    HorizontalOptions="Center"
+                    LockRatio="1"
+                    Type="Circle"
+                    VerticalOptions="Center"
+                    WidthRequest="8" />
 
+            </draw:SkiaShape>
+
+
+        </draw:SliderThumb>
+
+        <!--  END THUMB  -->
+        <draw:SliderThumb
+            x:Name="EndThumb"
+            HeightRequest="{Binding Source={x:Reference ThisSliderGrid}, Path=Height}"
+            TranslationX="{Binding Source={x:Reference ThisSlider}, Path=EndThumbX}"
+            UseCache="Image"
+            WidthRequest="{Binding Source={x:Reference ThisSliderGrid}, Path=Height}">
+
+            <draw:SkiaShape
+                Margin="4"
+                BackgroundColor="{StaticResource ColorPrimary}"
+                HorizontalOptions="Fill"
+                StrokeColor="{StaticResource ColorPrimaryDark}"
+                StrokeWidth="1"
+                Type="Circle"
+                VerticalOptions="Fill">
+                <draw:SkiaShape.Shadows>
+
+                    <draw:SkiaShadow
+                        Blur="2"
+                        Opacity="0.5"
+                        X="1"
+                        Y="1"
+                        Color="{StaticResource ColorPrimaryDark}" />
+
+                </draw:SkiaShape.Shadows>
+
+                <draw:SkiaShape
+                    BackgroundColor="White"
+                    HorizontalOptions="Center"
+                    LockRatio="1"
+                    Type="Circle"
+                    VerticalOptions="Center"
+                    WidthRequest="8" />
 
             </draw:SkiaShape>
 
@@ -123,6 +136,7 @@
     <!--  BOTTOM INFO  -->
     <draw:SkiaLayout
         HorizontalOptions="Fill"
+        UseCache="Operations"
         VerticalOptions="Start">
 
         <draw:SkiaLabel

@@ -546,7 +546,6 @@ public class NavigationViewModel : BaseViewModel
     {
 
         //App.Instance.Shell.GoToAsync("..");
-
         //return;
 
         if (Shell != null)
@@ -571,6 +570,7 @@ public class NavigationViewModel : BaseViewModel
             {
                 if (NoMenu)
                     return;
+
                 ShowMenu();
             });
         }
@@ -584,7 +584,7 @@ public class NavigationViewModel : BaseViewModel
         {
             return new Command(async (object context) =>
             {
-                GoBack();
+                await GoBack();
             });
         }
     }
@@ -598,7 +598,7 @@ public class NavigationViewModel : BaseViewModel
                 if (GoBackCheckDenied)
                     return;
 
-                GoBack();
+                await GoBack();
 
                 //else
                 //{
@@ -704,10 +704,6 @@ public class NavigationViewModel : BaseViewModel
 
 
 
-    /// <summary>
-    /// call from page upon orientation changed
-    /// </summary>
-    /// <param name="orientation"></param>
     public void UpdateControls()
     {
 

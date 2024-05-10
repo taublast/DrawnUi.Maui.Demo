@@ -110,7 +110,7 @@
                     HeightRequest="{Binding Presentation.Shell.StatusBarHeight}"
                     HorizontalOptions="Fill"
                     Tag="StatusBar"
-                    UseCache="Operations"/>
+                    UseCache="Operations" />
 
                 <!--  btns  -->
                 <navigation:CustomColumnsSelector
@@ -118,7 +118,7 @@
                     HeightRequest="52"
                     HorizontalOptions="Fill"
                     RowDefinitions="*"
-                    SelectedIndex="{Binding Source={x:Reference StackCells}, Path=MaxColumns}"
+                    SelectedIndex="{Binding Source={x:Reference StackCells}, Path=Split}"
                     Tag="Toolbar"
                     Type="Grid"
                     UseCache="Image"
@@ -216,13 +216,13 @@
 
                         <!--  in this screen we load 10 items and simulate a templated horizontal stackLayout, not recycled  -->
                         <draw:SkiaLayout
-                            MarginBottom="4"
                             InitializeTemplatesInBackgroundDelay="10"
                             ItemsSource="{Binding ItemsSmall}"
+                            AddMarginBottom="4"
                             RecyclingTemplate="Enabled"
                             Spacing="4"
                             Tag="HScrollStack"
-                            Type="Row"
+                            Type="Row" 
                             VerticalOptions="Fill">
 
                             <draw:SkiaLayout.ItemTemplate>
@@ -248,82 +248,84 @@
                                             CommandTapped="{Binding Source={x:Reference LineScroll}, Path=BindingContext.CommandOpenHGallery}"
                                             CornerRadius="12"
                                             HorizontalOptions="Fill"
-                                            MarginLeft="8"
+                                            AddMarginLeft="8"
                                             VerticalOptions="Fill">
-
-                                            <!--  image will be parallaxed, we cache and then offset the cache with TranslationX  -->
-                                            <!--  cache is bigger than surrounding shape because of negative margins  -->
-                                            <draw:SkiaImage
-                                                Margin="-16"
-                                                Aspect="AspectCover"
-                                                EraseChangedContent="True"
-                                                HorizontalOptions="Fill"
-                                                LoadSourceOnFirstDraw="False"
-                                                Tag="ImageBanner"
-                                                VerticalOptions="Fill"
-                                                ZIndex="-1" />
-
-                                            <!--  cached overlay data  -->
-                                            <!--  using Image cache for gradient  -->
                                             <draw:SkiaLayout
                                                 HorizontalOptions="Fill"
-                                                UseCache="Image"
                                                 VerticalOptions="Fill">
-
-                                                <draw:SkiaShape
+                                                <!--  image will be parallaxed, we cache and then offset the cache with TranslationX  -->
+                                                <!--  cache is bigger than surrounding shape because of negative margins  -->
+                                                <draw:SkiaImage
+                                                    Margin="-16"
+                                                    Aspect="AspectCover"
+                                                    EraseChangedContent="True"
                                                     HorizontalOptions="Fill"
+                                                    LoadSourceOnFirstDraw="False"
+                                                    Tag="ImageBanner"
+                                                    VerticalOptions="Fill"
+                                                    ZIndex="-1" />
+
+                                                <!--  cached overlay data  -->
+                                                <!--  using Image cache for gradient  -->
+                                                <draw:SkiaLayout
+                                                    HorizontalOptions="Fill"
+                                                    UseCache="Image"
                                                     VerticalOptions="Fill">
-                                                    <draw:SkiaShape.FillGradient>
-                                                        <draw:SkiaGradient
-                                                            EndXRatio="0"
-                                                            EndYRatio="1"
-                                                            StartXRatio="0"
-                                                            StartYRatio="0"
-                                                            Type="Linear">
-                                                            <draw:SkiaGradient.Colors>
-                                                                <Color>#00000000</Color>
-                                                                <Color>#33000000</Color>
-                                                                <Color>#F0000000</Color>
-                                                            </draw:SkiaGradient.Colors>
-                                                            <draw:SkiaGradient.ColorPositions>
-                                                                <x:Double>0.4</x:Double>
-                                                                <x:Double>0.5</x:Double>
-                                                                <x:Double>1.0</x:Double>
-                                                            </draw:SkiaGradient.ColorPositions>
-                                                        </draw:SkiaGradient>
-                                                    </draw:SkiaShape.FillGradient>
-                                                </draw:SkiaShape>
 
-                                                <!--  title  -->
-                                                <draw:SkiaLabel
-                                                    Margin="8,0"
-                                                    FontFamily="FontTextBold"
-                                                    FontSize="20"
-                                                    LineBreakMode="TailTruncation"
-                                                    MaxLines="1"
-                                                    Tag="LabelTitle"
-                                                    Text="Title"
-                                                    TextColor="White"
-                                                    TranslationY="8"
-                                                    VerticalOptions="Center" />
+                                                    <draw:SkiaShape
+                                                        HorizontalOptions="Fill"
+                                                        VerticalOptions="Fill">
+                                                        <draw:SkiaShape.FillGradient>
+                                                            <draw:SkiaGradient
+                                                                EndXRatio="0"
+                                                                EndYRatio="1"
+                                                                StartXRatio="0"
+                                                                StartYRatio="0"
+                                                                Type="Linear">
+                                                                <draw:SkiaGradient.Colors>
+                                                                    <Color>#00000000</Color>
+                                                                    <Color>#33000000</Color>
+                                                                    <Color>#F0000000</Color>
+                                                                </draw:SkiaGradient.Colors>
+                                                                <draw:SkiaGradient.ColorPositions>
+                                                                    <x:Double>0.4</x:Double>
+                                                                    <x:Double>0.5</x:Double>
+                                                                    <x:Double>1.0</x:Double>
+                                                                </draw:SkiaGradient.ColorPositions>
+                                                            </draw:SkiaGradient>
+                                                        </draw:SkiaShape.FillGradient>
+                                                    </draw:SkiaShape>
 
-                                                <!--  sub-title  -->
-                                                <draw:SkiaLabel
-                                                    Margin="8,0"
-                                                    FontSize="10"
-                                                    LineBreakMode="TailTruncation"
-                                                    LineSpacing="-2"
-                                                    MaxLines="3"
-                                                    Opacity="0.66"
-                                                    Tag="LabelDesc"
-                                                    Text="Description"
-                                                    TextColor="White"
-                                                    TranslationY="92"
-                                                    UseCache="Operations"
-                                                    VerticalOptions="Start" />
+                                                    <!--  title  -->
+                                                    <draw:SkiaLabel
+                                                        Margin="8,0"
+                                                        FontFamily="FontTextBold"
+                                                        FontSize="20"
+                                                        LineBreakMode="TailTruncation"
+                                                        MaxLines="1"
+                                                        Tag="LabelTitle"
+                                                        Text="Title"
+                                                        TextColor="White"
+                                                        TranslationY="8"
+                                                        VerticalOptions="Center" />
 
-                                                <!--  id  -->
-                                                <!--<draw:SkiaLabel
+                                                    <!--  sub-title  -->
+                                                    <draw:SkiaLabel
+                                                        Margin="8,0"
+                                                        FontSize="10"
+                                                        LineBreakMode="TailTruncation"
+                                                        LineSpacing="-2"
+                                                        MaxLines="3"
+                                                        Opacity="0.66"
+                                                        Tag="LabelDesc"
+                                                        Text="Description"
+                                                        TextColor="White"
+                                                        TranslationY="92"
+                                                        UseCache="Operations"
+                                                        VerticalOptions="Start" />
+
+                                                    <!--  id  -->
+                                                    <!--<draw:SkiaLabel
                                                     Margin="8"
                                                     FontFamily="FontTextBold"
                                                     FontSize="30"
@@ -334,8 +336,8 @@
                                                     TextColor="#99ff0000"
                                                     VerticalOptions="Start" />-->
 
+                                                </draw:SkiaLayout>
                                             </draw:SkiaLayout>
-
                                         </controls:SkiaShapeTouch>
 
                                     </controls:FastCellWithBanner>
@@ -399,7 +401,7 @@
                 HorizontalOptions="Fill"
                 InitializeTemplatesInBackgroundDelay="10"
                 ItemsSource="{Binding Items}"
-                MaxColumns="{Binding Columns}"
+                Split="{Binding Columns}"
                 RecyclingTemplate="Enabled"
                 Spacing="0"
                 Tag="StackItems"
@@ -439,7 +441,7 @@
                                         Margin="8,2,8,14"
                                         draw:AddGestures.AnimationTapped="Ripple"
                                         CommandTapped="{Binding Source={x:Reference StackCells}, Path=BindingContext.CommandOpenGallery}"
-                                        CornerRadius="12,12,40,12"
+                                        CornerRadius="12,40,12,12"
                                         HorizontalOptions="Fill"
                                         Tag="DrawerContent"
                                         VerticalOptions="Fill">
@@ -470,85 +472,87 @@
                                             </draw:SkiaGradient>
 
                                         </draw:SkiaControl.FillGradient>
-
-                                        <!--  FastCellWithBanner will set LoadSourceOnFirstDraw to True after the first context is set  -->
-                                        <!--  this way we dont have empty cells at start but then we do not slow the scrolling  -->
-                                        <draw:SkiaImage
-                                            Aspect="AspectCover"
-                                            EraseChangedContent="True"
+                                        <draw:SkiaLayout
                                             HorizontalOptions="Fill"
-                                            LoadSourceOnFirstDraw="False"
-                                            Tag="ImageBanner"
-                                            VerticalOptions="Fill"
-                                            ZIndex="-1" />
-
-                                        <!--  gradient overlay  -->
-                                        <draw:SkiaShape
-                                            HorizontalOptions="Fill"
-                                            Tag="Shadow"
-                                            UseCache="Operations"
                                             VerticalOptions="Fill">
-                                            <draw:SkiaShape.FillGradient>
-                                                <draw:SkiaGradient
-                                                    EndXRatio="0"
-                                                    EndYRatio="1"
-                                                    StartXRatio="0"
-                                                    StartYRatio="0"
-                                                    Type="Linear">
-                                                    <draw:SkiaGradient.Colors>
-                                                        <Color>#00000000</Color>
-                                                        <Color>#33000000</Color>
-                                                        <Color>#F0000000</Color>
-                                                    </draw:SkiaGradient.Colors>
-                                                    <draw:SkiaGradient.ColorPositions>
-                                                        <x:Double>0.33</x:Double>
-                                                        <x:Double>0.45</x:Double>
-                                                        <x:Double>1.0</x:Double>
-                                                    </draw:SkiaGradient.ColorPositions>
-                                                </draw:SkiaGradient>
-                                            </draw:SkiaShape.FillGradient>
-                                        </draw:SkiaShape>
+                                            <!--  FastCellWithBanner will set LoadSourceOnFirstDraw to True after the first context is set  -->
+                                            <!--  this way we dont have empty cells at start but then we do not slow the scrolling  -->
+                                            <draw:SkiaImage
+                                                Aspect="AspectCover"
+                                                EraseChangedContent="True"
+                                                HorizontalOptions="Fill"
+                                                LoadSourceOnFirstDraw="False"
+                                                Tag="ImageBanner"
+                                                VerticalOptions="Fill"
+                                                ZIndex="-1" />
 
-                                        <!--  title  -->
-                                        <draw:SkiaLabel
-                                            Margin="16,0,16,50"
-                                            FontFamily="FontTextBold"
-                                            FontSize="24"
-                                            LineBreakMode="TailTruncation"
-                                            MaxLines="1"
-                                            Tag="LabelTitle"
-                                            Text="Title"
-                                            TextColor="White"
-                                            UseCache="Operations"
-                                            VerticalOptions="End" />
+                                            <!--  gradient overlay  -->
+                                            <draw:SkiaShape
+                                                HorizontalOptions="Fill"
+                                                Tag="Shadow"
+                                                UseCache="Operations"
+                                                VerticalOptions="Fill">
+                                                <draw:SkiaShape.FillGradient>
+                                                    <draw:SkiaGradient
+                                                        EndXRatio="0"
+                                                        EndYRatio="1"
+                                                        StartXRatio="0"
+                                                        StartYRatio="0"
+                                                        Type="Linear">
+                                                        <draw:SkiaGradient.Colors>
+                                                            <Color>#00000000</Color>
+                                                            <Color>#33000000</Color>
+                                                            <Color>#F0000000</Color>
+                                                        </draw:SkiaGradient.Colors>
+                                                        <draw:SkiaGradient.ColorPositions>
+                                                            <x:Double>0.33</x:Double>
+                                                            <x:Double>0.45</x:Double>
+                                                            <x:Double>1.0</x:Double>
+                                                        </draw:SkiaGradient.ColorPositions>
+                                                    </draw:SkiaGradient>
+                                                </draw:SkiaShape.FillGradient>
+                                            </draw:SkiaShape>
 
-                                        <!--  sub-title  -->
-                                        <draw:SkiaLabel
-                                            Margin="16,164,16,0"
-                                            FontFamily="FontText"
-                                            FontSize="14"
-                                            LineBreakMode="TailTruncation"
-                                            LineSpacing="-2"
-                                            MaxLines="2"
-                                            Opacity="0.66"
-                                            Tag="LabelDesc"
-                                            Text="Description"
-                                            TextColor="White"
-                                            UseCache="Operations"
-                                            VerticalOptions="Start" />
+                                            <!--  title  -->
+                                            <draw:SkiaLabel
+                                                Margin="16,0,16,50"
+                                                FontFamily="FontTextBold"
+                                                FontSize="24"
+                                                LineBreakMode="TailTruncation"
+                                                MaxLines="1"
+                                                Tag="LabelTitle"
+                                                Text="Title"
+                                                TextColor="White"
+                                                UseCache="Operations"
+                                                VerticalOptions="End" />
 
-                                        <!--  NUMBER  -->
-                                        <draw:SkiaLabel
-                                            Margin="0,16,24,0"
-                                            FontFamily="FontTextBold"
-                                            FontSize="30"
-                                            HorizontalOptions="End"
-                                            MaxLines="1"
-                                            Tag="LabelId"
-                                            Text="ID"
-                                            TextColor="#66ff0000"
-                                            UseCache="Operations" />
+                                            <!--  sub-title  -->
+                                            <draw:SkiaLabel
+                                                Margin="16,164,16,0"
+                                                FontFamily="FontText"
+                                                FontSize="14"
+                                                LineBreakMode="TailTruncation"
+                                                LineSpacing="-2"
+                                                MaxLines="2"
+                                                Opacity="0.66"
+                                                Tag="LabelDesc"
+                                                Text="Description"
+                                                TextColor="White"
+                                                UseCache="Operations"
+                                                VerticalOptions="Start" />
 
+                                            <!--  NUMBER  -->
+                                            <draw:SkiaLabel
+                                                Margin="0,16,24,0"
+                                                FontFamily="FontTextBold"
+                                                FontSize="30"
+                                                HorizontalOptions="End"
+                                                MaxLines="1"
+                                                Tag="LabelId"
+                                                Text="ID"
+                                                TextColor="#66ff0000"
+                                                UseCache="Operations" />
+                                        </draw:SkiaLayout>
                                     </controls:SkiaShapeTouch>
 
                                 </draw:ContentLayout>
@@ -626,7 +630,7 @@
 
     <!--<draw:SkiaLabel
             Margin="8"
-            MarginBottom="140"
+            AddMarginBottom="140"
             BackgroundColor="Black"
             HorizontalOptions="Start"
             InputTransparent="True"

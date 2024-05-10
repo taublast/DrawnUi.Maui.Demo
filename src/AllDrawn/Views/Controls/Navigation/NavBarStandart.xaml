@@ -16,7 +16,7 @@
         HeightRequest="16"
         HorizontalOptions="Start"
         SvgString="{StaticResource SvgGoBack}"
-        TintColor="Red"
+        TintColor="Transparent"
         VerticalOptions="Center"
         WidthRequest="16" />
 

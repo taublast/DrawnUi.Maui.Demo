@@ -66,7 +66,8 @@
                 Padding="16"
                 HorizontalOptions="Fill"
                 Spacing="24"
-                Type="Column">
+                Split="1"
+                Type="Stack">
 
                 <draw:SkiaShape
                     BackgroundColor="DimGray"

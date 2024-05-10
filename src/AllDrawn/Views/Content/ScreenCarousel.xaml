@@ -4,8 +4,8 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:draw="http://schemas.appomobi.com/drawnUi/2023/draw"
-    xmlns:viewModels="using:AppoMobi.Maui.DrawnUi.Demo.ViewModels"
     xmlns:navigation="clr-namespace:AppoMobi.Maui.DrawnUi.Demo.Views.Controls.Navigation"
+    xmlns:viewModels="using:AppoMobi.Maui.DrawnUi.Demo.ViewModels"
     x:DataType="viewModels:SimplePageViewModel"
     BackgroundColor="Black"
     HorizontalOptions="Fill"
@@ -46,8 +46,9 @@
 
     <draw:SkiaLayout
         Margin="16"
+        Split="1"
         TranslationY="80"
-        Type="Column"
+        Type="Stack"
         UseCache="Operations">
 
         <draw:SkiaLabel
@@ -63,12 +64,13 @@
         <draw:SkiaLabel
             BackgroundColor="Black"
             FontSize="20"
-            Text="{Binding Source={x:Reference MainCarousel}, Path=ScrollAmount, StringFormat='ScrollAmount: {0.00}'}" />
+            Text="{Binding Source={x:Reference MainCarousel}, Path=ScrollAmount, StringFormat='ScrollAmount: {0:N}'}" />
 
     </draw:SkiaLayout>
 
     <!--  HORIZONTAL  -->
     <draw:SkiaCarousel
+        x:Name="MainCarousel"
         BackgroundColor="Transparent"
         Bounces="True"
         HeightRequest="200"
@@ -78,7 +80,6 @@
         SidesOffset="40"
         Spacing="20"
         Tag="Carousel"
-        x:Name="MainCarousel"
         VerticalOptions="Center">
 
         <draw:SkiaLayout
@@ -91,7 +92,6 @@
                 HorizontalOptions="Center"
                 HorizontalTextAlignment="Center"
                 Text="Here we have Spacing 20 and SidesOffset 40."
-                
                 VerticalOptions="Center" />
 
         </draw:SkiaLayout>
@@ -106,7 +106,6 @@
                 HorizontalOptions="Center"
                 HorizontalTextAlignment="Center"
                 Text="You could use ItemTemplate or include controls with unique design."
-                
                 VerticalOptions="Center" />
 
         </draw:SkiaLayout>
@@ -131,7 +130,6 @@
                 FontSize="20"
                 HorizontalOptions="Center"
                 Text="Index 3"
-                
                 VerticalOptions="Center" />
 
         </draw:SkiaLayout>

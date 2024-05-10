@@ -27,7 +27,7 @@ namespace AppoMobi.Maui.DrawnUi.Demo
                     {
                         Width = 500,
                         Height = 800,
-                        IsFixedSize = true //user cannot resize window
+                        //IsFixedSize = true //user cannot resize window
                     }
                 })
 

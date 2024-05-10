@@ -133,7 +133,7 @@
             CornerRadius="20"
             HeightRequest="76"
             HorizontalOptions="Center"
-            MarginBottom="16"
+            AddMarginBottom="16"
             VerticalOptions="Start"
             WidthRequest="76"
             ZIndex="96">

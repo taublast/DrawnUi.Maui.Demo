@@ -12,6 +12,7 @@
     HorizontalOptions="Fill"
     Spacing="0"
     Type="Column"
+    UseCache="None"
     VerticalOptions="Fill">
 
     <draw:SkiaControl.FillGradient>
@@ -57,15 +58,18 @@
         <draw:SkiaLayout
             Padding="24"
             HorizontalOptions="Fill"
-            Type="Column">
+            Type="Stack"
+            Split="1"
+            UseCache="Operations">
 
             <!--  SWITCHES  -->
             <draw:SkiaLayout
                 HorizontalOptions="Fill"
                 MinimumHeightRequest="60"
                 Spacing="24"
-                Type="Row"
-                UseCache="ImageDoubleBuffered">
+                Split="0"
+                Type="Stack"
+                UseCache="Operations">
 
                 <controls:SkiaSwitchCupertino
                     ColorFrameOn="{StaticResource ColorAccent}"
@@ -85,14 +89,16 @@
 
             </draw:SkiaLayout>
 
-            <!--  controls have UseCache="ImageDOubleBuffered" inside  -->
-
+            <!--  SLIDERS  -->
             <draw:SkiaLayout
                 Padding="50,24"
                 BackgroundColor="#fefefe"
                 HorizontalOptions="Fill"
-                Type="Column"
-                UseCache="ImageDoubleBuffered">
+                Tag="Controls"
+                Type="Stack"
+                Split="1"
+                UseCache="ImageComposite">
+
 
                 <draw:SkiaLabel
                     Margin="0,16"
@@ -100,11 +106,55 @@
                     BackgroundColor="#11000000"
                     HorizontalOptions="Fill"
                     HorizontalTextAlignment="Center"
-                    Text="Fun Slider"
+                    Text="Simple Slider"
                     TextColor="Black"
-                    UseCache="Operations" />
+                     />
+
+                <controls:SkiaSliderRanged
+                    End="10"
+                    HorizontalOptions="Fill"
+                    Max="5000"
+                    Min="10"
+                    MinMaxStringFormat="C"
+                    RangeMin="5"
+                    SliderHeight="28"
+                    Start="10"
+                    Step="5"
+                    ValueStringFormat="C" />
+
+                <draw:SkiaLabel
+                    Margin="0,16"
+                    Padding="2"
+                    BackgroundColor="#11000000"
+                    HorizontalOptions="Fill"
+                    HorizontalTextAlignment="Center"
+                    Text="Range Slider"
+                    TextColor="Black"
+                     />
+
+                <controls:SkiaSliderRanged
+                    EnableRange="True"
+                    End="10000"
+                    Max="10000"
+                    Min="10"
+                    MinMaxStringFormat="C"
+                    RangeMin="5"
+                    SliderHeight="28"
+                    Start="10"
+                    Step="5"
+                    ValueStringFormat="C" />
+
+                <draw:SkiaLabel
+                    Margin="0,16"
+                    Padding="2"
+                    BackgroundColor="#11000000"
+                    HorizontalOptions="Fill"
+                    HorizontalTextAlignment="Center"
+                    Text="Silly Slider"
+                    TextColor="Black" />
 
                 <controls:SkiaSliderFun
+                    UseCache="Operations"
                     HorizontalOptions="Fill"
                     Max="1"
                     Min="0"
@@ -120,58 +170,16 @@
                     HorizontalTextAlignment="Center"
                     Text="Tech Slider"
                     TextColor="Black"
-                    UseCache="Operations" />
+                     />
 
                 <controls:SkiaSliderTech
+                    UseCache="Operations"
                     HorizontalOptions="Fill"
                     Max="1"
                     Min="0"
                     MinMaxStringFormat="P0"
                     SliderHeight="40"
                     Step="0.01" />
-
-                <draw:SkiaLabel
-                    Margin="0,16"
-                    Padding="2"
-                    BackgroundColor="#11000000"
-                    HorizontalOptions="Fill"
-                    HorizontalTextAlignment="Center"
-                    Text="Simple Slider"
-                    TextColor="Black"
-                    UseCache="Operations" />
-
-                <controls:SkiaSliderRanged
-                    End="10"
-                    HorizontalOptions="Fill"
-                    Max="5000"
-                    Min="10"
-                    MinMaxStringFormat="C"
-                    RangeMin="5"
-                    SliderHeight="20"
-                    Start="10"
-                    Step="5"
-                    ValueStringFormat="C" />
-
-                <draw:SkiaLabel
-                    Margin="0,16"
-                    Padding="2"
-                    BackgroundColor="#11000000"
-                    HorizontalOptions="Fill"
-                    HorizontalTextAlignment="Center"
-                    Text="Range Slider"
-                    UseCache="Operations" />
-
-                <controls:SkiaSliderRanged
-                    EnableRange="True"
-                    End="10000"
-                    Max="10000"
-                    Min="10"
-                    MinMaxStringFormat="C"
-                    RangeMin="5"
-                    SliderHeight="20"
-                    Start="10"
-                    Step="5"
-                    ValueStringFormat="C" />
 
             </draw:SkiaLayout>
 
@@ -180,8 +188,8 @@
                 FontSize="18"
                 HorizontalOptions="Center"
                 HorizontalTextAlignment="Center"
-                MarginBottom="60"
-                MarginTop="16"
+                AddMarginBottom="60"
+                AddMarginTop="16"
                 Text="🚧 Under heavy construction 🚧"
                 TextColor="#66ffffff"
                 UseCache="Operations" />

@@ -4,7 +4,7 @@ using System.Collections;
 
 namespace AppoMobi.Maui.DrawnUi.Demo.Views.Controls
 {
-    public partial class WheelPicker : SkiaLayout
+    public partial class WheelPicker
     {
         public WheelPicker()
         {

@@ -29,7 +29,7 @@
 
         <draw:SkiaLayout
             Spacing="8"
-            Type="Column">
+            Type="Stack">
 
             <draw:SkiaLabel
                 BackgroundColor="Red"

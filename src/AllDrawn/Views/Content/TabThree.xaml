@@ -5,17 +5,14 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:controls1="clr-namespace:AppoMobi.Maui.DrawnUi.Demo.Views.Controls"
     xmlns:draw="http://schemas.appomobi.com/drawnUi/2023/draw"
-    xmlns:gestures="clr-namespace:AppoMobi.Maui.Gestures;assembly=AppoMobi.Maui.Gestures"
     xmlns:viewModels="clr-namespace:AppoMobi.Maui.DrawnUi.Demo.ViewModels"
-    xmlns:views="http://schemas.appomobi.com/drawnUi/2023/views"
     xmlns:views1="clr-namespace:AppoMobi.Maui.DrawnUi.Demo.Views"
-    xmlns:generic="clr-namespace:System.Collections.Generic;assembly=System.Collections"
     x:DataType="viewModels:MainPageViewModel"
     HorizontalOptions="Fill"
     Tag="ThisTab"
     VerticalOptions="Fill">
-    
- 
+
+
     <draw:SkiaScroll
         BackgroundColor="Blue"
         HorizontalOptions="Fill"
@@ -43,17 +40,17 @@
             Padding="0,32,0,0"
             x:DataType="viewModels:MainPageViewModel"
             HorizontalOptions="Fill"
-            IsClippedToBounds="True"
             Spacing="20"
             Tag="TabSettings"
-            Type="Column">
+            Type="Column"
+            UseCache="None">
 
-            <!--  BUTTONS  -->
+            <!--  header  -->
             <draw:SkiaLayout
                 HorizontalOptions="Fill"
                 Spacing="16"
                 Type="Column"
-                UseCache="Operations">
+                UseCache="Image">
 
                 <draw:SkiaLabel
                     DropShadowColor="#33333333"
@@ -64,7 +61,7 @@
                     StrokeColor="White"
                     StrokeWidth="2"
                     Text="{Binding Title}"
-                    UseCache="Image">
+                    UseCache="None">
                     <draw:SkiaLabel.FillGradient>
 
                         <draw:SkiaGradient
@@ -86,10 +83,23 @@
                 </draw:SkiaLabel>
 
                 <draw:SkiaLabel
+                    Margin="32,0,32,8"
                     HorizontalOptions="Center"
                     Style="{x:StaticResource SkiaLabelDefaultStyle}"
-                    Text="We are inside a bouncing SkiaScroll"
-                    UseCache="Operations" />
+                    Text="The centered SkiaLayout Stack below will auto-position buttons in a flex-like manner because Split property is set to zero. When set to 1 that would be 1 column and so on.."
+                    UseCache="None" />
+
+            </draw:SkiaLayout>
+
+            <!--  BUTTONS  -->
+            <draw:SkiaLayout
+                Margin="16"
+                HorizontalOptions="Center"
+                Spacing="16"
+                Split="0"
+                Tag="ButtonsStack"
+                Type="Stack"
+                UseCache="ImageComposite">
 
                 <!--<controls1:SmallButton
                 CommandTapped="{Binding CommandPushPage}"
@@ -102,54 +112,52 @@
                         Text="Some Text" />-->
 
                 <controls1:SmallButton
-                    CommandTapped="{Binding CommandPushTransforms}"
-                    HorizontalOptions="Center"
-                    Text="Transforms" />
+                    CommandTapped="{Binding CommandPushControls}"
+                    Text="Controls" />
 
                 <controls1:SmallButton
-                    CommandTapped="{Binding CommandPushControls}"
-                    HorizontalOptions="Center"
-                    Text="Some Controls" />
+                    CommandTapped="{Binding CommandOpenToast}"
+                    Text="Layouts" />
+
+                <controls1:SmallButton
+                    CommandTapped="{Binding CommandOpenToast}"
+                    Text="XAML to PDF" />
 
                 <controls1:SmallButton
                     CommandTapped="{Binding CommandPushLottieAndFriends}"
-                    HorizontalOptions="Center"
                     Text="Lottie and other" />
 
                 <controls1:SmallButton
+                    CommandTapped="{Binding CommandPushTransforms}"
+                    Text="Transforms" />
+
+                <controls1:SmallButton
                     CommandTapped="{Binding CommandPushVarious}"
-                    HorizontalOptions="Center"
                     Text="Maui Element" />
 
                 <controls1:SmallButton
                     CommandTapped="{Binding CommandPushDrawer}"
-                    HorizontalOptions="Center"
                     Text="Drawer" />
 
                 <controls1:SmallButton
                     CommandTapped="{Binding CommandPushCarousel}"
-                    HorizontalOptions="Center"
                     Text="Carousel" />
 
                 <!--<controls1:SmallButton
                         CommandTapped="{Binding CommandPushCamera}"
-                        HorizontalOptions="Center"
                         Text="Camera" />-->
 
                 <controls1:SmallButton
                     CommandTapped="{Binding CommandPushMaui}"
-                    HorizontalOptions="Center"
                     Text="SkiaShell Modal" />
 
                 <controls1:SmallButton
                     CommandTapped="{Binding CommandOpenToast}"
-                    HorizontalOptions="Center"
                     Text="SkiaShell Toast" />
 
                 <controls1:SmallButton
                     CommandTapped="{Binding CommandCamera}"
-                    HorizontalOptions="Center"
-                    Text="Camera">
+                    Text="Drawn Camera">
                     <draw:SkiaControl.IsVisible>
                         <OnPlatform x:TypeArguments="x:Boolean">
                             <On
@@ -161,8 +169,7 @@
 
                 <controls1:SmallButton
                     CommandTapped="{Binding CommandPushFun}"
-                    HorizontalOptions="Center"
-                    Text="Think of more!" />
+                    Text="Some Fun!" />
 
                 <!--<controls1:SmallButton
                 CommandTapped="{Binding CommandDebugAction}"
@@ -218,7 +225,6 @@
         <views1:ModalContent />
 
     </draw:SkiaDrawer>
-
 
 
 </draw:SkiaLayout>

@@ -3,9 +3,7 @@
     x:Class="AppoMobi.Maui.DrawnUi.Demo.Views.ScreenBrowser"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:draw="http://schemas.appomobi.com/drawnUi/2023/draw"
-    xmlns:drawnUi="clr-namespace:AppoMobi.Maui.DrawnUi;assembly=AppoMobi.Maui.DrawnUi"
-    
+    xmlns:draw="http://schemas.appomobi.com/drawnUi/2023/draw"  
     x:Name="MainLayout"
     Margin="0,40,0,0"
     x:DataType="viewModels1:SimplePageViewModel"
@@ -30,7 +28,7 @@
             <!--  background shape + shadow  -->
             <draw:SkiaShape
                 BackgroundColor="{x:StaticResource Gray950}"
-                CornerRadius="20, 0"
+                CornerRadius="20,20,0 ,0"
                 HorizontalOptions="Fill"
                 IsClippedToBounds="False"
                 StrokeColor="{x:StaticResource Gray600}"
@@ -72,7 +70,7 @@
                 <draw:SkiaSvg
                     HorizontalOptions="End"
                     LockRatio="1"
-                    MarginRight="18"
+                    AddMarginRight="18"
                     Opacity="0.66"
                     SvgString="{StaticResource SvgClose}"
                     TintColor="{StaticResource ColorTextButton}"
@@ -92,7 +90,7 @@
         <draw:SkiaControl
             BackgroundColor="{StaticResource Gray600}"
             HorizontalOptions="Fill"
-            MarginTop="20"
+            AddMarginTop="20"
             VerticalOptions="Fill"
             ZIndex="-1" />
 
@@ -100,7 +98,7 @@
         <draw:SkiaMauiElement
             Margin="1,0"
             HorizontalOptions="Fill"
-            MarginTop="60"
+            AddMarginTop="60"
             VerticalOptions="Fill">
 
             <WebView
