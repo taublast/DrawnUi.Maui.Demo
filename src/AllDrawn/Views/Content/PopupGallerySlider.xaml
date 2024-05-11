@@ -32,6 +32,7 @@
                     ZoomMin="1">
 
                     <draw:SkiaLayout
+                        UseCache="None"
                         x:DataType="x:String"
                         BackgroundColor="Transparent"
                         HorizontalOptions="Fill"
