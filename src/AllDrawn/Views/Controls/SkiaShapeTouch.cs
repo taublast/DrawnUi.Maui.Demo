@@ -19,6 +19,7 @@ public class SkiaShapeTouch : SkiaShape
                     TouchAction = args.Type
                 };
                 CommandTapped.Execute(pass);
+
                 return this;
             }
         }

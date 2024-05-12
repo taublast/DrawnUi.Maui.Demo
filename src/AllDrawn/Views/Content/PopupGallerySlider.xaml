@@ -28,15 +28,16 @@
             <DataTemplate>
 
                 <draw:ZoomContent
+                    PanningMode="OneFinger"
                     ZoomMax="2"
                     ZoomMin="1">
 
                     <draw:SkiaLayout
-                        UseCache="None"
                         x:DataType="x:String"
                         BackgroundColor="Transparent"
                         HorizontalOptions="Fill"
                         Tag="Tpl"
+                        UseCache="None"
                         VerticalOptions="Fill">
 
                         <draw:SkiaSvg
