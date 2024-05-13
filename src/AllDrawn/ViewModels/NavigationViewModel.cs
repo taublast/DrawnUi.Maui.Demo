@@ -78,7 +78,7 @@ public class NavigationViewModel : BaseViewModel
 
     #endregion
 
-    private bool _HasBlur;
+    private bool _HasBlur = true;
     public bool HasBlur
     {
         get
