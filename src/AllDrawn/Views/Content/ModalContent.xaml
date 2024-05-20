@@ -41,7 +41,7 @@
         <draw:SkiaLayout
             Padding="16"
             HorizontalOptions="Fill"
-            Type = "Stack"
+            Type="Wrap"
             Split="1"
             UseCache="Image"
             Spacing="24">

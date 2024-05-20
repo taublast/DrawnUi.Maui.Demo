@@ -10,10 +10,10 @@
 		<ImplicitUsings>enable</ImplicitUsings>
     <WarningsAsErrors>$(WarningsAsErrors);XLS0501</WarningsAsErrors>
 
-		<UseNuget>false</UseNuget>
+    <UseNuget>true</UseNuget>
     
 		<!-- Display name -->
-		<ApplicationTitle>DrawnUI Demo</ApplicationTitle>
+		<ApplicationTitle>DrawnUi Demo</ApplicationTitle>
 
 		<!-- App Identifier -->
 		<ApplicationId>com.appomobi.drawnui.demo</ApplicationId>
@@ -43,17 +43,8 @@
 
 
   <Target Condition="'$(UseNuget)' != 'true'" Name="IssueCustomWarning" BeforeTargets="BeforeBuild">
-    <Warning Text="------ Building $(TargetFramework) with DrawnUI project reference ------" />
+    <Warning Text="------ Building $(TargetFramework) with DrawnUi project reference ------" />
   </Target>
-
-  <ItemGroup Condition="'$(UseNuget)' != 'true'">
-    <!--<ProjectReference Include="..\..\..\DrawnUi.Maui\src\Engine\DrawnUi.Maui.csproj" />-->
-    <ProjectReference Include="..\..\..\DrawnUi.Maui\src\Addons\DrawnUi.Maui.MapsUi\src\DrawnUi.Maui.MapsUi.csproj" />
-  </ItemGroup>
-
-   <ItemGroup Condition="'$(UseNuget)' == 'true'">
-    <PackageReference Include="AppoMobi.Maui.DrawnUi" Version="1.2.0.89" />
-  </ItemGroup>
 
     
   <ItemGroup>    
@@ -95,6 +86,18 @@
     <None Remove="Resources\Images\" />
 	  <None Remove="Views\Controls\Navigation\" />
 	  <None Remove="Views\Controls\Fun\" />
+  </ItemGroup>
+
+  <!--for development-->
+  <ItemGroup Condition="'$(UseNuget)' != 'true'">
+    <ProjectReference Include="..\..\..\DrawnUi.Maui\src\Addons\DrawnUi.Maui.Camera\DrawnUi.Maui.Camera.csproj" />
+    <ProjectReference Include="..\..\..\DrawnUi.Maui\src\Addons\DrawnUi.Maui.Rive\DrawnUi.Maui.Rive.csproj" />
+  </ItemGroup>
+
+  <!--production-->
+  <ItemGroup Condition="'$(UseNuget)' == 'true'">
+    <PackageReference Include="DrawnUi.Maui.Camera" Version="1.2.2.2" />
+    <PackageReference Include="DrawnUi.Maui.Rive" Version="1.2.2.2" />
   </ItemGroup>
 
 

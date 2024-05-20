@@ -48,7 +48,7 @@
         Margin="16"
         Split="1"
         TranslationY="80"
-        Type="Stack"
+        Type="Wrap"
         UseCache="Operations">
 
         <draw:SkiaLabel

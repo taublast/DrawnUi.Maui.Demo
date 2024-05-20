@@ -65,7 +65,7 @@
             HorizontalOptions="Fill"
             AddMarginTop="80"
             Opacity="0.5"
-            Type="Stack"
+            Type="Wrap"
             Split="1"
             UseCache="Operations"
             ZIndex="-1">

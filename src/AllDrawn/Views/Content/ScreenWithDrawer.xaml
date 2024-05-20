@@ -67,7 +67,7 @@
                 HorizontalOptions="Fill"
                 Spacing="24"
                 Split="1"
-                Type="Stack">
+                Type="Wrap">
 
                 <draw:SkiaShape
                     BackgroundColor="DimGray"

@@ -56,9 +56,10 @@
         VerticalOptions="Fill">
 
         <draw:SkiaLayout
+            Tag="Wrapper"
             Padding="24"
             HorizontalOptions="Fill"
-            Type="Stack"
+            Type="Wrap"
             Split="1"
             UseCache="Operations">
 
@@ -68,7 +69,7 @@
                 MinimumHeightRequest="60"
                 Spacing="24"
                 Split="0"
-                Type="Stack"
+                Type="Wrap"
                 UseCache="Operations">
 
                 <controls:SkiaSwitchCupertino
@@ -95,7 +96,7 @@
                 BackgroundColor="#fefefe"
                 HorizontalOptions="Fill"
                 Tag="Controls"
-                Type="Stack"
+                Type="Wrap"
                 Split="1"
                 UseCache="ImageComposite">
 

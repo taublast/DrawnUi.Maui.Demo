@@ -381,7 +381,7 @@
                     HorizontalOptions="Fill"
                     Spacing="16"
                     Tag="LargeContent"
-                    Type="Stack"
+                    Type="Wrap"
                     Split="1"
                     UseCache="Image">
 

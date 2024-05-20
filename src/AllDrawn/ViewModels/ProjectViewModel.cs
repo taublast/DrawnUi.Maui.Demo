@@ -160,7 +160,7 @@ public class ProjectViewModel : BaseViewModel
                     var content = new SkiaLayout()
                     {
                         UseCache = SkiaCacheType.Operations,
-                        Type = LayoutType.Stack,
+                        Type = LayoutType.Wrap,
                         Split = 1,
                         BackgroundColor = Colors.Black,
                         HorizontalOptions = LayoutOptions.Center,

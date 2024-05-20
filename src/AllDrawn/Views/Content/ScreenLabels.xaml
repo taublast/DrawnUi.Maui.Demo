@@ -9,7 +9,7 @@
     x:DataType="viewModels:SimplePageViewModel"
     BackgroundColor="Black"
     HorizontalOptions="Fill"
-    Type="Stack" 
+    Type="Wrap" 
     Split="1"
     Spacing="0"
     VerticalOptions="Fill">
@@ -52,7 +52,7 @@
             Padding="24"
             BackgroundColor="#33000000"
             HorizontalOptions="Fill"
-            Type="Stack" 
+            Type="Wrap" 
             Split="1"
             Spacing="16"
             Tag="Content"

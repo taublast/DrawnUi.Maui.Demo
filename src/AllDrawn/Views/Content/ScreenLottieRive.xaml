@@ -6,6 +6,7 @@
     xmlns:draw="http://schemas.appomobi.com/drawnUi/2023/draw"
     xmlns:navigation="clr-namespace:AppoMobi.Maui.DrawnUi.Demo.Views.Controls.Navigation"
     xmlns:viewModels="using:AppoMobi.Maui.DrawnUi.Demo.ViewModels"
+    xmlns:rive="clr-namespace:DrawnUi.Maui.Rive;assembly=DrawnUi.Maui.Rive"
     x:DataType="viewModels:SimplePageViewModel"
     BackgroundColor="Black"
     HorizontalOptions="Fill"
@@ -73,7 +74,7 @@
                     Text="`SkiaRive` plays RIVE animations, actually on Windows only, help with bindings needed!"
                     UseCache="GPU" />
 
-                <draw:SkiaRive
+                <rive:SkiaRive
                     BackgroundColor="Black"
                     HorizontalOptions="Center"
                     LockRatio="1"

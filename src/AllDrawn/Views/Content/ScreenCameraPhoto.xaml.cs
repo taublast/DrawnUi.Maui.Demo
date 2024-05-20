@@ -1,4 +1,5 @@
 using DrawnUi.Maui;
+using DrawnUi.Maui.Camera;
 using DrawnUi.Maui.Controls;
 
 namespace AppoMobi.Maui.DrawnUi.Demo.Views;

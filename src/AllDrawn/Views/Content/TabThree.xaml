@@ -98,7 +98,7 @@
                 Spacing="16"
                 Split="0"
                 Tag="ButtonsStack"
-                Type="Stack"
+                Type="Wrap"
                 UseCache="ImageComposite">
 
                 <!--<controls1:SmallButton
