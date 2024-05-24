@@ -12,6 +12,7 @@ Supports **iOS**, **MacCatalyst**, **Android**, **Windows**.
 ## What's New
 
 Added Xaml2Pdf example, some controls and fixes, and app window is now resizable again to be able to check adaptive layouts.
+Using nuget 1.2.2.5
 
 ## Screenshots
 
