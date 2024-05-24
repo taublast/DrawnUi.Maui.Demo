@@ -11,7 +11,7 @@ Supports **iOS**, **MacCatalyst**, **Android**, **Windows**.
 
 ## What's New
 
-Using SkiaSharp3 preview nuget with new features. [Full change log here](https://github.com/taublast/DrawnUi.Maui).
+Added Xaml2Pdf example, some controls and fixes, and app window is now resizable again to be able to check adaptive layouts.
 
 ## Screenshots
 
