@@ -15,6 +15,8 @@ Added Xaml2Pdf example, some controls and fixes, and app window is now resizable
 
 Using nuget `1.2.2.5`
 
+Don't miss more demo cases inside the [Sandbox project](https://github.com/taublast/DrawnUi.Maui).
+
 ## Screenshots
 
 ### _Draw your recycled cells on a canvas_
