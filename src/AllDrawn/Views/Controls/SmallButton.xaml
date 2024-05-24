@@ -23,7 +23,7 @@
         HorizontalOptions="Fill"
         IsClippedToBounds="True"
         StrokeColor="Gainsboro"
-        StrokeWidth="2"
+        StrokeWidth="1"
         Tag="MainFrame"
         VerticalOptions="Fill" />
 

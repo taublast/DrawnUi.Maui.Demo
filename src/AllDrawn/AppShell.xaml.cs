@@ -76,8 +76,6 @@ public partial class AppShell : SkiaShell
     /// <summary>
     /// Animate FADE IN after splash screen
     /// </summary>
-    /// <param name="sender"></param>
-    /// <param name="e"></param>
     private async void Canvas_WillFirstTimeDraw(object sender, SkiaDrawingContext? ctx)
     {
         Canvas.Opacity = 0.001;

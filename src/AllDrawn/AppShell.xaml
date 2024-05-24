@@ -3,10 +3,7 @@
     x:Class="AppoMobi.Maui.DrawnUi.Demo.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:content="clr-namespace:AppoMobi.Maui.DrawnUi.Demo.Views"
-    xmlns:controls="clr-namespace:AppoMobi.Maui.DrawnUi.Demo.Views.Controls"
     xmlns:draw="http://schemas.appomobi.com/drawnUi/2023/draw"
-    xmlns:navigation="clr-namespace:AppoMobi.Maui.DrawnUi.Demo.Views.Controls.Navigation"
     xmlns:viewModels="using:AppoMobi.Maui.DrawnUi.Demo.ViewModels"
     x:DataType="viewModels:MainPageViewModel">
 
@@ -35,6 +32,38 @@
 
             <!--  required root layout wil be replaced by skiashell  -->
             <draw:SkiaControl Tag="RootLayout" />
+
+            <!--  MENU  -->
+            <!--<draw:SkiaLayout
+                Padding="0"
+                BackgroundColor="CadetBlue"
+                HorizontalOptions="End"
+                Type="Column"
+                VerticalOptions="Fill"
+                WidthRequest="140"
+                ZIndex="-1">
+
+                <draw:SkiaLabel
+                    HorizontalOptions="Center"
+                    Text="MENU"
+                    TextColor="White" />
+
+                --><!--<draw:SkiaLabel
+                    HorizontalOptions="Center"
+                    IsVisible="False"
+                    Text="OPTION"
+                    TextColor="White" />--><!--
+
+
+            </draw:SkiaLayout>
+
+            <draw:SkiaShape
+                BackgroundColor="Red"
+                HorizontalOptions="End"
+                LockRatio="1"
+                VerticalOptions="End"
+                WidthRequest="140"
+                ZIndex="100" />-->
 
         </draw:SkiaLayout>
 

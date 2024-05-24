@@ -11,16 +11,15 @@ public class BottomTabsSelector : SkiaTabsSelector
         TabType = typeof(SkiaSvg);
     }
 
-    public override ISkiaGestureListener ProcessGestures(TouchActionType type, TouchActionEventArgs args, TouchActionResult touchAction,
-        SKPoint childOffset, SKPoint childOffsetDirect, ISkiaGestureListener alreadyConsumed)
+    public override ISkiaGestureListener ProcessGestures(SkiaGesturesParameters args, GestureEventProcessingInfo apply)
     {
 
-        if (touchAction != TouchActionResult.Tapped)
+        if (args.Type != TouchActionResult.Tapped)
         {
             return this; //pass taps only
         }
 
-        return base.ProcessGestures(type, args, touchAction, childOffset, childOffsetDirect, alreadyConsumed);
+        return base.ProcessGestures(args, apply);
     }
 
     async Task AnimatePulseIcon(SkiaControl icon)

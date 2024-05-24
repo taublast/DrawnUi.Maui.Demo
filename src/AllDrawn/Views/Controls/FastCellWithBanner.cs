@@ -8,6 +8,7 @@ namespace AppoMobi.Maui.DrawnUi.Demo.Views.Controls
     /// </summary>
     public class FastCellWithBanner : SkiaDynamicDrawnCell
     {
+
         public override void OnAppearing()
         {
             base.OnAppearing();
@@ -195,10 +196,13 @@ namespace AppoMobi.Maui.DrawnUi.Demo.Views.Controls
             }
         }
 
+        private int a;
+
         public virtual void UpdateCell()
         {
-            if (contextChanged > 1)
-                InvalidateChildrenTree(); //order to remeasure inside views for new content
+            //this creates some random lag
+            //if (contextChanged > 1)
+            //    InvalidateChildrenTree(); //order to remeasure inside views for new content
 
             Update();
         }

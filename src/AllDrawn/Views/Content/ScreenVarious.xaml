@@ -4,13 +4,14 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:draw="http://schemas.appomobi.com/drawnUi/2023/draw"
-    xmlns:viewModels="using:AppoMobi.Maui.DrawnUi.Demo.ViewModels"
     xmlns:navigation1="clr-namespace:AppoMobi.Maui.DrawnUi.Demo.Views.Controls.Navigation"
+    xmlns:viewModels="using:AppoMobi.Maui.DrawnUi.Demo.ViewModels"
     x:DataType="viewModels:SimplePageViewModel"
     BackgroundColor="Black"
     HorizontalOptions="Fill"
-    Type = "Column"
     Spacing="0"
+    Split="1"
+    Type="Wrap"
     VerticalOptions="Fill">
 
     <draw:SkiaControl.FillGradient>
@@ -41,27 +42,27 @@
     <!--  NAVBAR  -->
     <navigation1:NavBarStandart />
 
-    <!--CONTENT-->
+    <!--  CONTENT  -->
     <draw:SkiaScroll
         HorizontalOptions="Fill"
         VerticalOptions="Fill">
 
         <draw:SkiaLayout
-            Tag="StackContent"
             Padding="16"
             HorizontalOptions="Fill"
-            Type = "Column"
-            Spacing="24">
+            Spacing="24"
+            Split="1"
+            Tag="StackContent"
+            Type="Wrap">
+
 
             <!--  ENTRY with FRAME  -->
-            <!--  do not cache this wrapper for entry to work  -->
             <draw:SkiaLayout
                 Tag="StackEntry"
 
                 Margin="24,24,24,0"
                 HorizontalOptions="Fill">
 
-                <!--  decorations [cached]  -->
                 <draw:SkiaShape
                     BackgroundColor="{StaticResource ColorPaper}"
                     CornerRadius="6"
@@ -83,7 +84,6 @@
 
                 </draw:SkiaShape>
 
-                <!--  native entry do not cache  -->
                 <draw:SkiaMauiEntry
                     Margin="40,2,2,0"
                     AnimateSnapshot="True"
@@ -92,6 +92,7 @@
                     FontSize="16"
                     FontWeight="600"
                     HeightRequest="28"
+                    MaxLines="1"
                     HorizontalOptions="Fill"
                     ReturnType="Search"
                     Tag="SearchEntry"
@@ -102,20 +103,45 @@
 
             </draw:SkiaLayout>
 
+            <!--EDITOR-->
+            <draw:SkiaShape
+                Margin="24,24,24,0"
+                Padding="6"
+                BackgroundColor="Gainsboro"
+                CornerRadius="8"
+                HeightRequest="120"
+                HorizontalOptions="Fill"
+                StrokeColor="Gray"
+                StrokeWidth="1"
+                Tag="WrapEditor">
+
+                <draw:SkiaMauiEditor
+                    Tag="Editor"
+                    ReturnType="Default"
+                    Text="{Binding SomeText}"
+                    AnimateSnapshot="True"
+                    FontFamily="FontText"
+                    FontSize="16"
+                    BackgroundColor="White"
+                    FontWeight="600"
+                    HorizontalOptions="Fill"
+                    TextColor="Black"
+                    VerticalOptions="Fill" />
+
+            </draw:SkiaShape>
+
             <draw:SkiaControl
-                BackgroundColor="#88665"
+                BackgroundColor="#886655"
                 HeightRequest="1"
                 HorizontalOptions="Fill" />
 
-
-            <draw:SkiaLabel
+            <draw:SkiaMarkdownLabel
+                Margin="24,0,24,0"
                 HorizontalOptions="Fill"
                 HorizontalTextAlignment="Start"
                 Style="{StaticResource SkiaLabelDefaultStyle}"
-                Text="`SkiaMauiEntry` is a subclassed `SkiaMauiElement` with a .Net Maui Entry inside to be consumed inside a totally drawn app."
+                Text="`SkiaMauiEntry` and *SkiaMauiEditor* are both a subclassed *SkiaMauiElement* with native input controls inside to be consumed inside a totally drawn app."
                 UseCache="GPU" />
-
-
 
             <draw:SkiaControl HeightRequest="{Binding Presentation.BottomTabsUnderPadding}" />
 

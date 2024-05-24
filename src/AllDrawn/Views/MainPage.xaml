@@ -7,10 +7,22 @@
     xmlns:draw="http://schemas.appomobi.com/drawnUi/2023/draw"
     xmlns:navigation="using:AppoMobi.Maui.DrawnUi.Demo.Views.Controls.Navigation"
     xmlns:viewModels="using:AppoMobi.Maui.DrawnUi.Demo.ViewModels"
-    BackgroundColor="Black"
-    HorizontalOptions="Fill"
     x:DataType="viewModels:MainPageViewModel"
+    BackgroundColor="Black"
+
+    HorizontalOptions="Fill"
+    
     VerticalOptions="Fill">
+
+    <!--ScaleX="0.6"
+        CameraAngleX="0"
+    CameraAngleY="20"
+    CameraAngleZ="0"
+    ScaleY="0.6"
+    TransformPivotPointX="1"
+    TransformPivotPointY="0.5"
+    TranslationX="-140"
+    UseCache="GPU"-->
 
     <draw:SkiaControl.FillGradient>
 
@@ -66,7 +78,7 @@
             <draw:SkiaShape
                 BackgroundColor="#20cccccc"
                 ClipBackgroundColor="True"
-                CornerRadius="20,0"
+                CornerRadius="20,20,0, 0"
                 HorizontalOptions="Fill"
                 StrokeColor="#20cccccc"
                 StrokeWidth="2"
@@ -74,9 +86,9 @@
 
                 <!--  texture  to mix with  -->
                 <draw:SkiaImage
+                    AddEffect="Darken"
                     Aspect="AspectCover"
                     Darken="0.35"
-                    AddEffect="Darken"
                     HorizontalOptions="Fill"
                     Opacity="0.4"
                     Source="Pics/glass2.jpg"
@@ -113,10 +125,10 @@
         <!--  SkiaBackdrop  -->
         <!--  cached never  -->
         <draw:SkiaShape
-            IsVisible="{Binding Presentation.HasBlur}"
             Margin="0,16,0,-2"
-            CornerRadius="20,0"
+            CornerRadius="20,20,0, 0"
             HorizontalOptions="Fill"
+            IsVisible="{Binding Presentation.HasBlur}"
             VerticalOptions="Fill"
             ZIndex="-2">
 
@@ -132,11 +144,11 @@
         <navigation:BottomTabsSelector
             x:Name="Tabs"
             Margin="0,0,0,2"
+            AddMarginTop="16"
             ColumnDefinitions="*,*,*"
             ColumnSpacing="0"
             CommandTabReselected="{Binding CommandTabReselected}"
             HorizontalOptions="Fill"
-            MarginTop="16"
             RowSpacing="0"
             SelectedIndex="{Binding Source={x:Reference Switcher}, Path=SelectedIndex, Mode=TwoWay}"
             Tag="Tabs"
@@ -144,16 +156,16 @@
             UseCache="GPU">
 
             <draw:SkiaLayout.RowDefinitions>
-                <RowDefinition Height="{Binding Presentation.BottomTabsHeightRequest}"/>
-                <RowDefinition Height="{Binding Presentation.PaddingBottom}"/>
+                <RowDefinition Height="{Binding Presentation.BottomTabsHeightRequest}" />
+                <RowDefinition Height="{Binding Presentation.PaddingBottom}" />
             </draw:SkiaLayout.RowDefinitions>
-            
-            <!-- <draw:SkiaControl  -->
-            <!--     HorizontalOptions="Fill" -->
-            <!--     Grid.ColumnSpan="3" -->
-            <!--     BackgroundColor="Black" -->
-            <!--     Grid.Row="1"/> -->
-            
+
+            <!--  <draw:SkiaControl  -->
+            <!--  HorizontalOptions="Fill"  -->
+            <!--  Grid.ColumnSpan="3"  -->
+            <!--  BackgroundColor="Black"  -->
+            <!--  Grid.Row="1"/>  -->
+
             <draw:SkiaSvg
                 HeightRequest="28"
                 HorizontalOptions="Center"

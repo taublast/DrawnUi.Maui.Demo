@@ -79,7 +79,7 @@ public class ScrollingCellsViewModel : ProjectViewModel, IFullscreenGalleryManag
 
                     GalleryItems = ItemsSmall.Select(x => x.Banner).ToList();
                     var gallery = new PopupGallerySlider(this);
-                    await Presentation.Shell.OpenPopupAsync(gallery.AttachControl, true,
+                    await Presentation.Shell.OpenPopupAsync(gallery, true,
                         true, true, Color.Parse("#EE000000"), cellCenter);
 
                 }).ConfigureAwait(false);
@@ -127,7 +127,7 @@ public class ScrollingCellsViewModel : ProjectViewModel, IFullscreenGalleryManag
 
                     GalleryItems = Items.Select(x => x.Banner).ToList();
                     var gallery = new PopupGallerySlider(this);
-                    await Presentation.Shell.OpenPopupAsync(gallery.AttachControl, true,
+                    await Presentation.Shell.OpenPopupAsync(gallery, true,
                         true, true, Color.Parse("#EE000000"), cellCenter);
 
                 }).ConfigureAwait(false);

@@ -14,6 +14,7 @@
     VerticalOptions="Fill">
 
     <controls:ScrollingBanner
+        Tag="Banner"
         Padding="0,2"
         IsBanner="True"
         Orientation="Horizontal">
@@ -62,9 +63,10 @@
         <draw:SkiaLayout
             Padding="24,0"
             HorizontalOptions="Fill"
-            MarginTop="80"
+            AddMarginTop="80"
             Opacity="0.5"
-            Type="Column"
+            Type="Wrap"
+            Split="1"
             UseCache="Operations"
             ZIndex="-1">
 
@@ -138,7 +140,7 @@
             <draw:SkiaLabel
                 FontFamily="FontTextTitle"
                 HorizontalOptions="Center"
-                MarginTop="50"
+                AddMarginTop="50"
                 MaxLines="1"
                 Tag="LabelDrag"
                 Text="Drag Me!"

@@ -28,6 +28,7 @@
             <DataTemplate>
 
                 <draw:ZoomContent
+                    PanningMode="OneFinger"
                     ZoomMax="2"
                     ZoomMin="1">
 
@@ -36,6 +37,7 @@
                         BackgroundColor="Transparent"
                         HorizontalOptions="Fill"
                         Tag="Tpl"
+                        UseCache="None"
                         VerticalOptions="Fill">
 
                         <draw:SkiaSvg

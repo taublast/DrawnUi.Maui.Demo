@@ -110,7 +110,7 @@ namespace AppoMobi.Maui.DrawnUi.Demo.Views.Controls.Navigation
             {
                 Ball.HeightRequest = CircleRadius * 2;
                 Ball.WidthRequest = CircleRadius * 2;
-                Ball.CornerRadius = new Thickness(CircleRadius); //for each of 4 corners
+                Ball.CornerRadius = CircleRadius; //for each of 4 corners
                 Ball.BackgroundColor = Color;
                 Ball.TranslationY = VerticalOffset;
 

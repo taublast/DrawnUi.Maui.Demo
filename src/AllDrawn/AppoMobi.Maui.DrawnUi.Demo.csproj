@@ -8,11 +8,12 @@
 		<UseMaui>true</UseMaui>
 		<SingleProject>true</SingleProject>
 		<ImplicitUsings>enable</ImplicitUsings>
-		
-		<UseNuget>true</UseNuget>
+    <WarningsAsErrors>$(WarningsAsErrors);XLS0501</WarningsAsErrors>
+
+    <UseNuget>true</UseNuget>
     
 		<!-- Display name -->
-		<ApplicationTitle>DrawnUI Demo</ApplicationTitle>
+		<ApplicationTitle>DrawnUi Demo</ApplicationTitle>
 
 		<!-- App Identifier -->
 		<ApplicationId>com.appomobi.drawnui.demo</ApplicationId>
@@ -24,7 +25,7 @@
 
 		<!-- Build Time -->
 		<SourceRevisionId>build$([System.DateTime]::UtcNow.ToString("yyyy-MM-ddTHH:mm:ss:fffZ"))</SourceRevisionId>
-		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">11.0</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">12.4</SupportedOSPlatformVersion>
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">13.1</SupportedOSPlatformVersion>
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">21.0</SupportedOSPlatformVersion>
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</SupportedOSPlatformVersion>
@@ -32,25 +33,23 @@
   
 	</PropertyGroup>
 
+	<PropertyGroup Condition="'$(TargetFramework)'=='net8.0-ios'">
+	  <ProvisioningType>manual</ProvisioningType>
+	</PropertyGroup>
+
+  <PropertyGroup Condition="'$(TargetFramework)'=='net8.0-android'">
+    <EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
+  </PropertyGroup>
+
 
   <Target Condition="'$(UseNuget)' != 'true'" Name="IssueCustomWarning" BeforeTargets="BeforeBuild">
-    <Warning Text="------ Building $(TargetFramework) with DrawnUI project reference ------" />
+    <Warning Text="------ Building $(TargetFramework) with DrawnUi project reference ------" />
   </Target>
-  <ItemGroup Condition="'$(UseNuget)' != 'true'">
-    <ProjectReference Include="..\..\..\DrawnUi.Maui\src\Engine\DrawnUi.Maui.csproj" />
-  </ItemGroup>
-   <ItemGroup Condition="'$(UseNuget)' == 'true'">
-    <PackageReference Include="AppoMobi.Maui.DrawnUi" Version="1.2.0.89" />
-  </ItemGroup>
 
     
   <ItemGroup>    
-    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />    
   </ItemGroup>
-
-	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net8.0-ios|AnyCPU'">
-	  <CreatePackage>false</CreatePackage>
-	</PropertyGroup>
 
   <ItemGroup>
 
@@ -67,9 +66,12 @@
 		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
 	</ItemGroup>
 
+  <ItemGroup>
+    <MauiFont Remove="Resources\Fonts\SeymourOne-OFL.txt" />
+  </ItemGroup>
+
 	<ItemGroup>
 	  <None Remove="Platforms\Android\Resources\xml\file_paths.xml" />
-	  <None Remove="Resources\Fonts\SeymourOne-OFL.txt" />
 	  <None Remove="Resources\Fonts\SeymourOne-Regular.ttf" />
 	  <None Remove="Resources\Raw\Lottie\cross.json" />
 	  <None Remove="Resources\Raw\Lottie\Loader.json" />
@@ -86,25 +88,33 @@
 	  <None Remove="Views\Controls\Fun\" />
   </ItemGroup>
 
+  <!--for development-->
+  <ItemGroup Condition="'$(UseNuget)' != 'true'">
+    <ProjectReference Include="..\..\..\DrawnUi.Maui\src\Addons\DrawnUi.Maui.Camera\DrawnUi.Maui.Camera.csproj" />
+    <ProjectReference Include="..\..\..\DrawnUi.Maui\src\Addons\DrawnUi.Maui.Rive\DrawnUi.Maui.Rive.csproj" />
+  </ItemGroup>
+
+  <!--production-->
+  <ItemGroup Condition="'$(UseNuget)' == 'true'">
+    <PackageReference Include="DrawnUi.Maui.Camera" Version="1.2.2.5" />
+    <PackageReference Include="DrawnUi.Maui.Rive" Version="1.2.2.5" />
+  </ItemGroup>
+
 
 	<ItemGroup>
-	  <Compile Update="AppShell.xaml.cs">
-	    <DependentUpon>AppShell.xaml</DependentUpon>
-	  </Compile>
+	
 	  <Compile Update="Resources\Strings\ResStrings.Designer.cs">
 	    <DependentUpon>ResStrings.resx</DependentUpon>
 	    <DesignTime>True</DesignTime>
 	    <AutoGen>True</AutoGen>
 	  </Compile>
-	  <Compile Update="TestPage.xaml.cs">
-	    <DependentUpon>%(Filename)</DependentUpon>
+	
+	  <Compile Update="Views\Content\ScreenXaml2Pdf.xaml.cs">
+	    <DependentUpon>ScreenXaml2Pdf.xaml</DependentUpon>
 	  </Compile>
-	  <Compile Update="Views\Controls\Navigation\NavBarStandart.xaml.cs">
-	    <SubType>Code</SubType>
+	
+	  <Compile Update="Views\Content\Xaml2Pdf\ReportSample.xaml.cs">
 	    <DependentUpon>%(Filename)</DependentUpon>
-	  </Compile>
-	  <Compile Update="Views\ScreenTabs.xaml.cs">
-	    <DependentUpon>ScreenTabs.xaml</DependentUpon>
 	  </Compile>
 	  </ItemGroup>
 
@@ -127,7 +137,14 @@
 	  </MauiAsset>
 	</ItemGroup>
 
-
+	<ItemGroup>
+	  <MauiXaml Update="Views\Content\ScreenXaml2Pdf.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Content\Xaml2Pdf\ReportSample.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	</ItemGroup>
 
  
    

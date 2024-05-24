@@ -52,13 +52,16 @@
                 <DataTemplate>
 
                     <draw:ScrollPickerLabelContainer
-                        x:DataType="{x:Type x:String}"
                         BackgroundColor="Transparent"
                         ColorText="White"
                         ColorTextSelected="Orange"
                         HeightRequest="44"
                         HorizontalOptions="Fill"
                         Spacing="0">
+
+                        <!--TODO recently cannot use  x:DataType="{x:Type x:String}" 
+                        with latest Maui.Controls throws Xaml error
+                        need to investigate their change for data type-->
 
                         <draw:SkiaLabel
                             Padding="4"
@@ -81,14 +84,14 @@
     </draw:SkiaScrollLooped>
 
     <draw:SkiaControl
-        BackgroundColor="#44cccccc"
+        BackgroundColor="#44CCCCCC"
         HeightRequest="0.75"
         HorizontalOptions="Fill"
         TranslationY="-22"
         VerticalOptions="Center" />
 
     <draw:SkiaControl
-        BackgroundColor="#44cccccc"
+        BackgroundColor="#44CCCCCC"
         HeightRequest="0.75"
         HorizontalOptions="Fill"
         TranslationY="22"

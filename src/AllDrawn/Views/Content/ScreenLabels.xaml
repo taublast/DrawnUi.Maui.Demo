@@ -9,7 +9,8 @@
     x:DataType="viewModels:SimplePageViewModel"
     BackgroundColor="Black"
     HorizontalOptions="Fill"
-    Type = "Column"
+    Type="Wrap" 
+    Split="1"
     Spacing="0"
     VerticalOptions="Fill">
 
@@ -51,7 +52,8 @@
             Padding="24"
             BackgroundColor="#33000000"
             HorizontalOptions="Fill"
-            Type = "Column"
+            Type="Wrap" 
+            Split="1"
             Spacing="16"
             Tag="Content"
             UseCache="Image">
@@ -103,7 +105,7 @@
                 <draw:SkiaLabel
                     HorizontalOptions="Fill"
                     HorizontalTextAlignment="Start"
-                    MarginLeft="206"
+                    AddMarginLeft="206"
                     Style="{StaticResource SkiaLabelDefaultStyle}"
                     Text="This app demonstrates the second use case."
                     UseCache="None" />
@@ -128,7 +130,7 @@
                 <draw:SkiaLabel
                     HorizontalOptions="Fill"
                     HorizontalTextAlignment="Start"
-                    MarginLeft="206"
+                    AddMarginLeft="206"
                     Style="{StaticResource SkiaLabelDefaultStyle}"
                     Text="All text is drawn with `SkiaLabel`, a rather powerful control with many useful properties like CharacterSpacing, ParagraphSpacing, AutoSize and much more."
                     UseCache="None">

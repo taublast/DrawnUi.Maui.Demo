@@ -77,7 +77,7 @@
                 </DataTrigger>
             </draw:SkiaControl.Triggers>
 
-            <!--  cached background buble  -->
+            <!--  cached background bubble  -->
             <draw:SkiaLayout
                 HorizontalOptions="Fill"
                 UseCache="Image"
@@ -108,6 +108,7 @@
 
         <!--  END LABEL  -->
         <draw:SliderValueDesc
+            Tag="EndLabel"
             x:Name="EndDesc"
             Padding="0"
             HorizontalOptions="Start"
@@ -117,7 +118,7 @@
             XMaxLimit="{Binding Source={x:Reference ThisSlider}, Path=Width}"
             XMinLimit="{Binding Source={x:Reference StartDesc}, Path=RightX}">
 
-            <!--  cached background buble  -->
+            <!--  cached background bubble  -->
             <draw:SkiaLayout
                 HorizontalOptions="Fill"
                 Tag="Bubble"
@@ -165,6 +166,7 @@
             BackgroundColor="Gray"
             HeightRequest="2"
             HorizontalOptions="Fill"
+            UseCache="Operations"
             VerticalOptions="Center" />
 
         <!--  SELECTED TRAIL  -->
@@ -179,11 +181,12 @@
         <!--  START POINT  -->
         <draw:SkiaShape
             BackgroundColor="Gray"
-            HeightRequest="10"
+            HeightRequest="13"
             HorizontalOptions="Start"
+            LockRatio="1"
             Type="Circle"
-            VerticalOptions="Center"
-            WidthRequest="10">
+            UseCache="Image"
+            VerticalOptions="Center">
             <draw:SkiaShape.Triggers>
                 <DataTrigger
                     Binding="{Binding Source={x:Reference ThisSlider}, Path=EnableRange}"
@@ -203,11 +206,12 @@
         <!--  END POINT  -->
         <draw:SkiaShape
             BackgroundColor="Gray"
-            HeightRequest="10"
+            HeightRequest="13"
             HorizontalOptions="End"
+            LockRatio="1"
             Type="Circle"
-            VerticalOptions="Center"
-            WidthRequest="10" />
+            UseCache="Image"
+            VerticalOptions="Center" />
 
         <!--  START THUMB - RANGED ONLY  -->
         <draw:SliderThumb
@@ -216,10 +220,12 @@
             HorizontalOptions="Start"
             IsVisible="{Binding Source={x:Reference ThisSlider}, Path=EnableRange}"
             TranslationX="{Binding Source={x:Reference ThisSlider}, Path=StartThumbX}"
+            UseCache="Image"
             VerticalOptions="Start"
             WidthRequest="{Binding Source={x:Reference ThisSliderGrid}, Path=Height}">
 
             <draw:SkiaShape
+                Margin="4"
                 BackgroundColor="{StaticResource ColorPrimary}"
                 HorizontalOptions="Fill"
                 Type="Circle"
@@ -244,9 +250,12 @@
             HeightRequest="{Binding Source={x:Reference ThisSliderGrid}, Path=Height}"
             HorizontalOptions="Start"
             TranslationX="{Binding Source={x:Reference ThisSlider}, Path=EndThumbX}"
+            UseCache="Image"
             VerticalOptions="Start"
             WidthRequest="{Binding Source={x:Reference ThisSliderGrid}, Path=Height}">
+
             <draw:SkiaShape
+                Margin="4"
                 BackgroundColor="{StaticResource ColorPrimary}"
                 HorizontalOptions="Fill"
                 Type="Circle"
@@ -262,6 +271,7 @@
 
                 </draw:SkiaShape.Shadows>
             </draw:SkiaShape>
+
         </draw:SliderThumb>
 
     </draw:SkiaLayout>
@@ -271,6 +281,7 @@
         Grid.Row="2"
         Margin="0,2,0,0"
         HorizontalOptions="Fill"
+        UseCache="Operations"
         VerticalOptions="Start">
 
         <draw:SkiaLabel

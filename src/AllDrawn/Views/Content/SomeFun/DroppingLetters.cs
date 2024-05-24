@@ -17,11 +17,14 @@ public class DroppingLetters : SkiaLabel
     public override void OnDisposing()
     {
         StopAnimators();
+        foreach (var skiaAnimator in _animators)
+        {
+            skiaAnimator?.Dispose();
+        }
+        _animators.Clear();
 
         base.OnDisposing();
     }
-
-
 
     protected override void OnPropertyChanged(string propertyName = "")
     {
@@ -59,6 +62,13 @@ public class DroppingLetters : SkiaLabel
                 base.DrawCharacter(canvas, lineIndex, letterIndex, text, x, y - offsetY, paint, paintStroke, paintShadow, destination, scale);
             }
         }
+    }
+
+    protected override void OnTextChanged(string value)
+    {
+        base.OnTextChanged(value);
+
+        BuildAnimators();
     }
 
     private bool lockStart;
@@ -99,15 +109,20 @@ public class DroppingLetters : SkiaLabel
 
         lockStart = false;
     }
-    public void SetupAnimators()
+
+    public void BuildAnimators()
     {
         StopAnimators();
+        foreach (var skiaAnimator in _animators)
+        {
+            skiaAnimator?.Dispose();
+        }
+        _animators.Clear();
+
         _letterOffsetsY = new double[this.Text.Length];
         Array.Fill(_letterOffsetsY, double.NegativeInfinity);
         if (!string.IsNullOrEmpty(this.Text))
         {
-
-            var max = GetParentElement(this).Height;
 
             for (int i = 0; i < Text.Length; i++)
             {
@@ -128,28 +143,45 @@ public class DroppingLetters : SkiaLabel
                     IsOneDirectional = true,
                     Speed = 3.0,
                     mMinValue = 0,
-                    mMaxValue = max,
-                    Amplitude = max,
+                    //mMaxValue = max,
+                    //Amplitude = max,
                     Gravity = 9.8,
                     AirResistance = 1.0
                 };
                 _animators.Add(animator);
-                //put offscreen
+
+            }
+        }
+    }
+
+    public void SetupAnimators()
+    {
+        StopAnimators();
+        _letterOffsetsY = new double[this.Text.Length];
+        Array.Fill(_letterOffsetsY, double.NegativeInfinity);
+        if (!string.IsNullOrEmpty(this.Text))
+        {
+            var max = GetParentElement(this).Height;
+            for (int i = 0; i < Text.Length; i++)
+            {
+                var index = i;
+                _animators[index].mMaxValue = max;
+                _animators[index].Amplitude = max;
                 _letterOffsetsY[index] = -max;
             }
         }
     }
+
     public void StopAnimators()
     {
         foreach (var animator in _animators.ToList())
         {
             animator.Stop();
         }
-        _animators.Clear();
     }
 
     private double[] _letterOffsetsY;
 
-    private List<ISkiaAnimator> _animators = new();
+    private List<PendulumAnimator> _animators = new();
 
 }

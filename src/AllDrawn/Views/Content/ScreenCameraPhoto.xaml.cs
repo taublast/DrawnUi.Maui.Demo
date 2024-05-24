@@ -1,5 +1,6 @@
-using DrawnUi.Maui.Controls;
 using DrawnUi.Maui;
+using DrawnUi.Maui.Camera;
+using DrawnUi.Maui.Controls;
 
 namespace AppoMobi.Maui.DrawnUi.Demo.Views;
 
@@ -32,7 +33,7 @@ public partial class ScreenCameraPhoto
     }
 
 
-    private void TappedSwitchCamera(object sender, TouchActionEventArgs e)
+    private void TappedSwitchCamera(object sender, SkiaGesturesParameters skiaGesturesParameters)
     {
         if (CameraControl.IsOn)
         {
@@ -40,7 +41,7 @@ public partial class ScreenCameraPhoto
         }
     }
 
-    private void TappedTurnCamera(object sender, TouchActionEventArgs e)
+    private void TappedTurnCamera(object sender, SkiaGesturesParameters skiaGesturesParameters)
     {
         if (CameraControl.State == CameraState.On)
         {
@@ -54,7 +55,7 @@ public partial class ScreenCameraPhoto
 
 
 
-    private void TappedCycleEffects(object sender, TouchActionEventArgs e)
+    private void TappedCycleEffects(object sender, SkiaGesturesParameters skiaGesturesParameters)
     {
         var available = new List<SkiaImageEffect>()
         {
@@ -74,7 +75,7 @@ public partial class ScreenCameraPhoto
         CameraControl.Effect = available[index];
     }
 
-    private async void TappedTakePicture(object sender, TouchActionEventArgs e)
+    private async void TappedTakePicture(object sender, SkiaGesturesParameters skiaGesturesParameters)
     {
         if (CameraControl.State == CameraState.On && !CameraControl.IsBusy)
         {
@@ -83,19 +84,19 @@ public partial class ScreenCameraPhoto
         }
     }
 
-    private void TappedResume(object sender, TouchActionEventArgs e)
+    private void TappedResume(object sender, SkiaGesturesParameters skiaGesturesParameters)
     {
         CameraControl.IsOn = true;
     }
 
     float step = 0.2f;
 
-    private void Tapped_ZoomOut(object sender, TouchActionEventArgs e)
+    private void Tapped_ZoomOut(object sender, SkiaGesturesParameters skiaGesturesParameters)
     {
         CameraControl.Zoom -= step;
     }
 
-    private void Tapped_ZoomIn(object sender, TouchActionEventArgs e)
+    private void Tapped_ZoomIn(object sender, SkiaGesturesParameters skiaGesturesParameters)
     {
         CameraControl.Zoom += step;
     }

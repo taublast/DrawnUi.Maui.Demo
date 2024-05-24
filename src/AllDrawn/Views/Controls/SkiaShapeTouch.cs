@@ -1,15 +1,13 @@
-﻿using System.Windows.Input;
-
-using DrawnUi.Maui.Infrastructure;
+﻿using DrawnUi.Maui.Infrastructure;
+using System.Windows.Input;
 
 namespace AppoMobi.Maui.DrawnUi.Demo.Views.Controls;
 
 public class SkiaShapeTouch : SkiaShape
 {
-    public override ISkiaGestureListener OnSkiaGestureEvent(TouchActionType type, TouchActionEventArgs args, TouchActionResult touchAction,
-        SKPoint childOffset, SKPoint childOffsetDirect, ISkiaGestureListener wasConsumed)
+    public override ISkiaGestureListener OnSkiaGestureEvent(SkiaGesturesParameters args, GestureEventProcessingInfo apply)
     {
-        if (touchAction == TouchActionResult.Tapped)
+        if (args.Type == TouchActionResult.Tapped)
         {
             if (CommandTapped != null)
             {
@@ -17,15 +15,16 @@ public class SkiaShapeTouch : SkiaShape
                 {
                     Control = this,
                     Context = this.BindingContext,
-                    TouchArgs = args,
-                    TouchAction = touchAction
+                    TouchArgs = args.Event,
+                    TouchAction = args.Type
                 };
                 CommandTapped.Execute(pass);
+
                 return this;
             }
         }
 
-        return base.OnSkiaGestureEvent(type, args, touchAction, childOffset, childOffsetDirect, wasConsumed);
+        return base.OnSkiaGestureEvent(args, apply);
     }
 
     public static readonly BindableProperty CommandTappedProperty = BindableProperty.Create(nameof(CommandTapped), typeof(ICommand),

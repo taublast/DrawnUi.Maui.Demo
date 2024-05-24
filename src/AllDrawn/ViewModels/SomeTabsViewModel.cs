@@ -90,7 +90,7 @@ public class SomeTabsViewModel : ProjectViewModel, IFullscreenGalleryManager
 
                     var gallery = new PopupGallerySlider(this);
 
-                    await Presentation.Shell.OpenPopupAsync(gallery.AttachControl, true,
+                    await Presentation.Shell.OpenPopupAsync(gallery, true,
                         true, true, Colors.Black, cellCenter);
 
                 }).ConfigureAwait(false);

@@ -11,6 +11,7 @@
     HorizontalOptions="Fill"
     Spacing="0"
     Type="Column"
+    UseCache="None"
     VerticalOptions="Fill">
 
     <draw:SkiaControl.FillGradient>
@@ -30,7 +31,6 @@
 
     </draw:SkiaControl.FillGradient>
 
-
     <!--  STATUS BAR  -->
     <draw:SkiaControl
         HeightRequest="{Binding Presentation.StatusBarHeightRequest}"
@@ -38,284 +38,362 @@
         Tag="StatusBar" />
 
     <!--  NAVBAR  -->
-    <navigation:NavBarStandart BackgroundColor="Transparent"/>
+    <navigation:NavBarStandart BackgroundColor="Transparent" />
 
-    <!--  absolute layout wrapper wrapper  -->
     <draw:SkiaLayout
-        BackgroundColor="Transparent"
         HorizontalOptions="Fill"
-        TranslationY="0"
-        VerticalOptions="Fill">
+        Type="Column"
+        UseCache="ImageComposite">
 
+        <!--  absolute layout wrapper wrapper  -->
+        <draw:SkiaLayout
+            BackgroundColor="Transparent"
+            HeightRequest="380"
+            HorizontalOptions="Fill"
+            IsClippedToBounds="True">
+
+            <!--  Z3 wrapper to cache with shadows  -->
+            <draw:SkiaLayout
+                HorizontalOptions="Center"
+                Opacity="0.8"
+                TranslationX="-90"
+                TranslationY="240"
+                UseCache="GPU"
+                ZIndex="3">
+
+                <!--  margins for shadow  -->
+                <draw:SkiaShape
+                    Margin="16"
+                    BackgroundColor="Red"
+                    CornerRadius="20"
+                    LockRatio="1"
+                    StrokeColor="Purple"
+                    StrokeWidth="1"
+                    Tag="Mom"
+                    TranslationX="0"
+                    Type="Rectangle"
+                    WidthRequest="80">
+
+                    <draw:SkiaShape
+                        BackgroundColor="Green"
+                        HeightRequest="40"
+                        HorizontalOptions="Fill"
+                        Tag="Kid"
+                        Type="Rectangle"
+                        VerticalOptions="Start">
+
+                        <draw:SkiaLabel
+                            HorizontalOptions="Center"
+                            Text="Overlay" />
+
+                    </draw:SkiaShape>
+
+                    <draw:SkiaShape.Shadows>
+
+                        <draw:SkiaShadow
+                            Blur="9"
+                            Opacity="0.64"
+                            X="3"
+                            Y="3"
+                            Color="Black" />
+
+                        <draw:SkiaShadow
+                            Blur="9"
+                            Opacity="0.64"
+                            X="-3"
+                            Y="-3"
+                            Color="Magenta" />
+
+                    </draw:SkiaShape.Shadows>
+
+                </draw:SkiaShape>
+            </draw:SkiaLayout>
+
+            <!--  LIST  -->
+            <draw:SkiaShape
+                CameraAngleX="16"
+                CameraAngleY="20"
+                CameraAngleZ="6"
+                CornerRadius="17"
+                HeightRequest="200"
+                HorizontalOptions="Center"
+                TranslationY="70"
+                WidthRequest="200"
+                ZIndex="1">
+
+                <draw:SkiaLayout
+                    HorizontalOptions="Fill"
+                    VerticalOptions="Fill">
+
+                    <draw:SkiaShape
+                        CornerRadius="16"
+                        HorizontalOptions="Fill"
+                        StrokeColor="#15191E"
+                        StrokeWidth="1.85"
+                        UseCache="Image"
+                        VerticalOptions="Fill"
+                        ZIndex="-1">
+
+                        <draw:SkiaControl.FillGradient>
+
+                            <draw:SkiaGradient
+                                EndXRatio="1"
+                                EndYRatio="1"
+                                StartXRatio="0"
+                                StartYRatio="0"
+                                Type="Linear">
+                                <draw:SkiaGradient.Colors>
+                                    <Color>CornflowerBlue</Color>
+                                    <Color>Blue</Color>
+                                </draw:SkiaGradient.Colors>
+                            </draw:SkiaGradient>
+
+                        </draw:SkiaControl.FillGradient>
+
+                        <draw:SkiaShape.StrokeGradient>
+
+                            <draw:SkiaGradient
+                                EndXRatio="0.8"
+                                EndYRatio="0.8"
+                                StartXRatio="0.2"
+                                StartYRatio="0.2"
+                                Type="Linear">
+                                <draw:SkiaGradient.Colors>
+                                    <Color>#777777</Color>
+                                    <Color>Gray</Color>
+                                </draw:SkiaGradient.Colors>
+                            </draw:SkiaGradient>
+
+                        </draw:SkiaShape.StrokeGradient>
+
+                        <draw:SkiaShape.Shadows>
+
+                            <draw:SkiaShadow
+                                Blur="3"
+                                Opacity="0.5"
+                                X="3"
+                                Y="3"
+                                Color="Gray" />
+
+                            <draw:SkiaShadow
+                                Blur="3"
+                                Opacity="0.2"
+                                X="-3"
+                                Y="-3"
+                                Color="White" />
+
+                        </draw:SkiaShape.Shadows>
+
+
+
+                    </draw:SkiaShape>
+
+                    <draw:SkiaScroll
+                        HorizontalOptions="Fill"
+                        MaxBounceVelocity="100"
+                        Orientation="Vertical"
+                        RubberDamping="0.9"
+                        RubberEffect="0.1"
+                        VerticalOptions="Fill">
+
+                        <draw:SkiaLayout
+                            Padding="10,10,10,0"
+                            HorizontalOptions="Fill"
+                            Type="Column"
+                            UseCache="Image">
+
+                            <draw:SkiaLayout.ItemsSource>
+                                <x:Array Type="{x:Type x:String}">
+                                    <x:String>Scroll..</x:String>
+                                    <x:String>10 m</x:String>
+                                    <x:String>20 m</x:String>
+                                    <x:String>30 m</x:String>
+                                    <x:String>40 m</x:String>
+                                    <x:String>50 m</x:String>
+                                    <x:String>60 m</x:String>
+                                    <x:String>70 m</x:String>
+                                    <x:String>80 m</x:String>
+                                    <x:String>90 m</x:String>
+                                    <x:String>100 m</x:String>
+                                    <x:String>110 m</x:String>
+                                    <x:String>120 m</x:String>
+                                </x:Array>
+                            </draw:SkiaLayout.ItemsSource>
+
+                            <draw:SkiaLayout.ItemTemplate>
+                                <DataTemplate>
+
+                                    <draw:SkiaLayout
+                                        HeightRequest="40"
+                                        HorizontalOptions="Fill"
+                                        UseCache="Image">
+
+                                        <draw:SkiaLabel
+                                            Padding="4"
+                                            DropShadowColor="#22000000"
+                                            DropShadowOffsetX="-2"
+                                            FontFamily="FontTextTitle"
+                                            FontSize="12"
+                                            HeightRequest="40"
+                                            HorizontalOptions="Center"
+                                            Tag="MainLabel"
+                                            Text="{Binding .}"
+                                            TextColor="#ffffff"
+                                            VerticalOptions="Center" />
+
+                                    </draw:SkiaLayout>
+
+
+                                </DataTemplate>
+
+                            </draw:SkiaLayout.ItemTemplate>
+
+                        </draw:SkiaLayout>
+
+                    </draw:SkiaScroll>
+                </draw:SkiaLayout>
+
+            </draw:SkiaShape>
+
+            <!--  Z0 wrapper to cache with shadows  -->
+            <draw:SkiaLayout
+                HorizontalOptions="Center"
+                Opacity="0.8"
+                Rotation="33"
+                TranslationX="70"
+                TranslationY="0"
+                UseCache="GPU"
+                ZIndex="0">
+
+                <!--  margins for shadow  -->
+                <draw:SkiaShape
+                    Margin="16"
+                    BackgroundColor="#88CC0033"
+                    CornerRadius="20"
+                    LockRatio="1"
+                    StrokeColor="GreenYellow"
+                    StrokeWidth="1"
+                    Tag="Mom"
+                    TranslationX="0"
+                    Type="Rectangle"
+                    WidthRequest="80">
+
+                    <draw:SkiaShape
+                        BackgroundColor="#8800CC00"
+                        HeightRequest="40"
+                        HorizontalOptions="Fill"
+                        Tag="Kid"
+                        Type="Rectangle"
+                        VerticalOptions="Start">
+
+                        <draw:SkiaLabel
+                            HorizontalOptions="Center"
+                            Text="Behind" />
+
+                    </draw:SkiaShape>
+                    <draw:SkiaShape.Shadows>
+
+                        <draw:SkiaShadow
+                            Blur="9"
+                            Opacity="0.64"
+                            X="3"
+                            Y="3"
+                            Color="Black" />
+
+                        <draw:SkiaShadow
+                            Blur="9"
+                            Opacity="1.0"
+                            X="-3"
+                            Y="-3"
+                            Color="GreenYellow" />
+
+                    </draw:SkiaShape.Shadows>
+
+                </draw:SkiaShape>
+
+            </draw:SkiaLayout>
+
+        </draw:SkiaLayout>
+
+        <!--  Z0 wrapper to cache with shadows  -->
+        <!--  margins for shadow  -->
+        <draw:SkiaShape
+            Margin="0,0,32,0"
+            BackgroundColor="#88CC0033"
+            CornerRadius="20"
+            HorizontalOptions="End"
+            LockRatio="1"
+            Opacity="0.8"
+            StrokeColor="GreenYellow"
+            StrokeWidth="1"
+            Tag="Mom"
+            TranslationX="0"
+            Type="Rectangle"
+            WidthRequest="80"
+            ZIndex="3">
+
+            <draw:SkiaShape
+                BackgroundColor="#8800CC00"
+                HeightRequest="40"
+                HorizontalOptions="Fill"
+                Tag="Kid"
+                Type="Rectangle"
+                VerticalOptions="Start">
+
+                <draw:SkiaLabel
+                    HorizontalOptions="Center"
+                    Text="Overlay" />
+
+            </draw:SkiaShape>
+            <draw:SkiaShape.Shadows>
+
+                <draw:SkiaShadow
+                    Blur="9"
+                    Opacity="0.64"
+                    X="3"
+                    Y="3"
+                    Color="Black" />
+
+                <draw:SkiaShadow
+                    Blur="9"
+                    Opacity="1.0"
+                    X="-3"
+                    Y="-3"
+                    Color="GreenYellow" />
+
+            </draw:SkiaShape.Shadows>
+
+        </draw:SkiaShape>
 
         <!--  HINT  -->
         <draw:SkiaLayout
-            Margin="64,0"
+            Margin="32,-32,32,0"
             HorizontalOptions="Fill"
-            Tag="WithShape"
-            TranslationY="380"
-            UseCache="GPU"
-            VerticalOptions="Start"
-            ZIndex="4">
+            Tag="WithShape">
 
             <draw:SkiaShape
                 HorizontalOptions="Fill"
                 StrokeColor="#66ffffff"
                 StrokePath="16,8"
                 StrokeWidth="1"
+                UseCache="Operations"
                 VerticalOptions="Fill" />
 
             <draw:SkiaLabel
                 Margin="16,8"
-                CameraAngleX="35"
+                CameraAngleX="25"
                 FontFamily="FontTextBold"
                 FontSize="20"
                 HorizontalOptions="Center"
                 HorizontalTextAlignment="Center"
                 StrokeColor="#22FF0000"
                 StrokeWidth="3"
-                Text="Checking transforms, gradients etc. List is scrollable!"
+                Text="Checking transforms, gradients, Z-Order and more.."
                 TextColor="White"
                 TranslationY="-3" />
 
         </draw:SkiaLayout>
 
-        <!--  LIST  -->
-        <draw:SkiaShape
-            Margin="0,0,0,0"
-            CameraAngleX="15"
-            CameraAngleY="6"
-            CameraAngleZ="5"
-            CornerRadius="16"
-            HeightRequest="200"
-            HorizontalOptions="Center"
-            StrokeColor="#15191E"
-            StrokeWidth="1.85"
-            TranslationY="70"
-            WidthRequest="200"
-            ZIndex="1">
-
-            <draw:SkiaControl.FillGradient>
-
-                <draw:SkiaGradient
-                    EndXRatio="1"
-                    EndYRatio="1"
-                    StartXRatio="0"
-                    StartYRatio="0"
-                    Type="Linear">
-                    <draw:SkiaGradient.Colors>
-                        <Color>CornflowerBlue</Color>
-                        <Color>Blue</Color>
-                    </draw:SkiaGradient.Colors>
-                </draw:SkiaGradient>
-
-            </draw:SkiaControl.FillGradient>
-
-            <draw:SkiaShape.StrokeGradient>
-
-                <draw:SkiaGradient
-                    EndXRatio="0.8"
-                    EndYRatio="0.8"
-                    StartXRatio="0.2"
-                    StartYRatio="0.2"
-                    Type="Linear">
-                    <draw:SkiaGradient.Colors>
-                        <Color>#777777</Color>
-                        <Color>Gray</Color>
-                    </draw:SkiaGradient.Colors>
-                </draw:SkiaGradient>
-
-            </draw:SkiaShape.StrokeGradient>
-
-            <draw:SkiaShape.Shadows>
-
-                <draw:SkiaShadow
-                    Blur="3"
-                    Opacity="0.5"
-                    X="3"
-                    Y="3"
-                    Color="Gray" />
-
-                <draw:SkiaShadow
-                    Blur="3"
-                    Opacity="0.2"
-                    X="-3"
-                    Y="-3"
-                    Color="White" />
-
-            </draw:SkiaShape.Shadows>
-
-            <draw:SkiaScroll
-                HorizontalOptions="Fill"
-                MaxBounceVelocity="100"
-                Orientation="Vertical"
-                RubberDamping="0.9"
-                RubberEffect="0.1"
-                VerticalOptions="Fill">
-
-                <draw:SkiaLayout
-                    Padding="10,10,10,0"
-                    HorizontalOptions="Fill"
-                    Type="Column">
-
-                    <draw:SkiaLayout.ItemsSource>
-                        <x:Array Type="{x:Type x:String}">
-                            <x:String>10 m</x:String>
-                            <x:String>20 m</x:String>
-                            <x:String>30 m</x:String>
-                            <x:String>40 m</x:String>
-                            <x:String>50 m</x:String>
-                            <x:String>60 m</x:String>
-                            <x:String>70 m</x:String>
-                            <x:String>80 m</x:String>
-                            <x:String>90 m</x:String>
-                            <x:String>100 m</x:String>
-                            <x:String>110 m</x:String>
-                            <x:String>120 m</x:String>
-                        </x:Array>
-                    </draw:SkiaLayout.ItemsSource>
-
-                    <draw:SkiaLayout.ItemTemplate>
-                        <DataTemplate>
-
-
-
-                            <draw:SkiaLayout
-                                HeightRequest="40"
-                                HorizontalOptions="Fill"
-                                UseCache="Operations">
-
-                                <draw:SkiaLabel
-                                    DropShadowColor="#22000000"
-                                    DropShadowOffsetX="-2"
-                                    Padding="4"
-                                    FontFamily="FontTextTitle"
-                                    FontSize="12"
-                                    HeightRequest="40"
-                                    HorizontalOptions="Center"
-                                    Tag="MainLabel"
-                                    Text="{Binding .}"
-                                    TextColor="#ffffff"
-                                    VerticalOptions="Center" />
-
-                            </draw:SkiaLayout>
-
-
-                        </DataTemplate>
-
-                    </draw:SkiaLayout.ItemTemplate>
-
-                </draw:SkiaLayout>
-
-            </draw:SkiaScroll>
-
-        </draw:SkiaShape>
-
-        <!--  wrapper to cache with shadows  -->
-        <draw:SkiaLayout
-            HorizontalOptions="Center"
-            Opacity="0.8"
-            TranslationX="-90"
-            TranslationY="240"
-            UseCache="GPU"
-            ZIndex="3">
-
-            <!--  margins for shadow  -->
-            <draw:SkiaShape
-                Margin="16"
-                BackgroundColor="Red"
-                CornerRadius="20"
-                LockRatio="1"
-                StrokeColor="Purple"
-                StrokeWidth="1"
-                Tag="Mom"
-                TranslationX="0"
-                Type="Rectangle"
-                WidthRequest="80">
-
-                <draw:SkiaShape
-                    BackgroundColor="Green"
-                    HeightRequest="40"
-                    HorizontalOptions="Fill"
-                    Tag="Kid"
-                    Type="Rectangle"
-                    VerticalOptions="Start" />
-
-                <draw:SkiaShape.Shadows>
-
-                    <draw:SkiaShadow
-                        Blur="9"
-                        Opacity="0.64"
-                        X="3"
-                        Y="3"
-                        Color="Black" />
-
-                    <draw:SkiaShadow
-                        Blur="9"
-                        Opacity="0.64"
-                        X="-3"
-                        Y="-3"
-                        Color="Magenta" />
-
-                </draw:SkiaShape.Shadows>
-
-            </draw:SkiaShape>
-        </draw:SkiaLayout>
-
-
-        <!--  wrapper to cache with shadows  -->
-        <draw:SkiaLayout
-            HorizontalOptions="Center"
-            Opacity="0.8"
-            Rotation="33"
-            TranslationX="70"
-            TranslationY="0"
-            UseCache="GPU"
-            ZIndex="0">
-
-            <!--  margins for shadow  -->
-            <draw:SkiaShape
-                Margin="16"
-                BackgroundColor="#88CC0033"
-                CornerRadius="20"
-                LockRatio="1"
-                StrokeColor="GreenYellow"
-                StrokeWidth="1"
-                Tag="Mom"
-                TranslationX="0"
-                Type="Rectangle"
-                WidthRequest="80">
-
-                <draw:SkiaShape
-                    BackgroundColor="#8800CC00"
-                    HeightRequest="40"
-                    HorizontalOptions="Fill"
-                    Tag="Kid"
-                    Type="Rectangle"
-                    VerticalOptions="Start" />
-
-                <draw:SkiaShape.Shadows>
-
-                    <draw:SkiaShadow
-                        Blur="9"
-                        Opacity="0.64"
-                        X="3"
-                        Y="3"
-                        Color="Black" />
-
-                    <draw:SkiaShadow
-                        Blur="9"
-                        Opacity="1.0"
-                        X="-3"
-                        Y="-3"
-                        Color="GreenYellow" />
-
-                </draw:SkiaShape.Shadows>
-
-            </draw:SkiaShape>
-        </draw:SkiaLayout>
-
     </draw:SkiaLayout>
-
 
 </draw:SkiaLayout>

@@ -1,4 +1,5 @@
-﻿using DrawnUi.Maui.Infrastructure;
+﻿using DrawnUi.Maui.Camera;
+using DrawnUi.Maui.Infrastructure;
 using Reversi.Views.Partials;
 using System.Windows.Input;
 
@@ -389,6 +390,23 @@ namespace AppoMobi.Maui.DrawnUi.Demo.ViewModels
             }
         }
 
+        public ICommand CommandPushPdf
+        {
+            get
+            {
+                return new Command(async () =>
+                {
+                    if (CheckLockAndSet())
+                        return;
+
+                    await Task.Run(async () =>
+                    {
+                        await App.Shell.GoToAsync(AppRoutes.Xaml2Pdf.Route, true);
+                    }).ConfigureAwait(false);
+                });
+            }
+        }
+
         public ICommand CommandPushCarousel
         {
             get
@@ -398,12 +416,9 @@ namespace AppoMobi.Maui.DrawnUi.Demo.ViewModels
                     if (CheckLockAndSet())
                         return;
 
-                    //do not block ui, lets us see the touch effect
-                    //while we build page to be opened
                     await Task.Run(async () =>
                     {
-                        await App.Shell.GoToAsync("carousel", true);
-
+                        await App.Shell.GoToAsync(AppRoutes.Carousel.Route, true);
                         //var page = new ScreenCarousel();
                         //await Presentation.Shell.PushDrawnAsync(page, true);
 
@@ -423,7 +438,7 @@ namespace AppoMobi.Maui.DrawnUi.Demo.ViewModels
 
                     await Task.Run(async () =>
                     {
-                        await App.Shell.GoToAsync("controls", true);
+                        await App.Shell.GoToAsync(AppRoutes.Controls.Route, true);
 
                     }).ConfigureAwait(false);
                 });
@@ -440,8 +455,6 @@ namespace AppoMobi.Maui.DrawnUi.Demo.ViewModels
                     if (CheckLockAndSet())
                         return;
 
-                    //do not block ui, lets us see the touch effect
-                    //while we build page to be opened
                     await Task.Run(async () =>
                     {
                         var page = new ScreenTransforms();

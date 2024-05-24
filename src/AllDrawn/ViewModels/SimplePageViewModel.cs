@@ -61,4 +61,22 @@ public class SimplePageViewModel : ProjectViewModel
         }
     }
 
+    private string _SomeText;
+    public string SomeText
+    {
+        get
+        {
+            return _SomeText;
+        }
+        set
+        {
+            if (_SomeText != value)
+            {
+                _SomeText = value;
+                OnPropertyChanged();
+            }
+        }
+    }
+
+
 }

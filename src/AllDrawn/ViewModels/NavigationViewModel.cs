@@ -78,7 +78,11 @@ public class NavigationViewModel : BaseViewModel
 
     #endregion
 
-    private bool _HasBlur;
+#if ANDROID
+    private bool _HasBlur = false; //default is false for maybe slow devices
+#else
+    private bool _HasBlur = true;
+#endif
     public bool HasBlur
     {
         get
@@ -546,7 +550,6 @@ public class NavigationViewModel : BaseViewModel
     {
 
         //App.Instance.Shell.GoToAsync("..");
-
         //return;
 
         if (Shell != null)
@@ -571,6 +574,7 @@ public class NavigationViewModel : BaseViewModel
             {
                 if (NoMenu)
                     return;
+
                 ShowMenu();
             });
         }
@@ -584,7 +588,7 @@ public class NavigationViewModel : BaseViewModel
         {
             return new Command(async (object context) =>
             {
-                GoBack();
+                await GoBack();
             });
         }
     }
@@ -598,7 +602,7 @@ public class NavigationViewModel : BaseViewModel
                 if (GoBackCheckDenied)
                     return;
 
-                GoBack();
+                await GoBack();
 
                 //else
                 //{
@@ -704,10 +708,6 @@ public class NavigationViewModel : BaseViewModel
 
 
 
-    /// <summary>
-    /// call from page upon orientation changed
-    /// </summary>
-    /// <param name="orientation"></param>
     public void UpdateControls()
     {
 
