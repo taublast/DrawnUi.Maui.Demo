@@ -93,7 +93,7 @@
 
             <!--  BUTTONS  -->
             <draw:SkiaLayout
-                Margin="16"
+                Margin="16,16,16,0"
                 HorizontalOptions="Center"
                 Spacing="16"
                 Split="0"
@@ -115,13 +115,6 @@
                     CommandTapped="{Binding CommandPushControls}"
                     Text="Controls" />
 
-                <controls1:SmallButton
-                    CommandTapped="{Binding CommandOpenToast}"
-                    Text="Layouts" />
-
-                <controls1:SmallButton
-                    CommandTapped="{Binding CommandOpenToast}"
-                    Text="XAML to PDF" />
 
                 <controls1:SmallButton
                     CommandTapped="{Binding CommandPushLottieAndFriends}"
@@ -143,9 +136,6 @@
                     CommandTapped="{Binding CommandPushCarousel}"
                     Text="Carousel" />
 
-                <!--<controls1:SmallButton
-                        CommandTapped="{Binding CommandPushCamera}"
-                        Text="Camera" />-->
 
                 <controls1:SmallButton
                     CommandTapped="{Binding CommandPushMaui}"
@@ -154,6 +144,10 @@
                 <controls1:SmallButton
                     CommandTapped="{Binding CommandOpenToast}"
                     Text="SkiaShell Toast" />
+
+                <controls1:SmallButton
+                    CommandTapped="{Binding CommandPushPdf}"
+                    Text="XAML to PDF" />
 
                 <controls1:SmallButton
                     CommandTapped="{Binding CommandCamera}"
@@ -177,6 +171,15 @@
                 Text="Debug" />-->
 
             </draw:SkiaLayout>
+
+            <draw:SkiaLabel
+                Margin="32,32,32,8"
+                HorizontalOptions="Center"
+                HorizontalTextAlignment="Center"
+                Style="{x:StaticResource SkiaLabelDefaultStyle}"
+                Text="For more demo cases please check out the original DrawnUI repo Sandbox project!"
+                TextColor="BurlyWood"
+                UseCache="Operations" />
 
             <!--  content padding for bottom tabs  -->
             <draw:SkiaControl

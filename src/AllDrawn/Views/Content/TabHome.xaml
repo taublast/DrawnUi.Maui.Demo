@@ -598,6 +598,7 @@
                         HorizontalOptions="Fill">
 
                         <draw:SkiaLottie
+                            Tag="EmptyIndicator"
                             AutoPlay="True"
                             ColorTint="Red"
                             HorizontalOptions="Center"

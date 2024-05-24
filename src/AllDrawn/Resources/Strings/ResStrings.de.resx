@@ -543,4 +543,15 @@
   <data name="BtnShare" xml:space="preserve">
     <value>Aktie</value>
   </data>
+  <data name="MarkdownTest" xml:space="preserve">
+    <value>Gehen Sie folgendermaßen vor, um die Gerätesoftware zu aktualisieren:
+1. Laden Sie die neue Version der Software von der Website [supadupa.com](https://google.com) herunter.
+2. Kopieren Sie die Firmware-Datei im HEX-Format, die Ihrem Gerätemodell entspricht, in das Stammverzeichnis der Speicherkarte.
+3. Stecken Sie die Speicherkarte in das ausgeschaltete Gerät.
+4. Halten Sie die Mode-Taste gedrückt und schließen Sie das Gerät über das USB-Kabel an die Stromversorgung an.
+5. Warten Sie, bis die Speicherkarte initialisiert ist und die Meldung HALTEN, UM X.XX ZU AKTUALISIEREN erscheint (wobei X.XX die Version der heruntergeladenen Software ist).
+6. Halten Sie die Mode-Taste gedrückt, um den Aktualisierungsvorgang zu starten.
+7. Warten Sie, bis die Aktualisierung abgeschlossen ist, und stellen Sie sicher, dass die neue Firmware-Version angezeigt wird, wenn Sie das Gerät einschalten.
+8. Starten Sie die `MyApp`-Anwendung neu.</value>
+  </data>
 </root>

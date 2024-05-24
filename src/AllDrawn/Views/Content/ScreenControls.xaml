@@ -56,11 +56,11 @@
         VerticalOptions="Fill">
 
         <draw:SkiaLayout
-            Tag="Wrapper"
             Padding="24"
             HorizontalOptions="Fill"
-            Type="Wrap"
             Split="1"
+            Tag="Wrapper"
+            Type="Wrap"
             UseCache="Operations">
 
             <!--  SWITCHES  -->
@@ -95,9 +95,9 @@
                 Padding="50,24"
                 BackgroundColor="#fefefe"
                 HorizontalOptions="Fill"
+                Split="1"
                 Tag="Controls"
                 Type="Wrap"
-                Split="1"
                 UseCache="ImageComposite">
 
 
@@ -108,8 +108,7 @@
                     HorizontalOptions="Fill"
                     HorizontalTextAlignment="Center"
                     Text="Simple Slider"
-                    TextColor="Black"
-                     />
+                    TextColor="Black" />
 
                 <controls:SkiaSliderRanged
                     End="10"
@@ -130,8 +129,7 @@
                     HorizontalOptions="Fill"
                     HorizontalTextAlignment="Center"
                     Text="Range Slider"
-                    TextColor="Black"
-                     />
+                    TextColor="Black" />
 
                 <controls:SkiaSliderRanged
                     EnableRange="True"
@@ -155,13 +153,13 @@
                     TextColor="Black" />
 
                 <controls:SkiaSliderFun
-                    UseCache="Operations"
                     HorizontalOptions="Fill"
                     Max="1"
                     Min="0"
                     MinMaxStringFormat="P0"
                     SliderHeight="46"
-                    Step="0.01" />
+                    Step="0.01"
+                    UseCache="Operations" />
 
                 <draw:SkiaLabel
                     Margin="0,16"
@@ -170,27 +168,26 @@
                     HorizontalOptions="Fill"
                     HorizontalTextAlignment="Center"
                     Text="Tech Slider"
-                    TextColor="Black"
-                     />
+                    TextColor="Black" />
 
                 <controls:SkiaSliderTech
-                    UseCache="Operations"
                     HorizontalOptions="Fill"
                     Max="1"
                     Min="0"
                     MinMaxStringFormat="P0"
                     SliderHeight="40"
-                    Step="0.01" />
+                    Step="0.01"
+                    UseCache="Operations" />
 
             </draw:SkiaLayout>
 
             <draw:SkiaMarkdownLabel
+                AddMarginBottom="60"
+                AddMarginTop="16"
                 FontFamily="FontText"
                 FontSize="18"
                 HorizontalOptions="Center"
                 HorizontalTextAlignment="Center"
-                AddMarginBottom="60"
-                AddMarginTop="16"
                 Text="🚧 Under heavy construction 🚧"
                 TextColor="#66ffffff"
                 UseCache="Operations" />

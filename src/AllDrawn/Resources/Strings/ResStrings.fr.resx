@@ -543,4 +543,15 @@
   <data name="BtnShare" xml:space="preserve">
     <value>Partager</value>
   </data>
+  <data name="MarkdownTest" xml:space="preserve">
+    <value>Pour mettre à jour le logiciel de l'appareil, procédez comme suit :
+ 1. Téléchargez la nouvelle version du logiciel depuis le site Web [supadupa.com](https://google.com).
+ 2. Copiez le fichier du firmware au format `HEX` correspondant au modèle de votre appareil dans le répertoire racine de la carte mémoire.
+ 3. Insérez la carte mémoire dans l'appareil lorsqu'il est éteint.
+ 4. Tout en maintenant le bouton `Mode`, connectez l'appareil à l'alimentation via le câble USB.
+ 5. Attendez que la carte mémoire soit initialisée et que le message `HOLD TO UPDATE X.XX` apparaisse (où X.XX est la version du logiciel téléchargé)
+ 6. Appuyez et maintenez le bouton `Mode` pour commencer le processus de mise à jour.
+ 7. Attendez la fin de la mise à jour et assurez-vous que la nouvelle version du micrologiciel s'affiche lorsque vous allumez l'appareil.
+ 8. Redémarrez l'application __MyApp__.</value>
+  </data>
 </root>

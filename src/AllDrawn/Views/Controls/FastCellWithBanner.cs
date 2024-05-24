@@ -9,7 +9,6 @@ namespace AppoMobi.Maui.DrawnUi.Demo.Views.Controls
     public class FastCellWithBanner : SkiaDynamicDrawnCell
     {
 
-
         public override void OnAppearing()
         {
             base.OnAppearing();

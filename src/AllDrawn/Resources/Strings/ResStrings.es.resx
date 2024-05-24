@@ -543,4 +543,15 @@
   <data name="BtnShare" xml:space="preserve">
     <value>Compartir</value>
   </data>
+  <data name="MarkdownTest" xml:space="preserve">
+    <value>Para actualizar el software del dispositivo, siga estos pasos:
+ 1. Descargue la nueva versión del software desde el sitio web [supadopa.com](https://google.com).
+ 2. Copie el archivo de firmware en formato `HEX` correspondiente al modelo de su dispositivo al directorio raíz de la tarjeta de memoria.
+ 3. Inserte la tarjeta de memoria en el dispositivo cuando esté apagado.
+ 4. Mientras mantiene presionado el botón `Mode`, conecte el dispositivo a la alimentación mediante el cable USB.
+ 5. Espere hasta que se inicialice la tarjeta de memoria y aparezca el mensaje `MANTÉN PARA ACTUALIZAR X.XX` (donde X.XX es la versión del software descargado)
+ 6. Mantenga presionado el botón `Mode` para comenzar el proceso de actualización.
+ 7. Espere a que se complete la actualización y asegúrese de que se muestre la nueva versión del firmware cuando encienda el dispositivo.
+ 8. Reinicie la aplicación __MyApp__.</value>
+  </data>
 </root>

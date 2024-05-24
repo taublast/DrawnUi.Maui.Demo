@@ -10,7 +10,7 @@
     RowDefinitions="40, Auto,32"
     RowSpacing="0"
     Type="Grid"
-    UseCache="None">
+    UseCache="Image">
 
     <!--  AvailableWidthAdjustment tuned for thumb shadow  -->
 
@@ -108,6 +108,7 @@
 
         <!--  END LABEL  -->
         <draw:SliderValueDesc
+            Tag="EndLabel"
             x:Name="EndDesc"
             Padding="0"
             HorizontalOptions="Start"

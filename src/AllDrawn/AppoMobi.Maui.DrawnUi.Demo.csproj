@@ -96,8 +96,8 @@
 
   <!--production-->
   <ItemGroup Condition="'$(UseNuget)' == 'true'">
-    <PackageReference Include="DrawnUi.Maui.Camera" Version="1.2.2.2" />
-    <PackageReference Include="DrawnUi.Maui.Rive" Version="1.2.2.2" />
+    <PackageReference Include="DrawnUi.Maui.Camera" Version="1.2.2.5" />
+    <PackageReference Include="DrawnUi.Maui.Rive" Version="1.2.2.5" />
   </ItemGroup>
 
 
@@ -107,6 +107,14 @@
 	    <DependentUpon>ResStrings.resx</DependentUpon>
 	    <DesignTime>True</DesignTime>
 	    <AutoGen>True</AutoGen>
+	  </Compile>
+	
+	  <Compile Update="Views\Content\ScreenXaml2Pdf.xaml.cs">
+	    <DependentUpon>ScreenXaml2Pdf.xaml</DependentUpon>
+	  </Compile>
+	
+	  <Compile Update="Views\Content\Xaml2Pdf\ReportSample.xaml.cs">
+	    <DependentUpon>%(Filename)</DependentUpon>
 	  </Compile>
 	  </ItemGroup>
 
@@ -127,6 +135,15 @@
 	  <MauiAsset Update="Resources\Raw\Lottie\successtick.json">
 	    <LogicalName>%(RecursiveDir)%(Filename)%(Extension)</LogicalName>
 	  </MauiAsset>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="Views\Content\ScreenXaml2Pdf.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\Content\Xaml2Pdf\ReportSample.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	</ItemGroup>
 
  
