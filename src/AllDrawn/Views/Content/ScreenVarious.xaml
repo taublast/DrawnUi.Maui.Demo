@@ -58,10 +58,9 @@
 
             <!--  ENTRY with FRAME  -->
             <draw:SkiaLayout
-                Tag="StackEntry"
-
                 Margin="24,24,24,0"
-                HorizontalOptions="Fill">
+                HorizontalOptions="Fill"
+                Tag="StackEntry">
 
                 <draw:SkiaShape
                     BackgroundColor="{StaticResource ColorPaper}"
@@ -84,7 +83,7 @@
 
                 </draw:SkiaShape>
 
-                <draw:SkiaMauiEntry
+                <draw:SkiaMauiEditor
                     Margin="40,2,2,0"
                     AnimateSnapshot="True"
                     CommandOnTextChanged="{Binding CommandTestVoid}"
@@ -92,8 +91,9 @@
                     FontSize="16"
                     FontWeight="600"
                     HeightRequest="28"
-                    MaxLines="1"
                     HorizontalOptions="Fill"
+                    KeyboardType="Chat"
+                    MaxLines="1"
                     ReturnType="Search"
                     Tag="SearchEntry"
                     Text="{Binding Search}"
@@ -103,7 +103,7 @@
 
             </draw:SkiaLayout>
 
-            <!--EDITOR-->
+            <!--  EDITOR  -->
             <draw:SkiaShape
                 Margin="24,24,24,0"
                 Padding="6"
@@ -116,15 +116,15 @@
                 Tag="WrapEditor">
 
                 <draw:SkiaMauiEditor
-                    Tag="Editor"
-                    ReturnType="Default"
-                    Text="{Binding SomeText}"
                     AnimateSnapshot="True"
+                    BackgroundColor="White"
                     FontFamily="FontText"
                     FontSize="16"
-                    BackgroundColor="White"
                     FontWeight="600"
                     HorizontalOptions="Fill"
+                    ReturnType="Default"
+                    Tag="Editor"
+                    Text="{Binding SomeText}"
                     TextColor="Black"
                     VerticalOptions="Fill" />
 
