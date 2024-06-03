@@ -13,8 +13,6 @@ Supports **iOS**, **MacCatalyst**, **Android**, **Windows**.
 
 Added Xaml2Pdf example, some controls and fixes, and app window is now resizable again to check adaptive layouts: the third tab presents the new `Wrap` layout.
 
-Using nuget `1.2.2.5`
-
 Don't miss more demo cases inside the [Sandbox project](https://github.com/taublast/DrawnUi.Maui).
 
 ## Screenshots
