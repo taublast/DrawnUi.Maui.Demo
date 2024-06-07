@@ -23,7 +23,7 @@ https://github.com/taublast/DrawnUi.Maui.Demo/assets/25801194/ed70eb30-0489-4121
 
 ### _Scroll, navigate and switch virtual views_
 
-https://github.com/taublast/AppoMobi.Maui.DrawnUi.Demo/assets/25801194/e86200de-16ba-4e24-a7f5-ec7ba944a9a9
+https://github.com/taublast/DrawnUi.Maui.Demo/assets/25801194/092833ea-ef96-4fda-b4e6-3b706cbab79e
 
 ### _Create your drawn controls_
 
