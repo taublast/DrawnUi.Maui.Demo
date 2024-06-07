@@ -19,7 +19,7 @@ Don't miss more demo cases inside the [Sandbox project](https://github.com/taubl
 
 ### _Draw your recycled cells on a canvas_
 
-https://github.com/taublast/AppoMobi.Maui.DrawnUi.Demo/assets/25801194/f562e126-1586-4a4f-a08c-fb6437c0df27
+https://github.com/taublast/DrawnUi.Maui.Demo/assets/25801194/ed70eb30-0489-4121-b93b-d95ba4d6bc4b
 
 ### _Scroll, navigate and switch virtual views_
 
