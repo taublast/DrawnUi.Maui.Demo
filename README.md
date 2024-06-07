@@ -27,7 +27,7 @@ https://github.com/taublast/DrawnUi.Maui.Demo/assets/25801194/092833ea-ef96-4fda
 
 ### _Create your drawn controls_
 
-https://github.com/taublast/AppoMobi.Maui.DrawnUi.Demo/assets/25801194/2182de51-929e-47f6-a560-e9d97ad16e52
+https://github.com/taublast/DrawnUi.Maui.Demo/assets/25801194/84b1274a-94f5-4844-b6a0-c9f5bf76ea92
 
 ### _Draw rich and tappable text_
 
