@@ -6,7 +6,6 @@
     xmlns:draw="http://schemas.appomobi.com/drawnUi/2023/draw"
     xmlns:interfaces="clr-namespace:AppoMobi.Maui.DrawnUi.Demo.Interfaces"
     x:Name="ThisControl"
-    draw:AddGestures.CommandLongPressing="{Binding CommandPressingImage}"
     draw:AddGestures.CommandTapped="{Binding CommandCloseGallery}"
     x:DataType="interfaces:IFullscreenGalleryManager"
     HorizontalOptions="Fill"
@@ -71,7 +70,9 @@
     </draw:SkiaCarousel>
 
     <draw:SkiaMarkdownLabel
-        Margin="32"
+        Margin="24"
+        Padding="8"
+        BackgroundColor="#66000000"
         HorizontalOptions="Fill"
         HorizontalTextAlignment="Center"
         Style="{StaticResource MarkdownLabelDefaultStyle}"

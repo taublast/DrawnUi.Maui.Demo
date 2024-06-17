@@ -153,22 +153,13 @@
                     TextColor="{StaticResource ColorText}"
                     UseCache="Operations" />
 
-                <draw:SkiaLabel
+                <!--<draw:SkiaLabel
                     FontSize="13"
                     HorizontalOptions="Fill"
                     HorizontalTextAlignment="Center"
                     Style="{StaticResource SkiaLabelDefaultStyle}"
                     Text="A custom wheel picker created with a `SkiaScrollLooped` which is a subclassed `SkiaScroll`."
-                    UseCache="Operations" />
-
-                <draw:SkiaLabel
-                    Margin="0,10,16,0"
-                    FontSize="12"
-                    HorizontalOptions="End"
-                    Text="{Binding Source={x:Reference Picker}, Path=SelectedIndex, StringFormat='Picker: {0}'}"
-                    TextColor="DarkGray"
-                    UseCache="Operations"
-                    ZIndex="1" />
+                    UseCache="Operations" />-->
 
                 <!--  WHEEL  PICKER  -->
                 <controls2:WheelPicker
@@ -194,6 +185,16 @@
 
             </draw:SkiaLayout>
 
+            <draw:SkiaLabel
+                Margin="0,10,16,0"
+                FontSize="12"
+                HorizontalOptions="End"
+                Text="{Binding Source={x:Reference Picker}, Path=SelectedIndex, StringFormat='Picker: {0}'}"
+                TextColor="DarkGray"
+                UseCache="Operations"
+                VerticalOptions="Center"
+                ZIndex="1" />
+
             <!--  BOTTOM SCROLL  -->
             <draw:SkiaScroll
                 x:Name="LineScroll"
@@ -211,7 +212,7 @@
                     ItemsSource="{Binding ItemsSmall}"
                     Spacing="0"
                     Tag="HScrollStack"
-                    Type="Row" 
+                    Type="Row"
                     VerticalOptions="Fill">
 
                     <draw:SkiaLayout.ItemTemplate>
@@ -232,11 +233,11 @@
                                 <!--  using a custom SkiaShapeTouch to open popups from the center of a tapped cell  -->
                                 <!--  uisng ImageDoubleBuffered cache as this changes dinamically  -->
                                 <controls2:SkiaShapeTouch
+                                    AddMarginLeft="8"
                                     BackgroundColor="Black"
                                     CommandTapped="{Binding Source={x:Reference LineScroll}, Path=BindingContext.CommandOpenGallery}"
                                     CornerRadius="8"
                                     HorizontalOptions="Fill"
-                                    AddMarginLeft="8"
                                     VerticalOptions="Fill">
 
                                     <draw:SkiaLayout
@@ -349,9 +350,9 @@
         <!--  SUBTAB SECOND  -->
         <!--  Simulating StackLayout inside ScrollView  -->
         <draw:SkiaLayout
-            UseCache="None"
             BackgroundColor="Black"
             HorizontalOptions="Fill"
+            UseCache="None"
             VerticalOptions="Fill">
 
             <draw:SkiaControl.FillGradient>
@@ -380,9 +381,9 @@
                     BackgroundColor="#33000000"
                     HorizontalOptions="Fill"
                     Spacing="16"
+                    Split="1"
                     Tag="LargeContent"
                     Type="Wrap"
-                    Split="1"
                     UseCache="Image">
 
                     <draw:SkiaLabel
@@ -431,9 +432,9 @@
                             WidthRequest="190" />
 
                         <draw:SkiaLabel
+                            AddMarginLeft="206"
                             HorizontalOptions="Fill"
                             HorizontalTextAlignment="Start"
-                            AddMarginLeft="206"
                             Style="{StaticResource SkiaLabelDefaultStyle}"
                             Text="This app demonstrates the second use case."
                             UseCache="None" />
@@ -456,9 +457,9 @@
                             WidthRequest="190" />
 
                         <draw:SkiaLabel
+                            AddMarginLeft="206"
                             HorizontalOptions="Fill"
                             HorizontalTextAlignment="Start"
-                            AddMarginLeft="206"
                             Style="{StaticResource SkiaLabelDefaultStyle}"
                             Text="All text is drawn with `SkiaLabel`, a rather powerful control with many useful properties like CharacterSpacing, ParagraphSpacing, AutoSize and much more."
                             UseCache="None">

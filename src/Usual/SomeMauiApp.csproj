@@ -8,6 +8,7 @@
 		<UseMaui>true</UseMaui>
 		<SingleProject>true</SingleProject>
 		<ImplicitUsings>enable</ImplicitUsings>
+    
 		<UseNuget>true</UseNuget>
     
 		<!-- Display name -->
@@ -16,7 +17,7 @@
 		<!-- App Identifier -->
 		<ApplicationId>com.companyname.somemauiapp</ApplicationId>
 		<ApplicationIdGuid>dc719376-75fe-425b-b78f-0a6e0983132d</ApplicationIdGuid>
-
+    
 		<!-- Versions -->
 		<ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
 		<ApplicationVersion>1</ApplicationVersion>
@@ -46,13 +47,16 @@
 		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
 	</ItemGroup>
 
+  <!--production-->
   <ItemGroup Condition="'$(UseNuget)' == 'true'">
-    <PackageReference Include="AppoMobi.Maui.DrawnUi" Version="1.2.0.88" />
+    <PackageReference Include="DrawnUi.Maui.Camera" Version="1.2.2.617" />
+    <PackageReference Include="DrawnUi.Maui.Rive" Version="1.2.2.617" />
   </ItemGroup>
   
   <Target Condition="'$(UseNuget)' != 'true'" Name="IssueCustomWarning" BeforeTargets="BeforeBuild">
     <Warning Text="------ Building $(TargetFramework) with DrawnUI project reference ------" />
   </Target>
+  
   <ItemGroup Condition="'$(UseNuget)' != 'true'">
     <ProjectReference Include="..\..\..\DrawnUi.Maui\src\Engine\DrawnUi.Maui.csproj" />
   </ItemGroup>

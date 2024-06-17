@@ -16,8 +16,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "All Drawn", "All Drawn", "{
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Usual Maui", "Usual Maui", "{2E0707A4-45A5-4112-9683-93A5611AD93D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DrawnUi.Maui", "..\..\DrawnUi.Maui\src\Engine\DrawnUi.Maui.csproj", "{CDC7233D-E7B6-4C19-83C4-C138B4A9BBA6}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,10 +34,6 @@ Global
 		{DD34EC8B-819B-4BCB-B2CC-DFF384789861}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DD34EC8B-819B-4BCB-B2CC-DFF384789861}.Release|Any CPU.Build.0 = Release|Any CPU
 		{DD34EC8B-819B-4BCB-B2CC-DFF384789861}.Release|Any CPU.Deploy.0 = Release|Any CPU
-		{CDC7233D-E7B6-4C19-83C4-C138B4A9BBA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CDC7233D-E7B6-4C19-83C4-C138B4A9BBA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CDC7233D-E7B6-4C19-83C4-C138B4A9BBA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CDC7233D-E7B6-4C19-83C4-C138B4A9BBA6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
