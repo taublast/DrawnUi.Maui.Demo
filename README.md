@@ -17,15 +17,15 @@ Using latest nuget with new features. [Full change log here](https://github.com/
 
 ### _Draw your recycled cells on a canvas_
 
-https://github.com/taublast/AppoMobi.Maui.DrawnUi.Demo/assets/25801194/f562e126-1586-4a4f-a08c-fb6437c0df27
+https://github.com/taublast/DrawnUi.Maui.Demo/assets/25801194/ed70eb30-0489-4121-b93b-d95ba4d6bc4b
 
 ### _Scroll, navigate and switch virtual views_
 
-https://github.com/taublast/AppoMobi.Maui.DrawnUi.Demo/assets/25801194/e86200de-16ba-4e24-a7f5-ec7ba944a9a9
+https://github.com/taublast/DrawnUi.Maui.Demo/assets/25801194/092833ea-ef96-4fda-b4e6-3b706cbab79e
 
 ### _Create your drawn controls_
 
-https://github.com/taublast/AppoMobi.Maui.DrawnUi.Demo/assets/25801194/2182de51-929e-47f6-a560-e9d97ad16e52
+https://github.com/taublast/DrawnUi.Maui.Demo/assets/25801194/84b1274a-94f5-4844-b6a0-c9f5bf76ea92
 
 ### _Draw rich and tappable text_
 
