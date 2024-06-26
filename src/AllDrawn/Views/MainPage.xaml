@@ -122,23 +122,6 @@
             </draw:SkiaShape>
         </draw:SkiaLayout>
 
-        <!--  SkiaBackdrop  -->
-        <!--  cached never  -->
-        <draw:SkiaShape
-            Margin="0,16,0,-2"
-            CornerRadius="20,20,0, 0"
-            HorizontalOptions="Fill"
-            IsVisible="{Binding Presentation.HasBlur}"
-            VerticalOptions="Fill"
-            ZIndex="-2">
-
-            <draw:SkiaBackdrop
-                Blur="10"
-                HorizontalOptions="Fill"
-                Tag="Blur"
-                VerticalOptions="Fill" />
-
-        </draw:SkiaShape>
 
         <!--  cached GPU  -->
         <navigation:BottomTabsSelector
@@ -228,6 +211,25 @@
                 Color="{StaticResource ColorAccent}" />
 
         </navigation:BottomTabsSelector>
+
+
+        <!--  SkiaBackdrop  -->
+        <!--  cached never  -->
+        <draw:SkiaShape
+            Margin="0,16,0,-2"
+            CornerRadius="20,20,0, 0"
+            HorizontalOptions="Fill"
+            IsVisible="{Binding Presentation.HasBlur}"
+            VerticalOptions="Fill"
+            ZIndex="-2">
+
+            <draw:SkiaBackdrop
+                Blur="10"
+                HorizontalOptions="Fill"
+                Tag="Blur"
+                VerticalOptions="Fill" />
+
+        </draw:SkiaShape>
 
     </draw:SkiaLayout>
 

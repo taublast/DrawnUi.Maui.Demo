@@ -43,7 +43,7 @@
             Spacing="20"
             Tag="TabSettings"
             Type="Column"
-            UseCache="None">
+            UseCache="Operations">
 
             <!--  header  -->
             <draw:SkiaLayout

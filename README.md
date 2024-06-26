@@ -11,7 +11,7 @@ Supports **iOS**, **MacCatalyst**, **Android**, **Windows**.
 
 ## What's New
 
-Using SkiaSharp3 preview nuget with new features. [Full change log here](https://github.com/taublast/DrawnUi.Maui).
+Using latest nuget with new features. [Full change log here](https://github.com/taublast/DrawnUi.Maui).
 
 ## Screenshots
 
