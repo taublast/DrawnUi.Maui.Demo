@@ -225,14 +225,14 @@
                             <controls2:FastCellWithBanner
                                 draw:AddGestures.AnimationTapped="Ripple"
                                 x:DataType="viewModels:SimpleItemViewModel"
-                                UseCache="GPU"
                                 VerticalOptions="Fill"
                                 WidthRequest="148">
 
                                 <!--  clipped cell content container - cache DoubleImage  -->
                                 <!--  using a custom SkiaShapeTouch to open popups from the center of a tapped cell  -->
-                                <!--  uisng ImageDoubleBuffered cache as this changes dinamically  -->
+                                <!--  uisng ImageDoubleBuffered cache as this changes dynamically  -->
                                 <controls2:SkiaShapeTouch
+                                    UseCache="ImageDoubleBuffered"
                                     AddMarginLeft="8"
                                     BackgroundColor="Black"
                                     CommandTapped="{Binding Source={x:Reference LineScroll}, Path=BindingContext.CommandOpenGallery}"

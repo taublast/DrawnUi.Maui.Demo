@@ -216,13 +216,13 @@
 
                         <!--  in this screen we load 10 items and simulate a templated horizontal stackLayout, not recycled  -->
                         <draw:SkiaLayout
+                            AddMarginBottom="4"
                             InitializeTemplatesInBackgroundDelay="10"
                             ItemsSource="{Binding ItemsSmall}"
-                            AddMarginBottom="4"
                             RecyclingTemplate="Enabled"
                             Spacing="4"
                             Tag="HScrollStack"
-                            Type="Row" 
+                            Type="Row"
                             VerticalOptions="Fill">
 
                             <draw:SkiaLayout.ItemTemplate>
@@ -236,7 +236,6 @@
                                     <controls:FastCellWithBanner
                                         draw:AddGestures.AnimationTapped="Ripple"
                                         x:DataType="viewModels:SimpleItemViewModel"
-                                        UseCache="Image"
                                         VerticalOptions="Fill"
                                         WidthRequest="148">
 
@@ -244,11 +243,12 @@
                                         <!--  using a custom SkiaShapeTouch to open popups from the center of a tapped cell  -->
                                         <!--  uisng ImageDoubleBuffered cache as this changes dinamically  -->
                                         <controls:SkiaShapeTouch
+                                            AddMarginLeft="8"
                                             BackgroundColor="Black"
                                             CommandTapped="{Binding Source={x:Reference LineScroll}, Path=BindingContext.CommandOpenHGallery}"
                                             CornerRadius="12"
                                             HorizontalOptions="Fill"
-                                            AddMarginLeft="8"
+                                            UseCache="ImageDoubleBuffered"
                                             VerticalOptions="Fill">
                                             <draw:SkiaLayout
                                                 HorizontalOptions="Fill"
@@ -401,9 +401,9 @@
                 HorizontalOptions="Fill"
                 InitializeTemplatesInBackgroundDelay="10"
                 ItemsSource="{Binding Items}"
-                Split="{Binding Columns}"
                 RecyclingTemplate="Enabled"
                 Spacing="0"
+                Split="{Binding Columns}"
                 Tag="StackItems"
                 Type="Column">
 
@@ -411,6 +411,7 @@
                     <DataTemplate>
 
                         <controls:FastCellWithBanner
+                            draw:AddGestures.AnimationTapped="Ripple"
                             x:DataType="viewModels:SimpleItemViewModel"
                             HeightRequest="220"
                             HorizontalOptions="Fill"
@@ -439,7 +440,6 @@
 
                                     <controls:SkiaShapeTouch
                                         Margin="8,2,8,14"
-                                        draw:AddGestures.AnimationTapped="Ripple"
                                         CommandTapped="{Binding Source={x:Reference StackCells}, Path=BindingContext.CommandOpenGallery}"
                                         CornerRadius="12,40,12,12"
                                         HorizontalOptions="Fill"
@@ -598,13 +598,13 @@
                         HorizontalOptions="Fill">
 
                         <draw:SkiaLottie
-                            Tag="EmptyIndicator"
                             AutoPlay="True"
                             ColorTint="Red"
                             HorizontalOptions="Center"
                             LockRatio="1"
                             Repeat="-1"
                             Source="Lottie/Loader.json"
+                            Tag="EmptyIndicator"
                             VerticalOptions="Center"
                             WidthRequest="50" />
 

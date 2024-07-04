@@ -172,10 +172,9 @@ public class NavigationViewModel : BaseViewModel
 
     }
 
-    private void OnShellNavigated(object sender, ShellNavigatedEventArgs e)
+    private void OnShellNavigated(object sender, SkiaShellNavigatedArgs e)
     {
-
-        if (e.Current.Location.ToString().SafeContains("/tabs"))
+        if (e.Route.Contains("/tabs"))
         {
             InitFlyout();
 
