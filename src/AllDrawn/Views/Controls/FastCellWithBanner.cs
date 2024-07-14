@@ -8,31 +8,28 @@ namespace AppoMobi.Maui.DrawnUi.Demo.Views.Controls
     /// </summary>
     public class FastCellWithBanner : SkiaDynamicDrawnCell
     {
-
-        public override void OnAppearing()
+        public override void OnVisibilityChanged(bool newvalue)
         {
-            base.OnAppearing();
+            base.OnVisibilityChanged(newvalue);
 
-            //Debug.WriteLine($"[Cell] OnAppearing {Uid}");
-
-            if (!_appeared)
+            if (!newvalue)
             {
-                _appeared = true;
-
-                Opacity = 0;
-                FadeToAsync(1, 750, Easing.Linear);
-
-                SetContent();
-
-                //if (ImageBanner != null)
-                //    ImageBanner.LoadSourceOnFirstDraw = true; //steroids up!
+                _appeared = false;
             }
 
         }
 
+
         public override void OnScrolled()
         {
             base.OnScrolled();
+
+            if (!_appeared)
+            {
+                _appeared = true;
+                Opacity = 0;
+                FadeToAsync(1, 750, Easing.Linear);
+            }
 
             if (Drawer != null && !Drawer.IsOpen)
             {
@@ -158,7 +155,7 @@ namespace AppoMobi.Maui.DrawnUi.Demo.Views.Controls
                 //    ImagePlaceholder.IsVisible = !string.IsNullOrEmpty(item.Banner);
                 //}
 
-                if (ImageBanner != null && _appeared)
+                if (ImageBanner != null)
                 {
                     ImageBanner.StopLoading();
                     item.BannerPreloadOrdered = true;
@@ -195,8 +192,6 @@ namespace AppoMobi.Maui.DrawnUi.Demo.Views.Controls
                 UpdateCell();
             }
         }
-
-        private int a;
 
         public virtual void UpdateCell()
         {
