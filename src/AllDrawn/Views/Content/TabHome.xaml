@@ -397,7 +397,7 @@
             <content:AnimateVerticalStack
                 x:Name="StackCells"
                 DynamicColumns="True"
-                HiddenAmountToRender="150"
+                VirtualisationInflated="150"
                 HorizontalOptions="Fill"
                 InitializeTemplatesInBackgroundDelay="10"
                 ItemsSource="{Binding Items}"

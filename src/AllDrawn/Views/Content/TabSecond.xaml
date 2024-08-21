@@ -232,12 +232,12 @@
                                 <!--  using a custom SkiaShapeTouch to open popups from the center of a tapped cell  -->
                                 <!--  uisng ImageDoubleBuffered cache as this changes dynamically  -->
                                 <controls2:SkiaShapeTouch
-                                    UseCache="ImageDoubleBuffered"
                                     AddMarginLeft="8"
                                     BackgroundColor="Black"
                                     CommandTapped="{Binding Source={x:Reference LineScroll}, Path=BindingContext.CommandOpenGallery}"
                                     CornerRadius="8"
                                     HorizontalOptions="Fill"
+                                    UseCache="ImageDoubleBuffered"
                                     VerticalOptions="Fill">
 
                                     <draw:SkiaLayout
