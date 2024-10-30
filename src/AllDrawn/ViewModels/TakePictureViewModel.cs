@@ -226,6 +226,7 @@ namespace AppoMobi.Maui.DrawnUi.Demo.ViewModels
                 HorizontalOptions = LayoutOptions.Fill,
                 Padding = new Thickness(16),
             };
+
             overlay.AddSubView(new SkiaLabel()
             {
                 Tag = "ProtoTitle",

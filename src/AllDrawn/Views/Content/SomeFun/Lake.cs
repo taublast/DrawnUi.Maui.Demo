@@ -188,10 +188,6 @@ public partial class Lake : SkiaLayout
 
     public override ISkiaGestureListener ProcessGestures(SkiaGesturesParameters args, GestureEventProcessingInfo apply)
     {
-        if (args.Type == TouchActionResult.Touch)
-            return null;
-
-        //		Trace.WriteLine($"[IN] {type} {action} dY: {args.Distance.Delta.Y:0.00} dX: {args.Distance.Delta.X:0.00} | vX: {args.Distance.Velocity.X:0.00} vY: {args.Distance.Velocity.Y:0.00}");
 
 
 
@@ -215,19 +211,11 @@ public partial class Lake : SkiaLayout
 
                     var velocityY = (float)(args.Event.Distance.Velocity.Y / _velocityRatoY);
                     _animationDuckMoveY.SetVelocity(velocityY).SetValue((float)_duck.TranslationY).Start();
-
-                    //var velocityX = args.Distance.Velocity.X / _velocityRatoX;
-                    //_animationDuckMoveX.SetVelocity((float)velocityX).SetValue((float)_duck.TranslationX).Start();
-
-                    //var velocityY = args.Distance.Velocity.Y / _velocityRatoY;
-                    //_animationDuckMoveY.SetVelocity((float)velocityY).SetValue((float)_duck.TranslationY).Start();
-
-                    //Console.WriteLine($"[V] {velocityX:0.00} {velocityY:0.00}");
                 }
                 else
                 if (args.Type == TouchActionResult.Up)
                 {
-                    if (GestureStartedInside(args.Event))
+                    if (GestureStartedInside(args.Event) && _movingDuck)
                     {
                         _movingDuck = false;
                         _welcome.StopAnimators();
@@ -240,11 +228,10 @@ public partial class Lake : SkiaLayout
                         //_animationDuckMoveY.SetVelocity(velocityY).SetValue((float)_duck.TranslationY).Start();
 
 
-                        if (!_animationDuckMoveX.IsRunning)
-                            MoveDuckX(args.Event.Location.X / RenderingScale - _duck.Width / 2);
+                        MoveDuckX(args.Event.Location.X / RenderingScale - _duck.Width / 2);
 
-                        if (!_animationDuckMoveY.IsRunning)
-                            MoveDuckY(args.Event.Location.Y / RenderingScale - _duck.Height / 2);
+
+                        MoveDuckY(args.Event.Location.Y / RenderingScale - _duck.Height / 2);
 
                         _anumatorJump.Start();
                         _welcome.StartAnimation();
@@ -255,17 +242,11 @@ public partial class Lake : SkiaLayout
             catch (Exception e)
             {
                 Console.WriteLine(e);
-                throw;
             }
 
         }
 
-        //if (action != TouchActionResult.Touch)
-        //{
-        //	Debug.WriteLine($"[LAKE] {type} {action} d {args.Distance.Delta.X}x{args.Distance.Delta.Y}  v {args.Distance.Velocity.X}x{args.Distance.Velocity.Y}");
-        //}
-
-        return base.ProcessGestures(args, apply);
+        return this;
 
     }
 }
