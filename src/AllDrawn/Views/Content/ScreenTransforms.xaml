@@ -69,6 +69,7 @@
             <draw:SkiaLabel
                 Margin="16,8"
                 CameraAngleX="33"
+                CameraTranslationZ="0"
                 FontFamily="FontTextBold"
                 FontSize="18"
                 HorizontalOptions="Center"
@@ -91,11 +92,17 @@
 
         </draw:SkiaLayout>
 
-        <!--  LIST  -->
+        <!--
+            LIST
+            CameraAngleX="16"
+            CameraAngleY="20"
+            CameraAngleZ="6"
+        -->
         <draw:SkiaShape
             CameraAngleX="16"
             CameraAngleY="20"
             CameraAngleZ="6"
+            CameraTranslationZ="0"
             CornerRadius="17"
             HeightRequest="200"
             HorizontalOptions="Center"

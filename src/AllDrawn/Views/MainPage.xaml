@@ -9,20 +9,20 @@
     xmlns:viewModels="using:AppoMobi.Maui.DrawnUi.Demo.ViewModels"
     x:DataType="viewModels:MainPageViewModel"
     BackgroundColor="Black"
-
     HorizontalOptions="Fill"
-    
     VerticalOptions="Fill">
 
-    <!--ScaleX="0.6"
+    <!--
+        ScaleX="0.6"
         CameraAngleX="0"
-    CameraAngleY="20"
-    CameraAngleZ="0"
-    ScaleY="0.6"
-    TransformPivotPointX="1"
-    TransformPivotPointY="0.5"
-    TranslationX="-140"
-    UseCache="GPU"-->
+        CameraAngleY="20"
+        CameraAngleZ="0"
+        ScaleY="0.6"
+        TransformPivotPointX="1"
+        TransformPivotPointY="0.5"
+        TranslationX="-140"
+        UseCache="GPU"
+    -->
 
     <draw:SkiaControl.FillGradient>
 
@@ -42,15 +42,14 @@
 
     <draw:SkiaViewSwitcher
         x:Name="Switcher"
-        AnimateTabs="False"
-        AnimationEasing="{x:Static Easing.CubicOut}"
-        AnimationSpeed="250"
-        HorizontalOptions="FillAndExpand"
+        AnimateTabs="True"
+        TabsAnimationEasing="{x:Static Easing.CubicOut}"
+        TabsAnimationSpeed="150"
+        HorizontalOptions="Fill"
         IsClippedToBounds="True"
         SelectedIndex="{Binding SelectedIndex, Mode=TwoWay}"
         Tag="NavigationLayout"
-        VerticalOptions="FillAndExpand">
-
+        VerticalOptions="Fill">
 
         <content:TabScrollCells />
         <content:TabWithTopTabs />

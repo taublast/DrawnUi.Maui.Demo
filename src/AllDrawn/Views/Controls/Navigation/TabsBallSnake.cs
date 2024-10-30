@@ -1,6 +1,4 @@
-﻿using DrawnUi.Maui;
-
-namespace AppoMobi.Maui.DrawnUi.Demo.Views.Controls.Navigation
+﻿namespace AppoMobi.Maui.DrawnUi.Demo.Views.Controls.Navigation
 {
 
     /// <summary>
@@ -12,6 +10,9 @@ namespace AppoMobi.Maui.DrawnUi.Demo.Views.Controls.Navigation
 
         protected override async void Animate()
         {
+            if (Ball == null)
+                return;
+
             _cts?.Cancel();
             _cts = new CancellationTokenSource();
 

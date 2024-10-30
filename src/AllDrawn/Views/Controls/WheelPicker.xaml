@@ -6,7 +6,7 @@
     xmlns:draw="http://schemas.appomobi.com/drawnUi/2023/draw"
     x:Name="Container"
     BackgroundColor="Gray"
-    HeightRequest="200"
+    HeightRequest="210"
     HorizontalOptions="Center"
     WidthRequest="130"
     ZIndex="10">
@@ -59,9 +59,11 @@
                         HorizontalOptions="Fill"
                         Spacing="0">
 
-                        <!--TODO recently cannot use  x:DataType="{x:Type x:String}" 
-                        with latest Maui.Controls throws Xaml error
-                        need to investigate their change for data type-->
+                        <!--
+                            TODO recently cannot use  x:DataType="{x:Type x:String}"
+                            with latest Maui.Controls throws Xaml error
+                            need to investigate their change for data type
+                        -->
 
                         <draw:SkiaLabel
                             Padding="4"

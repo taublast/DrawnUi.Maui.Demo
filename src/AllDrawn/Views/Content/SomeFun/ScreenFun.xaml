@@ -14,10 +14,10 @@
     VerticalOptions="Fill">
 
     <controls:ScrollingBanner
-        Tag="Banner"
         Padding="0,2"
         IsBanner="True"
-        Orientation="Horizontal">
+        Orientation="Horizontal"
+        Tag="Banner">
 
         <!--  notice cache inside scroll and its impact on fps  -->
         <draw:SkiaLayout
@@ -54,19 +54,19 @@
     </controls:ScrollingBanner>
 
     <controls:Lake
-        UseCache="Operations"
         Margin="0,0,0,75"
         HorizontalOptions="Fill"
         Tag="Lake"
+        UseCache="Operations"
         VerticalOptions="Fill">
 
         <draw:SkiaLayout
             Padding="24,0"
-            HorizontalOptions="Fill"
             AddMarginTop="80"
+            HorizontalOptions="Fill"
             Opacity="0.5"
-            Type="Wrap"
             Split="1"
+            Type="Wrap"
             UseCache="Operations"
             ZIndex="-1">
 
@@ -138,9 +138,9 @@
                 Source="Svg/dotnet_bot.svg" />
 
             <draw:SkiaLabel
+                AddMarginTop="50"
                 FontFamily="FontTextTitle"
                 HorizontalOptions="Center"
-                AddMarginTop="50"
                 MaxLines="1"
                 Tag="LabelDrag"
                 Text="Drag Me!"
