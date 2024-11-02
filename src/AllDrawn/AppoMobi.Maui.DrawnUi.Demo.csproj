@@ -96,30 +96,18 @@
 
   <!--production-->
   <ItemGroup Condition="'$(UseNuget)' == 'true'">
-    <PackageReference Include="DrawnUi.Maui.Camera" Version="1.2.4.4" />
-    <PackageReference Include="DrawnUi.Maui.Rive" Version="1.2.4.4" />
+    <PackageReference Include="DrawnUi.Maui.Camera" Version="1.2.4.7" />
+    <PackageReference Include="DrawnUi.Maui.Rive" Version="1.2.4.7" />
   </ItemGroup>
 
 
 	<ItemGroup>
-	
-	  <Compile Update="Resources\Strings\ResStrings.Designer.cs">
-	    <DependentUpon>ResStrings.resx</DependentUpon>
-	    <DesignTime>True</DesignTime>
-	    <AutoGen>True</AutoGen>
-	  </Compile>
-	
-	  <Compile Update="Views\Content\ScreenXaml2Pdf.xaml.cs">
-	    <DependentUpon>ScreenXaml2Pdf.xaml</DependentUpon>
-	  </Compile>
-	
-	  <Compile Update="Views\Content\Xaml2Pdf\ReportSample.xaml.cs">
-	    <DependentUpon>%(Filename)</DependentUpon>
-	  </Compile>
-	  </ItemGroup>
-
-	<ItemGroup>
-	  <EmbeddedResource Update="Resources\Strings\ResStrings.resx">
+    <Compile Update="Resources\Strings\ResStrings.Designer.cs">
+      <DependentUpon>ResStrings.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <EmbeddedResource Update="Resources\Strings\ResStrings.resx">
 	    <LastGenOutput>ResStrings.Designer.cs</LastGenOutput>
 	    <Generator>PublicResXFileCodeGenerator</Generator>
 	  </EmbeddedResource>

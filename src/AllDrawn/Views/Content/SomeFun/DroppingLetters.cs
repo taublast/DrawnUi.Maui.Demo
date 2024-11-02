@@ -1,5 +1,4 @@
-﻿
-
+﻿using System.Diagnostics;
 
 namespace AppoMobi.Maui.DrawnUi.Demo.Views.Controls;
 
@@ -71,43 +70,55 @@ public class DroppingLetters : SkiaLabel
         BuildAnimators();
     }
 
-    private bool lockStart;
-    public void StartAnimation()
+    private CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
+    private readonly object _cancellationLock = new object();
+
+    private void CancelAnimation()
     {
-        if (lockStart)
+        lock (_cancellationLock)
         {
-            return;
-        }
-
-        lockStart = true;
-
-        SetupAnimators();
-
-        if (_letterOffsetsY != null)
-        {
-            var index = 0;
-
-            void StartDelayed(int index, ISkiaAnimator[] animators)
+            if (_cancellationTokenSource != null && !_cancellationTokenSource.IsCancellationRequested)
             {
-                if (index < animators.Length)
+                _cancellationTokenSource.Cancel();
+                _cancellationTokenSource.Dispose();
+            }
+            _cancellationTokenSource = new CancellationTokenSource();
+        }
+    }
+
+    public async Task StartAnimationAsync()
+    {
+        CancelAnimation();
+        var token = _cancellationTokenSource.Token;
+
+        try
+        {
+
+            SetupAnimators();
+
+            if (_letterOffsetsY != null && _animators.Count > 0)
+            {
+                foreach (var animator in _animators)
                 {
-                    var animator = animators[index];
-
-                    Task.Run(async () =>
-                    {
-                        await Task.Delay(50);
-                        animator.Start();
-                        StartDelayed(index + 1, animators);
-                    }).ConfigureAwait(false);
-
+                    await Task.Delay(50, token).ConfigureAwait(false);
+                    animator.Start();
                 }
-
             }
 
-            StartDelayed(0, _animators.ToArray());
         }
+        catch (OperationCanceledException)
+        {
+            //Debug.WriteLine("Animation was canceled.");
+        }
+        catch (Exception ex)
+        {
+            Debug.WriteLine($"Animation error: {ex.Message}");
+        }
+    }
 
-        lockStart = false;
+    public void StartAnimation()
+    {
+        _ = StartAnimationAsync();
     }
 
     public void BuildAnimators()

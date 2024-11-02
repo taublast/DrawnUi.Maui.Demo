@@ -1,8 +1,6 @@
 ﻿using AppoMobi.Maui.DrawnUi.Demo.Interfaces;
 using AppoMobi.Maui.DrawnUi.Demo.Services;
-using AppoMobi.Maui.DrawnUi.Demo.Views;
 using DrawnUi.Maui.Infrastructure;
-using System.Threading.Channels;
 using System.Windows.Input;
 
 namespace AppoMobi.Maui.DrawnUi.Demo.ViewModels;
@@ -347,7 +345,7 @@ public class ScrollingCellsViewModel : ProjectViewModel, IFullscreenGalleryManag
         await Task.Delay(50);
 
         if (mainThread)
-            await Dispatcher.DispatchAsync(async () =>
+            MainThread.BeginInvokeOnMainThread(async () =>
             {
                 await Action();
             });
@@ -355,7 +353,6 @@ public class ScrollingCellsViewModel : ProjectViewModel, IFullscreenGalleryManag
         {
             await Action();
         }
-
     }
 
     public ICommand CommandLoadMore
