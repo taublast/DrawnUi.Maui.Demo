@@ -404,7 +404,7 @@
                 RecyclingTemplate="Enabled"
                 Spacing="0"
                 Split="{Binding Columns}"
-                Tag="StackItems"
+                Tag="StackItemsV"
                 Type="Column">
 
                 <draw:SkiaLayout.ItemTemplate>

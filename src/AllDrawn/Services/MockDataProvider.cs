@@ -1,6 +1,4 @@
-﻿using AppoMobi.Maui.DrawnUi.Demo.ViewModels;
-
-namespace AppoMobi.Maui.DrawnUi.Demo.Services;
+﻿namespace AppoMobi.Maui.DrawnUi.Demo.Services;
 
 public class MockDataProvider
 {
@@ -71,18 +69,18 @@ public class MockDataProvider
     public string GetRandomImage()
     {
         seed++;
-        return $"https://picsum.photos/400/200?s={seed}";
+        return $"https://picsum.photos/seed/{seed}/400/200";
     }
 
     public string GetRandomSmallImage()
     {
         seedSmall++;
-        return $"https://picsum.photos/300/300?s={seedSmall}";
+        return $"https://picsum.photos/seed/{seedSmall}/300/300";
     }
 
     public string GetRandomAvatar()
     {
-        return $"https://picsum.photos/200/200?s={seed}";
+        return $"https://picsum.photos/seed/{seed}/200/200";
     }
 
     private static Random random = new Random();

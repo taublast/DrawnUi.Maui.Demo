@@ -6,7 +6,6 @@
     xmlns:draw="http://schemas.appomobi.com/drawnUi/2023/draw"
     xmlns:navigation="clr-namespace:AppoMobi.Maui.DrawnUi.Demo.Views.Controls.Navigation"
     xmlns:viewModels="using:AppoMobi.Maui.DrawnUi.Demo.ViewModels"
-    x:DataType="viewModels:SimplePageViewModel"
     BackgroundColor="Black"
     HorizontalOptions="Fill"
     Spacing="0"
@@ -68,14 +67,14 @@
 
             <draw:SkiaLabel
                 Margin="16,8"
-                CameraAngleX="33"
-                CameraTranslationZ="0"
                 FontFamily="FontTextBold"
                 FontSize="18"
                 HorizontalOptions="Center"
                 HorizontalTextAlignment="Center"
+                RotationX="33"
                 Text="Checking transforms, gradients etc. List is scrollable!"
-                TextColor="White" />
+                TextColor="White"
+                TranslationZ="0" />
 
             <!--<draw:SkiaLabel
                 TranslationX="2"
@@ -92,21 +91,16 @@
 
         </draw:SkiaLayout>
 
-        <!--
-            LIST
-            CameraAngleX="16"
-            CameraAngleY="20"
-            CameraAngleZ="6"
-        -->
+        <!--  LIST  -->
         <draw:SkiaShape
-            CameraAngleX="16"
-            CameraAngleY="20"
-            CameraAngleZ="6"
-            CameraTranslationZ="0"
             CornerRadius="17"
             HeightRequest="200"
             HorizontalOptions="Center"
+            RotationX="16"
+            RotationY="20"
+            RotationZ="6"
             TranslationY="70"
+            TranslationZ="0"
             WidthRequest="200"
             ZIndex="1">
 
@@ -189,6 +183,7 @@
                     <draw:SkiaLayout
                         Padding="10,10,10,0"
                         HorizontalOptions="Fill"
+                        Tag="TransList"
                         Type="Column"
                         UseCache="Image">
 

@@ -43,12 +43,17 @@
                             HeightRequest="110"
                             HorizontalOptions="Center"
                             LockRatio="1"
-                            Opacity="0.15"
-                            SvgString="{StaticResource SvgGallery}"
+                            Opacity="0.5"
                             TintColor="{StaticResource Gray950}"
                             UseCache="Operations"
                             VerticalOptions="Center"
-                            ZIndex="-1" />
+                            ZIndex="-1" >
+                            <![CDATA[ 
+                            <svg width="20" height="18" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M15 0H5C2.243 0 0 2.243 0 5V13C0 15.757 2.243 18 5 18H15C17.757 18 20 15.757 20 13V5C20 2.243 17.757 0 15 0ZM5 2H15C16.654 2 18 3.346 18 5V9.58594L14.417 6.00293C13.636 5.22193 12.364 5.22193 11.583 6.00293L7 10.5859L6.41701 10.0029C5.63601 9.22193 4.36399 9.22193 3.58299 10.0029L2 11.5859V5C2 3.346 3.346 2 5 2ZM4.5 6C4.5 5.172 5.172 4.5 6 4.5C6.828 4.5 7.5 5.172 7.5 6C7.5 6.828 6.828 7.5 6 7.5C5.172 7.5 4.5 6.828 4.5 6Z" fill="#41416E"/>
+                            </svg>
+                            ]]>
+                        </draw:SkiaSvg>
 
                         <draw:SkiaImage
                             Margin="0"

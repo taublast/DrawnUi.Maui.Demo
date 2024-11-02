@@ -1,8 +1,6 @@
 ﻿using DrawnUi.Maui.Animate.Animators;
-
-
-
 using DrawnUi.Maui.Infrastructure.Extensions;
+using System.Diagnostics;
 
 namespace AppoMobi.Maui.DrawnUi.Demo.Views.Controls;
 
@@ -15,7 +13,7 @@ public partial class Lake : SkiaLayout
 
     private VelocitySkiaAnimator _animationDuckMoveX;
     private VelocitySkiaAnimator _animationDuckMoveY;
-    private PendulumAnimator _anumatorJump;
+    private PendulumAnimator _animatorJump;
 
     const int ANIMATE_MINIMUM_DIP = 5;
     private const float ANIMATE_Friction = 0.05f;
@@ -57,8 +55,8 @@ public partial class Lake : SkiaLayout
 
     public override void OnDisposing()
     {
-        _anumatorJump?.Stop();
-        _anumatorJump?.Dispose();
+        _animatorJump?.Stop();
+        _animatorJump?.Dispose();
 
         _animationDuckMoveX?.Stop();
         _animationDuckMoveX?.Dispose();
@@ -108,7 +106,7 @@ public partial class Lake : SkiaLayout
                 };
                 _animationDuckMoveY.OnUpdated += MoveDuckY;
 
-                _anumatorJump = new PendulumAnimator(_duck, (value) =>
+                _animatorJump = new PendulumAnimator(_duck, (value) =>
                 {
                     if (!_movingDuck)
                     {
@@ -181,7 +179,7 @@ public partial class Lake : SkiaLayout
 
     private void StopAnimators()
     {
-        _anumatorJump?.Stop();
+        _animatorJump?.Stop();
         _animationDuckMoveX?.Stop();
         _animationDuckMoveY?.Stop();
     }
@@ -189,18 +187,33 @@ public partial class Lake : SkiaLayout
     public override ISkiaGestureListener ProcessGestures(SkiaGesturesParameters args, GestureEventProcessingInfo apply)
     {
 
-
+        Debug.WriteLine($"LAKE gesture {args.Type}");
 
         if (_duck != null)
         {
 
             try
             {
-
-                if (args.Type == TouchActionResult.Down && args.Event.NumberOfTouches < 2)
+                if (args.Type == TouchActionResult.Tapped)
                 {
-                    //StopAnimators();
-                    _movingDuck = true;
+                    _movingDuck = false;
+                    _welcome.StopAnimators();
+                    _animatorJump.Stop();
+
+                    //var velocityX = (float)(args.Distance.Velocity.X / _velocityRatoX);
+                    //_animationDuckMoveX.SetVelocity(velocityX).SetValue((float)_duck.TranslationX).Start();
+
+                    //var velocityY = (float)(args.Distance.Velocity.Y / _velocityRatoY);
+                    //_animationDuckMoveY.SetVelocity(velocityY).SetValue((float)_duck.TranslationY).Start();
+
+                    _animationDuckMoveX.Stop();
+                    _animationDuckMoveY.Stop();
+
+                    MoveDuckX(args.Event.Location.X / RenderingScale - _duck.Width / 2);
+                    MoveDuckY(args.Event.Location.Y / RenderingScale - _duck.Height / 2);
+
+                    _animatorJump.Start();
+                    _welcome.StartAnimation();
                 }
                 else
                 if (args.Type == TouchActionResult.Panning)
@@ -212,32 +225,7 @@ public partial class Lake : SkiaLayout
                     var velocityY = (float)(args.Event.Distance.Velocity.Y / _velocityRatoY);
                     _animationDuckMoveY.SetVelocity(velocityY).SetValue((float)_duck.TranslationY).Start();
                 }
-                else
-                if (args.Type == TouchActionResult.Up)
-                {
-                    if (GestureStartedInside(args.Event) && _movingDuck)
-                    {
-                        _movingDuck = false;
-                        _welcome.StopAnimators();
-                        _anumatorJump.Stop();
 
-                        //var velocityX = (float)(args.Distance.Velocity.X / _velocityRatoX);
-                        //_animationDuckMoveX.SetVelocity(velocityX).SetValue((float)_duck.TranslationX).Start();
-
-                        //var velocityY = (float)(args.Distance.Velocity.Y / _velocityRatoY);
-                        //_animationDuckMoveY.SetVelocity(velocityY).SetValue((float)_duck.TranslationY).Start();
-
-
-                        MoveDuckX(args.Event.Location.X / RenderingScale - _duck.Width / 2);
-
-
-                        MoveDuckY(args.Event.Location.Y / RenderingScale - _duck.Height / 2);
-
-                        _anumatorJump.Start();
-                        _welcome.StartAnimation();
-                    }
-
-                }
             }
             catch (Exception e)
             {
