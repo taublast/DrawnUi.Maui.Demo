@@ -379,15 +379,18 @@
 
                     <draw:SkiaLottie
                         AutoPlay="False"
-                        ColorTint="Red"
                         HorizontalOptions="Center"
                         LockRatio="1"
                         Repeat="-1"
                         Source="Lottie/Loader.json"
                         Tag="Loader"
                         VerticalOptions="Center"
-                        WidthRequest="50" />
-
+                        WidthRequest="50">
+                        <draw:SkiaLottie.Colors>
+                            <Color>#FF0000</Color>
+                            <Color>#FFFFFF</Color>
+                        </draw:SkiaLottie.Colors>
+                    </draw:SkiaLottie>
                 </navigation:ScrollRefreshIndicator>
             </draw:SkiaScroll.RefreshIndicator>
 
@@ -397,7 +400,6 @@
             <content:AnimateVerticalStack
                 x:Name="StackCells"
                 DynamicColumns="True"
-                VirtualisationInflated="150"
                 HorizontalOptions="Fill"
                 InitializeTemplatesInBackgroundDelay="10"
                 ItemsSource="{Binding Items}"
@@ -405,7 +407,8 @@
                 Spacing="0"
                 Split="{Binding Columns}"
                 Tag="StackItemsV"
-                Type="Column">
+                Type="Column"
+                VirtualisationInflated="150">
 
                 <draw:SkiaLayout.ItemTemplate>
                     <DataTemplate>
@@ -599,14 +602,18 @@
 
                         <draw:SkiaLottie
                             AutoPlay="True"
-                            ColorTint="Red"
                             HorizontalOptions="Center"
                             LockRatio="1"
                             Repeat="-1"
                             Source="Lottie/Loader.json"
                             Tag="EmptyIndicator"
                             VerticalOptions="Center"
-                            WidthRequest="50" />
+                            WidthRequest="50">
+                            <draw:SkiaLottie.Colors>
+                                <Color>#FF0000</Color>
+                                <Color>#FFFFFF</Color>
+                            </draw:SkiaLottie.Colors>
+                        </draw:SkiaLottie>
 
                     </draw:SkiaLayout>
 

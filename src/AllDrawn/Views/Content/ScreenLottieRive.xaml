@@ -101,14 +101,18 @@
 
             <draw:SkiaLottie
                 AutoPlay="True"
-                ColorTint="Red"
                 HorizontalOptions="Center"
                 LockRatio="1"
                 Repeat="-1"
                 Source="Lottie/Loader.json"
                 Tag="Loader"
                 VerticalOptions="Start"
-                WidthRequest="40" />
+                WidthRequest="40">
+                <draw:SkiaLottie.Colors>
+                    <Color>#FFFFFF</Color>
+                    <Color>#FF0000</Color>
+                </draw:SkiaLottie.Colors>
+            </draw:SkiaLottie>
 
             <draw:SkiaLabel
                 HorizontalOptions="Fill"

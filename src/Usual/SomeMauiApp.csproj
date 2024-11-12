@@ -49,8 +49,8 @@
 
   <!--production-->
   <ItemGroup Condition="'$(UseNuget)' == 'true'">
-    <PackageReference Include="DrawnUi.Maui.Camera" Version="1.2.4.7" />
-    <PackageReference Include="DrawnUi.Maui.Rive" Version="1.2.4.7" />
+    <PackageReference Include="DrawnUi.Maui.Camera" Version="1.2.5.2" />
+    <PackageReference Include="DrawnUi.Maui.Rive" Version="1.2.5.2" />
   </ItemGroup>
   
   <Target Condition="'$(UseNuget)' != 'true'" Name="IssueCustomWarning" BeforeTargets="BeforeBuild">
@@ -61,8 +61,18 @@
     <ProjectReference Include="..\..\..\DrawnUi.Maui\src\Engine\DrawnUi.Maui.csproj" />
   </ItemGroup>
   
+  <ItemGroup>
+    <None Remove="Resources\Raw\shield.json" />
+  </ItemGroup>
+  
   <ItemGroup>    
     <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <MauiAsset Update="Resources\Raw\shield.json">
+      <LogicalName>%(RecursiveDir)%(Filename)%(Extension)</LogicalName>
+    </MauiAsset>
   </ItemGroup>
   
 </Project>

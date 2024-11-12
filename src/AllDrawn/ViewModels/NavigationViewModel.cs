@@ -1,7 +1,4 @@
-﻿using AppoMobi.Specials;
-using DrawnUi.Maui.Controls;
-
-using System.Collections.Concurrent;
+﻿using System.Collections.Concurrent;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
 
@@ -63,13 +60,13 @@ public class NavigationViewModel : BaseViewModel
         {
             if (!inTransition && sender is SkiaDrawer { IsOpen: false } control)
             {
-                control.OnTransitionChanged -= DrawerScrolled;
+                control.TransitionChanged -= DrawerScrolled;
                 control.Dispose(); //will be removed from parent
             }
         }
 
         drawer.OnViewportReady += LayoutReadyHandler;
-        drawer.OnTransitionChanged += DrawerScrolled;
+        drawer.TransitionChanged += DrawerScrolled;
 
         drawer.SetParent(RootLayout);
 
@@ -1042,12 +1039,12 @@ public class NavigationViewModel : BaseViewModel
         {
 
 
-        case nameof(NoMenu):
+            case nameof(NoMenu):
 
-        NoBell = true;
-        NoFilter = true;
+            NoBell = true;
+            NoFilter = true;
 
-        break;
+            break;
 
         }
 
