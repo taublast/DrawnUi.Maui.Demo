@@ -108,10 +108,10 @@
 
         <!--  END LABEL  -->
         <draw:SliderValueDesc
-            Tag="EndLabel"
             x:Name="EndDesc"
             Padding="0"
             HorizontalOptions="Start"
+            Tag="EndLabel"
             UseCache="Image"
             VerticalOptions="Fill"
             XCenter="{Binding Source={x:Reference EndThumb}, Path=XCenter}"
