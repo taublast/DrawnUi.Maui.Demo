@@ -96,8 +96,10 @@
         <draw:SliderThumb
             x:Name="EndThumb"
             HeightRequest="{Binding Source={x:Reference ThisSliderGrid}, Path=Height}"
+            HorizontalOptions="Start"
             TranslationX="{Binding Source={x:Reference ThisSlider}, Path=EndThumbX}"
             UseCache="Image"
+            VerticalOptions="Start"
             WidthRequest="{Binding Source={x:Reference ThisSliderGrid}, Path=Height}">
 
             <draw:SkiaShape

@@ -292,7 +292,7 @@ public class ScrollingCellsViewModel : ProjectViewModel, IFullscreenGalleryManag
                     CancelPreload = cancel;
                     await SkiaImageManager.Instance.PreloadBanners(data, cancel); //you can use PreloadImages intead
 
-                    await AddItemsToUi(data.Take(4).ToList(), Items, true, Items.Count != 0);
+                    await AddItemsToUi(data.ToList(), Items, true, Items.Count != 0);
                 }
                 catch (Exception e)
                 {

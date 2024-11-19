@@ -154,7 +154,7 @@
 
                 <controls:SkiaSliderFun
                     HorizontalOptions="Fill"
-                    Max="1"
+                    Max="100"
                     Min="0"
                     MinMaxStringFormat="P0"
                     SliderHeight="46"
@@ -172,7 +172,7 @@
 
                 <controls:SkiaSliderTech
                     HorizontalOptions="Fill"
-                    Max="1"
+                    Max="100"
                     Min="0"
                     MinMaxStringFormat="P0"
                     SliderHeight="40"
