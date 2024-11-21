@@ -40,6 +40,8 @@ namespace AppoMobi.Maui.DrawnUi.Demo
 
 #if DEBUG
             builder.Logging.AddDebug();
+
+            //SkiaImageManager.LogEnabled = true;
 #endif
 
             //APP INFRASTRUCTURE

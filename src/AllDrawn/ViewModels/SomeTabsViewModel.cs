@@ -1,6 +1,5 @@
 ﻿using AppoMobi.Maui.DrawnUi.Demo.Interfaces;
 using AppoMobi.Maui.DrawnUi.Demo.Services;
-using AppoMobi.Maui.DrawnUi.Demo.Views;
 using DrawnUi.Maui.Infrastructure;
 using System.Windows.Input;
 
@@ -241,7 +240,9 @@ public class SomeTabsViewModel : ProjectViewModel, IFullscreenGalleryManager
 
                 if (ItemsSmall.Count == 0)
                 {
-                    ItemsSmall.AddRange(_mock.GetRandomSmallItems(25));
+                    var data = _mock.GetRandomSmallItems(25);
+                    await SkiaImageManager.Instance.PreloadBanners(data);
+                    ItemsSmall.AddRange(data);
                 }
             });
         }
