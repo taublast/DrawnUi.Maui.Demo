@@ -241,7 +241,7 @@ public class SomeTabsViewModel : ProjectViewModel, IFullscreenGalleryManager
                 if (ItemsSmall.Count == 0)
                 {
                     var data = _mock.GetRandomSmallItems(25);
-                    await SkiaImageManager.Instance.PreloadBanners(data);
+                    _ = SkiaImageManager.Instance.PreloadBanners(data);
                     ItemsSmall.AddRange(data);
                 }
             });

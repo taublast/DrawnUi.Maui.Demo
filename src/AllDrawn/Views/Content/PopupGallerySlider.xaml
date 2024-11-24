@@ -27,16 +27,17 @@
             <DataTemplate>
 
                 <draw:ZoomContent
+                    UseCache="GPU"
                     PanningMode="OneFinger"
                     ZoomMax="2"
                     ZoomMin="1">
 
                     <draw:SkiaLayout
+                        UseCache="Operations"
                         x:DataType="x:String"
                         BackgroundColor="Transparent"
                         HorizontalOptions="Fill"
                         Tag="Tpl"
-                        UseCache="None"
                         VerticalOptions="Fill">
 
                         <draw:SkiaSvg
