@@ -98,7 +98,7 @@
             HorizontalOptions="Center"
             RotationX="16"
             RotationY="20"
-            RotationZ="6"
+            RotationZ="-6"
             TranslationY="70"
             TranslationZ="0"
             WidthRequest="200"

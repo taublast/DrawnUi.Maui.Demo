@@ -258,7 +258,7 @@ public class ScrollingCellsViewModel : ProjectViewModel, IFullscreenGalleryManag
                 var data = _mock.GetRandomSmallItems(10);
                 var cancel = new CancellationTokenSource(TimeSpan.FromSeconds(10));
                 CancelPreloadSmall = cancel;
-                await SkiaImageManager.Instance.PreloadBanners(data, cancel);
+                _ = SkiaImageManager.Instance.PreloadBanners(data, cancel);
 
                 await AddItemsToUi(data, ItemsSmall, true);
             });
@@ -290,7 +290,7 @@ public class ScrollingCellsViewModel : ProjectViewModel, IFullscreenGalleryManag
                     //preload images in background
                     var cancel = new CancellationTokenSource(TimeSpan.FromSeconds(10));
                     CancelPreload = cancel;
-                    await SkiaImageManager.Instance.PreloadBanners(data, cancel); //you can use PreloadImages instead
+                    _ = SkiaImageManager.Instance.PreloadBanners(data, cancel); //you can use PreloadImages instead
 
                     await AddItemsToUi(data.ToList(), Items, true, Items.Count != 0);
                 }
@@ -374,7 +374,7 @@ public class ScrollingCellsViewModel : ProjectViewModel, IFullscreenGalleryManag
                     //preload images in background
                     var cancel = new CancellationTokenSource(TimeSpan.FromSeconds(5));
                     CancelPreload = cancel;
-                    await SkiaImageManager.Instance.PreloadBanners(data, cancel);
+                    _ = SkiaImageManager.Instance.PreloadBanners(data, cancel);
 
                     await AddItemsToUi(data, Items);
                 }
