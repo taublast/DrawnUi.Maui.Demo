@@ -69,13 +69,21 @@ public class MockDataProvider
     public string GetRandomImage()
     {
         seed++;
+#if ANDROID
+        return $"https://picsum.photos/seed/{seed}/300/180";
+#else
         return $"https://picsum.photos/seed/{seed}/400/200";
+#endif
     }
 
     public string GetRandomSmallImage()
     {
         seedSmall++;
+#if ANDROID
+        return $"https://picsum.photos/seed/{seedSmall}/200/200";
+#else
         return $"https://picsum.photos/seed/{seedSmall}/300/300";
+#endif
     }
 
     public string GetRandomAvatar()

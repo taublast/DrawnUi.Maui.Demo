@@ -145,9 +145,9 @@
                     CommandTapped="{Binding CommandOpenToast}"
                     Text="SkiaShell Toast" />
 
-                <controls1:SmallButton
+                <!--<controls1:SmallButton
                     CommandTapped="{Binding CommandPushPdf}"
-                    Text="XAML to PDF" />
+                    Text="XAML to PDF" />-->
 
                 <controls1:SmallButton
                     CommandTapped="{Binding CommandCamera}"

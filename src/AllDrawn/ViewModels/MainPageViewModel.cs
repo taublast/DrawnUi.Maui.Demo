@@ -1,5 +1,4 @@
 ﻿using DrawnUi.Maui.Camera;
-using DrawnUi.Maui.Infrastructure;
 using Reversi.Views.Partials;
 using System.Windows.Input;
 
@@ -390,22 +389,22 @@ namespace AppoMobi.Maui.DrawnUi.Demo.ViewModels
             }
         }
 
-        public ICommand CommandPushPdf
-        {
-            get
-            {
-                return new Command(async () =>
-                {
-                    if (CheckLockAndSet())
-                        return;
+        //public ICommand CommandPushPdf
+        //{
+        //    get
+        //    {
+        //        return new Command(async () =>
+        //        {
+        //            if (CheckLockAndSet())
+        //                return;
 
-                    await Task.Run(async () =>
-                    {
-                        await App.Shell.GoToAsync(AppRoutes.Xaml2Pdf.Route, true);
-                    }).ConfigureAwait(false);
-                });
-            }
-        }
+        //            await Task.Run(async () =>
+        //            {
+        //                await App.Shell.GoToAsync(AppRoutes.Xaml2Pdf.Route, true);
+        //            }).ConfigureAwait(false);
+        //        });
+        //    }
+        //}
 
         public ICommand CommandPushCarousel
         {

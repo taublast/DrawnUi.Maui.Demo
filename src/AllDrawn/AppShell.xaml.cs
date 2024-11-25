@@ -1,8 +1,4 @@
-﻿using AppoMobi.Maui.DrawnUi.Demo.ViewModels;
-using AppoMobi.Maui.DrawnUi.Demo.Views;
-using DrawnUi.Maui.Controls;
-
-namespace AppoMobi.Maui.DrawnUi.Demo;
+﻿namespace AppoMobi.Maui.DrawnUi.Demo;
 
 public partial class AppShell : SkiaShell
 {
