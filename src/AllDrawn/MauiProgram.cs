@@ -38,6 +38,9 @@ namespace AppoMobi.Maui.DrawnUi.Demo
                     fonts.AddFont("SeymourOne-Regular.ttf", "FontTextTitle");
                 });
 
+            //SkiaImageManager.ReuseBitmaps = true;
+
+
 #if DEBUG
             builder.Logging.AddDebug();
 

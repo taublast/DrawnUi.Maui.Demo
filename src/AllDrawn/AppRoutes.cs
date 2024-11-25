@@ -16,7 +16,7 @@ public static class AppRoutes
     public static readonly (string Route, Type Type) Root = ("root", typeof(MainPage));
     public static readonly (string Route, Type Type) Details = ("details", typeof(ScreenItemDetails));
     public static readonly (string Route, Type Type) Controls = ("controls", typeof(ScreenControls));
-    public static readonly (string Route, Type Type) Xaml2Pdf = ("xaml2pdf", typeof(ScreenXaml2Pdf));
+    //public static readonly (string Route, Type Type) Xaml2Pdf = ("xaml2pdf", typeof(ScreenXaml2Pdf));
     public static readonly (string Route, Type Type) Carousel = ("carousel", typeof(ScreenCarousel));
     public static readonly (string Route, Type Type) Test = ("test", typeof(TestPage));
 

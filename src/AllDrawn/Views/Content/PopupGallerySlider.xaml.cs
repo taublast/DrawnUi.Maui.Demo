@@ -11,5 +11,13 @@ public partial class PopupGallerySlider
         InitializeComponent();
     }
 
+    protected override void OnBindingContextChanged()
+    {
+        base.OnBindingContextChanged();
 
+        if (BindingContext is IFullscreenGalleryManager ctx)
+        {
+            var check = ctx.SelectedGalleryIndex;
+        }
+    }
 }

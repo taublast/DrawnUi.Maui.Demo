@@ -160,8 +160,8 @@
         <!--  LoadMoreCommand="{Binding CommandLoadMore}"  -->
         <draw:SkiaScroll
             x:Name="BannersScroll"
-            ChangeVelocityScrolled="1.2"
-            FrictionScrolled="0.25"
+            ChangeVelocityScrolled="1.1"
+            FrictionScrolled="0.4"
             HeaderBehind="True"
             HeaderParallaxRatio="0.75"
             HorizontalOptions="Fill"
@@ -169,7 +169,7 @@
             IsRefreshing="{Binding IsLoading, Mode=TwoWay}"
             LoadMoreOffset="500"
             MaxBounceVelocity="400"
-            MaxVelocity="10000"
+            MaxVelocity="5000"
             ParallaxOverscrollEnabled="True"
             RefreshCommand="{Binding CommandRefreshData}"
             RefreshEnabled="True"
@@ -408,7 +408,7 @@
                 Split="{Binding Columns}"
                 Tag="StackItemsV"
                 Type="Column"
-                VirtualisationInflated="150">
+                VirtualisationInflated="350">
 
                 <draw:SkiaLayout.ItemTemplate>
                     <DataTemplate>
@@ -475,6 +475,7 @@
                                             </draw:SkiaGradient>
 
                                         </draw:SkiaControl.FillGradient>
+
                                         <draw:SkiaLayout
                                             HorizontalOptions="Fill"
                                             VerticalOptions="Fill">
