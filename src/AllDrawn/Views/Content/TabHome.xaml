@@ -407,8 +407,7 @@
                 Spacing="0"
                 Split="{Binding Columns}"
                 Tag="StackItemsV"
-                Type="Column"
-                VirtualisationInflated="350">
+                Type="Column">
 
                 <draw:SkiaLayout.ItemTemplate>
                     <DataTemplate>
@@ -627,25 +626,17 @@
 
     </draw:SkiaLayout>
 
-    <!--<draw:SkiaLabel
-            IsVisible="{Binding IsDebug}"
-            Margin="32"
-            BackgroundColor="Black"
-            HorizontalOptions="End"
-            InputTransparent="True"
-            IsClippedToBounds="True"
-            Text="{Binding Source={x:Reference BannersScroll}, Path=VelocityY, StringFormat='vY: {0:0.0}'}"
-            ZIndex="100" />-->
-
-    <!--<draw:SkiaLabel
-            Margin="8"
-            AddMarginBottom="140"
-            BackgroundColor="Black"
-            HorizontalOptions="Start"
-            InputTransparent="True"
-            IsVisible="{Binding IsDebug}"
-            Text="{Binding Source={x:Reference StackCells}, Path=DebugString}"
-            VerticalOptions="End" />-->
+    <draw:SkiaLabel
+        Margin="8"
+        AddMarginBottom="140"
+        BackgroundColor="Black"
+        HorizontalOptions="Start"
+        InputTransparent="True"
+        TextColor="LawnGreen"
+        IsVisible="{Binding IsDebug}"
+        Text="{Binding Source={x:Reference StackCells}, Path=DebugString}"
+        VerticalOptions="End"
+        ZIndex="100" />
 
 </controls:TabCollectionViewDemo>
 
