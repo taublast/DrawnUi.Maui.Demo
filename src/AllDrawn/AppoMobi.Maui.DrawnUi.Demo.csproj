@@ -1,9 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFrameworks>net8.0-android;net8.0-ios;net8.0-maccatalyst</TargetFrameworks>
-		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net8.0-windows10.0.19041.0</TargetFrameworks>
-		<OutputType>Exe</OutputType>
+    <TargetFrameworks>net8.0;net8.0-android34.0;net8.0-ios17.0;net8.0-maccatalyst17.0;</TargetFrameworks>
+    <TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net8.0-windows10.0.19041.0;</TargetFrameworks>
+    <OutputType>Exe</OutputType>
 		<RootNamespace>AppoMobi.Maui.DrawnUi.Demo</RootNamespace>
 		<UseMaui>true</UseMaui>
 		<SingleProject>true</SingleProject>
@@ -33,11 +33,11 @@
   
 	</PropertyGroup>
 
-	<PropertyGroup Condition="'$(TargetFramework)'=='net8.0-ios'">
+	<PropertyGroup Condition="$(TargetFramework.Contains('ios')) == true">
 	  <ProvisioningType>manual</ProvisioningType>
 	</PropertyGroup>
 
-  <PropertyGroup Condition="'$(TargetFramework)'=='net8.0-android'">
+  <PropertyGroup Condition="$(TargetFramework.Contains('android')) == true">
     <EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
   </PropertyGroup>
 
@@ -96,8 +96,8 @@
 
   <!--production-->
   <ItemGroup Condition="'$(UseNuget)' == 'true'">
-    <PackageReference Include="DrawnUi.Maui.Camera" Version="1.2.9.7" />
-    <PackageReference Include="DrawnUi.Maui.Rive" Version="1.2.9.7" />
+    <PackageReference Include="DrawnUi.Maui.Camera" Version="1.2.9.9" />
+    <PackageReference Include="DrawnUi.Maui.Rive" Version="1.2.9.9" />
   </ItemGroup>
 
 
