@@ -1,5 +1,4 @@
 ﻿using DrawnUi.Maui.Animate.Animators;
-using DrawnUi.Maui.Infrastructure.Extensions;
 using System.Diagnostics;
 
 namespace AppoMobi.Maui.DrawnUi.Demo.Views.Controls;

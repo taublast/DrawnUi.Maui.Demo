@@ -1,6 +1,4 @@
-﻿using DrawnUi.Maui;
-
-namespace AppoMobi.Maui.DrawnUi.Demo.Views.Controls.Navigation
+﻿namespace AppoMobi.Maui.DrawnUi.Demo.Views.Controls.Navigation
 {
     /// <summary>
 	/// A ball that moves between tabs to indicate which one is selected
@@ -73,7 +71,12 @@ namespace AppoMobi.Maui.DrawnUi.Demo.Views.Controls.Navigation
         {
             var availableWidth = Width;
             var tabWidth = availableWidth / TabsCount;
-            var targetHorizontalOffset = (tabWidth * selectedTabIndex) + (tabWidth / 2) - CircleRadius;
+
+            var index = 0;
+            if (selectedTabIndex > 0)
+                index = selectedTabIndex;
+
+            var targetHorizontalOffset = (tabWidth * index) + (tabWidth / 2) - CircleRadius;
 
             return (float)targetHorizontalOffset;
         }
@@ -88,10 +91,18 @@ namespace AppoMobi.Maui.DrawnUi.Demo.Views.Controls.Navigation
             if (Width < 1)
                 return;
 
+            if (Ball == null)
+                AddBall();
+
             Ball.TranslationX = CalculateTargetHorizontalOffset(SelectedIndex);
         }
 
+        protected override void OnLayoutReady()
+        {
+            base.OnLayoutReady();
 
+            AddBall();
+        }
 
         /// <summary>
         /// We got the data to compute the initial ball position
@@ -100,18 +111,12 @@ namespace AppoMobi.Maui.DrawnUi.Demo.Views.Controls.Navigation
         {
             base.OnLayoutChanged();
 
-            if (_firstLayout)
-            {
-                AddBall();
-            }
-
             UpdateBallPosition();
+        }
 
-            if (_firstLayout)
-            {
-                _firstLayout = false;
-                Invalidate();
-            }
+        public override ScaledSize Measure(float widthConstraint, float heightConstraint, float scale)
+        {
+            return base.Measure(widthConstraint, heightConstraint, scale);
         }
 
         protected virtual void AddBall()

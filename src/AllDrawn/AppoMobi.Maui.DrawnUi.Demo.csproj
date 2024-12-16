@@ -10,7 +10,7 @@
 		<ImplicitUsings>enable</ImplicitUsings>
     <WarningsAsErrors>$(WarningsAsErrors);XLS0501</WarningsAsErrors>
 
-    <UseNuget>true</UseNuget>
+    <UseNuget>false</UseNuget>
     
 		<!-- Display name -->
 		<ApplicationTitle>DrawnUi Demo</ApplicationTitle>

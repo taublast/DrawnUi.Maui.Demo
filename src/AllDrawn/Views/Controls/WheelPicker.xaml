@@ -52,6 +52,7 @@
                 <DataTemplate>
 
                     <draw:ScrollPickerLabelContainer
+                        Tag="PickerCell"
                         BackgroundColor="Transparent"
                         ColorText="White"
                         ColorTextSelected="Orange"

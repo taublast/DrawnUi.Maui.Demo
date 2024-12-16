@@ -9,6 +9,7 @@
     draw:AddGestures.CommandTapped="{Binding CommandCloseGallery}"
     x:DataType="interfaces:IFullscreenGalleryManager"
     HorizontalOptions="Fill"
+    BackgroundColor="#66000000"
     VerticalOptions="Fill">
 
     <draw:SkiaCarousel
