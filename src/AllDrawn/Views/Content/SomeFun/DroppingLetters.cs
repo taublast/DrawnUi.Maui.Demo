@@ -34,7 +34,10 @@ public class DroppingLetters : SkiaLabel
             StopAnimators();
         }
     }
-    protected override void DrawCharacter(SKCanvas canvas, int lineIndex, int letterIndex, string text, float x, float y,
+    protected override void DrawCharacter(SKCanvas canvas, int lineIndex,
+        int letterIndex,
+        ReadOnlySpan<char> characters,
+        float x, float y,
         SKPaint paint,
         SKPaint paintStroke, SKPaint paintShadow,
         SKRect destination, float scale)
@@ -58,7 +61,8 @@ public class DroppingLetters : SkiaLabel
                     SetupGradient(paintStroke, StrokeGradient, dest);
                 }
 
-                base.DrawCharacter(canvas, lineIndex, letterIndex, text, x, y - offsetY, paint, paintStroke, paintShadow, destination, scale);
+                base.DrawCharacter(canvas, lineIndex, letterIndex, characters,
+                    x, y - offsetY, paint, paintStroke, paintShadow, destination, scale);
             }
         }
     }

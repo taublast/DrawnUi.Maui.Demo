@@ -1,6 +1,4 @@
-﻿
-using DrawnUi.Maui;
-using System.Collections;
+﻿using System.Collections;
 
 namespace AppoMobi.Maui.DrawnUi.Demo.Views.Controls
 {
@@ -83,7 +81,10 @@ namespace AppoMobi.Maui.DrawnUi.Demo.Views.Controls
         {
             if (bindable is WheelPicker control)
             {
-                control.SetItemSource();
+                Tasks.StartDelayed(TimeSpan.FromMilliseconds(150), async () =>
+                {
+                    control.SetItemSource();
+                });
             }
         }
 

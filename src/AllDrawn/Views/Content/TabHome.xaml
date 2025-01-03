@@ -160,8 +160,6 @@
         <!--  LoadMoreCommand="{Binding CommandLoadMore}"  -->
         <draw:SkiaScroll
             x:Name="BannersScroll"
-            ChangeVelocityScrolled="1.1"
-            FrictionScrolled="0.4"
             HeaderBehind="True"
             HeaderParallaxRatio="0.75"
             HorizontalOptions="Fill"
@@ -169,7 +167,7 @@
             IsRefreshing="{Binding IsLoading, Mode=TwoWay}"
             LoadMoreOffset="500"
             MaxBounceVelocity="400"
-            MaxVelocity="5000"
+            MaxVelocity="6000"
             ParallaxOverscrollEnabled="True"
             RefreshCommand="{Binding CommandRefreshData}"
             RefreshEnabled="True"
@@ -221,7 +219,7 @@
                             ItemsSource="{Binding ItemsSmall}"
                             RecyclingTemplate="Enabled"
                             Spacing="4"
-                            Tag="HScrollStack"
+                            Tag="HeaderScrollStack"
                             Type="Row"
                             VerticalOptions="Fill">
 
@@ -403,7 +401,6 @@
                 HorizontalOptions="Fill"
                 InitializeTemplatesInBackgroundDelay="10"
                 ItemsSource="{Binding Items}"
-                RecyclingTemplate="Enabled"
                 Spacing="0"
                 Split="{Binding Columns}"
                 Tag="StackItemsV"
@@ -482,7 +479,7 @@
                                             <!--  this way we dont have empty cells at start but then we do not slow the scrolling  -->
                                             <draw:SkiaImage
                                                 Aspect="AspectCover"
-                                                EraseChangedContent="True"
+                                                EraseChangedContent="False"
                                                 HorizontalOptions="Fill"
                                                 LoadSourceOnFirstDraw="False"
                                                 Tag="ImageBanner"
@@ -632,9 +629,9 @@
         BackgroundColor="Black"
         HorizontalOptions="Start"
         InputTransparent="True"
-        TextColor="LawnGreen"
         IsVisible="{Binding IsDebug}"
         Text="{Binding Source={x:Reference StackCells}, Path=DebugString}"
+        TextColor="LawnGreen"
         VerticalOptions="End"
         ZIndex="100" />
 

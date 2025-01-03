@@ -15,7 +15,8 @@
     Tag="WIthTabs"
     Type="Column"
     UseCache="None"
-    VerticalOptions="Fill">
+    VerticalOptions="Fill"
+    WasFirstTimeDrawn="TabWithTopTabs_OnWasFirstTimeDrawn">
 
     <!--  background gradient  -->
     <draw:SkiaControl.FillGradient>
@@ -72,14 +73,12 @@
             TextColor="White"
             VerticalOptions="Center" />
 
-
         <navigation:TabsBallSnake
             Grid.ColumnSpan="2"
-            BackgroundColor="#000000FF"
             CircleRadius="3"
             SelectedIndex="{Binding Source={x:Reference TopTabs}, Path=SelectedIndex, Mode=OneWay}"
             TabsCount="2"
-            Tag="Snake"
+            Tag="Tab2Snake"
             VerticalOffset="20"
             ZIndex="2"
             Color="{StaticResource ColorAccent}" />
@@ -100,7 +99,7 @@
 
     </navigation:TopTabsSelector>
 
-    <!--  TOP TABS - CONTENT  -->
+    <!--  TABS - CONTENT  -->
     <draw:SkiaViewSwitcher
         x:Name="TabMainSwitcher"
         HorizontalOptions="Fill"
@@ -111,7 +110,7 @@
         Tag="TabMainSwitcher"
         VerticalOptions="Fill">
 
-        <!--  TAB PICKER  -->
+        <!--  TAB PICKER + BOTTOM SCROLL -->
         <draw:SkiaLayout
             AddMarginBottom="{Binding Presentation.BottomTabsUnderPadding}"
             BackgroundColor="Gainsboro"
@@ -165,8 +164,8 @@
                 <!--  WHEEL  PICKER  -->
                 <controls2:WheelPicker
                     x:Name="Picker"
-                    SelectedIndex="{Binding PickerIndex}"
-                    >
+                    Opacity="0.01"
+                    SelectedIndex="{Binding PickerIndex}">
                     <controls2:WheelPicker.DataSource>
                         <x:Array Type="{x:Type x:String}">
                             <x:String>10 m</x:String>
@@ -200,6 +199,7 @@
             <!--  BOTTOM SCROLL  -->
             <draw:SkiaScroll
                 x:Name="LineScroll"
+                BackgroundColor="#22000000"
                 Bounces="True"
                 FrictionScrolled="0.3"
                 HeightRequest="140"
@@ -210,7 +210,7 @@
                 VerticalOptions="End">
 
                 <draw:SkiaLayout
-                    InitializeTemplatesInBackgroundDelay="50"
+                    InitializeTemplatesInBackgroundDelay="500"
                     ItemsSource="{Binding ItemsSmall}"
                     Spacing="0"
                     Tag="HScrollStack"
