@@ -10,7 +10,7 @@
 		<ImplicitUsings>enable</ImplicitUsings>
     <WarningsAsErrors>$(WarningsAsErrors);XLS0501</WarningsAsErrors>
 
-    <UseNuget>false</UseNuget>
+    <UseNuget>true</UseNuget>
     
 		<!-- Display name -->
 		<ApplicationTitle>DrawnUi Demo</ApplicationTitle>
@@ -96,8 +96,8 @@
 
   <!--production-->
   <ItemGroup Condition="'$(UseNuget)' == 'true'">
-    <PackageReference Include="DrawnUi.Maui.Camera" Version="1.2.9.9" />
-    <PackageReference Include="DrawnUi.Maui.Rive" Version="1.2.9.9" />
+    <PackageReference Include="DrawnUi.Maui.Camera" Version="1.2.9.10" />
+    <PackageReference Include="DrawnUi.Maui.Rive" Version="1.2.9.10" />
   </ItemGroup>
 
 

@@ -164,7 +164,6 @@
                 <!--  WHEEL  PICKER  -->
                 <controls2:WheelPicker
                     x:Name="Picker"
-                    IsVisible="False"
                     Opacity="0.01"
                     SelectedIndex="{Binding PickerIndex}">
                     <controls2:WheelPicker.DataSource>
