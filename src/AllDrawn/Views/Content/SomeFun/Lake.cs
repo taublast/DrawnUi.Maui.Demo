@@ -107,6 +107,7 @@ public partial class Lake : SkiaLayout
 
                 _animatorJump = new PendulumAnimator(_duck, (value) =>
                 {
+
                     if (!_movingDuck)
                     {
                         if (_moveToY < 100)
@@ -217,6 +218,7 @@ public partial class Lake : SkiaLayout
                 else
                 if (args.Type == TouchActionResult.Panning)
                 {
+                    _animatorJump.Stop();
 
                     var velocityX = (float)(args.Event.Distance.Velocity.X / _velocityRatoX);
                     _animationDuckMoveX.SetVelocity(velocityX).SetValue((float)_duck.TranslationX).Start();
