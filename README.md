@@ -13,7 +13,7 @@ Supports **iOS**, **MacCatalyst**, **Android**, **Windows**.
 
 Updated for NET 9.
 
-For NET 9 you need nuget version not lower than 1.3.x. 
+For NET 9 you need nuget version not lower than 1.3.x.  
 For legacy NET 8 and SkiaSharp v2 use versions 1.2.x.
 
 [Full change log here](https://github.com/taublast/DrawnUi.Maui).
