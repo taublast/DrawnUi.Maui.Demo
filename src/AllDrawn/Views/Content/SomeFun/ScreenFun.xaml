@@ -22,7 +22,7 @@
         <!--  notice cache inside scroll and its impact on fps  -->
         <draw:SkiaLayout
             Tag="Banner"
-            UseCache="Image">
+            UseCache="Operations">
 
             <draw:SkiaLabel
                 FontFamily="FontTextTitle"
@@ -67,7 +67,7 @@
             Opacity="0.5"
             Split="1"
             Type="Wrap"
-            UseCache="Operations"
+            UseCache="GPU"
             ZIndex="-1">
 
             <draw:SkiaLabel
@@ -127,7 +127,7 @@
 
         <draw:SkiaLayout
             Tag="Duck"
-            UseCache="Operations">
+            UseCache="GPU">
 
             <!--  SvgString="{StaticResource SvgDuck}"  -->
 
