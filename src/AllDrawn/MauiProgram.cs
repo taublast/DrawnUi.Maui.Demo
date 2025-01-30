@@ -20,9 +20,10 @@ namespace AppoMobi.Maui.DrawnUi.Demo
 
             builder
                 .UseMauiApp<App>()
-
+                
                 .UseDrawnUi(new()
                 {
+                    MobileIsFullscreen = true,
                     DesktopWindow = new()
                     {
                         Width = 500,
