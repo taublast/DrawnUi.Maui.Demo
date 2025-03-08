@@ -124,7 +124,7 @@ public class ProjectViewModel : BaseViewModel
                         VerticalOptions = LayoutOptions.Center,
                         Margin = new Thickness(64),
                         Padding = new Thickness(24),
-                        CreateChildren = () => new()
+                        Children = new List<SkiaControl>()
                         {
                             new SkiaLabel()
                             {
@@ -167,7 +167,7 @@ public class ProjectViewModel : BaseViewModel
                         VerticalOptions = LayoutOptions.Center,
                         Margin = new Thickness(64),
                         Padding = new Thickness(24),
-                        CreateChildren = () => new()
+                        Children = new List<SkiaControl>()
                         {
                             new SkiaLabel()
                             {

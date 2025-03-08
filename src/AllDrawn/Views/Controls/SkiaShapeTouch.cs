@@ -5,7 +5,7 @@ namespace AppoMobi.Maui.DrawnUi.Demo.Views.Controls;
 
 public class SkiaShapeTouch : SkiaShape
 {
-    public override ISkiaGestureListener OnSkiaGestureEvent(SkiaGesturesParameters args, GestureEventProcessingInfo apply)
+    public override ISkiaGestureListener ProcessGestures(SkiaGesturesParameters args, GestureEventProcessingInfo apply)
     {
         if (args.Type == TouchActionResult.Tapped)
         {
@@ -24,7 +24,7 @@ public class SkiaShapeTouch : SkiaShape
             }
         }
 
-        return base.OnSkiaGestureEvent(args, apply);
+        return base.ProcessGestures(args, apply);
     }
 
     public static readonly BindableProperty CommandTappedProperty = BindableProperty.Create(nameof(CommandTapped), typeof(ICommand),

@@ -5,9 +5,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:draw="http://schemas.appomobi.com/drawnUi/2023/draw">
 
-    <Style
-        ApplyToDerivedTypes="True"
-        TargetType="draw:SkiaLabel">
+    <Style ApplyToDerivedTypes="True" TargetType="draw:SkiaLabel">
         <Setter Property="TextColor" Value="{StaticResource ColorText}" />
         <Setter Property="FontFamily" Value="FontText" />
         <Setter Property="FontSize" Value="15" />

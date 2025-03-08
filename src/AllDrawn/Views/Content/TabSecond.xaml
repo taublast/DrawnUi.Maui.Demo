@@ -110,7 +110,7 @@
         Tag="TabMainSwitcher"
         VerticalOptions="Fill">
 
-        <!--  TAB PICKER + BOTTOM SCROLL -->
+        <!--  TAB PICKER + BOTTOM SCROLL  -->
         <draw:SkiaLayout
             AddMarginBottom="{Binding Presentation.BottomTabsUnderPadding}"
             BackgroundColor="Gainsboro"
@@ -242,9 +242,7 @@
                                     UseCache="ImageDoubleBuffered"
                                     VerticalOptions="Fill">
 
-                                    <draw:SkiaLayout
-                                        HorizontalOptions="Fill"
-                                        VerticalOptions="Fill">
+                                    <draw:SkiaLayout HorizontalOptions="Fill" VerticalOptions="Fill">
                                         <!--  image will be parallaxed, we cache and then offset the cache with TranslationX  -->
                                         <!--  cache is bigger than surrounding shape because of negative margins  -->
                                         <draw:SkiaImage
@@ -262,9 +260,7 @@
                                             UseCache="Operations"
                                             VerticalOptions="Fill">
 
-                                            <draw:SkiaShape
-                                                HorizontalOptions="Fill"
-                                                VerticalOptions="Fill">
+                                            <draw:SkiaShape HorizontalOptions="Fill" VerticalOptions="Fill">
                                                 <draw:SkiaShape.FillGradient>
                                                     <draw:SkiaGradient
                                                         EndXRatio="0"
@@ -340,10 +336,7 @@
                 <!--  FOOTER  -->
                 <!--  using footer as padding here  -->
                 <draw:SkiaScroll.Footer>
-                    <draw:SkiaControl
-                        VerticalOptions="Fill"
-                        WidthRequest="8">
-                    </draw:SkiaControl>
+                    <draw:SkiaControl VerticalOptions="Fill" WidthRequest="8" />
                 </draw:SkiaScroll.Footer>
             </draw:SkiaScroll>
 
@@ -374,9 +367,7 @@
 
             </draw:SkiaControl.FillGradient>
 
-            <draw:SkiaScroll
-                HorizontalOptions="Fill"
-                VerticalOptions="Fill">
+            <draw:SkiaScroll HorizontalOptions="Fill" VerticalOptions="Fill">
 
                 <draw:SkiaLayout
                     Padding="24"

@@ -42,7 +42,6 @@
         <draw:ScrollPickerWheel
             x:Name="Wheel"
             BackgroundColor="Transparent"
-            DistortionAngle="1.0"
             HorizontalOptions="Fill"
             Spacing="0"
             Type="Column"
@@ -52,13 +51,13 @@
                 <DataTemplate>
 
                     <draw:ScrollPickerLabelContainer
-                        Tag="PickerCell"
                         BackgroundColor="Transparent"
                         ColorText="White"
                         ColorTextSelected="Orange"
                         HeightRequest="44"
                         HorizontalOptions="Fill"
-                        Spacing="0">
+                        Spacing="0"
+                        Tag="PickerCell">
 
                         <!--
                             TODO recently cannot use  x:DataType="{x:Type x:String}"

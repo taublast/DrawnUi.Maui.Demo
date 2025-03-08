@@ -248,9 +248,7 @@
                                             HorizontalOptions="Fill"
                                             UseCache="ImageDoubleBuffered"
                                             VerticalOptions="Fill">
-                                            <draw:SkiaLayout
-                                                HorizontalOptions="Fill"
-                                                VerticalOptions="Fill">
+                                            <draw:SkiaLayout HorizontalOptions="Fill" VerticalOptions="Fill">
                                                 <!--  image will be parallaxed, we cache and then offset the cache with TranslationX  -->
                                                 <!--  cache is bigger than surrounding shape because of negative margins  -->
                                                 <draw:SkiaImage
@@ -270,9 +268,7 @@
                                                     UseCache="Image"
                                                     VerticalOptions="Fill">
 
-                                                    <draw:SkiaShape
-                                                        HorizontalOptions="Fill"
-                                                        VerticalOptions="Fill">
+                                                    <draw:SkiaShape HorizontalOptions="Fill" VerticalOptions="Fill">
                                                         <draw:SkiaShape.FillGradient>
                                                             <draw:SkiaGradient
                                                                 EndXRatio="0"
@@ -349,10 +345,7 @@
                         <!--  FOOTER  -->
                         <!--  using footer as padding here  -->
                         <draw:SkiaScroll.Footer>
-                            <draw:SkiaControl
-                                VerticalOptions="Fill"
-                                WidthRequest="8">
-                            </draw:SkiaControl>
+                            <draw:SkiaControl VerticalOptions="Fill" WidthRequest="8" />
                         </draw:SkiaScroll.Footer>
                     </draw:SkiaScroll>
 
@@ -366,9 +359,7 @@
                 <draw:SkiaControl
                     BackgroundColor="Transparent"
                     HeightRequest="{Binding Presentation.BottomTabsHeightRequest}"
-                    WidthRequest="1">
-
-                </draw:SkiaControl>
+                    WidthRequest="1" />
             </draw:SkiaScroll.Footer>
 
             <!--  REFRESH VIEW  -->
@@ -472,9 +463,7 @@
 
                                         </draw:SkiaControl.FillGradient>
 
-                                        <draw:SkiaLayout
-                                            HorizontalOptions="Fill"
-                                            VerticalOptions="Fill">
+                                        <draw:SkiaLayout HorizontalOptions="Fill" VerticalOptions="Fill">
                                             <!--  FastCellWithBanner will set LoadSourceOnFirstDraw to True after the first context is set  -->
                                             <!--  this way we dont have empty cells at start but then we do not slow the scrolling  -->
                                             <draw:SkiaImage
@@ -560,9 +549,7 @@
                             </draw:SkiaDrawer>
 
                             <!--  cell controls behind using Z order  -->
-                            <draw:SkiaLayout
-                                HorizontalOptions="Fill"
-                                VerticalOptions="Fill">
+                            <draw:SkiaLayout HorizontalOptions="Fill" VerticalOptions="Fill">
 
                                 <draw:SkiaShape
                                     Margin="0,0,12,0"
@@ -593,9 +580,7 @@
                 <!--  EMPTY  -->
                 <draw:SkiaLayout.EmptyView>
 
-                    <draw:SkiaLayout
-                        HeightRequest="150"
-                        HorizontalOptions="Fill">
+                    <draw:SkiaLayout HeightRequest="150" HorizontalOptions="Fill">
 
                         <draw:SkiaLottie
                             AutoPlay="True"
