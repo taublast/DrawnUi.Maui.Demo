@@ -11,7 +11,7 @@ Supports **iOS**, **MacCatalyst**, **Android**, **Windows**.
 
 ## What's New
 
-Updated for NET 9.
+Updated for latest nuget 1.4.0.1
 
 For NET 9 you need nuget version not lower than 1.3.x. 
 For legacy NET 8 and SkiaSharp v2 use versions 1.2.x.

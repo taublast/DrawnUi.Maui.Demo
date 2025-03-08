@@ -43,11 +43,11 @@
     <draw:SkiaViewSwitcher
         x:Name="Switcher"
         AnimateTabs="True"
-        TabsAnimationEasing="{x:Static Easing.CubicOut}"
-        TabsAnimationSpeed="150"
         HorizontalOptions="Fill"
         IsClippedToBounds="True"
         SelectedIndex="{Binding SelectedIndex, Mode=TwoWay}"
+        TabsAnimationEasing="{x:Static Easing.CubicOut}"
+        TabsAnimationSpeed="150"
         Tag="NavigationLayout"
         VerticalOptions="Fill">
 
