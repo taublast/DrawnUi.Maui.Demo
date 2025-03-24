@@ -6,26 +6,6 @@
     xmlns:draw="http://schemas.appomobi.com/drawnUi/2023/draw">
 
 
-
-    <!--  experimenting..  -->
-    <draw:SkiaLayout
-        x:Key="PlaceholderStack"
-        BackgroundColor="Green"
-        HorizontalOptions="Fill"
-        IsClippedToBounds="True"
-        Tag="TabPlaceholder"
-        VerticalOptions="Fill">
-
-        <draw:SkiaLabel
-            FontSize="50"
-            HorizontalOptions="Center"
-            Text="PLACEHOLDER"
-            VerticalOptions="Center" />
-
-    </draw:SkiaLayout>
-
-
-
     <x:String x:Key="SvgSearch">
         <![CDATA[ 
                                      

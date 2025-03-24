@@ -70,7 +70,7 @@ public class MockDataProvider
     {
         seed++;
 #if ANDROID
-        return $"https://picsum.photos/seed/{seed}/300/180";
+        return $"https://picsum.photos/seed/{seed}/280/160";
 #else
         return $"https://picsum.photos/seed/{seed}/400/200";
 #endif
@@ -80,7 +80,7 @@ public class MockDataProvider
     {
         seedSmall++;
 #if ANDROID
-        return $"https://picsum.photos/seed/{seedSmall}/200/200";
+        return $"https://picsum.photos/seed/{seedSmall}/160/160";
 #else
         return $"https://picsum.photos/seed/{seedSmall}/300/300";
 #endif

@@ -164,6 +164,7 @@
                 <!--  WHEEL  PICKER  -->
                 <controls2:WheelPicker
                     x:Name="Picker"
+                    DelaySourceMs="100"
                     Opacity="0.01"
                     SelectedIndex="{Binding PickerIndex}">
                     <controls2:WheelPicker.DataSource>
@@ -210,7 +211,7 @@
                 VerticalOptions="End">
 
                 <draw:SkiaLayout
-                    InitializeTemplatesInBackgroundDelay="500"
+                    InitializeTemplatesInBackgroundDelay="10"
                     ItemsSource="{Binding ItemsSmall}"
                     Spacing="0"
                     Tag="HScrollStack"
@@ -421,6 +422,7 @@
 
                         <draw:SkiaImage
                             Aspect="AspectFit"
+                            LoadSourceOnFirstDraw="False"
                             Source="Pics/use.jpg"
                             WidthRequest="190" />
 
