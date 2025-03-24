@@ -390,7 +390,7 @@
                 x:Name="StackCells"
                 DynamicColumns="True"
                 HorizontalOptions="Fill"
-                InitializeTemplatesInBackgroundDelay="10"
+                InitializeTemplatesInBackgroundDelay="0"
                 ItemsSource="{Binding Items}"
                 Spacing="0"
                 Split="{Binding Columns}"

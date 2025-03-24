@@ -9,7 +9,6 @@ global using SkiaSharp;
 using Microsoft.Extensions.Logging;
 using DeviceInfo = Microsoft.Maui.Devices.DeviceInfo;
 
-
 namespace AppoMobi.Maui.DrawnUi.Demo
 {
     public static class MauiProgram
@@ -20,9 +19,12 @@ namespace AppoMobi.Maui.DrawnUi.Demo
 
             builder
                 .UseMauiApp<App>()
-                
                 .UseDrawnUi(new()
                 {
+                    Startup = (services) =>
+                    {
+                     
+                    },
                     MobileIsFullscreen = true,
                     DesktopWindow = new()
                     {
@@ -31,7 +33,6 @@ namespace AppoMobi.Maui.DrawnUi.Demo
                         //IsFixedSize = true //user cannot resize window
                     }
                 })
-
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "FontText");
@@ -40,7 +41,6 @@ namespace AppoMobi.Maui.DrawnUi.Demo
                 });
 
             //SkiaImageManager.ReuseBitmaps = true;
-
 
 #if DEBUG
             builder.Logging.AddDebug();
@@ -75,10 +75,7 @@ namespace AppoMobi.Maui.DrawnUi.Demo
 
         public static bool IsWindows
         {
-            get
-            {
-                return DeviceInfo.Platform == DevicePlatform.WinUI;
-            }
+            get { return DeviceInfo.Platform == DevicePlatform.WinUI; }
         }
 
         /// <summary>
@@ -89,7 +86,6 @@ namespace AppoMobi.Maui.DrawnUi.Demo
         {
             get
             {
-
 #if ANDROID
                 return true;
 #else
@@ -100,7 +96,6 @@ namespace AppoMobi.Maui.DrawnUi.Demo
 
         public static double NavBarHeight => Super.NavBarHeight;
         public static double BottomTabHeight => Super.BottomTabsHeight;
-
         public static string Name => AppInfo.Current.Name;
         public static string Build => AppInfo.Current.BuildString;
         public static string BundleId => AppInfo.Current.PackageName;

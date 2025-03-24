@@ -10,7 +10,7 @@ public partial class TabWithTopTabs
 
     private void TabWithTopTabs_OnWasFirstTimeDrawn(object sender, EventArgs e)
     {
-        Tasks.StartDelayed(TimeSpan.FromMilliseconds(500), async () =>
+        Tasks.StartDelayed(TimeSpan.FromMilliseconds(100), async () =>
         {
             Picker.IsVisible = true;
             await Picker.FadeToAsync(1);

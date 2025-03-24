@@ -93,14 +93,62 @@ namespace AppoMobi.Maui.DrawnUi.Demo.Views.Controls
             OnPropertyChanged(nameof(DebugInfo));
         }
 
+
         public void SetItemSource()
         {
-            Wheel.ItemsSource = DataSource;
+            if (DelaySourceMs > 0)
+            {
+                if (LayoutReady)
+                {
+                    Tasks.StartDelayed(TimeSpan.FromMilliseconds(DelaySourceMs), () =>
+                    {
+                        Wheel.ItemsSource = DataSource;
+                        SetStartup();
+                        OnPropertyChanged(nameof(DebugInfo));
+                    });
+                }
+            }
+            else
+            {
+                Wheel.ItemsSource = DataSource;
+                SetStartup();
+                OnPropertyChanged(nameof(DebugInfo));
+            }
+        }
+
+        protected override void OnLayoutReady()
+        {
+            base.OnLayoutReady();
+
+            if (DelaySourceMs > 0)
+            {
+                if (Wheel.ItemsSource != DataSource)
+                {
+                    Tasks.StartDelayed(TimeSpan.FromMilliseconds(DelaySourceMs), () =>
+                    {
+                        Wheel.ItemsSource = DataSource;
+                        SetStartup();
+                        OnPropertyChanged(nameof(DebugInfo));
+                    });
+                }
+            }
 
             SetStartup();
-
-            OnPropertyChanged(nameof(DebugInfo));
         }
+
+
+        public static readonly BindableProperty DelaySourceMsProperty = BindableProperty.Create(
+            nameof(DelaySourceMs),
+            typeof(int),
+            typeof(WheelPicker),
+            0);
+
+        public int DelaySourceMs
+        {
+            get { return (int)GetValue(DelaySourceMsProperty); }
+            set { SetValue(DelaySourceMsProperty, value); }
+        }
+
 
         public string DebugInfo
         {
@@ -146,12 +194,7 @@ namespace AppoMobi.Maui.DrawnUi.Demo.Views.Controls
             ApplyStartupIndex();
         }
 
-        protected override void OnLayoutReady()
-        {
-            base.OnLayoutReady();
 
-            SetStartup();
-        }
 
         protected RangeAnimator _animatorValue;
 

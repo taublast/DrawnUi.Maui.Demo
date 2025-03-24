@@ -8,13 +8,11 @@ namespace AppoMobi.Maui.DrawnUi.Demo
 {
     public partial class App : Application
     {
-        public App(IServiceProvider services)
+        public App()
         {
-            Services = services;
-
             InitializeComponent();
 
-            Boostrap();
+            App.Instance.Boostrap();
         }
 
         void ResizeWindow(Window window)
@@ -79,13 +77,18 @@ namespace AppoMobi.Maui.DrawnUi.Demo
 
             #endregion
 
+            //return new Window(new AppShell());
+
             return window;
         }
 
 
-        public IServiceProvider Services { get; }
+        public IServiceProvider Services => Super.Services;
 
-        void Boostrap()
+        /// <summary>
+        /// Set new MainPage to Shell. Can be called many times, for example you might want to re-create all from scratch (culture change etc)
+        /// </summary>
+        public void Boostrap()
         {
             SetupCulture(new EnabledLanguage[]
             {
