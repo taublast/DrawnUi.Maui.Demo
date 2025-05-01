@@ -1,6 +1,6 @@
 ﻿using AppoMobi.Maui.DrawnUi.Demo.Resources.Strings;
 using AppoMobi.Maui.DrawnUi.Demo.Views.Controls;
-using DrawnUi.Maui.Infrastructure;
+using DrawnUi.Infrastructure;
 using System.Collections.Concurrent;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
@@ -205,7 +205,7 @@ public class ProjectViewModel : BaseViewModel
                 await Task.Run(async () =>
                 {
 
-                    App.Shell.ShowToast("Hello World! This is all drawn using **SkiaSharp** 2.88 library. 👍😍🤩");
+                    App.Shell.ShowToast("Hello World! This is all drawn using **SkiaSharp**. 👍😍🤩");
 
                 }).ConfigureAwait(false);
             });

@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using AppoMobi.Maui.DrawnUi.Demo.Interfaces;
 
 namespace AppoMobi.Maui.DrawnUi.Demo.Views;
@@ -18,6 +19,8 @@ public partial class PopupGallerySlider
         if (BindingContext is IFullscreenGalleryManager ctx)
         {
             var check = ctx.SelectedGalleryIndex;
+
+            Debug.WriteLine($"[GALLERY] Index {check}");
         }
     }
 }

@@ -1,6 +1,6 @@
 using AppoMobi.Maui.DrawnUi.Demo.Interfaces;
-using DrawnUi.Maui.Camera;
-using DrawnUi.Maui.Controls;
+using DrawnUi.Camera;
+using DrawnUi.Controls;
 
 
 namespace AppoMobi.Maui.DrawnUi.Demo.Views;

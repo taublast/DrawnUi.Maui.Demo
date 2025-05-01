@@ -1,17 +1,14 @@
-﻿namespace AppoMobi.Maui.DrawnUi.Demo.Views.Controls.Navigation;
+﻿using System.Diagnostics;
+
+namespace AppoMobi.Maui.DrawnUi.Demo.Views.Controls.Navigation;
 
 public class ScrollRefreshIndicator : RefreshIndicator
 {
     protected SkiaLottie Loader;
-    public ScrollRefreshIndicator()
+
+    public override void SetDragRatio(float ratio, float ptsScrollOffset, double ptsLimit)
     {
-
-
-    }
-
-    public override void SetDragRatio(float ratio)
-    {
-        base.SetDragRatio(ratio);
+        base.SetDragRatio(ratio, ptsScrollOffset, ptsLimit);
 
         if (FindLoader() && !IsRunning)
         {
@@ -27,15 +24,29 @@ public class ScrollRefreshIndicator : RefreshIndicator
         {
             if (!value)
             {
-                if (Loader.IsPlaying)
-                    Loader.Stop();
+                Debug.WriteLine($"[Loader] STOP");
+                Loader.Stop();
             }
             else
             {
-                if (!Loader.IsPlaying)
-                    Loader.Start();
+                Debug.WriteLine($"[Loader] PLAY");
+                Loader.Start();
             }
         }
+    }
+
+    public override void OnParentVisibilityChanged(bool newvalue)
+    {
+        base.OnParentVisibilityChanged(newvalue);
+
+        Loader?.Stop();
+    }
+
+    public override void OnVisibilityChanged(bool newvalue)
+    {
+        base.OnVisibilityChanged(newvalue);
+
+        Loader?.Stop();
     }
 
     bool FindLoader()

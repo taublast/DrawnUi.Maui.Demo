@@ -1,6 +1,7 @@
-﻿using AppoMobi.Maui.DrawnUi.Demo.Interfaces;
+﻿using System.Diagnostics;
+using AppoMobi.Maui.DrawnUi.Demo.Interfaces;
 using AppoMobi.Maui.DrawnUi.Demo.Services;
-using DrawnUi.Maui.Infrastructure;
+using DrawnUi.Infrastructure;
 using System.Windows.Input;
 
 namespace AppoMobi.Maui.DrawnUi.Demo.ViewModels;
@@ -74,6 +75,8 @@ public class ScrollingCellsViewModel : ProjectViewModel, IFullscreenGalleryManag
                         if (index >= 0)
                             SelectedGalleryIndex = index;
                     }
+                    
+                    Debug.WriteLine($"[GALLERY] Launching for {SelectedGalleryIndex}");
 
                     GalleryItems = ItemsSmall.Select(x => x.Banner).ToList();
                     var gallery = new PopupGallerySlider(this);
@@ -123,6 +126,7 @@ public class ScrollingCellsViewModel : ProjectViewModel, IFullscreenGalleryManag
                             SelectedGalleryIndex = index;
                     }
 
+                    Debug.WriteLine($"[GALLERY] Launching for {SelectedGalleryIndex}");
                     GalleryItems = Items.Select(x => x.Banner).ToList();
                     var gallery = new PopupGallerySlider(this);
                     await Presentation.Shell.OpenPopupAsync(gallery, true,

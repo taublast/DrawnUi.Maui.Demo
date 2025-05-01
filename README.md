@@ -1,4 +1,4 @@
-﻿# DrawnUI For .NET MAUI Demo
+# DrawnUI For .NET MAUI Demo
 
 Demo of a [rendering engine](https://github.com/taublast/DrawnUi.Maui) to draw your UI on a Skia canvas, with gestures and animations, designed to draw pixel-perfect custom controls instead of using native ones. 
 
@@ -11,12 +11,14 @@ Supports **iOS**, **MacCatalyst**, **Android**, **Windows**.
 
 ## What's New
 
-Updated for latest nuget 1.4.0.1
+Updated for latest nuget
 
-For NET 9 you need nuget version not lower than 1.3.x.  
-For legacy NET 8 and SkiaSharp v2 use versions 1.2.x.
+[Full change log here](https://github.com/taublast/DrawnUi).
 
-[Full change log here](https://github.com/taublast/DrawnUi.Maui).
+## Engine repo
+https://github.com/taublast/DrawnUi.Maui
+
+___Please star ⭐ if you like it helps very much!___
 
 ## Screenshots
 
@@ -54,8 +56,5 @@ https://github.com/taublast/AppoMobi.Maui.DrawnUi.SpaceShooter
 * __Optimized for performance__, rendering only visible elements, recycling templates etc
 * __Navigate__ on canvas using MAUI familiar Shell techniques 
 
-## Engine repo
-https://github.com/taublast/DrawnUi.Maui
 
-___Please star ⭐ if you like it helps very much!___
 

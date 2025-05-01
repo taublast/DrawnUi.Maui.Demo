@@ -1,6 +1,6 @@
-using DrawnUi.Maui;
-using DrawnUi.Maui.Camera;
-using DrawnUi.Maui.Controls;
+using DrawnUi;
+using DrawnUi.Camera;
+using DrawnUi.Controls;
 
 namespace AppoMobi.Maui.DrawnUi.Demo.Views;
 
@@ -33,7 +33,7 @@ public partial class ScreenCameraPhoto
     }
 
 
-    private void TappedSwitchCamera(object sender, SkiaGesturesParameters skiaGesturesParameters)
+    private void TappedSwitchCamera(object sender, ControlTappedEventArgs controlTappedEventArgs)
     {
         if (CameraControl.IsOn)
         {
@@ -41,7 +41,7 @@ public partial class ScreenCameraPhoto
         }
     }
 
-    private void TappedTurnCamera(object sender, SkiaGesturesParameters skiaGesturesParameters)
+    private void TappedTurnCamera(object sender, ControlTappedEventArgs controlTappedEventArgs)
     {
         if (CameraControl.State == CameraState.On)
         {
@@ -55,7 +55,7 @@ public partial class ScreenCameraPhoto
 
 
 
-    private void TappedCycleEffects(object sender, SkiaGesturesParameters skiaGesturesParameters)
+    private void TappedCycleEffects(object sender, ControlTappedEventArgs controlTappedEventArgs)
     {
         var available = new List<SkiaImageEffect>()
         {
@@ -84,7 +84,7 @@ public partial class ScreenCameraPhoto
         }
     }
 
-    private void TappedResume(object sender, SkiaGesturesParameters skiaGesturesParameters)
+    private void TappedResume(object sender, ControlTappedEventArgs controlTappedEventArgs)
     {
         CameraControl.IsOn = true;
     }
