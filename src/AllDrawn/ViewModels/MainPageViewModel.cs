@@ -1,4 +1,4 @@
-﻿using DrawnUi.Maui.Camera;
+﻿using DrawnUi.Camera;
 using Reversi.Views.Partials;
 using System.Windows.Input;
 

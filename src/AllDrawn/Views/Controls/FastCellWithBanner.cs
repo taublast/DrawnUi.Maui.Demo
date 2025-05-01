@@ -1,4 +1,4 @@
-﻿using DrawnUi.Maui.Infrastructure.Models;
+﻿using DrawnUi.Infrastructure.Models;
 
 namespace AppoMobi.Maui.DrawnUi.Demo.Views.Controls
 {

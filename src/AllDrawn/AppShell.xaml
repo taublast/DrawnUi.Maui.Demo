@@ -10,8 +10,8 @@
     <draw:Canvas
         x:Name="Canvas"
         Gestures="Enabled"
-        HardwareAcceleration="Enabled"
         HorizontalOptions="Fill"
+        RenderingMode="Accelerated"
         VerticalOptions="Fill"
         WillFirstTimeDraw="Canvas_WillFirstTimeDraw">
 

@@ -52,9 +52,7 @@
         dinamically upon text size inside labels, to improve performance
     -->
 
-    <draw:SkiaLayout
-        HeightRequest="40"
-        HorizontalOptions="Fill">
+    <draw:SkiaLayout HeightRequest="40" HorizontalOptions="Fill">
 
         <!--  START LABEL - RANGED ONLY  -->
         <draw:SliderValueDesc
@@ -171,8 +169,8 @@
 
         <!--  SELECTED TRAIL  -->
         <draw:SliderTrail
-            BackgroundColor="{StaticResource ColorAccent}"
-            HeightRequest="2"
+            BackgroundColor="{StaticResource ColorPrimary}"
+            HeightRequest="7"
             HorizontalOptions="Start"
             VerticalOptions="Center"
             XPos="{Binding Source={x:Reference StartThumb}, Path=TranslationX}"

@@ -7,7 +7,7 @@
     xmlns:controls="clr-namespace:AppoMobi.Maui.DrawnUi.Demo.Views.Controls"
     xmlns:draw="http://schemas.appomobi.com/drawnUi/2023/draw"
     xmlns:viewModels="clr-namespace:AppoMobi.Maui.DrawnUi.Demo.ViewModels"
-    xmlns:camera="clr-namespace:DrawnUi.Maui.Camera;assembly=DrawnUi.Maui.Camera"
+    xmlns:camera="clr-namespace:DrawnUi.Camera;assembly=DrawnUi.Maui.Camera"
     Margin="0,0"
     x:DataType="viewModels:TakePictureViewModel"
     HorizontalOptions="Fill"

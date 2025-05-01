@@ -1,6 +1,7 @@
 ﻿using AppoMobi.Maui.DrawnUi.Demo.Interfaces;
 using AppoMobi.Maui.DrawnUi.Demo.Services;
-using DrawnUi.Maui.Infrastructure;
+using DrawnUi.Infrastructure;
+using System.Diagnostics;
 using System.Windows.Input;
 
 namespace AppoMobi.Maui.DrawnUi.Demo.ViewModels;
@@ -87,6 +88,7 @@ public class SomeTabsViewModel : ProjectViewModel, IFullscreenGalleryManager
                             SelectedGalleryIndex = index;
                     }
 
+                    Debug.WriteLine($"[GALLERY] Launching for {SelectedGalleryIndex}");
                     var gallery = new PopupGallerySlider(this);
 
                     await Presentation.Shell.OpenPopupAsync(gallery, true,

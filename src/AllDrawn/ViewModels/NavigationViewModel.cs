@@ -48,7 +48,7 @@ public class NavigationViewModel : BaseViewModel
         {
             if (sender is SkiaDrawer control)
             {
-                control.OnViewportReady -= LayoutReadyHandler;
+                control.ViewportReady -= LayoutReadyHandler;
                 MainThread.BeginInvokeOnMainThread(() =>
                 {
                     control.IsOpen = true;
@@ -65,7 +65,7 @@ public class NavigationViewModel : BaseViewModel
             }
         }
 
-        drawer.OnViewportReady += LayoutReadyHandler;
+        drawer.ViewportReady += LayoutReadyHandler;
         drawer.TransitionChanged += DrawerScrolled;
 
         drawer.SetParent(RootLayout);

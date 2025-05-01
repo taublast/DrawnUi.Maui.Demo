@@ -3,6 +3,12 @@ using DrawnUi.Maui.Draw;
 
 namespace SomeMauiApp
 {
+
+    public class DebugStack : StackLayout
+    {
+
+    }
+
     public partial class MainPage : ContentPage
     {
         public MainPage()

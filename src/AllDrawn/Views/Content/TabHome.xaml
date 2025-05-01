@@ -170,7 +170,9 @@
             MaxVelocity="6000"
             ParallaxOverscrollEnabled="True"
             RefreshCommand="{Binding CommandRefreshData}"
+            RefreshDistanceLimit="150"
             RefreshEnabled="True"
+            RefreshShowDistance="100"
             ResetScrollPositionOnContentSizeChanged="True"
             Tag="ScrollCells"
             VerticalOptions="Fill">
@@ -364,7 +366,7 @@
 
             <!--  REFRESH VIEW  -->
             <draw:SkiaScroll.RefreshIndicator>
-                <navigation:ScrollRefreshIndicator>
+                <draw:LottieRefreshIndicator HeightRequest="100">
 
                     <draw:SkiaLottie
                         AutoPlay="False"
@@ -380,7 +382,7 @@
                             <Color>#FFFFFF</Color>
                         </draw:SkiaLottie.Colors>
                     </draw:SkiaLottie>
-                </navigation:ScrollRefreshIndicator>
+                </draw:LottieRefreshIndicator>
             </draw:SkiaScroll.RefreshIndicator>
 
             <!--  VERTICAL CELLS  -->

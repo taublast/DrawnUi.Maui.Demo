@@ -1,4 +1,4 @@
-﻿using DrawnUi.Maui.Infrastructure;
+﻿using DrawnUi.Infrastructure;
 using System.Windows.Input;
 
 namespace AppoMobi.Maui.DrawnUi.Demo.Views.Controls;

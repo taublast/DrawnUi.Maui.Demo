@@ -26,17 +26,18 @@
 
 		<!-- Build Time -->
 		<SourceRevisionId>build$([System.DateTime]::UtcNow.ToString("yyyy-MM-ddTHH:mm:ss:fffZ"))</SourceRevisionId>
-    <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">14.2</SupportedOSPlatformVersion>
-    <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">14.0</SupportedOSPlatformVersion>
+
+    <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">15.0</SupportedOSPlatformVersion>
+    <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">15.2</SupportedOSPlatformVersion>
     <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">21.0</SupportedOSPlatformVersion>
     <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.19041.0</SupportedOSPlatformVersion>
     <TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.19041.0</TargetPlatformMinVersion>
-  
-	</PropertyGroup>
+
+  </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.Maui.Controls" Version="9.0.22" />
-    <PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="9.0.22" />
+    <PackageReference Include="Microsoft.Maui.Controls" Version="9.0.30" />
+    <PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="9.0.30" />
   </ItemGroup>
 
 	<PropertyGroup Condition="$(TargetFramework.Contains('ios')) == true">
@@ -96,16 +97,15 @@
 
   <!--for development-->
   <ItemGroup Condition="'$(UseNuget)' != 'true'">
-    <ProjectReference Include="..\..\..\DrawnUi.Maui\src\Addons\DrawnUi.Maui.Camera\DrawnUi.Maui.Camera.csproj" />
-    <ProjectReference Include="..\..\..\DrawnUi.Maui\src\Addons\DrawnUi.Maui.Rive\DrawnUi.Maui.Rive.csproj" />
+    <ProjectReference Include="..\..\..\DrawnUi.Maui\src\Maui\Addons\DrawnUi.Maui.Camera\DrawnUi.Maui.Camera.csproj" />
+    <ProjectReference Include="..\..\..\DrawnUi.Maui\src\Maui\Addons\DrawnUi.Maui.Rive\DrawnUi.Maui.Rive.csproj" />
   </ItemGroup>
 
   <!--production-->
   <ItemGroup Condition="'$(UseNuget)' == 'true'">
-    <PackageReference Include="DrawnUi.Maui.Camera" Version="1.4.0.3-pre" />
-    <PackageReference Include="DrawnUi.Maui.Rive" Version="1.4.0.3-pre" />
+    <PackageReference Include="DrawnUi.Maui.Camera" Version="1.5.0.2" />
+    <PackageReference Include="DrawnUi.Maui.Rive" Version="1.5.0.2" />
   </ItemGroup>
-
 
 	<ItemGroup>
     <Compile Update="Resources\Strings\ResStrings.Designer.cs">

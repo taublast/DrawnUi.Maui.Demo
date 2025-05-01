@@ -43,9 +43,7 @@
     <navigation1:NavBarStandart />
 
     <!--  CONTENT  -->
-    <draw:SkiaScroll
-        HorizontalOptions="Fill"
-        VerticalOptions="Fill">
+    <draw:SkiaScroll HorizontalOptions="Fill" VerticalOptions="Fill">
 
         <draw:SkiaLayout
             Padding="16"
@@ -63,7 +61,7 @@
                 Tag="StackEntry">
 
                 <draw:SkiaShape
-                    BackgroundColor="{StaticResource ColorPaper}"
+                    BackgroundColor="{StaticResource ColorPrimaryDark}"
                     CornerRadius="6"
                     HeightRequest="40"
                     HorizontalOptions="Fill"
@@ -83,8 +81,8 @@
 
                 </draw:SkiaShape>
 
-                <draw:SkiaMauiEditor
-                    Margin="40,2,2,0"
+                <draw:SkiaMauiEntry
+                    Margin="40,2,8,0"
                     AnimateSnapshot="True"
                     CommandOnTextChanged="{Binding CommandTestVoid}"
                     FontFamily="FontText"

@@ -1,8 +1,10 @@
 ﻿using AppoMobi.Maui.DrawnUi.Demo.Resources.Strings;
 using AppoMobi.Maui.DrawnUi.Demo.ViewModels;
-using DrawnUi.Maui;
-using DrawnUi.Maui.Controls;
+using DrawnUi;
+using DrawnUi.Controls;
 using System.Globalization;
+using DrawnUi.Controls;
+using DrawnUi.Draw;
 
 namespace AppoMobi.Maui.DrawnUi.Demo
 {

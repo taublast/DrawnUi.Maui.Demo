@@ -7,7 +7,7 @@ public partial class SkiaSwitchMaterial : SkiaSwitch
         InitializeComponent();
     }
 
-    protected void OnTapped(object sender, SkiaGesturesParameters skiaGesturesParameters)
+    protected void OnTapped(object sender, ControlTappedEventArgs controlTappedEventArgs)
     {
         IsToggled = !IsToggled;
     }
