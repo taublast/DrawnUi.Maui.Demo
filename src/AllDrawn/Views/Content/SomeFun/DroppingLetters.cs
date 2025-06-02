@@ -67,9 +67,9 @@ public class DroppingLetters : SkiaLabel
         }
     }
 
-    protected override void OnTextChanged(string value)
+    protected override void OnTextChanged()
     {
-        base.OnTextChanged(value);
+        base.OnTextChanged();
 
         BuildAnimators();
     }

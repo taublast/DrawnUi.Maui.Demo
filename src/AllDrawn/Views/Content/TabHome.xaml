@@ -156,16 +156,15 @@
 
         </draw:SkiaLayout>
 
-        <!--  drawn CollectionView alternative  -->
-        <!--  LoadMoreCommand="{Binding CommandLoadMore}"  -->
         <draw:SkiaScroll
+            LoadMoreCommand="{Binding CommandLoadMore}"
+            LoadMoreOffset="0"
             x:Name="BannersScroll"
             HeaderBehind="True"
             HeaderParallaxRatio="0.75"
             HorizontalOptions="Fill"
             IgnoreWrongDirection="True"
             IsRefreshing="{Binding IsLoading, Mode=TwoWay}"
-            LoadMoreOffset="500"
             MaxBounceVelocity="400"
             MaxVelocity="6000"
             ParallaxOverscrollEnabled="True"
@@ -173,14 +172,14 @@
             RefreshDistanceLimit="150"
             RefreshEnabled="True"
             RefreshShowDistance="100"
-            ResetScrollPositionOnContentSizeChanged="True"
+            ResetScrollPositionOnContentSizeChanged="False"
             Tag="ScrollCells"
             VerticalOptions="Fill">
 
             <!--  HEADER  -->
             <draw:SkiaScroll.Header>
 
-                <draw:SkiaLayout
+                <content:ScrollHeader
                     Padding="0,8"
                     draw:AddGestures.AnimationTapped="Ripple"
                     draw:AddGestures.CommandTapped="{Binding CommandToggleBlur}"
@@ -198,7 +197,7 @@
                         HorizontalTextAlignment="Center"
                         LineSpacing="1.33"
                         ParagraphSpacing="0"
-                        Text="App totally __drawn on one canvas__ using _SkiaSharp_ 🎨🖌❤.&#x0a;Recycled 💯 cells are loading images from internet in realtime. 🔥 Tap this header to toggle blurred tabbar. 🔎"
+                        Text="App totally __drawn on one canvas__ using _SkiaSharp_ 🎨🖌❤.&#x0a;Recycled 💯 cells are loading images from internet in realtime by 50 with LoadMore. 🔥 Tap this header to toggle blurred tabbar. 🔎"
                         TextColor="Black"
                         UseCache="GPU" />
 
@@ -351,15 +350,16 @@
                         </draw:SkiaScroll.Footer>
                     </draw:SkiaScroll>
 
-                </draw:SkiaLayout>
+                </content:ScrollHeader>
             </draw:SkiaScroll.Header>
 
             <!--  FOOTER  -->
             <draw:SkiaScroll.Footer>
 
-                <!--  using footer as content padding for bottom tabs  -->
+                <!--  using footer as content padding for bottom tabs AND for LoadMore placeholder  -->
                 <draw:SkiaControl
                     BackgroundColor="Transparent"
+                    AddMarginBottom="50"
                     HeightRequest="{Binding Presentation.BottomTabsHeightRequest}"
                     WidthRequest="1" />
             </draw:SkiaScroll.Footer>
@@ -469,8 +469,9 @@
                                             <!--  FastCellWithBanner will set LoadSourceOnFirstDraw to True after the first context is set  -->
                                             <!--  this way we dont have empty cells at start but then we do not slow the scrolling  -->
                                             <draw:SkiaImage
+                                                UseCache="Image"
                                                 Aspect="AspectCover"
-                                                EraseChangedContent="False"
+                                                EraseChangedContent="True"
                                                 HorizontalOptions="Fill"
                                                 LoadSourceOnFirstDraw="False"
                                                 Tag="ImageBanner"

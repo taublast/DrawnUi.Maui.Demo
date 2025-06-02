@@ -12,7 +12,7 @@
 		<SingleProject>true</SingleProject>
 		<ImplicitUsings>enable</ImplicitUsings>
     
-		<UseNuget>false</UseNuget>
+		<UseNuget>true</UseNuget>
     
 		<!-- Display name -->
 		<ApplicationTitle>SomeMauiApp</ApplicationTitle>
@@ -50,31 +50,13 @@
 		<!-- Raw Assets (also remove the "Resources\Raw" prefix) -->
 		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
 	</ItemGroup>
-
-  <!--production-->
-  <ItemGroup Condition="'$(UseNuget)' == 'true'">
-    <PackageReference Include="DrawnUi.Maui.Camera" Version="1.4.0.5" />
-    <PackageReference Include="DrawnUi.Maui.Rive" Version="1.4.0.5" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Microsoft.Maui.Controls" Version="9.0.22" />
-  </ItemGroup>
-
-
-  <Target Condition="'$(UseNuget)' != 'true'" Name="IssueCustomWarning" BeforeTargets="BeforeBuild">
-    <Warning Text="------ Building $(TargetFramework) with DrawnUI project reference ------" />
-  </Target>
-  
-  <ItemGroup Condition="'$(UseNuget)' != 'true'">
-    <ProjectReference Include="..\..\..\DrawnUi.Maui\src\Engine\Maui\DrawnUi.Maui.csproj" />
-  </ItemGroup>
   
   <ItemGroup>
     <None Remove="Resources\Raw\shield.json" />
   </ItemGroup>
   
   <ItemGroup>    
+    <PackageReference Include="AppoMobi.Maui.DrawnUi" Version="1.5.1" />    
     <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="9.0.0" />
   </ItemGroup>
 

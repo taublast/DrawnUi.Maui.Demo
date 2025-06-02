@@ -194,7 +194,7 @@ public class ScrollingCellsViewModel : ProjectViewModel, IFullscreenGalleryManag
 
     #endregion
 
-    private int _PageSize = 21;
+    private int _PageSize = 50;
     public int PageSize
     {
         get

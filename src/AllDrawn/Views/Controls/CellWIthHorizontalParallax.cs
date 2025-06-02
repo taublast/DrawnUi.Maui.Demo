@@ -38,7 +38,7 @@ public class CellWIthHorizontalParallax : FastCellWithBanner
     double CalculateHorizontalOffsetPts()
     {
         // Calculate the cell's horizontal position relative to the center of the screen
-        double ptsCenterX = this.GetPositionOnCanvasInPoints(false).X + this.Width / 2.0; // Get the cell's center X position
+        double ptsCenterX = this.GetPositionOnCanvasInPoints().X + this.Width / 2.0; // Get the cell's center X position
 
         var screenCenterX = App.Shell.RootLayout.MeasuredSize.Units.Width / 2f; //center of the screen
 

@@ -315,7 +315,7 @@ namespace AppoMobi.Maui.DrawnUi.Demo.ViewModels
                     await Task.Run(async () =>
                     {
 
-                        await App.Shell.PushAsync(new ScreenLottieRive());
+                        await App.Shell.PushAsync(new ScreenAnims());
 
                     }).ConfigureAwait(false);
 

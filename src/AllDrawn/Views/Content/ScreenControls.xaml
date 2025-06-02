@@ -61,7 +61,31 @@
             Split="1"
             Tag="Wrapper"
             Type="Wrap"
-            UseCache="Operations">
+            UseCache="None">
+
+            <draw:SkiaLayout
+                Margin="0,10,0,16"
+                BackgroundColor="Transparent"
+                HorizontalOptions="Fill"
+                Spacing="16"
+                Split="0"
+                Tag="Radio1"
+                Type="Wrap"
+                UseCache="ImageComposite">
+
+                <controls:DrawnRadioButton Text="Flowers" />
+
+                <controls:DrawnRadioButton HorizontalOptions="Start" Text="Food" />
+
+                <controls:DrawnRadioButton Text="Origami" />
+
+                <controls:DrawnRadioButton Text="Lego Bricks" />
+
+                <controls:DrawnRadioButton Tag="CheckMe" Text="Something else" />
+
+                <controls:DrawnRadioButton Text="Various" />
+
+            </draw:SkiaLayout>
 
             <!--  SWITCHES  -->
             <draw:SkiaLayout

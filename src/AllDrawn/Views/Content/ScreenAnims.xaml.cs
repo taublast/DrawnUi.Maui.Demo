@@ -1,8 +1,8 @@
 namespace AppoMobi.Maui.DrawnUi.Demo.Views;
 
-public partial class ScreenLottieRive : SkiaLayout
+public partial class ScreenAnims : SkiaLayout
 {
-    public ScreenLottieRive()
+    public ScreenAnims()
     {
         var vm = App.Instance.Services.GetService<SimplePageViewModel>();
         vm.Title = "Consume Pre-made Animations";

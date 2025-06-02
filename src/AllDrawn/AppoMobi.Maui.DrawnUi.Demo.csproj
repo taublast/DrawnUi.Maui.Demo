@@ -98,13 +98,11 @@
   <!--for development-->
   <ItemGroup Condition="'$(UseNuget)' != 'true'">
     <ProjectReference Include="..\..\..\DrawnUi.Maui\src\Maui\Addons\DrawnUi.Maui.Camera\DrawnUi.Maui.Camera.csproj" />
-    <ProjectReference Include="..\..\..\DrawnUi.Maui\src\Maui\Addons\DrawnUi.Maui.Rive\DrawnUi.Maui.Rive.csproj" />
   </ItemGroup>
 
   <!--production-->
   <ItemGroup Condition="'$(UseNuget)' == 'true'">
-    <PackageReference Include="DrawnUi.Maui.Camera" Version="1.5.0.2" />
-    <PackageReference Include="DrawnUi.Maui.Rive" Version="1.5.0.2" />
+    <PackageReference Include="DrawnUi.Maui.Camera" Version="1.5.1.2" />
   </ItemGroup>
 
 	<ItemGroup>
@@ -112,6 +110,9 @@
       <DependentUpon>ResStrings.resx</DependentUpon>
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Update="Views\Content\ScreenAnims.xaml.cs">
+      <DependentUpon>ScreenAnims.xaml</DependentUpon>
     </Compile>
     <EmbeddedResource Update="Resources\Strings\ResStrings.resx">
 	    <LastGenOutput>ResStrings.Designer.cs</LastGenOutput>
@@ -129,6 +130,12 @@
 	  <MauiAsset Update="Resources\Raw\Lottie\successtick.json">
 	    <LogicalName>%(RecursiveDir)%(Filename)%(Extension)</LogicalName>
 	  </MauiAsset>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="Views\Controls\DrawnRadioButton.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	</ItemGroup>
 
  

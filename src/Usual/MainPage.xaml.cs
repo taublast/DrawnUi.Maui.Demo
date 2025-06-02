@@ -1,5 +1,5 @@
 ﻿using AppoMobi.Maui.Gestures;
-using DrawnUi.Maui.Draw;
+using DrawnUi.Draw;
 
 namespace SomeMauiApp
 {
@@ -24,7 +24,7 @@ namespace SomeMauiApp
             });
         }
 
-        private void OnSpanTapped(object sender, TouchActionEventArgs e)
+        private void OnSpanTapped(object sender, SkiaControl.ControlTappedEventArgs controlTappedEventArgs)
         {
             if (sender is TextSpan span)
             {

@@ -25,6 +25,11 @@ public partial class TabScrollCells
 
 }
 
+public class ScrollHeader : SkiaLayout
+{
+     
+}
+
 public class AnimateVerticalStack : AnimateHorizontalStack
 {
 

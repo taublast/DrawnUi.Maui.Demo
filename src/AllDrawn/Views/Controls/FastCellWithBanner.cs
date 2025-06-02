@@ -127,7 +127,7 @@ namespace AppoMobi.Maui.DrawnUi.Demo.Views.Controls
 
         int contextChanged;
 
-        protected virtual bool ApplyContext()
+        protected virtual bool ApplyContext(object ctx)
         {
             _lastY = this.DrawingRect.Top;
             if (Drawer != null && !Drawer.IsOpen)
@@ -135,7 +135,7 @@ namespace AppoMobi.Maui.DrawnUi.Demo.Views.Controls
                 Drawer.IsOpen = true;
             }
 
-            if (BindingContext is SimpleItemViewModel item)
+            if (ctx is SimpleItemViewModel item)
             {
                 contextChanged++;
 
@@ -170,8 +170,10 @@ namespace AppoMobi.Maui.DrawnUi.Demo.Views.Controls
             return false;
         }
 
-        protected override void SetContent()
+        protected override void SetContent(object ctx)
         {
+            base.SetContent(ctx);
+
             if (!once)
             {
                 once = true;
@@ -185,7 +187,7 @@ namespace AppoMobi.Maui.DrawnUi.Demo.Views.Controls
                 ImageBanner.StopLoading();
             }
 
-            var set = ApplyContext();
+            var set = ApplyContext(ctx);
 
             LockUpdate(false);
 
@@ -194,6 +196,7 @@ namespace AppoMobi.Maui.DrawnUi.Demo.Views.Controls
                 UpdateCell();
             }
         }
+ 
 
         public virtual void UpdateCell()
         {
