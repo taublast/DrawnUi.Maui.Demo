@@ -5,10 +5,8 @@ using DrawnUi.Controls;
 
 namespace AppoMobi.Maui.DrawnUi.Demo.Views;
 
-/// <summary>
-/// We are subclassing just to use overrides because inside ElementAdapter we cannot
-/// </summary>
-public class CameraLayout : SkiaLayout
+
+public class CameraLayout : SkiaLayer
 {
     public override void OnDisposing()
     {

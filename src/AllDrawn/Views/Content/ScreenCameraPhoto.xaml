@@ -42,7 +42,7 @@
         ZoomLimitMin="1" />
 
     <!--  MASK  -->
-    <draw:SkiaHoverMask
+    <!--<draw:SkiaHoverMask
         Margin="0"
         BackgroundColor="#33000000"
         CornerRadius="40"
@@ -50,7 +50,7 @@
         LockRatio="-1"
         Tag="Mask"
         Type="Rectangle"
-        VerticalOptions="Center" />
+        VerticalOptions="Center" />-->
 
     <!--  CLOSE ICON  -->
     <draw:SkiaSvg
@@ -95,16 +95,6 @@
         Text="Effect"
         WidthRequest="100" />
 
-
-    <!--  RESUME CAMERA  -->
-    <!--<controls:SmallButton
-            HorizontalOptions="Center"
-            IsVisible="{Binding ShowResume}"
-            Tapped="TappedResume"
-            Text="Resume Camera"
-            VerticalOptions="Center"
-            WidthRequest="150"
-            ZIndex="110" />-->
 
     <draw:SkiaHotspot
         HorizontalOptions="Center"

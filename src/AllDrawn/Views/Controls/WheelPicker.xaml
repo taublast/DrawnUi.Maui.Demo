@@ -68,8 +68,9 @@
                         <draw:SkiaLabel
                             Padding="4"
                             FontSize="26"
+                            MonoForDigits="8"
                             HorizontalOptions="Center"
-                            HorizontalTextAlignment="Center"
+                            HorizontalTextAlignment="Start"
                             Text="{Binding .}"
                             TextColor="#ffffff"
                             VerticalOptions="Center"

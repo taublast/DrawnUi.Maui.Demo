@@ -76,11 +76,7 @@ public class NavigationViewModel : BaseViewModel
     #endregion
 
 
-#if ANDROID
-    private bool _HasBlur = false; //default is false for maybe slow devices
-#else
     private bool _HasBlur = true;
-#endif
 
     public bool HasBlur
     {

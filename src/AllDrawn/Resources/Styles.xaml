@@ -24,7 +24,7 @@
         x:Key="MarkdownLabelDefaultStyle"
         ApplyToDerivedTypes="True"
         Class="MarkdownLabelDefaultStyle"
-        TargetType="draw:SkiaMarkdownLabel">
+        TargetType="draw:SkiaRichLabel">
         <Setter Property="TextColor" Value="{StaticResource ColorText}" />
         <Setter Property="FontFamily" Value="FontText" />
         <Setter Property="FontSize" Value="15" />

@@ -16,7 +16,6 @@
         x:Name="MainCarousel"
         Bounces="True"
         HorizontalOptions="Fill"
-        InitializeTemplatesInBackgroundDelay="10"
         ItemsSource="{Binding GalleryItems}"
         SelectedIndex="{Binding SelectedGalleryIndex}"
         SidesOffset="0"
@@ -58,6 +57,7 @@
                         </draw:SkiaSvg>
 
                         <draw:SkiaImage
+                            Error="SkiaImage_OnError"
                             Margin="0"
                             Aspect="AspectFit"
                             EraseChangedContent="True"
@@ -76,7 +76,7 @@
 
     </draw:SkiaCarousel>
 
-    <draw:SkiaMarkdownLabel
+    <draw:SkiaRichLabel
         Margin="24"
         Padding="8"
         BackgroundColor="#66000000"

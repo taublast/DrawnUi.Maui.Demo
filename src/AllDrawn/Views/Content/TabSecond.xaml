@@ -169,6 +169,15 @@
                     SelectedIndex="{Binding PickerIndex}">
                     <controls2:WheelPicker.DataSource>
                         <x:Array Type="{x:Type x:String}">
+                            <x:String>1</x:String>
+                            <x:String>2</x:String>
+                            <x:String>3</x:String>
+                            <x:String>4</x:String>
+                            <x:String>5</x:String>
+                            <x:String>6</x:String>
+                            <x:String>7</x:String>
+                            <x:String>8</x:String>
+                            <x:String>9</x:String>
                             <x:String>10 m</x:String>
                             <x:String>20 m</x:String>
                             <x:String>30 m</x:String>
@@ -197,8 +206,40 @@
                 VerticalOptions="Center"
                 ZIndex="1" />
 
+            <draw:SkiaLabel
+                Margin="16,0,0,200"
+                FontSize="12"
+                HorizontalOptions="Start"
+                Text="{Binding Source={x:Reference LineScroll}, Path=CurrentIndex, StringFormat='Index Center: {0}'}"
+                TextColor="DarkGray"
+                UseCache="Operations"
+                VerticalOptions="End"
+                ZIndex="1" />
+
+            <draw:SkiaLabel
+                Margin="16,0,0,180"
+                FontSize="12"
+                HorizontalOptions="Start"
+                Text="{Binding Source={x:Reference LineScroll}, Path=FirstVisibleIndex, StringFormat='First Visible: {0}'}"
+                TextColor="DarkGray"
+                UseCache="Operations"
+                VerticalOptions="End"
+                ZIndex="1" />
+
+            <draw:SkiaLabel
+                Margin="16,0,0,160"
+                FontSize="12"
+                HorizontalOptions="Start"
+                Text="{Binding Source={x:Reference LineScroll}, Path=LastVisibleIndex, StringFormat='Last Visible: {0}'}"
+                TextColor="DarkGray"
+                UseCache="Operations"
+                VerticalOptions="End"
+                ZIndex="1" />
+
             <!--  BOTTOM SCROLL  -->
             <draw:SkiaScroll
+                Margin="0,0,0,10"
+                TrackIndexPosition="Center"
                 x:Name="LineScroll"
                 BackgroundColor="#22000000"
                 Bounces="True"
@@ -211,7 +252,7 @@
                 VerticalOptions="End">
 
                 <draw:SkiaLayout
-                    InitializeTemplatesInBackgroundDelay="10"
+                    MeasureItemsStrategy="MeasureFirst"
                     ItemsSource="{Binding ItemsSmall}"
                     Spacing="0"
                     Tag="HScrollStack"
@@ -247,6 +288,7 @@
                                         <!--  image will be parallaxed, we cache and then offset the cache with TranslationX  -->
                                         <!--  cache is bigger than surrounding shape because of negative margins  -->
                                         <draw:SkiaImage
+                                            RescalingQuality="None"
                                             Margin="-12"
                                             EraseChangedContent="True"
                                             HorizontalOptions="Fill"
@@ -422,6 +464,7 @@
 
                         <draw:SkiaImage
                             Aspect="AspectFit"
+                            RescalingQuality="Low"
                             LoadSourceOnFirstDraw="False"
                             Source="Pics/use.jpg"
                             WidthRequest="190" />

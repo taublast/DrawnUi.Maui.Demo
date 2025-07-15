@@ -26,7 +26,7 @@ public partial class ReportSample : SkiaLayout
         }
     }
 
-    private void SkiaImage_OnOnSuccess(object sender, ContentLoadedEventArgs e)
+    private void SkiaImage_OnSuccess(object sender, ContentLoadedEventArgs e)
     {
         AllImagesLoaded = true;
     }

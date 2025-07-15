@@ -20,9 +20,7 @@
 		<ApplicationIdGuid>d6d6930b-b6eb-4739-8cb9-a7de08a54e22</ApplicationIdGuid>
 
 		<!-- Versions -->
-		<ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
-		<ApplicationVersion>1</ApplicationVersion>
-    <Version>1</Version>
+		<ApplicationVersion>2</ApplicationVersion>
 
 		<!-- Build Time -->
 		<SourceRevisionId>build$([System.DateTime]::UtcNow.ToString("yyyy-MM-ddTHH:mm:ss:fffZ"))</SourceRevisionId>
@@ -32,25 +30,24 @@
     <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">21.0</SupportedOSPlatformVersion>
     <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.19041.0</SupportedOSPlatformVersion>
     <TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.19041.0</TargetPlatformMinVersion>
+    <WindowsPackageType>None</WindowsPackageType>
 
   </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Microsoft.Maui.Controls" Version="9.0.30" />
-    <PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="9.0.30" />
-  </ItemGroup>
+  <!--personal provisioning for iPhone-->
+  <Import Project="../../../Provisioning.targets" Condition="Exists('../../../Provisioning.targets')" />
 
-	<PropertyGroup Condition="$(TargetFramework.Contains('ios')) == true">
-	  <ProvisioningType>manual</ProvisioningType>
-	</PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Maui.Controls" Version="9.0.70" />
+    <PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="9.0.70" />
+  </ItemGroup>
 
   <PropertyGroup Condition="$(TargetFramework.Contains('android')) == true">
     <EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
   </PropertyGroup>
 
-
   <Target Condition="'$(UseNuget)' != 'true'" Name="IssueCustomWarning" BeforeTargets="BeforeBuild">
-    <Warning Text="------ Building $(TargetFramework) with DrawnUi project reference ------" />
+    <Warning Text="------ Building $(TargetFramework) with DrawnUI project reference ------" />
   </Target>
 
     
@@ -102,7 +99,7 @@
 
   <!--production-->
   <ItemGroup Condition="'$(UseNuget)' == 'true'">
-    <PackageReference Include="DrawnUi.Maui.Camera" Version="1.5.1.2" />
+    <PackageReference Include="DrawnUi.Maui.Camera" Version="1.6.2.2" />
   </ItemGroup>
 
 	<ItemGroup>

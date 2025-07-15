@@ -121,6 +121,7 @@
                     Text="Lottie and other" />
 
                 <controls1:SmallButton
+                    Tag="33"
                     CommandTapped="{Binding CommandPushTransforms}"
                     Text="Transforms" />
 
@@ -142,6 +143,7 @@
                     Text="SkiaShell Modal" />
 
                 <controls1:SmallButton
+                    Tag="BtnToast"
                     CommandTapped="{Binding CommandOpenToast}"
                     Text="SkiaShell Toast" />
 
@@ -152,13 +154,13 @@
                 <controls1:SmallButton
                     CommandTapped="{Binding CommandCamera}"
                     Text="Drawn Camera">
-                    <draw:SkiaControl.IsVisible>
+                    <!--<draw:SkiaControl.IsVisible>
                         <OnPlatform x:TypeArguments="x:Boolean">
                             <On
                                 Platform="Android"
                                 Value="True" />
                         </OnPlatform>
-                    </draw:SkiaControl.IsVisible>
+                    </draw:SkiaControl.IsVisible>-->
                 </controls1:SmallButton>
 
                 <controls1:SmallButton

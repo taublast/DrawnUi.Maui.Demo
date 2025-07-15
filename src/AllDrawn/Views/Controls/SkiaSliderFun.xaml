@@ -27,7 +27,7 @@
         <!--  TRAIL  -->
         <draw:SkiaShape
             BackgroundColor="{StaticResource ColorPrimaryDark}"
-            CornerRadius="6"
+            CornerRadius="4.5"
             HeightRequest="9"
             HorizontalOptions="Fill"
             UseCache="Operations"
@@ -36,7 +36,7 @@
         <!--  SELECTED TRAIL  -->
         <draw:SliderTrail
             BackgroundColor="{StaticResource ColorPrimary}"
-            CornerRadius="10"
+            CornerRadius="9"
             HeightRequest="16"
             HorizontalOptions="Start"
             ModifyXPosEnd="20"

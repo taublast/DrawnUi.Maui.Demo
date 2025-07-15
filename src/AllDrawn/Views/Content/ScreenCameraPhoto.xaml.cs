@@ -1,6 +1,7 @@
-using DrawnUi;
+﻿using DrawnUi;
 using DrawnUi.Camera;
 using DrawnUi.Controls;
+using static Microsoft.Maui.ApplicationModel.Permissions;
 
 namespace AppoMobi.Maui.DrawnUi.Demo.Views;
 
@@ -37,7 +38,33 @@ public partial class ScreenCameraPhoto
     {
         if (CameraControl.IsOn)
         {
-            CameraControl.Facing = CameraControl.Facing == CameraPosition.Selfie ? CameraPosition.Default : CameraPosition.Selfie;
+
+            //just switch select front/back:
+            //CameraControl.Facing = CameraControl.Facing == CameraPosition.Selfie ? CameraPosition.Default : CameraPosition.Selfie;
+            
+            //OR manual select:
+            MainThread.BeginInvokeOnMainThread(async () =>
+            {
+                var cameras = await CameraControl.GetAvailableCamerasAsync();
+
+                // Create picker with detailed camera info
+                var options = cameras.Select(c =>
+                    $"{c.Name} ({c.Position}){(c.HasFlash ? " 📸" : "")}"
+                ).ToArray();
+
+                var result = await App.Current.MainPage.DisplayActionSheet("Select Camera", "Cancel", null, options);
+                if (!string.IsNullOrEmpty(result))
+                {
+                    var selectedIndex = options.FindIndex(result);
+                    if (selectedIndex >= 0)
+                    {
+                        CameraControl.Facing = CameraPosition.Manual;
+                        CameraControl.CameraIndex = selectedIndex;
+                        CameraControl.IsOn = true;
+                    }
+                }
+            });
+
         }
     }
 

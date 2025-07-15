@@ -133,7 +133,7 @@
                 HeightRequest="1"
                 HorizontalOptions="Fill" />
 
-            <draw:SkiaMarkdownLabel
+            <draw:SkiaRichLabel
                 Margin="24,0,24,0"
                 HorizontalOptions="Fill"
                 HorizontalTextAlignment="Start"

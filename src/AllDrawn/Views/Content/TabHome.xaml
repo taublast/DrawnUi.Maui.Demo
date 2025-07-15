@@ -189,7 +189,7 @@
                     Tag="Header"
                     Type="Column">
 
-                    <draw:SkiaMarkdownLabel
+                    <draw:SkiaRichLabel
                         Margin="24,8"
                         FontFamily="FontText"
                         FontSize="13"
@@ -197,7 +197,7 @@
                         HorizontalTextAlignment="Center"
                         LineSpacing="1.33"
                         ParagraphSpacing="0"
-                        Text="App totally __drawn on one canvas__ using _SkiaSharp_ 🎨🖌❤.&#x0a;Recycled 💯 cells are loading images from internet in realtime by 50 with LoadMore. 🔥 Tap this header to toggle blurred tabbar. 🔎"
+                        Text="App totally __drawn on one canvas__ with _SkiaSharp_ 🎨🖌❤.&#x0a;Recycled 💯 cells with LoadMore, images are from internet in realtime. 🔥&#x0a;Tap this header to toggle blurred TabBar. 🔎"
                         TextColor="Black"
                         UseCache="GPU" />
 
@@ -213,12 +213,12 @@
                         Orientation="Horizontal"
                         Tag="HScroll">
 
-                        <!--  in this screen we load 10 items and simulate a templated horizontal stackLayout, not recycled  -->
+                        <!--  in this screen we load 10 items and simulate a templated horizontal stackLayout  -->
                         <draw:SkiaLayout
                             AddMarginBottom="4"
-                            InitializeTemplatesInBackgroundDelay="10"
                             ItemsSource="{Binding ItemsSmall}"
                             RecyclingTemplate="Enabled"
+                            MeasureItemsStrategy="MeasureFirst"
                             Spacing="4"
                             Tag="HeaderScrollStack"
                             Type="Row"
@@ -253,6 +253,7 @@
                                                 <!--  image will be parallaxed, we cache and then offset the cache with TranslationX  -->
                                                 <!--  cache is bigger than surrounding shape because of negative margins  -->
                                                 <draw:SkiaImage
+                                                    RescalingQuality="None"
                                                     Margin="-16"
                                                     Aspect="AspectCover"
                                                     EraseChangedContent="True"
@@ -386,15 +387,16 @@
             </draw:SkiaScroll.RefreshIndicator>
 
             <!--  VERTICAL CELLS  -->
-            <!--  RecyclingTemplate + UseCacheDoubleBuffering..  -->
+            <!--  RecyclingTemplate + UseCache ImageDoubleBuffed  -->
 
             <content:AnimateVerticalStack
                 x:Name="StackCells"
                 DynamicColumns="True"
                 HorizontalOptions="Fill"
-                InitializeTemplatesInBackgroundDelay="0"
                 ItemsSource="{Binding Items}"
                 Spacing="0"
+                MeasureItemsStrategy="MeasureFirst"
+                RecyclingTemplate="Enabled"
                 Split="{Binding Columns}"
                 Tag="StackItemsV"
                 Type="Column">
@@ -470,6 +472,7 @@
                                             <!--  this way we dont have empty cells at start but then we do not slow the scrolling  -->
                                             <draw:SkiaImage
                                                 UseCache="Image"
+                                                RescalingQuality="None"
                                                 Aspect="AspectCover"
                                                 EraseChangedContent="True"
                                                 HorizontalOptions="Fill"

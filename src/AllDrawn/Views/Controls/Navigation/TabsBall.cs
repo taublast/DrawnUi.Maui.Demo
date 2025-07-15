@@ -114,10 +114,6 @@
             UpdateBallPosition();
         }
 
-        public override ScaledSize Measure(float widthConstraint, float heightConstraint, float scale)
-        {
-            return base.Measure(widthConstraint, heightConstraint, scale);
-        }
 
         protected virtual void AddBall()
         {

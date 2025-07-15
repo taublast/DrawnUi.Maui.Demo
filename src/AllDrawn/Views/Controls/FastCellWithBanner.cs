@@ -66,8 +66,8 @@ namespace AppoMobi.Maui.DrawnUi.Demo.Views.Controls
         {
             if (ImageBanner != null)
             {
-                ImageBanner.OnSuccess -= OnImageLoaded;
-                ImageBanner.OnCleared -= OnImageCleared;
+                ImageBanner.Success -= OnImageLoaded;
+                ImageBanner.Cleared -= OnImageCleared;
             }
 
             base.OnDisposing();
@@ -115,8 +115,8 @@ namespace AppoMobi.Maui.DrawnUi.Demo.Views.Controls
                 ImageBanner = FindView<SkiaImage>("ImageBanner");
                 if (ImageBanner != null)
                 {
-                    ImageBanner.OnSuccess += OnImageLoaded;
-                    ImageBanner.OnCleared += OnImageCleared;
+                    ImageBanner.Success += OnImageLoaded;
+                    ImageBanner.Cleared += OnImageCleared;
                 }
             }
             if (ImagePlaceholder == null)

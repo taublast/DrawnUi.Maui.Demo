@@ -25,7 +25,7 @@
                 Text="This is a report sample, we will use different controls inside. We are using a localized Markdown text from app resources below:"
                 TextColor="Black" />
 
-            <draw:SkiaMarkdownLabel
+            <draw:SkiaRichLabel
                 BackgroundColor="Gainsboro"
                 FontSize="13"
                 LinkColor="Blue"
@@ -38,7 +38,7 @@
 
                 <draw:SkiaImage
                     LoadSourceOnFirstDraw="False"
-                    OnSuccess="SkiaImage_OnOnSuccess"
+                    Success="SkiaImage_OnSuccess"
                     Source="Pics/food.jpg"
                     WidthRequest="90" />
 

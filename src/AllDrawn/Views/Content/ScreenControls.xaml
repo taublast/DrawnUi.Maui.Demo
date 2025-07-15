@@ -12,7 +12,6 @@
     HorizontalOptions="Fill"
     Spacing="0"
     Type="Column"
-    UseCache="None"
     VerticalOptions="Fill">
 
     <draw:SkiaControl.FillGradient>
@@ -37,6 +36,7 @@
         x:Name="NavBar"
         Spacing="0"
         Type="Column"
+        HorizontalOptions="Fill"
         UseCache="Operations">
 
         <draw:SkiaControl
@@ -205,7 +205,7 @@
 
             </draw:SkiaLayout>
 
-            <draw:SkiaMarkdownLabel
+            <draw:SkiaRichLabel
                 AddMarginBottom="60"
                 AddMarginTop="16"
                 FontFamily="FontText"

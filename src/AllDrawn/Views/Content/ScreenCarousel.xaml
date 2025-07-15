@@ -12,7 +12,6 @@
     Spacing="0"
     VerticalOptions="Fill">
 
-
     <draw:SkiaControl.FillGradient>
 
         <draw:SkiaGradient
@@ -34,6 +33,7 @@
     <draw:SkiaLayout
         Spacing="0"
         Type="Column"
+        HorizontalOptions="Fill"
         UseCache="Operations">
 
         <draw:SkiaControl

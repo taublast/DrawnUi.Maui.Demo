@@ -124,6 +124,7 @@
                 VerticalOptions="Fill">
 
                 <draw:SkiaShape
+                    Tag="EndLabelShape"
                     Margin="1"
                     BackgroundColor="{StaticResource ColorAccent}"
                     CornerRadius="4"

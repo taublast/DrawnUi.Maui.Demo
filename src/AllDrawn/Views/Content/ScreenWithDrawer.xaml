@@ -32,6 +32,7 @@
     <!--  NAVI BLOCK  -->
     <draw:SkiaLayout
         Spacing="0"
+        HorizontalOptions="Fill"
         Type="Column">
         <!--  STATUS BAR  -->
         <draw:SkiaShape

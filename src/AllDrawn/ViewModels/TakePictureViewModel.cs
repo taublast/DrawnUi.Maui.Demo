@@ -34,7 +34,6 @@ namespace AppoMobi.Maui.DrawnUi.Demo.ViewModels
                     if (CheckLockAndSet())
                         return;
 
-
                     if (Camera.State == CameraState.On && !Camera.IsBusy)
                     {
                         Camera.FlashScreen(Color.Parse("#EEFFFFFF"));
@@ -53,10 +52,8 @@ namespace AppoMobi.Maui.DrawnUi.Demo.ViewModels
             if (CheckLockAndSet() || string.IsNullOrEmpty(_lastSavedPath))
                 return;
 
-#if ANDROID
             Camera.OpenFileInGallery(_lastSavedPath);
-#endif
-
+            
         });
 
         #endregion
@@ -248,7 +245,7 @@ namespace AppoMobi.Maui.DrawnUi.Demo.ViewModels
             captured.Image = newBitmap;
 
             //save to device, can use custom album name if needed
-            Camera.CameraDevice.Meta.Orientation = 1; //since we rotate the capture to overlay info the orientation will always be 1 (default)
+            captured.Meta.Orientation = 1; //since we rotate the capture to overlay info the orientation will always be 1 (default)
             await Camera.SaveToGallery(captured, false);
 
             //display preview
