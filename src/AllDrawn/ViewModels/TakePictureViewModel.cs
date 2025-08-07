@@ -212,47 +212,45 @@ namespace AppoMobi.Maui.DrawnUi.Demo.ViewModels
             // 3 - create a new rotated large bitmap with any overlays etc and display it, dont forget UseCache="Bitmap"
 
             //this demonstrates case 3
+            bool applyOverlay = true; //change this to save image AS IS
 
-            //creating an overlay to be rendered over the captured photo
-            var overlay = new SkiaLayout()
+            if (applyOverlay)
             {
-                Type = LayoutType.Column,
-                Spacing = 10,
-                BackgroundColor = Color.Parse("#46000000"),
-                VerticalOptions = LayoutOptions.Start,
-                HorizontalOptions = LayoutOptions.Fill,
-                Padding = new Thickness(16),
-            };
+                //creating an overlay to be rendered over the captured photo
+                captured.SolveExifOrientation(); //flatten rotation, create normally rotated image to 0
 
-            overlay.AddSubView(new SkiaLabel()
-            {
-                Tag = "ProtoTitle",
-                Text = $"DrawnUi Camera {Version}",
-                FontFamily = "FontTextBold",
-                FontSize = 24,
-                TextColor = Colors.White,
-                HorizontalOptions = LayoutOptions.Center,
-                HorizontalTextAlignment = DrawTextAlignment.Center,
-                VerticalOptions = LayoutOptions.Start
-            });
+                var overlay = new SkiaLayout()
+                {
+                    Type = LayoutType.Column,
+                    Spacing = 10,
+                    BackgroundColor = Color.Parse("#46000000"),
+                    VerticalOptions = LayoutOptions.Start,
+                    HorizontalOptions = LayoutOptions.Fill,
+                    Padding = new Thickness(16),
+                };
 
-            //overlay some info over bitmap
-            var newBitmap = Camera.RenderCapturedPhoto(captured, overlay);
+                overlay.AddSubView(new SkiaLabel()
+                {
+                    Tag = "ProtoTitle",
+                    Text = $"DrawnUi Camera {Version}",
+                    FontFamily = "FontTextBold",
+                    FontSize = 24,
+                    TextColor = Colors.White,
+                    HorizontalOptions = LayoutOptions.Center,
+                    HorizontalTextAlignment = DrawTextAlignment.Center,
+                    VerticalOptions = LayoutOptions.Start
+                });
 
-            //going to use the newly created bitmap with effects applied and overlay info
-            //to save to gallery, so need to dispose the original one
-            captured.Image.Dispose();
-            captured.Image = newBitmap;
+                //overlay some info over bitmap
+                var imageWithOverlay = Camera.RenderCapturedPhoto(captured, overlay);
 
-            //save to device, can use custom album name if needed
-            captured.Meta.Orientation = 1; //since we rotate the capture to overlay info the orientation will always be 1 (default)
+                //going to use the newly created bitmap with effects applied and overlay info
+                //to save to gallery, so need to dispose the original one
+                captured.Image.Dispose();
+                captured.Image = imageWithOverlay;
+            }
+
             await Camera.SaveToGallery(captured, false);
-
-            //display preview
-            //captured.Bitmap will be disposed by image ImagePreview when it
-            //changes source to a new one, or when ImagePreview is disposed
-            //ImagePreview.SetBitmapInternal(captured.Bitmap);
-            //DisplayPreview = new(captured.Image);  //not using this in this screen
 
             _lastSavedPath = captured.Path;
 

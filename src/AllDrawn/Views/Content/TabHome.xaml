@@ -395,6 +395,7 @@
                 HorizontalOptions="Fill"
                 ItemsSource="{Binding Items}"
                 Spacing="0"
+                VirtualisationInflated="200"
                 MeasureItemsStrategy="MeasureFirst"
                 RecyclingTemplate="Enabled"
                 Split="{Binding Columns}"

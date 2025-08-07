@@ -42,6 +42,11 @@
     <PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="9.0.70" />
   </ItemGroup>
 
+  <!--production-->
+  <ItemGroup Condition="'$(UseNuget)' == 'true'">
+    <PackageReference Include="DrawnUi.Maui.Camera" Version="1.6.2.16" />
+  </ItemGroup>
+
   <PropertyGroup Condition="$(TargetFramework.Contains('android')) == true">
     <EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
   </PropertyGroup>
@@ -97,10 +102,6 @@
     <ProjectReference Include="..\..\..\DrawnUi.Maui\src\Maui\Addons\DrawnUi.Maui.Camera\DrawnUi.Maui.Camera.csproj" />
   </ItemGroup>
 
-  <!--production-->
-  <ItemGroup Condition="'$(UseNuget)' == 'true'">
-    <PackageReference Include="DrawnUi.Maui.Camera" Version="1.6.2.4" />
-  </ItemGroup>
 
 	<ItemGroup>
     <Compile Update="Resources\Strings\ResStrings.Designer.cs">
