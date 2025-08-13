@@ -1,12 +1,27 @@
 ﻿using DrawnUi.Camera;
 using Reversi.Views.Partials;
 using System.Windows.Input;
+using static Microsoft.Maui.ApplicationModel.Permissions;
 
 namespace AppoMobi.Maui.DrawnUi.Demo.ViewModels
 {
 
     public class MainPageViewModel : ProjectViewModel
     {
+
+        public string LastSavedPhoto 
+        { 
+            get => lastSavedPhoto;
+            set
+            {
+                if (lastSavedPhoto != value)
+                {
+                    lastSavedPhoto = value;
+                    OnPropertyChanged();
+                }
+            }
+        }
+
 
         private LoadedImageSource _displayPreview;
         public LoadedImageSource DisplayPreview
@@ -60,6 +75,7 @@ namespace AppoMobi.Maui.DrawnUi.Demo.ViewModels
                                     if (context is CapturedImage item)
                                     {
                                         DisplayPreview = new LoadedImageSource(item.Image);
+                                        LastSavedPhoto = item.Path;
 
                                         /*
                                         using var bitmap = SKBitmap.FromImage(item.Image);
@@ -561,6 +577,8 @@ namespace AppoMobi.Maui.DrawnUi.Demo.ViewModels
         }
 
         private bool _HasData;
+        private string lastSavedPhoto;
+
         public bool HasData
         {
             get

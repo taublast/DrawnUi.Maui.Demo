@@ -207,6 +207,7 @@
         WidthRequest="120">
 
         <draw:SkiaImage
+            Tapped="TappedPreview"
             x:Name="ImagePreview"
             Aspect="AspectCover"
             HorizontalOptions="Fill"

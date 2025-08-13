@@ -52,7 +52,7 @@ namespace AppoMobi.Maui.DrawnUi.Demo.ViewModels
             if (CheckLockAndSet() || string.IsNullOrEmpty(_lastSavedPath))
                 return;
 
-            Camera.OpenFileInGallery(_lastSavedPath);
+            SkiaCamera.OpenFileInGallery(_lastSavedPath);
             
         });
 
@@ -250,7 +250,7 @@ namespace AppoMobi.Maui.DrawnUi.Demo.ViewModels
                 captured.Image = imageWithOverlay;
             }
 
-            await Camera.SaveToGallery(captured, false);
+            await Camera.SaveToGalleryAsync(captured, false);
 
             _lastSavedPath = captured.Path;
 
