@@ -206,7 +206,7 @@ namespace AppoMobi.Maui.DrawnUi.Demo.ViewModels
 
         private async void OnCaptureSuccess(object sender, CapturedImage captured)
         {
-            // normaly you would have several way to display a captured preview after you receive a large capture
+            // Normally you would have several way to display a captured preview after you receive a large capture
             // 1 - create small bitmap rotated according to device orientation
             // 2 - just display the large bitmap but set preview UseCache="Bitmap"
             // 3 - create a new rotated large bitmap with any overlays etc and display it, dont forget UseCache="Bitmap"
@@ -250,7 +250,7 @@ namespace AppoMobi.Maui.DrawnUi.Demo.ViewModels
                 captured.Image = imageWithOverlay;
             }
 
-            await Camera.SaveToGallery(captured, false);
+            await Camera.SaveToGalleryAsync(captured, false);
 
             _lastSavedPath = captured.Path;
 
