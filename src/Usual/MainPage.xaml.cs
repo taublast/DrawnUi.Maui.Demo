@@ -24,7 +24,7 @@ namespace SomeMauiApp
             });
         }
 
-        private void OnSpanTapped(object sender, SkiaControl.ControlTappedEventArgs controlTappedEventArgs)
+        private void OnSpanTapped(object sender, ControlTappedEventArgs controlTappedEventArgs)
         {
             if (sender is TextSpan span)
             {

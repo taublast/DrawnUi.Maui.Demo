@@ -52,7 +52,7 @@ namespace AppoMobi.Maui.DrawnUi.Demo.ViewModels
             if (CheckLockAndSet() || string.IsNullOrEmpty(_lastSavedPath))
                 return;
 
-            Camera.OpenFileInGallery(_lastSavedPath);
+            SkiaCamera.OpenFileInGallery(_lastSavedPath);
             
         });
 

@@ -50,21 +50,20 @@
 		<!-- Raw Assets (also remove the "Resources\Raw" prefix) -->
 		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
 	</ItemGroup>
+  
+  <ItemGroup>
+    <None Remove="Resources\Raw\shield.json" />
+  </ItemGroup>
+  
+  <ItemGroup>    
+    <PackageReference Include="AppoMobi.Maui.DrawnUi" Version="1.6.2.18" />    
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="9.0.0" />
+  </ItemGroup>
 
-	<ItemGroup>
-		<None Remove="Resources\Raw\shield.json" />
-	</ItemGroup>
-
-	<ItemGroup>
-		<PackageReference Include="Microsoft.Maui.Controls" Version="9.0.70" />
-		<PackageReference Include="AppoMobi.Maui.DrawnUi" Version="1.5.1" />
-		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="9.0.0" />
-	</ItemGroup>
-
-	<ItemGroup>
-		<MauiAsset Update="Resources\Raw\shield.json">
-			<LogicalName>%(RecursiveDir)%(Filename)%(Extension)</LogicalName>
-		</MauiAsset>
-	</ItemGroup>
-
+  <ItemGroup>
+    <MauiAsset Update="Resources\Raw\shield.json">
+      <LogicalName>%(RecursiveDir)%(Filename)%(Extension)</LogicalName>
+    </MauiAsset>
+  </ItemGroup> 
+ 
 </Project>
