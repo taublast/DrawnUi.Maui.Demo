@@ -1,4 +1,5 @@
-﻿using DrawnUi;
+﻿using System.Diagnostics;
+using DrawnUi;
 using DrawnUi.Camera;
 using DrawnUi.Controls;
 using static Microsoft.Maui.ApplicationModel.Permissions;
@@ -62,6 +63,55 @@ public partial class ScreenCameraPhoto
                         CameraControl.CameraIndex = selectedIndex;
                         CameraControl.IsOn = true;
                     }
+                }
+            });
+
+        }
+    }
+
+    private void TappedSelectFormat(object sender, ControlTappedEventArgs controlTappedEventArgs)
+    {
+        if (CameraControl.IsOn)
+        {
+
+            MainThread.BeginInvokeOnMainThread(async () =>
+            {
+                try
+                {
+                    var formats = await CameraControl.GetAvailableCaptureFormatsAsync();
+
+                    if (!formats.Any())
+                    {
+                        await App.Current.MainPage.DisplayAlert("Error", "No capture formats available", "OK");
+                        return;
+                    }
+
+                    // Create picker with detailed format info
+                    var options = formats.Select((format, index) =>
+                        $"[{index}] {format.Width}x{format.Height}, {format.AspectRatioString}"
+                    ).ToArray();
+
+                    var result = await App.Current.MainPage.DisplayActionSheet(
+                        "Capture Still Photo Quality",
+                        "Cancel",
+                        null,
+                        options);
+
+                    if (!string.IsNullOrEmpty(result))
+                    {
+                        var selectedIndex = Array.IndexOf(options, result);
+                        if (selectedIndex >= 0)
+                        {
+                            // Set manual capture mode with selected format
+                            CameraControl.CaptureFormatIndex = selectedIndex;
+                            CameraControl.CapturePhotoQuality = CaptureQuality.Manual;
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    await App.Current.MainPage.DisplayAlert("Error", $"Failed to get capture formats: {ex.Message}", "OK");
+                    Debug.WriteLine($"[CameraApp] Format selection error: {ex}");
                 }
             });
 

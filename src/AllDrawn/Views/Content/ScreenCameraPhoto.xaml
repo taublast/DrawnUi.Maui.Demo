@@ -95,6 +95,12 @@
         Text="Effect"
         WidthRequest="100" />
 
+    <controls:SmallButton
+        Margin="124,80,0,0"
+        Tapped="TappedSelectFormat"
+        Text="Format"
+        WidthRequest="100" />
+
 
     <draw:SkiaHotspot
         HorizontalOptions="Center"
