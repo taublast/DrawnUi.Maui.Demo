@@ -242,7 +242,7 @@ namespace AppoMobi.Maui.DrawnUi.Demo.ViewModels
                 });
 
                 //overlay some info over bitmap
-                var imageWithOverlay = Camera.RenderCapturedPhoto(captured, overlay);
+                var imageWithOverlay = await Camera.RenderCapturedPhotoAsync(captured, overlay);
 
                 //going to use the newly created bitmap with effects applied and overlay info
                 //to save to gallery, so need to dispose the original one

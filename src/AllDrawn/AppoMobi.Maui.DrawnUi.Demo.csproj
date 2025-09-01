@@ -44,7 +44,7 @@
 
   <!--production-->
   <ItemGroup Condition="'$(UseNuget)' == 'true'">
-    <PackageReference Include="DrawnUi.Maui.Camera" Version="1.6.2.27" />
+    <PackageReference Include="DrawnUi.Maui.Camera" Version="1.6.2.30" />
   </ItemGroup>
 
   <PropertyGroup Condition="$(TargetFramework.Contains('android')) == true">
