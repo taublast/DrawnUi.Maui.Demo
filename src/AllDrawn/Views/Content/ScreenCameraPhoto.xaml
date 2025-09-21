@@ -32,7 +32,7 @@
     <camera:SkiaCamera
         x:Name="CameraControl"
         BackgroundColor="Black"
-        CapturePhotoQuality="Medium"
+        PhotoQuality="Medium"
         Facing="Default"
         HorizontalOptions="Fill"
         Tag="Camera"

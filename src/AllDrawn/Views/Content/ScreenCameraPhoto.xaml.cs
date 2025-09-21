@@ -103,8 +103,8 @@ public partial class ScreenCameraPhoto
                         if (selectedIndex >= 0)
                         {
                             // Set manual capture mode with selected format
-                            CameraControl.CaptureFormatIndex = selectedIndex;
-                            CameraControl.CapturePhotoQuality = CaptureQuality.Manual;
+                            CameraControl.PhotoFormatIndex = selectedIndex;
+                            CameraControl.PhotoQuality = CaptureQuality.Manual;
                         }
                     }
                 }
