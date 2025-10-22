@@ -6,9 +6,9 @@ public class ScrollRefreshIndicator : RefreshIndicator
 {
     protected SkiaLottie Loader;
 
-    public override void SetDragRatio(float ratio, float ptsScrollOffset, double ptsLimit)
+    public override void SetDragRatio(float ratio, float ptsScrollOffset, double ptsLimit, double ptsTrigger)
     {
-        base.SetDragRatio(ratio, ptsScrollOffset, ptsLimit);
+        base.SetDragRatio(ratio, ptsScrollOffset, ptsLimit, ptsTrigger);
 
         if (FindLoader() && !IsRunning)
         {

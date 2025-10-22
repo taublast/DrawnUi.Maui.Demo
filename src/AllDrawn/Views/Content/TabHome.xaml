@@ -157,14 +157,14 @@
         </draw:SkiaLayout>
 
         <draw:SkiaScroll
-            LoadMoreCommand="{Binding CommandLoadMore}"
-            LoadMoreOffset="0"
             x:Name="BannersScroll"
             HeaderBehind="True"
             HeaderParallaxRatio="0.75"
             HorizontalOptions="Fill"
             IgnoreWrongDirection="True"
             IsRefreshing="{Binding IsLoading, Mode=TwoWay}"
+            LoadMoreCommand="{Binding CommandLoadMore}"
+            LoadMoreOffset="0"
             MaxBounceVelocity="400"
             MaxVelocity="6000"
             ParallaxOverscrollEnabled="True"
@@ -217,8 +217,8 @@
                         <draw:SkiaLayout
                             AddMarginBottom="4"
                             ItemsSource="{Binding ItemsSmall}"
-                            RecyclingTemplate="Enabled"
                             MeasureItemsStrategy="MeasureFirst"
+                            RecyclingTemplate="Enabled"
                             Spacing="4"
                             Tag="HeaderScrollStack"
                             Type="Row"
@@ -253,12 +253,12 @@
                                                 <!--  image will be parallaxed, we cache and then offset the cache with TranslationX  -->
                                                 <!--  cache is bigger than surrounding shape because of negative margins  -->
                                                 <draw:SkiaImage
-                                                    RescalingQuality="None"
                                                     Margin="-16"
                                                     Aspect="AspectCover"
                                                     EraseChangedContent="True"
                                                     HorizontalOptions="Fill"
                                                     LoadSourceOnFirstDraw="False"
+                                                    RescalingQuality="None"
                                                     Tag="ImageBanner"
                                                     VerticalOptions="Fill"
                                                     ZIndex="-1" />
@@ -359,8 +359,8 @@
 
                 <!--  using footer as content padding for bottom tabs AND for LoadMore placeholder  -->
                 <draw:SkiaControl
-                    BackgroundColor="Transparent"
                     AddMarginBottom="50"
+                    BackgroundColor="Transparent"
                     HeightRequest="{Binding Presentation.BottomTabsHeightRequest}"
                     WidthRequest="1" />
             </draw:SkiaScroll.Footer>
@@ -394,13 +394,13 @@
                 DynamicColumns="True"
                 HorizontalOptions="Fill"
                 ItemsSource="{Binding Items}"
-                Spacing="0"
-                VirtualisationInflated="200"
                 MeasureItemsStrategy="MeasureFirst"
                 RecyclingTemplate="Enabled"
+                Spacing="0"
                 Split="{Binding Columns}"
                 Tag="StackItemsV"
-                Type="Column">
+                Type="Column"
+                VirtualisationInflated="200">
 
                 <draw:SkiaLayout.ItemTemplate>
                     <DataTemplate>
@@ -472,13 +472,13 @@
                                             <!--  FastCellWithBanner will set LoadSourceOnFirstDraw to True after the first context is set  -->
                                             <!--  this way we dont have empty cells at start but then we do not slow the scrolling  -->
                                             <draw:SkiaImage
-                                                UseCache="Image"
-                                                RescalingQuality="None"
                                                 Aspect="AspectCover"
                                                 EraseChangedContent="True"
                                                 HorizontalOptions="Fill"
                                                 LoadSourceOnFirstDraw="False"
+                                                RescalingQuality="None"
                                                 Tag="ImageBanner"
+                                                UseCache="Image"
                                                 VerticalOptions="Fill"
                                                 ZIndex="-1" />
 

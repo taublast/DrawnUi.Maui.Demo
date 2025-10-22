@@ -1,6 +1,7 @@
 ﻿using System.Collections.Concurrent;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
+using DrawnUi.Maui.Navigation;
 
 namespace AppoMobi.Maui.DrawnUi.Demo.ViewModels;
 

@@ -250,7 +250,7 @@ namespace AppoMobi.Maui.DrawnUi.Demo.ViewModels
                 captured.Image = imageWithOverlay;
             }
 
-            await Camera.SaveToGalleryAsync(captured, false);
+            await Camera.SaveToGalleryAsync(captured);
 
             _lastSavedPath = captured.Path;
 

@@ -69,9 +69,7 @@ public class ScrollingBanner : SkiaScrollLooped
         _animator.mMinValue = 0;
         _animator.mMaxValue = scrollAmount;
 
-        _animator.Start(5000);
-
-
+        _animator.Start(250);
 
     }
 

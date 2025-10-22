@@ -1,7 +1,6 @@
 ﻿global using AppoMobi.Maui.DrawnUi.Demo.ViewModels;
 global using AppoMobi.Maui.DrawnUi.Demo.Views;
 global using AppoMobi.Maui.Gestures;
-global using AppoMobi.Maui.Navigation;
 global using AppoMobi.Specials;
 global using DrawnUi.Controls;
 global using DrawnUi.Draw;
