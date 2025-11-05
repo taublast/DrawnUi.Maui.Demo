@@ -164,9 +164,13 @@
                 <!--  WHEEL  PICKER  -->
                 <controls2:WheelPicker
                     x:Name="Picker"
-                    DelaySourceMs="100"
+                    BackgroundColor="Black"
+                    LinesColor="#33cccccc"
                     Opacity="0.01"
-                    SelectedIndex="{Binding PickerIndex}">
+                    SelectedIndex="{Binding PickerIndex}"
+                    UseCache="Operations"
+                    VerticalOptions="Start"
+                    WidthRequest="100">
                     <controls2:WheelPicker.DataSource>
                         <x:Array Type="{x:Type x:String}">
                             <x:String>1</x:String>
@@ -238,9 +242,8 @@
 
             <!--  BOTTOM SCROLL  -->
             <draw:SkiaScroll
-                Margin="0,0,0,10"
-                TrackIndexPosition="Center"
                 x:Name="LineScroll"
+                Margin="0,0,0,10"
                 BackgroundColor="#22000000"
                 Bounces="True"
                 FrictionScrolled="0.3"
@@ -249,11 +252,12 @@
                 LockChildrenGestures="PassTap"
                 Orientation="Horizontal"
                 Tag="HScroll"
+                TrackIndexPosition="Center"
                 VerticalOptions="End">
 
                 <draw:SkiaLayout
-                    MeasureItemsStrategy="MeasureFirst"
                     ItemsSource="{Binding ItemsSmall}"
+                    MeasureItemsStrategy="MeasureFirst"
                     Spacing="0"
                     Tag="HScrollStack"
                     Type="Row"
@@ -288,10 +292,10 @@
                                         <!--  image will be parallaxed, we cache and then offset the cache with TranslationX  -->
                                         <!--  cache is bigger than surrounding shape because of negative margins  -->
                                         <draw:SkiaImage
-                                            RescalingQuality="None"
                                             Margin="-12"
                                             EraseChangedContent="True"
                                             HorizontalOptions="Fill"
+                                            RescalingQuality="None"
                                             Tag="ImageBanner"
                                             VerticalOptions="Fill"
                                             ZIndex="-1" />
@@ -464,8 +468,8 @@
 
                         <draw:SkiaImage
                             Aspect="AspectFit"
-                            RescalingQuality="Low"
                             LoadSourceOnFirstDraw="False"
+                            RescalingQuality="Low"
                             Source="Pics/use.jpg"
                             WidthRequest="190" />
 

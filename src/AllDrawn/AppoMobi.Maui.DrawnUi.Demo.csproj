@@ -38,13 +38,17 @@
   <Import Project="../../../Provisioning.targets" Condition="Exists('../../../Provisioning.targets')" />
 
   <ItemGroup>
+    <PackageReference Include="FluentColors.Maui" Version="1.0.0.5">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="Microsoft.Maui.Controls" Version="9.0.70" />
     <PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="9.0.70" />
   </ItemGroup>
 
   <!--production-->
   <ItemGroup Condition="'$(UseNuget)' == 'true'">
-    <PackageReference Include="DrawnUi.Maui.Camera" Version="1.7.2.2" />
+    <PackageReference Include="DrawnUi.Maui.Camera" Version="1.7.3.2" />
   </ItemGroup>
 
   <PropertyGroup Condition="$(TargetFramework.Contains('android')) == true">
