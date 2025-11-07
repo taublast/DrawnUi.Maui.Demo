@@ -142,7 +142,7 @@
                 Spacing="24"
                 Tag="ColumnWithWheel"
                 Type="Column"
-                UseCache="GPU"
+                UseCache="Operations"
                 VerticalOptions="Start">
 
                 <draw:SkiaLabel

@@ -48,7 +48,12 @@
 
   <!--production-->
   <ItemGroup Condition="'$(UseNuget)' == 'true'">
-    <PackageReference Include="DrawnUi.Maui.Camera" Version="1.7.3.2" />
+    <PackageReference Include="DrawnUi.Maui.Camera" Version="1.7.4.1" />
+  </ItemGroup>
+
+  <!--for development-->
+  <ItemGroup Condition="'$(UseNuget)' != 'true'">
+    <ProjectReference Include="..\..\..\DrawnUi.Maui\src\Maui\Addons\DrawnUi.Maui.Camera\DrawnUi.Maui.Camera.csproj" />
   </ItemGroup>
 
   <PropertyGroup Condition="$(TargetFramework.Contains('android')) == true">
@@ -101,10 +106,7 @@
 	  <None Remove="Views\Controls\Fun\" />
   </ItemGroup>
 
-  <!--for development-->
-  <ItemGroup Condition="'$(UseNuget)' != 'true'">
-    <ProjectReference Include="..\..\..\DrawnUi.Maui\src\Maui\Addons\DrawnUi.Maui.Camera\DrawnUi.Maui.Camera.csproj" />
-  </ItemGroup>
+
 
 
 	<ItemGroup>

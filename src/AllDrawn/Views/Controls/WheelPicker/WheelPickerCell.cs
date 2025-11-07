@@ -10,12 +10,6 @@ namespace AppoMobi.Mobile.Views.Controls.WheelPicker
 
     public class WheelPickerCell : SkiaLayout, IInsideWheelStack
     {
-        protected override void OnMeasured()
-        {
-            base.OnMeasured();
-
-            Debug.WriteLine($"[CELL] {ContextIndex} {DrawingRect} in {Destination}");
-        }
 
         private readonly SkiaLabel _label;
 
