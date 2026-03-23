@@ -205,7 +205,7 @@
                 FontSize="12"
                 HorizontalOptions="End"
                 Text="{Binding Source={x:Reference Picker}, Path=SelectedIndex, StringFormat='Picker: {0}'}"
-                TextColor="DarkGray"
+                TextColor="Lime"
                 UseCache="Operations"
                 VerticalOptions="Center"
                 ZIndex="1" />
@@ -215,7 +215,7 @@
                 FontSize="12"
                 HorizontalOptions="Start"
                 Text="{Binding Source={x:Reference LineScroll}, Path=CurrentIndex, StringFormat='Index Center: {0}'}"
-                TextColor="DarkGray"
+                TextColor="Lime"
                 UseCache="Operations"
                 VerticalOptions="End"
                 ZIndex="1" />
@@ -225,7 +225,7 @@
                 FontSize="12"
                 HorizontalOptions="Start"
                 Text="{Binding Source={x:Reference LineScroll}, Path=FirstVisibleIndex, StringFormat='First Visible: {0}'}"
-                TextColor="DarkGray"
+                TextColor="Lime"
                 UseCache="Operations"
                 VerticalOptions="End"
                 ZIndex="1" />
@@ -235,13 +235,14 @@
                 FontSize="12"
                 HorizontalOptions="Start"
                 Text="{Binding Source={x:Reference LineScroll}, Path=LastVisibleIndex, StringFormat='Last Visible: {0}'}"
-                TextColor="DarkGray"
+                TextColor="Lime"
                 UseCache="Operations"
                 VerticalOptions="End"
                 ZIndex="1" />
 
             <!--  BOTTOM SCROLL  -->
             <draw:SkiaScroll
+                AddMarginBottom="{x:Static draw:Super.BottomTabsHeight}"
                 x:Name="LineScroll"
                 Margin="0,0,0,10"
                 BackgroundColor="#22000000"

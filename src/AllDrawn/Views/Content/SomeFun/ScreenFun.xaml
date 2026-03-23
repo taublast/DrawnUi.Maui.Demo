@@ -7,10 +7,12 @@
     xmlns:draw="http://schemas.appomobi.com/drawnUi/2023/draw"
     xmlns:gestures="clr-namespace:AppoMobi.Maui.Gestures;assembly=AppoMobi.Maui.Gestures"
     xmlns:viewModels="clr-namespace:AppoMobi.Maui.DrawnUi.Demo.ViewModels"
+    xmlns:demo="clr-namespace:AppoMobi.Maui.DrawnUi.Demo"
     x:DataType="viewModels:LakeViewModel"
     BackgroundColor="DarkBlue"
     HorizontalOptions="Fill"
     Tag="CanvasLake"
+    AddMarginTop="{x:Static draw:Super.StatusBarHeight}"
     VerticalOptions="Fill">
 
     <controls:ScrollingBanner

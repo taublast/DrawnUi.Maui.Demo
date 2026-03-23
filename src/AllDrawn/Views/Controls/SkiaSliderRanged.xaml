@@ -9,8 +9,7 @@
     HorizontalOptions="Fill"
     RowDefinitions="40, Auto,32"
     RowSpacing="0"
-    Type="Grid"
-    UseCache="Image">
+    Type="Grid">
 
     <!--  AvailableWidthAdjustment tuned for thumb shadow  -->
 

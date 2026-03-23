@@ -6,8 +6,7 @@
     xmlns:draw="http://schemas.appomobi.com/drawnUi/2023/draw"
     x:Name="ThisSlider"
     HorizontalOptions="Fill"
-    Type="Column"
-    UseCache="None">
+    Type="Column">
 
     <draw:SkiaSlider.Resources>
         <ResourceDictionary>
@@ -206,16 +205,6 @@
                 Type="Rectangle"
                 UseCache="Image"
                 VerticalOptions="Fill">
-                <!--<draw:SkiaShape.Shadows>
-
-                    <draw:SkiaShadow
-                        Blur="2"
-                        Opacity="0.5"
-                        X="1"
-                        Y="1"
-                        Color="Black" />
-
-                </draw:SkiaShape.Shadows>-->
 
                 <draw:SkiaShape.StrokeGradient>
 

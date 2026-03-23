@@ -63,11 +63,15 @@ namespace AppoMobi.Maui.DrawnUi.Demo.ViewModels
                     if (CheckLockAndSet("cam", 3500) || App.Shell.HasTopmostModalBindingContext<TakePictureViewModel>())
                         return;
 
-                    SkiaCamera.CheckPermissions(async (presented) =>
+                    MainThread.BeginInvokeOnMainThread(() =>
+                    {
+                        var vm = App.Instance.Services.GetService<TakePictureViewModel>();
+                        //todo set callback
+                        var content = new ScreenCameraPhoto(vm);
+
+                        content.CameraControl.CheckPermissions(async (presented) =>
                         {
-                            var vm = App.Instance.Services.GetService<TakePictureViewModel>();
-                            //todo set callback
-                            var content = new ScreenCameraPhoto(vm);
+
                             await App.Shell.PushModalAsync(content, false, true, true, new Dictionary<string, object>
                             {
                                 {"callback", new Command(async (context) =>
@@ -99,17 +103,18 @@ namespace AppoMobi.Maui.DrawnUi.Demo.ViewModels
 
                                         CommandCloseModal.Execute(null);
 
-                                        App.Shell.ShowToast("Saved to camera roll");
-                                    }
+                                        App.Shell.ShowToast("Saved to camera roll");                                    }
                                 })}
                             });
 
                         },
-                        (presented) =>
-                        {
-                            //no permissions no camera screen bye bye
-                            App.Shell.ShowToast("No permissions");
-                        });
+    (presented) =>
+    {
+        //no permissions no camera screen bye bye
+        App.Shell.ShowToast("No permissions");
+    });
+                    });
+
 
                 });
             }

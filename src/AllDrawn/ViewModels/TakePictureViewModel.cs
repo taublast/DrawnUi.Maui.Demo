@@ -34,7 +34,7 @@ namespace AppoMobi.Maui.DrawnUi.Demo.ViewModels
                     if (CheckLockAndSet())
                         return;
 
-                    if (Camera.State == CameraState.On && !Camera.IsBusy)
+                    if (Camera.State == HardwareState.On && !Camera.IsBusy)
                     {
                         Camera.FlashScreen(Color.Parse("#EEFFFFFF"));
                         await Camera.TakePicture().ConfigureAwait(false);
@@ -137,9 +137,9 @@ namespace AppoMobi.Maui.DrawnUi.Demo.ViewModels
             //}).ConfigureAwait(false);
         }
 
-        private void OnCameraStateChanged(object sender, CameraState state)
+        private void OnCameraStateChanged(object sender, HardwareState state)
         {
-            if (state == CameraState.On)
+            if (state == HardwareState.On)
             {
                 Camera.Display.Blur = 0;
                 ShowResume = false;
@@ -242,7 +242,7 @@ namespace AppoMobi.Maui.DrawnUi.Demo.ViewModels
                 });
 
                 //overlay some info over bitmap
-                var imageWithOverlay = await Camera.RenderCapturedPhotoAsync(captured, overlay);
+                var imageWithOverlay = await Camera.RenderCapturedPhotoAsync(captured, overlay, null, true);
 
                 //going to use the newly created bitmap with effects applied and overlay info
                 //to save to gallery, so need to dispose the original one

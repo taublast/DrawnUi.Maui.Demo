@@ -120,7 +120,7 @@ public partial class ScreenCameraPhoto
 
     private void TappedTurnCamera(object sender, ControlTappedEventArgs controlTappedEventArgs)
     {
-        if (CameraControl.State == CameraState.On)
+        if (CameraControl.State == HardwareState.On)
         {
             CameraControl.IsOn = false;
         }
@@ -154,7 +154,7 @@ public partial class ScreenCameraPhoto
 
     private async void TappedTakePicture(object sender, SkiaGesturesParameters skiaGesturesParameters)
     {
-        if (CameraControl.State == CameraState.On && !CameraControl.IsBusy)
+        if (CameraControl.State == HardwareState.On && !CameraControl.IsBusy)
         {
             CameraControl.FlashScreen(Color.Parse("#EEFFFFFF"));
             await CameraControl.TakePicture().ConfigureAwait(false);

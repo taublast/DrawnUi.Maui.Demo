@@ -8,8 +8,7 @@
     AvailableWidthAdjustment="2"
     HorizontalOptions="Fill"
     Tag="SliderFun"
-    Type="Column"
-    UseCache="None">
+    Type="Column">
 
     <draw:SkiaSlider.Resources>
         <ResourceDictionary />

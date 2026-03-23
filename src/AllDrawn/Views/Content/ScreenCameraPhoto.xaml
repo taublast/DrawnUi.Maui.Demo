@@ -30,6 +30,7 @@
 
     <!--  CAMERA PREVIEW ETC  -->
     <camera:SkiaCamera
+        x:FieldModifier="public"
         x:Name="CameraControl"
         BackgroundColor="Black"
         PhotoQuality="Medium"
@@ -52,8 +53,11 @@
         Type="Rectangle"
         VerticalOptions="Center" />-->
 
+
+
     <!--  CLOSE ICON  -->
     <draw:SkiaSvg
+        AddMarginTop="{x:Static draw:Super.StatusBarHeight}"
         x:Name="IconClose"
         Margin="0,56,32,0"
         HorizontalOptions="End"
@@ -64,6 +68,7 @@
 
     <!--  CLOSE HOTSPOT  -->
     <draw:SkiaHotspot
+        AddMarginTop="{x:Static draw:Super.StatusBarHeight}"
         Margin="0,24,8,0"
         AnimationTapped="Ripple"
         CommandTapped="{Binding CommandCloseModal}"
@@ -77,12 +82,14 @@
 
     <!--  CONTROLS  -->
     <controls:SmallButton
+        AddMarginTop="{x:Static draw:Super.StatusBarHeight}"
         Margin="8,32,0,0"
         Tapped="TappedSwitchCamera"
         Text="Source"
         WidthRequest="100" />
 
     <controls:SmallButton
+        AddMarginTop="{x:Static draw:Super.StatusBarHeight}"
         Margin="8,80,0,0"
         IsVisible="{Binding IsDebug}"
         Tapped="TappedTurnCamera"
@@ -90,12 +97,14 @@
         WidthRequest="100" />
 
     <controls:SmallButton
+        AddMarginTop="{x:Static draw:Super.StatusBarHeight}"
         Margin="124,32,0,0"
         Tapped="TappedCycleEffects"
         Text="Effect"
         WidthRequest="100" />
 
     <controls:SmallButton
+        AddMarginTop="{x:Static draw:Super.StatusBarHeight}"
         Margin="124,80,0,0"
         Tapped="TappedSelectFormat"
         Text="Format"

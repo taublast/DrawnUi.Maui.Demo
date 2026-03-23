@@ -122,10 +122,11 @@
                 Split="1"
                 Tag="Controls"
                 Type="Wrap"
-                UseCache="ImageComposite">
+                UseCache="Operations">
 
 
                 <draw:SkiaLabel
+                    UseCache="Operations"
                     Margin="0,16"
                     Padding="2"
                     BackgroundColor="#11000000"
@@ -147,6 +148,7 @@
                     ValueStringFormat="C" />
 
                 <draw:SkiaLabel
+                    UseCache="Operations"
                     Margin="0,16"
                     Padding="2"
                     BackgroundColor="#11000000"
@@ -168,6 +170,7 @@
                     ValueStringFormat="C" />
 
                 <draw:SkiaLabel
+                    UseCache="Operations"
                     Margin="0,16"
                     Padding="2"
                     BackgroundColor="#11000000"
@@ -182,10 +185,10 @@
                     Min="0"
                     MinMaxStringFormat="P0"
                     SliderHeight="46"
-                    Step="0.01"
-                    UseCache="Operations" />
+                    Step="0.01"/>
 
                 <draw:SkiaLabel
+                    UseCache="Operations"
                     Margin="0,16"
                     Padding="2"
                     BackgroundColor="#11000000"

@@ -93,6 +93,7 @@ namespace AppoMobi.Maui.DrawnUi.Demo
             }
         }
 
+        public static double StatusBarHeight => Super.StatusBarHeight;
         public static double NavBarHeight => Super.NavBarHeight;
         public static double BottomTabHeight => Super.BottomTabsHeight;
         public static string Name => AppInfo.Current.Name;
