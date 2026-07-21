@@ -34,12 +34,14 @@ public class DroppingLetters : SkiaLabel
             StopAnimators();
         }
     }
+
     protected override void DrawCharacter(SKCanvas canvas, int lineIndex,
         int letterIndex,
         ReadOnlySpan<char> characters,
         float x, float y,
-        SKPaint paint,
-        SKPaint paintStroke, SKPaint paintShadow,
+        SKPaint paint, SKFont font,
+        SKPaint paintStroke, SKFont fontStroke,
+        SKPaint paintShadow, SKFont fontShadow,
         SKRect destination, float scale)
     {
         // 1 line enabled only!
@@ -62,7 +64,7 @@ public class DroppingLetters : SkiaLabel
                 }
 
                 base.DrawCharacter(canvas, lineIndex, letterIndex, characters,
-                    x, y - offsetY, paint, paintStroke, paintShadow, destination, scale);
+                    x, y - offsetY, paint, font, paintStroke, fontStroke, paintShadow, fontShadow, destination, scale);
             }
         }
     }

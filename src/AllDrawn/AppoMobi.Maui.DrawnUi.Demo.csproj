@@ -1,8 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-    <TargetFrameworks>net9.0-android;net9.0-ios;net9.0-maccatalyst;</TargetFrameworks>
-    <TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net9.0-windows10.0.19041.0;</TargetFrameworks>
+    <TargetFrameworks>net10.0-android;net10.0-ios;net10.0-maccatalyst;</TargetFrameworks>
+    <TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net10.0-windows10.0.19041.0;</TargetFrameworks>
     <OutputType>Exe</OutputType>
 		<RootNamespace>AppoMobi.Maui.DrawnUi.Demo</RootNamespace>
 		<UseMaui>true</UseMaui>
@@ -20,7 +20,7 @@
 		<ApplicationIdGuid>d6d6930b-b6eb-4739-8cb9-a7de08a54e22</ApplicationIdGuid>
 
 		<!-- Versions -->
-		<ApplicationVersion>2</ApplicationVersion>
+		<ApplicationVersion>4</ApplicationVersion>
 
 		<!-- Build Time -->
 		<SourceRevisionId>build$([System.DateTime]::UtcNow.ToString("yyyy-MM-ddTHH:mm:ss:fffZ"))</SourceRevisionId>
@@ -38,22 +38,22 @@
   <Import Project="../../../Provisioning.targets" Condition="Exists('../../../Provisioning.targets')" />
 
   <ItemGroup>
-    <PackageReference Include="FluentColors.Maui" Version="1.0.0.5">
+    <PackageReference Include="FluentColors.Maui" Version="1.0.0.6">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.Maui.Controls" Version="9.0.70" />
-    <PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="9.0.70" />
+    <PackageReference Include="Microsoft.Maui.Controls" Version="10.0.80" />
   </ItemGroup>
 
   <!--production-->
   <ItemGroup Condition="'$(UseNuget)' == 'true'">
-    <PackageReference Include="DrawnUi.Maui.Camera" Version="1.9.5.2" />
+    <PackageReference Include="DrawnUi.Maui.Camera" Version="1.10.5.2" />
   </ItemGroup>
 
   <!--for development-->
   <ItemGroup Condition="'$(UseNuget)' != 'true'">
-    <ProjectReference Include="..\..\..\DrawnUi.Maui\src\Maui\Addons\DrawnUi.Maui.Camera\DrawnUi.Maui.Camera.csproj" />
+    <ProjectReference Include="..\..\..\DrawnUi.Maui.Camera\src\MAUI\Lib\DrawnUi.Maui.Camera.csproj" />
+    <ProjectReference Include="..\..\..\DrawnUi\src\Maui\DrawnUi\DrawnUi.Maui.csproj" />
   </ItemGroup>
 
   <PropertyGroup Condition="$(TargetFramework.Contains('android')) == true">
@@ -66,7 +66,7 @@
 
     
   <ItemGroup>    
-    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="9.0.0" />    
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="10.0.9" />    
   </ItemGroup>
 
   <ItemGroup>
@@ -106,6 +106,7 @@
 	  <None Remove="Views\Controls\Fun\" />
   </ItemGroup>
 
+ 
 
 
 

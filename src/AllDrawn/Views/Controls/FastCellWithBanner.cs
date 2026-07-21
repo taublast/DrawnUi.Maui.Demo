@@ -2,6 +2,25 @@
 
 namespace AppoMobi.Maui.DrawnUi.Demo.Views.Controls
 {
+    public class VerticalScrollCell : FastCellWithBanner
+    {
+        public override bool NeedMeasure
+        {
+            get
+            {
+                return base.NeedMeasure;
+            }
+            set
+            {
+                if (value)
+                {
+                    var stop = 1;
+                }
+                base.NeedMeasure = value;
+            }
+        }
+    }
+
     /// <summary>
     ///  For faster rendering we are not using Maui Bindings that act on UI thread
     /// </summary>
@@ -25,7 +44,7 @@ namespace AppoMobi.Maui.DrawnUi.Demo.Views.Controls
             if (!_appeared) //todo move this logic to ISkiaCell and draw cuz this can be just measurement
             {
                 _appeared = true;
-                FadeToAsync(1, 750, Easing.Linear);
+                _ =FadeToAsync(1, 750, Easing.Linear);
             }
         }
 

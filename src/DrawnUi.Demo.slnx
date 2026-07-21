@@ -1,0 +1,15 @@
+<Solution>
+  <Folder Name="/All Drawn/">
+    <Project Path="AllDrawn/AppoMobi.Maui.DrawnUi.Demo.csproj">
+      <Deploy />
+    </Project>
+  </Folder>
+  <Folder Name="/Solution Items/">
+    <File Path="../README.md" />
+  </Folder>
+  <Folder Name="/Usual Maui/">
+    <Project Path="Usual/SomeMauiApp.csproj">
+      <Deploy />
+    </Project>
+  </Folder>
+</Solution>

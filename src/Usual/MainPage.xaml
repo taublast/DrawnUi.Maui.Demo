@@ -44,9 +44,8 @@
                 HorizontalOptions="Fill">
 
                 <!--  VSTACK  -->
-                <draw:SkiaLayout
+                <draw:SkiaStack
                     x:Name="StackContainer"
-                    HorizontalOptions="Start"
                     Spacing="16"
                     Type="Column"
                     VerticalOptions="Start">
@@ -181,7 +180,7 @@
                         Text="{x:Static someMauiApp:MauiProgram.RTL}"
                         TextColor="Black" />
 
-                </draw:SkiaLayout>
+                </draw:SkiaStack>
 
             </draw:Canvas>
 

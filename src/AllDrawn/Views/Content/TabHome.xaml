@@ -157,6 +157,7 @@
         </draw:SkiaLayout>
 
         <draw:SkiaScroll
+            AutoCache="False"
             x:Name="BannersScroll"
             HeaderBehind="True"
             HeaderParallaxRatio="0.75"
@@ -395,17 +396,18 @@
                 HorizontalOptions="Fill"
                 ItemsSource="{Binding Items}"
                 MeasureItemsStrategy="MeasureFirst"
+                Virtualisation="Enabled"
                 RecyclingTemplate="Enabled"
                 Spacing="0"
                 Split="{Binding Columns}"
                 Tag="StackItemsV"
                 Type="Column"
-                VirtualisationInflated="200">
+                ItemTemplatePoolSize="0">
 
                 <draw:SkiaLayout.ItemTemplate>
                     <DataTemplate>
 
-                        <controls:FastCellWithBanner
+                        <controls:VerticalScrollCell
                             draw:AddGestures.AnimationTapped="Ripple"
                             x:DataType="viewModels:SimpleItemViewModel"
                             HeightRequest="220"
@@ -579,7 +581,7 @@
 
                             </draw:SkiaLayout>
 
-                        </controls:FastCellWithBanner>
+                        </controls:VerticalScrollCell>
 
                     </DataTemplate>
                 </draw:SkiaLayout.ItemTemplate>
@@ -587,24 +589,7 @@
                 <!--  EMPTY  -->
                 <draw:SkiaLayout.EmptyView>
 
-                    <draw:SkiaLayout HeightRequest="150" HorizontalOptions="Fill">
-
-                        <draw:SkiaLottie
-                            AutoPlay="True"
-                            HorizontalOptions="Center"
-                            LockRatio="1"
-                            Repeat="-1"
-                            Source="Lottie/Loader.json"
-                            Tag="EmptyIndicator"
-                            VerticalOptions="Center"
-                            WidthRequest="50">
-                            <draw:SkiaLottie.Colors>
-                                <Color>#FF0000</Color>
-                                <Color>#FFFFFF</Color>
-                            </draw:SkiaLottie.Colors>
-                        </draw:SkiaLottie>
-
-                    </draw:SkiaLayout>
+                   
 
                 </draw:SkiaLayout.EmptyView>
 

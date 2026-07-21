@@ -47,11 +47,16 @@
         <draw:SkiaWheelStack
             x:Name="Wheel"
             HorizontalOptions="Fill"
-            ItemTemplateType="{x:Type wheelPicker:WheelPickerCell}"
             Spacing="1"
             Type="Column"
             VerticalOptions="Fill"
-            WidthRequest="-1" />
+            WidthRequest="-1">
+            <draw:SkiaWheelStack.ItemTemplate>
+                <DataTemplate>
+                    <wheelPicker:WheelPickerCell />
+                </DataTemplate>
+            </draw:SkiaWheelStack.ItemTemplate>
+        </draw:SkiaWheelStack>
 
     </draw:SkiaWheelScroll>
 

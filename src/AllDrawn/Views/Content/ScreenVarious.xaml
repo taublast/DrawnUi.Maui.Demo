@@ -43,7 +43,10 @@
     <navigation1:NavBarStandart />
 
     <!--  CONTENT  -->
-    <draw:SkiaScroll HorizontalOptions="Fill" VerticalOptions="Fill">
+    <draw:SkiaScroll
+        AutoCache="False"
+        HorizontalOptions="Fill"
+        VerticalOptions="Fill">
 
         <draw:SkiaLayout
             Padding="16"
@@ -111,7 +114,8 @@
                 HorizontalOptions="Fill"
                 StrokeColor="Gray"
                 StrokeWidth="1"
-                Tag="WrapEditor">
+                Tag="WrapEditor"
+                UseCache="None">
 
                 <draw:SkiaMauiEditor
                     AnimateSnapshot="True"
