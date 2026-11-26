@@ -6,7 +6,6 @@
         {
             InitializeComponent();
 
-            MainPage = new AppShell();
         }
 
         void ResizeWindow(Window window)
@@ -27,7 +26,7 @@
 
         protected override Window CreateWindow(IActivationState activationState)
         {
-            var window = base.CreateWindow(activationState);
+            var window = new Window(new AppShell());
 
 #if WINDOWS
 

@@ -55,14 +55,14 @@
 
         <!--  START LABEL - RANGED ONLY  -->
         <draw:SliderValueDesc
-            x:Name="StartDesc"
+            x:Name="StartDescLabel"
             Padding="0"
             HorizontalOptions="Start"
             IsVisible="False"
             UseCache="Image"
             VerticalOptions="Fill"
             XCenter="{Binding Source={x:Reference StartThumb}, Path=XCenter}"
-            XMaxLimit="{Binding Source={x:Reference EndDesc}, Path=TranslationX}"
+            XMaxLimit="{Binding Source={x:Reference EndDescLabel}, Path=TranslationX}"
             XMinLimit="0">
 
             <draw:SkiaControl.Triggers>
@@ -105,7 +105,7 @@
 
         <!--  END LABEL  -->
         <draw:SliderValueDesc
-            x:Name="EndDesc"
+            x:Name="EndDescLabel"
             Padding="0"
             HorizontalOptions="Start"
             Tag="EndLabel"
@@ -113,7 +113,7 @@
             VerticalOptions="Fill"
             XCenter="{Binding Source={x:Reference EndThumb}, Path=XCenter}"
             XMaxLimit="{Binding Source={x:Reference ThisSlider}, Path=Width}"
-            XMinLimit="{Binding Source={x:Reference StartDesc}, Path=RightX}">
+            XMinLimit="{Binding Source={x:Reference StartDescLabel}, Path=RightX}">
 
             <!--  cached background bubble  -->
             <draw:SkiaLayout

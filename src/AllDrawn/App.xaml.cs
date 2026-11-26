@@ -37,14 +37,14 @@ namespace AppoMobi.Maui.DrawnUi.Demo
 
         protected override Window CreateWindow(IActivationState activationState)
         {
-            var window = base.CreateWindow(activationState);
+            var window = new Window(Presentation.Shell);
 
             #region UI TWEAKS
 
             Super.ColorAccent = Color.FromArgb("FF6A47");
             Super.ColorPrimary = Color.FromArgb("343C45");
 
-            var nav = App.Instance.MainPage as NavigationPage;
+            var nav = window.Page as NavigationPage;
             if (App.Instance.RequestedTheme == AppTheme.Dark)
             {
 #if ANDROID

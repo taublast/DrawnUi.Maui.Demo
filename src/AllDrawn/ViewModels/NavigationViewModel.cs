@@ -111,7 +111,8 @@ public class NavigationViewModel : BaseViewModel
     {
         this.Shell = new AppShell();
 
-        App.Current.MainPage = this.Shell;
+        if (App.Current.Windows.Count > 0)
+            App.Current.Windows[0].Page = this.Shell;
 
         SubscribeToEvents();
 

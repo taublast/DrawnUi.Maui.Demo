@@ -11,7 +11,13 @@ Supports **iOS**, **MacCatalyst**, **Android**, **Windows**.
 
 ## What's New
 
-Updated for latest nuget
+* .NET 11 and DrawnUI 1.11: both apps target .NET 11 (Android, iOS, Mac Catalyst, Windows).
+* Ready for the iOS 27 SDK: scene lifecycle on iOS and Mac Catalyst.
+* Mac Catalyst runs as a real Mac app, full size, with mouse input.
+* 120 Hz on ProMotion iPhones.
+
+To build against DrawnUI sources (a DrawnUi checkout next to this repo) instead of NuGet:
+`dotnet build -p:UseNuget=false -p:UseSource=true -p:DrawnUiSourceDir=<DrawnUi checkout>`
 
 [Full change log here](https://github.com/taublast/DrawnUi).
 

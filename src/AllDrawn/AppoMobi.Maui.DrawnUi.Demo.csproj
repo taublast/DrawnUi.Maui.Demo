@@ -1,8 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-    <TargetFrameworks>net10.0-android;net10.0-ios;net10.0-maccatalyst;</TargetFrameworks>
-    <TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net10.0-windows10.0.19041.0;</TargetFrameworks>
+    <TargetFrameworks>net11.0-android;net11.0-ios;net11.0-maccatalyst;</TargetFrameworks>
+    <TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net11.0-windows10.0.19041.0;</TargetFrameworks>
     <OutputType>Exe</OutputType>
 		<RootNamespace>AppoMobi.Maui.DrawnUi.Demo</RootNamespace>
 		<UseMaui>true</UseMaui>
@@ -27,7 +27,7 @@
 
     <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">15.0</SupportedOSPlatformVersion>
     <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">15.2</SupportedOSPlatformVersion>
-    <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">21.0</SupportedOSPlatformVersion>
+    <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">24.0</SupportedOSPlatformVersion>
     <SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.19041.0</SupportedOSPlatformVersion>
     <TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.19041.0</TargetPlatformMinVersion>
     <WindowsPackageType>None</WindowsPackageType>
@@ -42,19 +42,28 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.Maui.Controls" Version="10.0.80" />
+    <PackageReference Include="Microsoft.Maui.Controls" Version="11.0.10" />
   </ItemGroup>
+
+  <!--DrawnUI sources for development: the .NET 11 checkouts (DrawnUi-net11, DrawnUi.Maui.Camera-net11) when they sit
+      next to this repo, else DrawnUi and DrawnUi.Maui.Camera; override with -p:DrawnUiDir=... -p:CameraDir=...-->
+  <PropertyGroup>
+    <DrawnUiDir Condition="'$(DrawnUiDir)' == '' And Exists('$(MSBuildThisFileDirectory)..\..\..\DrawnUi-net11')">$(MSBuildThisFileDirectory)..\..\..\DrawnUi-net11</DrawnUiDir>
+    <DrawnUiDir Condition="'$(DrawnUiDir)' == ''">$(MSBuildThisFileDirectory)..\..\..\DrawnUi</DrawnUiDir>
+    <CameraDir Condition="'$(CameraDir)' == '' And Exists('$(MSBuildThisFileDirectory)..\..\..\DrawnUi.Maui.Camera-net11')">$(MSBuildThisFileDirectory)..\..\..\DrawnUi.Maui.Camera-net11</CameraDir>
+    <CameraDir Condition="'$(CameraDir)' == ''">$(MSBuildThisFileDirectory)..\..\..\DrawnUi.Maui.Camera</CameraDir>
+  </PropertyGroup>
 
   <!--production-->
   <ItemGroup Condition="'$(UseNuget)' == 'true'">
-    <PackageReference Include="DrawnUi.Maui" Version="1.10.5.10" />
-    <PackageReference Include="DrawnUi.Maui.Camera" Version="1.10.5.6" />
+    <PackageReference Include="DrawnUi.Maui" Version="1.11.0.1" />
+    <PackageReference Include="DrawnUi.Maui.Camera" Version="1.11.0.1" />
   </ItemGroup>
 
   <!--for development-->
   <ItemGroup Condition="'$(UseNuget)' != 'true'">
-    <ProjectReference Include="..\..\..\DrawnUi.Maui.Camera\src\MAUI\Lib\DrawnUi.Maui.Camera.csproj" />
-    <ProjectReference Include="..\..\..\DrawnUi\src\Maui\DrawnUi\DrawnUi.Maui.csproj" />
+    <ProjectReference Include="$(CameraDir)\src\MAUI\Lib\DrawnUi.Maui.Camera.csproj" />
+    <ProjectReference Include="$(DrawnUiDir)\src\Maui\DrawnUi\DrawnUi.Maui.csproj" />
   </ItemGroup>
 
   <PropertyGroup Condition="$(TargetFramework.Contains('android')) == true">
@@ -67,7 +76,7 @@
 
     
   <ItemGroup>    
-    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="10.0.9" />    
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="11.0.0" />    
   </ItemGroup>
 
   <ItemGroup>
