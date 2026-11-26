@@ -46,8 +46,8 @@
 
     <draw:SkiaLayout
         Margin="16"
+        AddMarginTop="{Binding Presentation.NavBarPadding}"
         Split="1"
-        TranslationY="80"
         Type="Wrap"
         UseCache="Operations">
 
