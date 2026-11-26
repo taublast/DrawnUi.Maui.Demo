@@ -14,6 +14,13 @@ namespace AppoMobi.Maui.DrawnUi.Demo
         {
             InitializeComponent();
 
+            // desktop: Escape goes back like Android's Back (drawer, modal, pushed screen), unless the canvas used it
+            KeyboardManager.KeyDown += (s, key) =>
+            {
+                if (key == InputKey.Escape && !KeyboardManager.IsKeyHandled)
+                    MainThread.BeginInvokeOnMainThread(() => Shell?.GoBack(true));
+            };
+
             App.Instance.Boostrap();
         }
 

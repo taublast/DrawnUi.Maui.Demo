@@ -61,6 +61,8 @@
   </ItemGroup>
 
   <!--for development-->
+  <Import Project="$(DrawnUiDir)\src\Maui\DrawnUi\DrawnUi.Maui.Source.targets" Condition="'$(UseNuget)' != 'true' And Exists('$(DrawnUiDir)\src\Maui\DrawnUi\DrawnUi.Maui.Source.targets')" />
+
   <ItemGroup Condition="'$(UseNuget)' != 'true'">
     <ProjectReference Include="$(CameraDir)\src\MAUI\Lib\DrawnUi.Maui.Camera.csproj" />
     <ProjectReference Include="$(DrawnUiDir)\src\Maui\DrawnUi\DrawnUi.Maui.csproj" />

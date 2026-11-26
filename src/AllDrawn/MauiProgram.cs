@@ -25,6 +25,7 @@ namespace AppoMobi.Maui.DrawnUi.Demo
                      
                     },
                     MobileIsFullscreen = true,
+                    UseDesktopKeyboard = true,
                     DesktopWindow = new()
                     {
                         Width = 500,

@@ -5,7 +5,7 @@
 		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net11.0-windows10.0.19041.0</TargetFrameworks>
 		<OutputType>Exe</OutputType>
 
-		<WindowsPackageType>None</WindowsPackageType>
+		<WindowsPackageType>MSIX</WindowsPackageType>
 
 		<RootNamespace>SomeMauiApp</RootNamespace>
 		<UseMaui>true</UseMaui>
@@ -65,6 +65,8 @@
   <ItemGroup Condition="'$(UseNuget)' == 'true'">
     <PackageReference Include="DrawnUi.Maui" Version="1.11.0.1" />
   </ItemGroup>
+
+  <Import Project="$(DrawnUiDir)\src\Maui\DrawnUi\DrawnUi.Maui.Source.targets" Condition="'$(UseNuget)' != 'true' And Exists('$(DrawnUiDir)\src\Maui\DrawnUi\DrawnUi.Maui.Source.targets')" />
 
   <ItemGroup Condition="'$(UseNuget)' != 'true'">
     <ProjectReference Include="$(DrawnUiDir)\src\Maui\DrawnUi\DrawnUi.Maui.csproj" />

@@ -6,7 +6,7 @@ using static Microsoft.Maui.ApplicationModel.Permissions;
 namespace AppoMobi.Maui.DrawnUi.Demo.ViewModels
 {
 
-    public class MainPageViewModel : ProjectViewModel
+    public class MainPageViewModel : ProjectViewModel, SkiaShell.IHandleGoBack
     {
 
         public string LastSavedPhoto 
@@ -186,6 +186,8 @@ namespace AppoMobi.Maui.DrawnUi.Demo.ViewModels
                 {
                     _DrawerOpen = value;
                     OnPropertyChanged();
+                    if (value)
+                        SkiaShell.OnShellGoBack = this; // the open drawer takes the next Back / Escape
                 }
             }
         }
@@ -602,7 +604,18 @@ namespace AppoMobi.Maui.DrawnUi.Demo.ViewModels
 
         public MainPageViewModel(NavigationViewModel navModel) : base(navModel)
         {
+        }
 
+        /// <summary>
+        /// Back (Android) and Escape (desktop) close the open drawer of the third tab first.
+        /// </summary>
+        public bool OnShellGoBack(bool animate)
+        {
+            if (!DrawerOpen)
+                return false;
+
+            DrawerOpen = false;
+            return true;
         }
     }
 }
