@@ -32,6 +32,7 @@
     <camera:SkiaCamera
         x:FieldModifier="public"
         x:Name="CameraControl"
+        NeedPermissionsSet="Camera"
         BackgroundColor="Black"
         PhotoQuality="Medium"
         Facing="Default"
